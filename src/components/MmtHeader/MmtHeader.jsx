@@ -9,7 +9,7 @@ function MmtHeader() {
         <div className='MmtParentForMiddle'>
         <div className='MmtParent'>
             <div className="componentsStyle">
-            <Link to="/flight"><div>flights</div></Link>
+            <Link to="/flight"><div className="flightShow">flights</div></Link>
             <Link to="/hotel"><div>hotels</div></Link>
             <div className="mobDontShow">homestays</div>
             <div className="mobDontShow">holiday</div>
