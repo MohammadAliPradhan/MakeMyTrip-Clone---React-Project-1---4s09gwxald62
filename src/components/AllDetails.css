@@ -1,0 +1,15 @@
+.Details{
+    height: 319px;
+    width: 1200px;
+    background-color: black;
+    color: yellow;
+    position: relative;
+    bottom: 60px;
+    border-radius: 8px;
+}
+
+.DetailsParent{
+    display: flex;
+    justify-content: center;
+    background-color: blueviolet;
+}

@@ -1,5 +1,90 @@
 .navParent{
     width: 100%;
-    height: 10vh;
+    height: 100px;
     background-color: blueviolet;
+    display: flex;
+    justify-content: space-around;
 }
+
+.logoleft{
+    display: flex;
+    background-color: brown;
+    height: 40px;
+    gap: 80px;
+
+}
+
+.logoleft::after {
+    display: flex;
+    align-items: center;
+    content: "Super Offers";
+    color: #fff;
+    
+}
+
+.navmiddle{
+    display: flex;
+    width: 100px;
+    height: 40px;
+}
+
+.navmiddle::after{
+    display: flex;
+    color: r;
+    align-items: center;
+    content: "MyTrips";
+}
+
+.navright{
+    display: flex;
+    height: 40px;
+    margin-right: 20px;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .navParent{
+        width: 100%;
+        height: 100px;
+        background-color: blueviolet;
+        display: flex;
+        justify-content: space-around;
+        gap: 0px;
+    
+    }
+
+    .navmiddle::after{
+        display: none;
+    }
+    
+    .logoleft{
+        display: flex;
+        background-color: brown;
+        height: 40px;
+        gap: 4px;
+    
+    }
+    
+    .logoleft::after {
+        display: flex;
+        align-items: center;
+        content: "Super Offers";
+        color: #fff;
+        
+    }
+    
+    .navmiddle{
+        display: flex;
+        width: 100px;
+        height: 40px;
+    }
+    
+    .navright{
+        display: flex;
+        height: 40px;
+        margin-right: 20px;
+        margin-right: 5px;
+        
+    }
+    
+  }

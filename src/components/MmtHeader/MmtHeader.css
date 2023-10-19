@@ -1,3 +1,20 @@
 .MmtParent{
+    border-radius: 8px;
+    align-items: center;
+    display: flex;
+    background-color: #fff;
+    width: 960.7px;
+    height: 100px;
+    padding: 8px 30px;
+    border-radius: 8px;
+    background-color: yellow;
+    z-index: 11;
+    position: relative;
+    bottom: 25px;
+}
+
+.MmtParentForMiddle{
+    display: flex;
+    justify-content: center;
     background-color: blueviolet;
 }
