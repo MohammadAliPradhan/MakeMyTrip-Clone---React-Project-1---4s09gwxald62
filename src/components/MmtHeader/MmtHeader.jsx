@@ -1,6 +1,7 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet , Link} from 'react-router-dom'
 import "./MmtHeader.css"
+
 
 function MmtHeader() {
     return (
@@ -8,11 +9,11 @@ function MmtHeader() {
         <div className='MmtParentForMiddle'>
         <div className='MmtParent'>
             <div className="componentsStyle">
-            <div>flights</div>
-            <div>hotels</div>
+            <Link to="/flight"><div>flights</div></Link>
+            <Link to="/hotel"><div>hotels</div></Link>
             <div className="mobDontShow">homestays</div>
             <div className="mobDontShow">holiday</div>
-            <div>trains</div>
+            <Link to="/train"><div>trains</div></Link>
             <div className="mobDontShow">buses</div>
             <div className="mobDontShow">cabs</div>
             <div className="mobDontShow">forexcard</div>
