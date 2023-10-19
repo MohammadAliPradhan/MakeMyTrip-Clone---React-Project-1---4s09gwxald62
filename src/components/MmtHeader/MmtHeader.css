@@ -11,10 +11,24 @@
     z-index: 11;
     position: relative;
     bottom: 25px;
+    justify-content: center;
 }
 
 .MmtParentForMiddle{
     display: flex;
     justify-content: center;
     background-color: blueviolet;
+}
+
+.componentsStyle{
+    display: flex;
+    gap: 25px;
+
+}
+
+@media screen and (max-width: 768px) {
+    .mobDontShow{
+        display: none;
+    }
+
 }

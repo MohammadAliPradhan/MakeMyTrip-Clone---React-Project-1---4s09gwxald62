@@ -5,7 +5,6 @@ function FlightDetails() {
     return (
         <div className="DetailsParent">
         <div className='Details'>
-            These are flight FlightDetails
         </div>
         </div>
      
