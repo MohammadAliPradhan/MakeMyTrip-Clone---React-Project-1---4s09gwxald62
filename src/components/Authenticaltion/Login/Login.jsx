@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Data from './Data'
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import "./Login.css"
+
 
 function Login() {
 
@@ -28,9 +30,13 @@ function Login() {
 
     function handleSubmit(e){
         e.preventDefault()
+        const Data = JSON.parse(localStorage.getItem("userList"))
+        if(!Data){
+            return;
+        }
         const user = Data.find((usr)=> usr.email === state.email)
         if(user){
-            if(user.pass === state.password){
+            if(user.password === state.password){
                 //navigate the user to home
                 navigate("/")
             }else{
@@ -45,7 +51,9 @@ function Login() {
     }
 
     return (
-        <form action="" className='login-form' onSubmit={handleSubmit}>
+        <div>
+            <Outlet />
+            <form action="" className='formContainerNone' onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="email">Email:</label>
                 <input 
@@ -69,7 +77,13 @@ function Login() {
             <input type="submit" value="Login" />
 
 
+
+            <p>Not a user already?:</p>
+            <button onClick={()=>navigate("/signup")}>SignUp</button>
+
         </form>
+        </div>
+        
 
     )
 }
