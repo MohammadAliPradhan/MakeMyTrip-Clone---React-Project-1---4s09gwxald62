@@ -1,6 +1,6 @@
 import React from 'react'
 import "./NavBar.css"
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import logo from "../../assets/images/logo.png"
 import bag from "../../assets/images/bag.png"
 import discount from "../../assets/images/discount.jpeg"
@@ -8,7 +8,10 @@ import Mui from "./Mui"
 import { Link } from 'react-router-dom'
 
 
+
 function NavBar() {
+
+    const navigate = useNavigate();
     return (
         <>
             <nav className='navParent'>

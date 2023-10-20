@@ -1,0 +1,10 @@
+.flightOffer{
+   display: flex; 
+
+}
+
+.ComponentUni{
+    width: 100%;
+    height: 500px;
+    background-color: green;
+}

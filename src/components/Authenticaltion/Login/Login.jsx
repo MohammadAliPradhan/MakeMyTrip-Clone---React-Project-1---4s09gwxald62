@@ -53,7 +53,8 @@ function Login() {
     return (
         <div>
             <Outlet />
-            <form action="" className='formContainerNone' onSubmit={handleSubmit}>
+            <div className='loginParent'>
+            <form action="" id='LoginContainer' onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="email">Email:</label>
                 <input 
@@ -81,7 +82,11 @@ function Login() {
             <p>Not a user already?:</p>
             <button onClick={()=>navigate("/signup")}>SignUp</button>
 
-        </form>
+            </form>
+
+            </div>
+          
+
         </div>
         
 
