@@ -1,8 +1,8 @@
 .Details{
     height: 319px;
     width: 1200px;
-    background-color: black;
-    color: yellow;
+    background-color: #fff;
+    color: black;
     position: relative;
     bottom: 60px;
     border-radius: 8px;
@@ -11,6 +11,6 @@
 .DetailsParent{
     display: flex;
     justify-content: center;
-    background-color: blueviolet;
+    background-color: #071726;
 }
 

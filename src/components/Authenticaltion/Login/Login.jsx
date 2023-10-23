@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Data from './Data'
 import { Outlet, useNavigate } from 'react-router-dom';
 import "./Login.css"
+import { AuthContext } from '../../App';
 
 
 function Login() {
@@ -20,6 +21,8 @@ function Login() {
         email: "",
         password: "",
     });
+    const {setIsLoggedIn}=useContext(AuthContext)
+    const [error, setError] = useState("")
 
     const navigate = useNavigate()
 
@@ -39,11 +42,16 @@ function Login() {
             if(user.password === state.password){
                 //navigate the user to home
                 navigate("/")
+                sessionStorage.setItem("loggedInuser", JSON.stringify(user))
+                setIsLoggedIn(true)
             }else{
                 console.log("Password is incorrect");
+                setError("password is incorrect")
+
             }
         }else{
             console.log("no user found")
+            setError("no user found")
         }
         // const user = userId.find((usr)=>{
         //     return usr.email === state.email
@@ -81,6 +89,10 @@ function Login() {
 
             <p>Not a user already?:</p>
             <button onClick={()=>navigate("/signup")}>SignUp</button>
+
+            {error &&<p>{error}</p>}
+            
+
 
             </form>
 

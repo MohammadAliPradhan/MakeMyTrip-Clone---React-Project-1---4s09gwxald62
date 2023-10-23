@@ -1,14 +1,10 @@
 #LoginContainer{
-    display: none;
-    flex-direction: column;
+     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
 }
 
-.formContainerNone{
-    display: none;
-}
+
 
 .loginParent{
     width: 100%;

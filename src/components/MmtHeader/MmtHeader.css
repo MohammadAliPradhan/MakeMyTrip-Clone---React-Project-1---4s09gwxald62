@@ -7,17 +7,18 @@
     height: 100px;
     padding: 8px 30px;
     border-radius: 8px;
-    background-color: yellow;
+    background-color: #fff;
     z-index: 11;
     position: relative;
     bottom: 25px;
     justify-content: center;
+    border: 1px solid gray;
 }
 
 .MmtParentForMiddle{
     display: flex;
     justify-content: center;
-    background-color: blueviolet;
+    background-color: #071726;
 }
 
 .componentsStyle{

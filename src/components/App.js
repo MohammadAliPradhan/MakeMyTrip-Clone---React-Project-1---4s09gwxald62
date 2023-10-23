@@ -12,11 +12,19 @@ import Footer from "./Footer/Footer"
 import HotelOffer from "./HotelDetails/HotelDetails/HotelOffer";
 import FlightOffer from "./FlightDetails/FlightOfferDetails/FlightOffer";
 import TrainOffer from "./TrainDetails/TrainOffer/TrainOffer"
+import Profile from "./Authenticaltion/Profile/Profile";
+import { createContext, useState } from "react";
+
+
+export const AuthContext = createContext();
 function App() {
+  const [showHome, setShowHome]=useState(false)
+  const [isLoggedin, setIsLoggedIn]=useState(false)
+
   return (
     <>
+    <AuthContext.Provider value={{isLoggedin, setIsLoggedIn}} >
     <Routes>
-      <Route element={<Login />}>
       <Route element={<NavBar />}>
         <Route element={<MmtHeader />}>
           <Route index element={<Home />} />
@@ -29,12 +37,16 @@ function App() {
           <Route path="train" element={<TrainDetails />} >
             <Route index element={<TrainOffer/>}/>
             </Route>
-          <Route path="signup" element={<SignUp />} />
         </Route>
       </Route>
-      </Route>
+      <Route path="/login" element={<Login />}/>
+      <Route path="/signup" element={<SignUp />}/>
+      <Route path="profile" element={<Profile />}/>
+
+
     </Routes>
     <Footer />
+    </AuthContext.Provider>
     </>
   )
 }
