@@ -23,7 +23,7 @@ function Profile() {
         return (
             <section>
                 <h3>Profile Info</h3>
-                <p>Email: {email}</p>
+            signup-for    <p>Email: {email}</p>
                 <p>Full Name: {name}</p>
                 <p>Role: {role}</p>
                 <button onClick={logout}>Logout</button>

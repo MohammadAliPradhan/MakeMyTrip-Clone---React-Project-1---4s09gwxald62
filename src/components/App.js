@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "../styles/App.css";
 import Home from "./Home";
 import FlightDetails from "./FlightDetails/FlightDetails";
@@ -14,6 +14,7 @@ import FlightOffer from "./FlightDetails/FlightOfferDetails/FlightOffer";
 import TrainOffer from "./TrainDetails/TrainOffer/TrainOffer"
 import Profile from "./Authenticaltion/Profile/Profile";
 import { createContext, useState } from "react";
+import AuthNavigator from "./Navigator/AuthNavigator";
 
 
 export const AuthContext = createContext();
@@ -41,7 +42,7 @@ function App() {
       </Route>
       <Route path="/login" element={<Login />}/>
       <Route path="/signup" element={<SignUp />}/>
-      <Route path="profile" element={<Profile />}/>
+      <Route path="/profile" element={<AuthNavigator><Profile /></AuthNavigator>}/>
 
 
     </Routes>
