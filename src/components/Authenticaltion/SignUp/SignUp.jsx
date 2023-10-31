@@ -6,12 +6,14 @@ import { createPortal } from 'react-dom';
 import { ButtonContext } from '../../NavBar/SignupButton';
 import { NavLink } from 'react-router-dom';
 import Login from '../Login/Login';
+// import { LoginButtonContext } from '../../NavBar/LoginButton.jsx';
+
 
 
 function SignUp() {
     const navigate = useNavigate();
+    // const { buttonStateLogin, setButtonStateLogin } = useContext(LoginButtonContext)
     const { buttonState, setButtonState } = useContext(ButtonContext)
-
 
     const initialUserDate = {
         name: "",
@@ -19,6 +21,7 @@ function SignUp() {
         role: "",
         password: "",
     }
+
 
 
     const [userDetails, setUserDetails] = useState(initialUserDate);

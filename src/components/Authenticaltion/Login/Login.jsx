@@ -3,6 +3,7 @@ import Data from './Data'
 import { Outlet, useNavigate } from 'react-router-dom';
 import "./Login.css"
 import { AuthContext } from '../../App';
+import { createPortal } from 'react-dom';
 
 
 function Login() {
@@ -87,9 +88,9 @@ function Login() {
     }
 
 
-    return (
-        <div>
-            <Outlet />
+    return createPortal(
+        <div className='parentLogin'>
+
             <div className='loginParent'>
                 <form action="" id='LoginContainer' onSubmit={handleSubmit}>
                     <div>
@@ -126,11 +127,12 @@ function Login() {
                 </form>
 
             </div>
-
-
         </div>
 
 
+
+        ,
+        document.querySelector(".myPortalDivTwo")
     )
 }
 

@@ -58,7 +58,7 @@ function App() {
           </Route>
           <Route path="/profile" element={isLoggedin ? <Profile /> : <Navigate to={"/login"} />} />
 
-
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
       </AuthContext.Provider>

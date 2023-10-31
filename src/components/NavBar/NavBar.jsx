@@ -8,7 +8,7 @@ import Mui from "./Mui"
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../App'
 import SignupButton from './SignupButton'
-import LoginButton from './LoginButton'
+import LoginButton from "./LoginButton"
 import Login from '../Authenticaltion/Login/Login'
 
 
@@ -35,12 +35,9 @@ function NavBar() {
                         {!isLoggedin && (
                             <SignupButton />)}
                     </div>
-                    {/* 
-                    <div className="navright">
+                    <div>
                         <LoginButton />
-                    </div> */}
-
-
+                    </div>
                 </div>
 
             </nav>
