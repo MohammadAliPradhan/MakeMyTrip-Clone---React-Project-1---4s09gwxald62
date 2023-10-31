@@ -1,4 +1,3 @@
-import { Button } from '@mui/material'
 import React, { Children, useState } from 'react'
 import { createContext } from 'react'
 import SignUp from '../Authenticaltion/SignUp/SignUp';
@@ -6,8 +5,8 @@ import "./NavBar.css"
 
 
 export const ButtonContext = createContext();
-function SignupButton() {
-    const [buttonState, setButtonState] = useState(false)
+export default function SignupButton() {
+    const [buttonState, setButtonState] = useState()
     function handleOnClick() {
         setButtonState(!buttonState)
     }
@@ -22,4 +21,4 @@ function SignupButton() {
     )
 }
 
-export default SignupButton
+

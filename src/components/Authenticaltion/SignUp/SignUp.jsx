@@ -1,19 +1,16 @@
 import React, { useContext, useState } from 'react'
 import "./SignUp.css"
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import { ButtonContext } from '../../NavBar/SignupButton';
-
-
+import { NavLink } from 'react-router-dom';
+import Login from '../Login/Login';
 
 
 function SignUp() {
     const navigate = useNavigate();
     const { buttonState, setButtonState } = useContext(ButtonContext)
-
-
-    console.log("This is ", buttonState);
 
 
     const initialUserDate = {
@@ -22,7 +19,6 @@ function SignUp() {
         role: "",
         password: "",
     }
-
 
 
     const [userDetails, setUserDetails] = useState(initialUserDate);
@@ -85,11 +81,19 @@ function SignUp() {
         setButtonState(false);
     }
 
+    function clickthis() {
+        setButtonState(!buttonState)
+    }
+
 
     return createPortal(
 
+
         buttonState &&
+
         < div className='parentSignup' onClick={handleOverlayClick}>
+
+            {/* <Outlet /> */}
 
             <form action="" className='formContainer' onSubmit={handleSubmit}>
                 <div className="close-button" onClick={handleCloseModal}>
@@ -139,6 +143,11 @@ function SignUp() {
                 </div>
 
                 <input type="submit" value="signup" />
+
+                {/* <LoginButton /> */}
+                <br />
+                <br />
+                <button onClick={clickthis}>Click this</button>
 
 
 

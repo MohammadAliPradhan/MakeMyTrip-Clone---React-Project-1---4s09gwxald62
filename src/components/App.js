@@ -40,33 +40,28 @@ function App() {
 
   return (
     <>
-      <div id="modalParent">
-        <AuthContext.Provider value={{ isLoggedin, setIsLoggedIn }} >
-          <Routes>
-            <Route element={<NavBar />}>
-              <Route element={<MmtHeader />}>
-                <Route index element={<Home />} />
-                <Route path="flight" element={<FlightDetails />}>
-                  <Route index element={<FlightOffer />} />
-                </Route>
-                <Route path="hotel" element={<HotelDetails />}>
-                  <Route index element={<HotelOffer />} />
-                </Route>
-                <Route path="train" element={<TrainDetails />} >
-                  <Route index element={<TrainOffer />} />
-                </Route>
+      <AuthContext.Provider value={{ isLoggedin, setIsLoggedIn }} >
+        <Routes>
+          <Route element={<NavBar />}>
+            <Route element={<MmtHeader />}>
+              <Route index element={<Home />} />
+              <Route path="flight" element={<FlightDetails />}>
+                <Route index element={<FlightOffer />} />
+              </Route>
+              <Route path="hotel" element={<HotelDetails />}>
+                <Route index element={<HotelOffer />} />
+              </Route>
+              <Route path="train" element={<TrainDetails />} >
+                <Route index element={<TrainOffer />} />
               </Route>
             </Route>
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/profile" element={isLoggedin ? <Profile /> : <Navigate to={"/login"} />} />
+          </Route>
+          <Route path="/profile" element={isLoggedin ? <Profile /> : <Navigate to={"/login"} />} />
 
 
-          </Routes>
-          <Footer />
-        </AuthContext.Provider>
-      </div>
-
+        </Routes>
+        <Footer />
+      </AuthContext.Provider>
     </>
   )
 }
