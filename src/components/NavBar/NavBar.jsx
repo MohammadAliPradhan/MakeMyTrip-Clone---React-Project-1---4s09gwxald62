@@ -36,7 +36,9 @@ function NavBar() {
                             <SignupButton />)}
                     </div>
                     <div>
-                        <LoginButton />
+                        {false &&
+                            <LoginButton />
+                        }
                     </div>
                 </div>
 
