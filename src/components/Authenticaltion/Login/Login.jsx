@@ -3,7 +3,8 @@ import Data from './Data'
 import { Outlet, useNavigate } from 'react-router-dom';
 import "./Login.css"
 import { AuthContext } from '../../App';
-import { createPortal } from 'react-dom';
+import { createPortal } from 'react-dom'
+import { LoginButtonContext } from '../../NavBar/LoginButton';
 
 
 function Login() {
@@ -22,6 +23,8 @@ function Login() {
         email: "",
         password: "",
     });
+
+    const { LoginState, SetLoginState } = useContext(LoginButtonContext)
     const { setIsLoggedIn } = useContext(AuthContext)
     const [error, setError] = useState("")
 
@@ -31,6 +34,7 @@ function Login() {
         const { value, name } = e.target;
         setState({ ...state, [name]: value })
     }
+    console.log("Nai fata", LoginState);
 
     // function handleSubmit(e){
     //     e.preventDefault()
