@@ -9,7 +9,7 @@ export const LoginButtonContext = createContext();
 export default function SignupButton() {
     const [LoginState, SetLoginState] = useState()
     function handleOnClick() {
-        SetLoginState(!buttonState)
+        SetLoginState(!LoginState)
     }
     console.log(LoginState);
     return (

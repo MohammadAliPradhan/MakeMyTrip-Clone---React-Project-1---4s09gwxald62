@@ -91,9 +91,16 @@ function Login() {
             })
     }
 
+    function handleLoginOverlay(event) {
+        if (event.target === event.currentTarget) {
+            SetLoginState(false);
+        }
+    }
+
 
     return createPortal(
-        <div className='parentLogin'>
+        LoginState &&
+        <div className='parentLogin' onClick={handleLoginOverlay}>
 
             <div className='loginParent'>
                 <form action="" id='LoginContainer' onSubmit={handleSubmit}>
