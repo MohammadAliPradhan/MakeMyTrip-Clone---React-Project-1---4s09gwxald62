@@ -48,6 +48,10 @@
 
 }
 
+.buttonSignupParent {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
     .navParent {
         width: 100%;

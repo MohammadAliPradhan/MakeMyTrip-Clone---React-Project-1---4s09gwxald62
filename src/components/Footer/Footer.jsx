@@ -1,12 +1,32 @@
 import React from 'react'
 import "./footer.css"
 import { Link } from 'react-router-dom'
+import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
 
 function Footer() {
     return (
-        <div className='FooterParent'>
-           <p><Link to="/profile">Profile</Link></p> 
-        </div>
+        <section className='footer-wrapper'>
+            <div className="footer">
+                <div className="left">
+                    <div className="socials">
+                        <Link to={"https://github.com/MohammadAliPradhan"}
+                            target={'_blank'}>
+
+                            <FaTwitter />
+                        </Link>
+                        <Link to={"https://www.linkedin.com/in/mohammad-ali-a07957178/"}
+                            target={'_blank'}>
+                            <FaLinkedin />
+                        </Link>
+                    </div>
+                </div>
+                <div className="right">
+                    <div>MakeMyTrip Clone © 2023</div>
+                    <div>Created by Mohammad Ali</div>
+                </div>
+            </div>
+            <div className="printWaterMark">MakeMyTrip Clone by Mohammad Ali</div>
+        </section>
     )
 }
 

@@ -7,11 +7,14 @@ import discount from "../../assets/images/discount.jpeg"
 import Mui from "./Mui"
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../App'
+import SignupButton from './SignupButton'
+
 
 
 function NavBar() {
-    const {isLoggedin}=useContext(AuthContext)
+    const { isLoggedin } = useContext(AuthContext)
     const navigate = useNavigate();
+    console.log(isLoggedin);
     return (
         <>
             <nav className='navParent'>
@@ -23,10 +26,16 @@ function NavBar() {
                     <div className='navmiddle'>
                         <img src={bag} alt="bag" />
                     </div>
+                    {/* <div className='navright'>
+                        {!isLoggedin && (
+                            <Mui />)}
+                    </div> */}
                     <div className='navright'>
                         {!isLoggedin && (
-                        <Mui />)}
+                            <SignupButton />)}
                     </div>
+
+
                 </div>
 
             </nav>

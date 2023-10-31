@@ -1,11 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./SignUp.css"
 import { Navigate, useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
+import { createPortal } from 'react-dom';
+import { ButtonContext } from '../../NavBar/SignupButton';
+
+
+
 
 function SignUp() {
     const navigate = useNavigate();
+    const { buttonState, setButtonState } = useContext(ButtonContext)
 
+
+    console.log("This is ", buttonState);
 
 
     const initialUserDate = {
@@ -24,84 +32,122 @@ function SignUp() {
     }
 
     function handleSubmit(e) {
-        
+
         e.preventDefault();
-        //step1 : check if user list is present
-        //Json --->js --->parse
-        //js --->json ---> stringify
-        const userListJson = localStorage.getItem("userList")
-        // logcalStorage.setItem("userList",userList)
-        const userList = JSON.parse(userListJson);
-        console.log("username", userDetails)
-        if(userList){
-            //push the data
-            userList.push(userDetails)
-            localStorage.setItem("userList,", JSON.stringify(userList))
-        }else{
-            //create the data
-            const newUserList  = [userDetails]
-            localStorage.setItem("userList", JSON.stringify(newUserList))
+        // //step1 : check if user list is present
+        // //Json --->js --->parse
+        // //js --->json ---> stringify
+        // const userListJson = localStorage.getItem("userList")
+        // // logcalStorage.setItem("userList",userList)
+        // const userList = JSON.parse(userListJson);
+        // console.log("username", userDetails)
+        // if(userList){
+        //     //push the data
+        //     userList.push(userDetails)
+        //     localStorage.setItem("userList,", JSON.stringify(userList))
+        // }else{
+        //     //create the data
+        //     const newUserList  = [userDetails]
+        //     localStorage.setItem("userList", JSON.stringify(newUserList))
+        // }
+
+        // navigate("/login")
+
+        const config = {
+            method: "POST",
+            body: JSON.stringify({ ...userDetails, appType: "bookingportals" }),
+            headers: {
+                'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MzQyOGE5YjQxYzZhOTNiYzc4ZTY3OSIsImlhdCI6MTY5ODUzMzI5MiwiZXhwIjoxNzMwMDY5MjkyfQ.rdiGMSks7CufvhO7FRoN8EcYP-P1ajJwl5zbxUFvmGk",
+                "Content-Type": "application/json",
+                "projectID": "4s09gwxald62"
+            }
         }
 
-        navigate("/login")
-        
+        fetch("https://academics.newtonschool.co/api/v1/bookingportals/signup", config)
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
 
-        
+    function handleOverlayClick(event) {
+        if (event.target === event.currentTarget) {
+            setButtonState(false);
+        }
+    }
+
+    function handleCloseModal() {
+        setButtonState(false);
     }
 
 
-    return (
-        <>
-        <form action="" className='formContainer' onSubmit={handleSubmit}>
+    return createPortal(
 
-            <div>
-                <label htmlFor="fullname">Name:</label>
-                <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    onChange={handleInputChange}
-                    value={userDetails.name.toUpperCase()} />
+        buttonState &&
+        < div className='parentSignup' onClick={handleOverlayClick}>
 
-            </div>
+            <form action="" className='formContainer' onSubmit={handleSubmit}>
+                <div className="close-button" onClick={handleCloseModal}>
+                    <span>X</span>
+                </div>
 
-            <div>
-                <label htmlFor="email">Email:</label>
-                <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    onChange={handleInputChange}
-                    value={userDetails.email} />
+                <div>
+                    <label htmlFor="fullname">Name:</label>
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        onChange={handleInputChange}
+                        value={userDetails.name.toUpperCase()} />
 
-            </div>
+                </div>
 
-            <div>
-                <label htmlFor="role">Role:</label>
-                <input
-                    type="text"
-                    name="role"
-                    id="role"
-                    onChange={handleInputChange}
-                    value={userDetails.role} />
+                <div>
+                    <label htmlFor="email">Email:</label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        onChange={handleInputChange}
+                        value={userDetails.email} />
 
-            </div>
+                </div>
 
-            <div>
-                <label htmlFor="password">Password:</label>
-                <input type="password"
-                    name="password"
-                    id="password"
-                    onChange={handleInputChange}
-                    value={userDetails.password} />
-            </div>
+                <div>
+                    <label htmlFor="role">Role:</label>
+                    <input
+                        type="text"
+                        name="role"
+                        id="role"
+                        onChange={handleInputChange}
+                        value={userDetails.role} />
 
-            <input type="submit" value="signup" />
+                </div>
+
+                <div>
+                    <label htmlFor="password">Password:</label>
+                    <input type="password"
+                        name="password"
+                        id="password"
+                        onChange={handleInputChange}
+                        value={userDetails.password} />
+                </div>
+
+                <input type="submit" value="signup" />
 
 
 
-        </form>
-        </>
+            </form>
+
+        </div >,
+
+        document.querySelector(".myPortalDiv")
+
     )
 }
 
