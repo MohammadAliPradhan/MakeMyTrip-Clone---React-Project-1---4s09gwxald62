@@ -3,7 +3,7 @@ import Data from './Data'
 import { Outlet, useNavigate } from 'react-router-dom';
 import "./Login.css"
 import { createPortal } from 'react-dom';
-
+import { LoginButtonContext } from '../../App';
 
 
 
@@ -24,6 +24,8 @@ function Login() {
         password: "",
     });
 
+    const { loginButton, setLoginButton } = useContext(LoginButtonContext)
+
     const [error, setError] = useState("")
 
     const navigate = useNavigate()
@@ -32,6 +34,8 @@ function Login() {
         const { value, name } = e.target;
         setState({ ...state, [name]: value })
     }
+
+    console.log("Abhi ruk dikhata hu", loginButton);
 
 
     // function handleSubmit(e){
@@ -89,17 +93,17 @@ function Login() {
             })
     }
 
-    // function handleLoginOverlay(event) {
-    //     if (event.target === event.currentTarget) {
-    //         SetLoginState(false);
-    //     }
-    // }
+    function handleLoginOverlay(event) {
+        if (event.target === event.currentTarget) {
+            setLoginButton(false);
+        }
+    }
 
 
     return createPortal(
-        false &&
+        loginButton &&
 
-        <div className='parentLogin'>
+        <div className='parentLogin' onClick={handleLoginOverlay}>
 
             <div className='loginParent'>
                 <form action="" id='LoginContainer' onSubmit={handleSubmit}>
