@@ -42,12 +42,8 @@ function NavBar() {
                             <SignupButton />)}
                     </div>
 
-                    <div className='navright'>
-                        <button onClick={handleLoginButton}>Login</button>
-                    </div>
-                    <div>
-                        <Login />
-                    </div>
+
+                    <Login />
                 </div>
 
             </nav>

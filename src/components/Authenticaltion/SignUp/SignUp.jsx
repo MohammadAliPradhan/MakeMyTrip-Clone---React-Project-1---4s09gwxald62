@@ -90,6 +90,7 @@ function SignUp() {
 
     function clickthis() {
         setButtonState(!buttonState)
+        setLoginButton(true)
     }
 
 
