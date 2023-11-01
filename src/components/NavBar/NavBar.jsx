@@ -6,9 +6,8 @@ import bag from "../../assets/images/bag.png"
 import discount from "../../assets/images/discount.jpeg"
 import Mui from "./Mui"
 import { Link } from 'react-router-dom'
-import { AuthContext } from '../App'
+import { AuthContext, LoginButtonContext } from '../App'
 import SignupButton from './SignupButton'
-import LoginButton from "./LoginButton"
 import Login from '../Authenticaltion/Login/Login'
 
 
@@ -16,6 +15,13 @@ function NavBar() {
     const { isLoggedin } = useContext(AuthContext)
     const navigate = useNavigate();
     console.log(isLoggedin);
+
+    const { loginButton, setLoginButton } = useContext(LoginButtonContext)
+
+    console.log(loginButton, "this is");
+    function handleLoginButton() {
+        setLoginButton(true)
+    }
     return (
         <>
             <nav className='navParent'>
@@ -35,11 +41,13 @@ function NavBar() {
                         {!isLoggedin && (
                             <SignupButton />)}
                     </div>
-                    {/* <div>
-                        {true &&
-                            <LoginButton />
-                        }
-                    </div> */}
+
+                    <div className='navright'>
+                        <button onClick={handleLoginButton}>Login</button>
+                    </div>
+                    <div>
+                        <Login />
+                    </div>
                 </div>
 
             </nav>
