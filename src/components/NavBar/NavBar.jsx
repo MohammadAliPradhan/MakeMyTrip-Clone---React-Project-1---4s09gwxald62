@@ -12,15 +12,22 @@ import Login from '../Authenticaltion/Login/Login'
 
 
 function NavBar() {
-    const { isLoggedin } = useContext(AuthContext)
+    const { setIsLoggedIn, isLoggedin } = useContext(AuthContext)
     const navigate = useNavigate();
     console.log(isLoggedin);
 
     const { loginButton, setLoginButton } = useContext(LoginButtonContext)
+    const userName = JSON.parse(sessionStorage.getItem("userName"))
 
     console.log(loginButton, "this is");
     function handleLoginButton() {
         setLoginButton(true)
+    }
+
+    function handleLogOut() {
+        sessionStorage.removeItem("userToken")
+        sessionStorage.removeItem("user")
+        setIsLoggedIn(false)
     }
     return (
         <>
@@ -40,7 +47,10 @@ function NavBar() {
                     <div className='navright'>
                         {!isLoggedin && (
                             <SignupButton />)}
+                        {isLoggedin && <li>{userName}</li>}
+                        {isLoggedin && <button onClick={handleLogOut}>Logout</button>}
                     </div>
+
 
 
                     <Login />

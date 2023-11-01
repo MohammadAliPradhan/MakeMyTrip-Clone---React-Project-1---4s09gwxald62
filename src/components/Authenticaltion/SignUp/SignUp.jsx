@@ -36,7 +36,7 @@ function SignUp() {
                 sessionStorage.setItem("userToken", token)
                 sessionStorage.setItem("user", JSON.stringify(res.data.data.user))
                 setButtonState(false)
-                setIsLoggedIn(true)
+
             }
 
         } catch (err) {

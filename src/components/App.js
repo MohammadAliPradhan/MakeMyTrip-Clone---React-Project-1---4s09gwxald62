@@ -28,8 +28,14 @@ function App() {
   const [buttonState, setButtonState] = useState();
   const [loginButton, setLoginButton] = useState();
 
-
-  const [isLoggedin, setIsLoggedIn] = useState(false)
+  let isUserLoggedIn;
+  const token = sessionStorage.getItem("userToken");
+  if (token) {
+    isUserLoggedIn = true;
+  } else {
+    isUserLoggedIn = false;
+  }
+  const [isLoggedin, setIsLoggedIn] = useState(isUserLoggedIn)
 
 
 
