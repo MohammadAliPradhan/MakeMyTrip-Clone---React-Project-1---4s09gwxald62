@@ -15,11 +15,32 @@ import TrainOffer from "./TrainDetails/TrainOffer/TrainOffer"
 import Profile from "./Authenticaltion/Profile/Profile";
 import { createContext, useState } from "react";
 import AuthNavigator from "./Navigator/AuthNavigator";
+import SignupButton from "./NavBar/SignupButton";
 
 
+
+
+export const ButtonContext = createContext();
 export const AuthContext = createContext();
+export const LoginButtonContext = createContext();
 function App() {
   const [showHome, setShowHome] = useState(false)
+  const [buttonState, setButtonState] = useState();
+  const [loginButton, setLoginButton] = useState();
+
+
+
+
+
+  console.log("Here", buttonState);
+
+
+
+
+
+
+
+
 
   let loggedInState;
   const user = sessionStorage.getItem('loggedInuser')
@@ -40,28 +61,32 @@ function App() {
 
   return (
     <>
-      <AuthContext.Provider value={{ isLoggedin, setIsLoggedIn }} >
-        <Routes>
-          <Route element={<NavBar />}>
-            <Route element={<MmtHeader />}>
-              <Route index element={<Home />} />
-              <Route path="flight" element={<FlightDetails />}>
-                <Route index element={<FlightOffer />} />
+      <LoginButtonContext.Provider value={{ loginButton, setLoginButton }}>
+        <ButtonContext.Provider value={{ buttonState, setButtonState }}>
+          <AuthContext.Provider value={{ isLoggedin, setIsLoggedIn }} >
+            <Routes>
+              <Route element={<NavBar />}>
+                <Route element={<MmtHeader />}>
+                  <Route index element={<Home />} />
+                  <Route path="flight" element={<FlightDetails />}>
+                    <Route index element={<FlightOffer />} />
+                  </Route>
+                  <Route path="hotel" element={<HotelDetails />}>
+                    <Route index element={<HotelOffer />} />
+                  </Route>
+                  <Route path="train" element={<TrainDetails />} >
+                    <Route index element={<TrainOffer />} />
+                  </Route>
+                </Route>
               </Route>
-              <Route path="hotel" element={<HotelDetails />}>
-                <Route index element={<HotelOffer />} />
-              </Route>
-              <Route path="train" element={<TrainDetails />} >
-                <Route index element={<TrainOffer />} />
-              </Route>
-            </Route>
-          </Route>
-          <Route path="/profile" element={isLoggedin ? <Profile /> : <Navigate to={"/login"} />} />
+              <Route path="/profile" element={<Profile />} />
 
-          <Route path="/login" element={<Login />} />
-        </Routes>
-        <Footer />
-      </AuthContext.Provider>
+              <Route path="/login" element={<Login />} />
+            </Routes>
+            <Footer />
+          </AuthContext.Provider>
+        </ButtonContext.Provider>
+      </LoginButtonContext.Provider>
     </>
   )
 }

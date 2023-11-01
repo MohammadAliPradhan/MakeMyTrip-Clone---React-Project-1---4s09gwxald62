@@ -35,11 +35,11 @@ function NavBar() {
                         {!isLoggedin && (
                             <SignupButton />)}
                     </div>
-                    <div>
+                    {/* <div>
                         {true &&
                             <LoginButton />
                         }
-                    </div>
+                    </div> */}
                 </div>
 
             </nav>

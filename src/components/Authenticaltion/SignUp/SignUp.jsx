@@ -6,14 +6,14 @@ import { createPortal } from 'react-dom';
 import { ButtonContext } from '../../NavBar/SignupButton';
 import { NavLink } from 'react-router-dom';
 import Login from '../Login/Login';
-// import { LoginButtonContext } from '../../NavBar/LoginButton.jsx';
-
+import { AuthContext, LoginButtonContext } from '../../App';
 
 
 function SignUp() {
     const navigate = useNavigate();
-    // const { buttonStateLogin, setButtonStateLogin } = useContext(LoginButtonContext)
     const { buttonState, setButtonState } = useContext(ButtonContext)
+    const { loginButton, setLoginButton } = useContext(LoginButtonContext)
+
 
     const initialUserDate = {
         name: "",
@@ -22,7 +22,11 @@ function SignUp() {
         password: "",
     }
 
+    console.log("This is login Button", loginButton);
 
+    const { showHome, setShowHome } = useContext(AuthContext)
+
+    console.log("Yes", showHome);
 
     const [userDetails, setUserDetails] = useState(initialUserDate);
     function handleInputChange(e) {
