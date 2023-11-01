@@ -15,7 +15,7 @@ function SignUp() {
     const navigate = useNavigate();
     const { buttonState, setButtonState } = useContext(ButtonContext)
     const { loginButton, setLoginButton } = useContext(LoginButtonContext)
-
+    const { isLoggedin, setIsLoggedIn } = useContext(AuthContext)
 
     //Here we are maintaining refs
     const nameRef = useRef();
@@ -36,6 +36,7 @@ function SignUp() {
                 sessionStorage.setItem("userToken", token)
                 sessionStorage.setItem("user", JSON.stringify(res.data.data.user))
                 setButtonState(false)
+                setIsLoggedIn(true)
             }
 
         } catch (err) {

@@ -1,153 +1,126 @@
-import React, { useContext, useState } from 'react'
-import Data from './Data'
-import { Outlet, useNavigate } from 'react-router-dom';
+
+import React, { useContext, useRef, useState } from 'react'
 import "./Login.css"
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { createPortal } from 'react-dom';
-import { LoginButtonContext } from '../../App';
+import { ButtonContext } from '../../NavBar/SignupButton';
+import { NavLink } from 'react-router-dom';
+import { AuthContext, LoginButtonContext } from '../../App';
+import axios from 'axios';
+import { getHeaderWithProjectId } from '../utils/service';
 
 
 
 function Login() {
-
-
-    // const  userId =[
-    //     {
-    //         id: "1001",
-    //         name: "Akash",
-    //         pass: "123456",
-    //         role: "student"
-    //     },
-    // ]
-
-    const [state, setState] = useState({
-        email: "",
-        password: "",
-    });
+    const navigate = useNavigate();
 
     const { loginButton, setLoginButton } = useContext(LoginButtonContext)
+    const { isLoggedin, setIsLoggedIn } = useContext(AuthContext)
 
-    const [error, setError] = useState("")
 
-    const navigate = useNavigate()
+    //Here we are maintaining refs
+    const nameRef = useRef();
+    const emailRef = useRef();
+    const passwordRef = useRef();
 
-    function handleInputChange(e) {
-        const { value, name } = e.target;
-        setState({ ...state, [name]: value })
+    //creation of an api
+    async function LoginUser(user) {
+        const config = getHeaderWithProjectId()
+        try {
+            const res = await axios.post("https://academics.newtonschool.co/api/v1/bookingportals/login",
+                { ...user, appType: "bookingportals" },
+                config)
+            console.log("res", res);
+            const token = res.data.token;
+
+            if (token) {
+                sessionStorage.setItem("userToken", token)
+                sessionStorage.setItem("userName", JSON.stringify(res.data.data.name))
+                //This one is loginState coming from auth so carefull
+                setIsLoggedIn(true)
+                setLoginButton(false);
+            }
+
+        } catch (err) {
+            console.log(err);
+        }
     }
 
-    console.log("Abhi ruk dikhata hu", loginButton);
-
-
-    // function handleSubmit(e){
-    //     e.preventDefault()
-    //     const Data = JSON.parse(localStorage.getItem("userList"))
-    //     if(!Data){
-    //         return;
-    //     }
-    //     const user = Data.find((usr)=> usr.email === state.email)
-    //     if(user){
-    //         if(user.password === state.password){
-    //             //navigate the user to home
-    //             navigate("/")
-    //             sessionStorage.setItem("loggedInuser", JSON.stringify(user))
-    //             setIsLoggedIn(true)
-    //         }else{
-    //             console.log("Password is incorrect");
-    //             setError("password is incorrect")
-
-    //         }
-    //     }else{
-    //         console.log("no user found")
-    //         setError("no user found")
-    //     }
-    //     // const user = userId.find((usr)=>{
-    //     //     return usr.email === state.email
-    //     // })
-    // }
-
+    // This part we are getting it from the user through form
     function handleSubmit(e) {
         e.preventDefault();
-        const token = sessionStorage.getItem("userToken")
-        const config = {
-            method: "POST",
-            body: JSON.stringify({ ...state, appType: "bookingportals" }),
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                "Content-Type": "application/json",
-                "projectID": "4s09gwxald62",
-            }
-        }
-
-        fetch("https://academics.newtonschool.co/api/v1/bookingportals/login", config)
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                console.log(data);
-                if (data.token) {
-                    sessionStorage.setItem("userToken", data.token)
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+        const userDetails = {
+            email: emailRef.current.value,
+            password: passwordRef.current.value
+        };
+        LoginUser(userDetails)
     }
-
-    function handleLoginOverlay(event) {
+    function handleOverlayClick(event) {
         if (event.target === event.currentTarget) {
             setLoginButton(false);
         }
     }
 
+    function handleCloseModal() {
+        setLoginButton(false);
+    }
+
+    function clickthis() {
+        setLoginButton(!loginButton)
+        setLoginButton(true)
+    }
+
 
     return createPortal(
+
         loginButton &&
 
-        <div className='parentLogin' onClick={handleLoginOverlay}>
+        < div className='parentSignup' onClick={handleOverlayClick}>
 
-            <div className='loginParent'>
-                <form action="" id='LoginContainer' onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="email">Email:</label>
-                        <input
-                            type="text"
-                            name="email"
-                            id="email"
-                            onChange={handleInputChange}
-                            value={state.email.toLowerCase()} />
+            {/* <Outlet /> */}
 
-                    </div>
+            <form action="" className='formContainer' onSubmit={handleSubmit}>
+                <div className="close-button" onClick={handleCloseModal}>
+                    <span>X</span>
+                </div>
 
-                    <div>
-                        <label htmlFor="password">Password:</label>
-                        <input type="password"
-                            name="password"
-                            id="password"
-                            onChange={handleInputChange}
-                            value={state.password} />
-                    </div>
+                <div>
+                    <label htmlFor="email">Email:</label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        ref={emailRef}
+                    />
 
-                    <input type="submit" value="Login" />
+                </div>
 
+                <div>
+                    <label htmlFor="password">Password:</label>
+                    <input type="password"
+                        name="password"
+                        id="password"
+                        ref={passwordRef}
+                    />
+                </div>
 
+                <input type="submit" value="Login" />
 
-                    <p>Not a user already?:</p>
-                    <button onClick={() => navigate("/signup")}>SignUp</button>
-
-                    {error && <p>{error}</p>}
-
-
-
-                </form>
-
-            </div>
-        </div>
+                {/* <LoginButton /> */}
+                <br />
+                <br />
 
 
 
-        ,
+            </form>
+
+        </div >,
+
         document.querySelector(".myPortalDivTwo")
+
     )
 }
 
 export default Login
+

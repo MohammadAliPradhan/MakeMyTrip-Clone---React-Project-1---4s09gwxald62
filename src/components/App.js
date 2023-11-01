@@ -29,31 +29,7 @@ function App() {
   const [loginButton, setLoginButton] = useState();
 
 
-
-
-
-  console.log("Here", buttonState);
-
-
-
-
-
-
-
-
-
-  let loggedInState;
-  const user = sessionStorage.getItem('loggedInuser')
-
-  if (user) {
-    loggedInState = true;
-  } else {
-    loggedInState = false;
-  }
-
-
-
-  const [isLoggedin, setIsLoggedIn] = useState(loggedInState)
+  const [isLoggedin, setIsLoggedIn] = useState(false)
 
 
 
