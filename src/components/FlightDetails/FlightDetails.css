@@ -67,7 +67,7 @@
    display: flex;
    width: 216px;
    height: 44px;
-   background-image: linear-gradient(93deg, #53b2fe, #065af3);
+   background: linear-gradient(to right, #3fa2ff, #3f00f6);
    color: #fff;
    font-size: 28px;
    text-align: center;
@@ -81,4 +81,9 @@
 .searchParent {
    display: flex;
    justify-content: center;
+}
+
+.radioFlight {
+   display: flex;
+   margin-top: 54px;
 }

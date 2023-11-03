@@ -14,6 +14,7 @@ import FlightOffer from "./FlightDetails/FlightOfferDetails/FlightOffer";
 import TrainOffer from "./TrainDetails/TrainOffer/TrainOffer"
 import Profile from "./Authenticaltion/Profile/Profile";
 import { createContext, useState } from "react";
+import HoleSinglePage from "./HotelSinglePage/HoleSinglePage.jsx";
 
 import Somet from "./somet.jsx";
 import ListPage from "./ListPage/ListPage.jsx";
@@ -64,6 +65,7 @@ function App() {
 
               <Route path="/login" element={<Login />} />
               <Route path="/list" element={<ListPage />} />
+              <Route path="/hotelsingle" element={<HoleSinglePage />} />
             </Routes>
 
             <Footer />

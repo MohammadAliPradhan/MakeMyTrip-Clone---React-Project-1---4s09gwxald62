@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "../../components/AllDetails.css"
-import { Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 import "./FlightDetails.css"
 import icon from "../../assets/images/fontAwesom/circle-check-solid.svg"
 
@@ -26,9 +26,51 @@ function FlightDetails() {
             <div className="DetailsParent">
                 <div className='Details'>
                     <form className='ticket-type'>
-                        <span><input type="radio" />ONEWAY </span>
-                        <span><input type="radio" /> ROUND TRIP </span>
-                        <span><input type="radio" /> MULTI CITY</span>
+                        <div className="radioFlight">
+                            <div className="form-check me-4">
+                                <input
+                                    type="radio"
+                                    id="one-way"
+                                    value="one-way"
+                                    name="trip"
+                                    className="form-check-input"
+                                    defaultChecked
+                                ></input>
+                                <label className="form-check-label" htmlFor="one-way">
+                                    One Way
+                                </label>
+                            </div>
+                            <div className="form-check me-4">
+                                <input
+                                    type="radio"
+                                    id="round-trip"
+                                    value="round-trip"
+                                    name="trip"
+                                    className="form-check-input"
+                                ></input>
+                                <label
+                                    className="form-check-label"
+                                    htmlFor="round-trip"
+                                >
+                                    Round Trip
+                                </label>
+                            </div>
+                            <div className="form-check me-4">
+                                <input
+                                    type="radio"
+                                    id="multi-city"
+                                    value="multi-city"
+                                    name="trip"
+                                    className="form-check-input"
+                                ></input>
+                                <label
+                                    className="form-check-label"
+                                    htmlFor="multi-city"
+                                >
+                                    Multi City
+                                </label>
+                            </div>
+                        </div>
                     </form>
                     <div className="flight-search">
                         <div className="flight">
@@ -86,9 +128,9 @@ function FlightDetails() {
 
                     <div className='searchParent'>
 
-                        <div className='searchBtn'>
+                        <NavLink to="/list"><div className='searchBtn'>
                             SEARCH
-                        </div>
+                        </div></NavLink>
                     </div>
 
 

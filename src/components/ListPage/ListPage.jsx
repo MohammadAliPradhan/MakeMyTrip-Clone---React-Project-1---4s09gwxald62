@@ -17,6 +17,8 @@ function ListPage() {
     return (
         <div>
             <ScrollNavBar />
+            <div className="bluish"></div>
+
             <div className="listContainer">
                 <div className="listWrapper">
                     <div className="listSearch">
@@ -83,6 +85,7 @@ function ListPage() {
 
                     </div>
                     <div className="listResult">
+                        <h1>Flights From Bengaluru to Raipur</h1>
                         <SearchItem />
                         <SearchItem />
                         <SearchItem />
@@ -94,6 +97,7 @@ function ListPage() {
                     </div>
                 </div>
             </div>
+
         </div>
     )
 }

@@ -1,7 +1,10 @@
 .listContainer {
     display: flex;
     justify-content: space-evenly;
+
     margin-top: 20px;
+    position: relative;
+    bottom: 120px;
 
 
 
@@ -61,6 +64,8 @@
 
 .listResult {
     flex: 3;
+    position: relative;
+    bottom: 39px;
 }
 
 .lsOptionItem {
@@ -87,4 +92,13 @@
     width: 100%;
     font-weight: bolder;
     cursor: pointer;
+}
+
+.bluish {
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 15%, rgba(9, 9, 121, 1) 52%, rgba(0, 212, 255, 1) 100%);
+    height: 250px;
+}
+
+.listResult>h1 {
+    color: White;
 }
