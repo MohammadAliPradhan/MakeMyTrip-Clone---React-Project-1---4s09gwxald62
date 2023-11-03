@@ -9,7 +9,6 @@ import { AuthContext, LoginButtonContext, ButtonContext } from '../../App';
 import axios from 'axios';
 import { getHeaderWithProjectId } from '../utils/service';
 
-
 function SignUp() {
     const navigate = useNavigate();
     const { buttonState, setButtonState } = useContext(ButtonContext)

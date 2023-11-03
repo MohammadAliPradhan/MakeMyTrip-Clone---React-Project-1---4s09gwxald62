@@ -1,4 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import logo from '../assets/images/logo.png'
+import discount from '../assets/images/discount.jpeg'
+import bag from '../assets/images/bag.png'
+import { Link } from 'react-router-dom';
+import SignUp from '../components/Authenticaltion/SignUp/SignUp';
+import Login from '../components/Authenticaltion/Login/Login';
+import "./scrollbar.css"
+
 
 function ScrollNavBar() {
     const [isScrolling, setIsScrolling] = useState(false);
@@ -29,8 +37,30 @@ function ScrollNavBar() {
 
     return (
         <div className={`navbar ${isScrolling ? 'hidden' : ''}`}>
-            {/* Your navbar content */}
-        </div>
+            <nav id='parentContainerNav'>
+                <div className='navpadding'>
+                    <div className='logoleft'>
+                        <Link to="/" ><img className="logoleft" src={logo} alt="log" /></Link>
+                        <img src={discount} alt="discount" />
+                    </div>
+                    <div className='navmiddle'>
+                        <img src={bag} alt="bag" />
+                    </div>
+                    {/* {!isLoggedin && <div id='authenticate-au' onClick={handleOnClick}><p>Signup</p></div>}
+                    {isLoggedin && <div id='authenticate-au'><p onClick={handleLogOut}>Logout</p></div>}
+                    {isLoggedin && <div id="authenticate-auser"><li className='userName-css'>{userName}</li></div>} */}
+                    {/* <div className='navright'>
+                        {/*  */}
+
+
+
+                    <SignUp />
+                    <Login />
+                </div>
+
+            </nav >
+
+        </div >
     );
 }
 
