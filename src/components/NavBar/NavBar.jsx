@@ -4,11 +4,10 @@ import { Outlet, useNavigate } from 'react-router-dom'
 import logo from "../../assets/images/logo.png"
 import bag from "../../assets/images/bag.png"
 import discount from "../../assets/images/discount.jpeg"
-import Mui from "./Mui"
 import { Link } from 'react-router-dom'
-import { AuthContext, LoginButtonContext } from '../App'
-import SignupButton from './SignupButton'
+import { AuthContext, LoginButtonContext, ButtonContext } from '../App'
 import Login from '../Authenticaltion/Login/Login'
+import SignUp from '../Authenticaltion/SignUp/SignUp'
 
 
 function NavBar() {
@@ -17,6 +16,7 @@ function NavBar() {
     console.log(isLoggedin);
 
     const { loginButton, setLoginButton } = useContext(LoginButtonContext)
+    const { buttonState, setButtonState } = useContext(ButtonContext)
     const userName = JSON.parse(sessionStorage.getItem("userName"))
 
     console.log(loginButton, "this is");
@@ -29,6 +29,10 @@ function NavBar() {
         sessionStorage.removeItem("user")
         setIsLoggedIn(false)
     }
+
+    function handleOnClick() {
+        setButtonState(!buttonState)
+    }
     return (
         <>
             <nav className='navParent'>
@@ -40,19 +44,15 @@ function NavBar() {
                     <div className='navmiddle'>
                         <img src={bag} alt="bag" />
                     </div>
-                    {/* <div className='navright'>
-                        {!isLoggedin && (
-                            <Mui />)}
-                    </div> */}
+
                     <div className='navright'>
-                        {!isLoggedin && (
-                            <SignupButton />)}
-                        {isLoggedin && <li>{userName}</li>}
-                        {isLoggedin && <button onClick={handleLogOut}>Logout</button>}
+                        {!isLoggedin && <div id='authenticate-au' onClick={handleOnClick}><p>Signup</p></div>}
+                        {isLoggedin && <div id='authenticate-au'><p onClick={handleLogOut}>Logout</p></div>}
+                        {isLoggedin && <div id="authenticate-auser"><li className='userName-css'>{userName}</li></div>}
                     </div>
 
 
-
+                    <SignUp />
                     <Login />
                 </div>
 

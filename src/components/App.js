@@ -14,8 +14,9 @@ import FlightOffer from "./FlightDetails/FlightOfferDetails/FlightOffer";
 import TrainOffer from "./TrainDetails/TrainOffer/TrainOffer"
 import Profile from "./Authenticaltion/Profile/Profile";
 import { createContext, useState } from "react";
-import AuthNavigator from "./Navigator/AuthNavigator";
-import SignupButton from "./NavBar/SignupButton";
+
+import Somet from "./somet.jsx";
+import ListPage from "./ListPage/ListPage.jsx";
 
 
 
@@ -36,8 +37,6 @@ function App() {
     isUserLoggedIn = false;
   }
   const [isLoggedin, setIsLoggedIn] = useState(isUserLoggedIn)
-
-
 
   console.log(isLoggedin);
 
@@ -64,7 +63,9 @@ function App() {
               <Route path="/profile" element={<Profile />} />
 
               <Route path="/login" element={<Login />} />
+              <Route path="/list" element={<ListPage />} />
             </Routes>
+
             <Footer />
           </AuthContext.Provider>
         </ButtonContext.Provider>

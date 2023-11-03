@@ -3,10 +3,9 @@ import "./SignUp.css"
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { createPortal } from 'react-dom';
-import { ButtonContext } from '../../NavBar/SignupButton';
 import { NavLink } from 'react-router-dom';
 import Login from '../Login/Login';
-import { AuthContext, LoginButtonContext } from '../../App';
+import { AuthContext, LoginButtonContext, ButtonContext } from '../../App';
 import axios from 'axios';
 import { getHeaderWithProjectId } from '../utils/service';
 
@@ -77,7 +76,6 @@ function SignUp() {
 
         < div className='parentSignup' onClick={handleOverlayClick}>
 
-            {/* <Outlet /> */}
 
             <form action="" className='formContainer' onSubmit={handleSubmit}>
                 <div className="close-button" onClick={handleCloseModal}>

@@ -1,4 +1,4 @@
-.MmtParent{
+.MmtParent {
     border-radius: 8px;
     align-items: center;
     display: flex;
@@ -15,25 +15,34 @@
     border: 1px solid gray;
 }
 
-.MmtParentForMiddle{
+.MmtParentForMiddle {
     display: flex;
     justify-content: center;
     background-color: #071726;
 }
 
-.componentsStyle{
+.componentsStyle {
     display: flex;
     gap: 25px;
 
 }
 
-.flightShow{
+.flightShow {
     text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
-    .mobDontShow{
+    .mobDontShow {
         display: none;
     }
 
+}
+
+.icon-no-link {
+    list-style: none;
+}
+
+.single-icon-component {
+    display: flex;
+    flex-direction: row;
 }
