@@ -6,6 +6,7 @@ import 'react-date-range/dist/theme/default.css';
 import SearchItem from '../../SearchItem/SearchItem';
 import ScrollNavBar from '../../ScrollNavBar/ScrollNavBar';
 
+
 function ListPage() {
     const [state, setState] = useState([
         {

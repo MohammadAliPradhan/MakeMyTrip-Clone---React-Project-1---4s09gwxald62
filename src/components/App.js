@@ -15,9 +15,9 @@ import TrainOffer from "./TrainDetails/TrainOffer/TrainOffer"
 import Profile from "./Authenticaltion/Profile/Profile";
 import { createContext, useState } from "react";
 import HoleSinglePage from "./HotelSinglePage/HoleSinglePage.jsx";
-
 import Somet from "./somet.jsx";
 import ListPage from "./ListPage/ListPage.jsx";
+import JustShow from "../justShow.jsx";
 
 
 
@@ -66,6 +66,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/list" element={<ListPage />} />
               <Route path="/hotelsingle" element={<HoleSinglePage />} />
+              <Route path="/justshow" element={<JustShow />} />
             </Routes>
 
             <Footer />
@@ -77,3 +78,5 @@ function App() {
 }
 
 export default App;
+
+

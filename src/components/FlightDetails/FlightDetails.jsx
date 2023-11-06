@@ -14,6 +14,7 @@ function FlightDetails() {
 
     function handleOnClick(e, field) {
         const { value } = e.target;
+        console.log(value);
         setFlightDetails((oldState) => ({
             ...oldState,
             [field]: value
