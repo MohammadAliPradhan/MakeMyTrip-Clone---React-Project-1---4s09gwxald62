@@ -11,22 +11,22 @@ function justShow() {
         val: 'proxy',
     });
     const [submitedValue, setSubmitedValue] = useState('')
-    async function getMusicList(location) {
+    async function getMusicList(hotelId) {
         const config = {
             headers: {
                 projectID: "9sa80czkq1na"
             }
         }
         console.log("location", location);
-        const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${location}"}`, config)
+        const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${hotelId}"}`, config)
         SetHotels(response.data.data.hotels)
         // setShow(response.data)
+        console.log(response);
     };
 
     function handleOnSubmit(e) {
         e.preventDefault()
         setSubmitedValue(inputVal.val)
-
     }
 
     useEffect(() => {

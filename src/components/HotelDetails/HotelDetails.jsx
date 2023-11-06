@@ -1,31 +1,64 @@
-import React, { useState } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+import React, { useEffect, useRef, useState } from 'react'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import "./HotelDetails.css"
-
+import axios from 'axios';
 
 
 
 function HotelDetails() {
 
+
     const [hotelName, setHotelName] = useState({
         destination: "Goa",
         checkIn: 6
     })
+    const navigate = useNavigate()
+
+    const [submittedHotelDetails, setSubmittedHotelDetails] = useState("");
+
+    async function getHotelDetails(location) {
+        const config = {
+            headers: {
+                projectID: "9sa80czkq1na"
+            }
+        }
+
+
+        const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${location}"}`, config)
+        console.log("response", response);
+        if (response.data.results <= 0) {
+            console.log("ha bhai nai hai");
+        } else {
+            console.log("yes");
+        }
+
+    };
+
 
     function handleOnCick(e, field) {
         const { value } = e.target;
-        console.log(value);
         setHotelName((oldState) => ({
             ...oldState,
             [field]: value
         }))
-
     }
+
+    useEffect(() => {
+        getHotelDetails(submittedHotelDetails)
+    }, [submittedHotelDetails]);
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        setSubmittedHotelDetails(hotelName.destination)
+    }
+
+
+
     return (
         <>
             <div className="DetailsParent">
                 <div className='Details'>
-                    <form className='ticket-type'>
+                    <form className='ticket-type' onSubmit={handleSubmit}>
                         <div className="radioFlight">
                             <div className="form-check me-4">
                                 <input
@@ -71,6 +104,7 @@ function HotelDetails() {
                                 </label>
                             </div>
                         </div>
+                        <button type="submit">Submit</button>
                     </form>
                     <div className="flight-search">
                         <div className="flight">
