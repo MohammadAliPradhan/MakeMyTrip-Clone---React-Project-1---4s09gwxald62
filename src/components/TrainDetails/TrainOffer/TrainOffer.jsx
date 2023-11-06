@@ -4,15 +4,15 @@ import "./TrainOffer.css"
 function TrainOffer() {
     return (
         <>
-        
-        <div>
-            <div className='ComponentUni'>
 
+            <div>
+                <div className='ComponentUni'>
+                    <h1>something</h1>
+                </div>
             </div>
-        </div   >
-         </>
-        
-        
+        </>
+
+
 
     )
 }
