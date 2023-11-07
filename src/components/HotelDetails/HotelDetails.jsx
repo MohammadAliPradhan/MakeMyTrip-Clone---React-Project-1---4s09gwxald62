@@ -9,7 +9,7 @@ function HotelDetails() {
 
 
     const [hotelName, setHotelName] = useState({
-        destination: "Goa",
+        destination: "Bangalore",
         checkIn: 6
     })
     const navigate = useNavigate()
