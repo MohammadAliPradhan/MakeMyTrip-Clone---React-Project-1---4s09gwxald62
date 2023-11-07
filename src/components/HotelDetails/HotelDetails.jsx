@@ -15,6 +15,7 @@ function HotelDetails() {
     const navigate = useNavigate()
 
     const [submittedHotelDetails, setSubmittedHotelDetails] = useState("");
+    const [flag, setFlag] = useState(false);
 
     async function getHotelDetails(location = "") {
         const config = {
@@ -27,6 +28,11 @@ function HotelDetails() {
 
 
         const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${location === "" ? undefined : location}"}`, config)
+        if (response.data.results === 0) {
+            setFlag(false)
+        } else {
+            navigate("/list")
+        }
         console.log("response", response);
 
 
