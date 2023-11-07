@@ -16,7 +16,7 @@ function HotelDetails() {
 
     const [submittedHotelDetails, setSubmittedHotelDetails] = useState("");
 
-    async function getHotelDetails(location) {
+    async function getHotelDetails(location = "") {
         const config = {
             headers: {
                 projectID: "9sa80czkq1na"
@@ -24,13 +24,11 @@ function HotelDetails() {
         }
 
 
-        const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${location}"}`, config)
+
+
+        const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${location === "" ? undefined : location}"}`, config)
         console.log("response", response);
-        if (response.data.results <= 0) {
-            console.log("ha bhai nai hai");
-        } else {
-            console.log("yes");
-        }
+
 
     };
 
