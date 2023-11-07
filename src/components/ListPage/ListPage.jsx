@@ -1,20 +1,25 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./ListPage.css"
 import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import SearchItem from '../../SearchItem/SearchItem';
 import ScrollNavBar from '../../ScrollNavBar/ScrollNavBar';
+import { ApiDetails } from '../App';
 
 
 function ListPage() {
-    const [state, setState] = useState([
-        {
-            startDate: new Date(),
-            endDate: null,
-            key: 'selection'
-        }
-    ]);
+    const { ApiInfo, setApiInfo } = useContext(ApiDetails)
+    console.log("im in listPage", ApiInfo);
+    console.log(JSON.parse(sessionStorage.getItem("proxy")))
+
+    useEffect(() => {
+        const proxyData = JSON.parse(sessionStorage.getItem("proxy"));
+        setApiInfo(proxyData);
+    }, []);
+
+    console.log("this is api", ApiInfo);
+
     return (
         <div>
             <ScrollNavBar />

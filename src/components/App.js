@@ -25,10 +25,12 @@ import JustShow from "../justShow.jsx";
 export const ButtonContext = createContext();
 export const AuthContext = createContext();
 export const LoginButtonContext = createContext();
+export const ApiDetails = createContext();
 function App() {
   const [showHome, setShowHome] = useState(false)
   const [buttonState, setButtonState] = useState();
   const [loginButton, setLoginButton] = useState();
+  const [ApiInfo, setApiInfo] = useState([])
 
   let isUserLoggedIn;
   const token = sessionStorage.getItem("userToken");
@@ -43,36 +45,39 @@ function App() {
 
   return (
     <>
-      <LoginButtonContext.Provider value={{ loginButton, setLoginButton }}>
-        <ButtonContext.Provider value={{ buttonState, setButtonState }}>
-          <AuthContext.Provider value={{ isLoggedin, setIsLoggedIn }} >
-            <Routes>
-              <Route element={<NavBar />}>
-                <Route element={<MmtHeader />}>
-                  <Route index element={<Home />} />
-                  <Route path="flight" element={<FlightDetails />}>
-                    <Route index element={<FlightOffer />} />
-                  </Route>
-                  <Route path="hotel" element={<HotelDetails />}>
-                    <Route index element={<HotelOffer />} />
-                  </Route>
-                  <Route path="train" element={<TrainDetails />} >
-                    <Route index element={<TrainOffer />} />
+      <ApiDetails.Provider value={{ ApiInfo, setApiInfo }}>
+
+        <LoginButtonContext.Provider value={{ loginButton, setLoginButton }}>
+          <ButtonContext.Provider value={{ buttonState, setButtonState }}>
+            <AuthContext.Provider value={{ isLoggedin, setIsLoggedIn }} >
+              <Routes>
+                <Route element={<NavBar />}>
+                  <Route element={<MmtHeader />}>
+                    <Route index element={<Home />} />
+                    <Route path="flight" element={<FlightDetails />}>
+                      <Route index element={<FlightOffer />} />
+                    </Route>
+                    <Route path="hotel" element={<HotelDetails />}>
+                      <Route index element={<HotelOffer />} />
+                    </Route>
+                    <Route path="train" element={<TrainDetails />} >
+                      <Route index element={<TrainOffer />} />
+                    </Route>
                   </Route>
                 </Route>
-              </Route>
-              <Route path="/profile" element={<Profile />} />
+                <Route path="/profile" element={<Profile />} />
 
-              <Route path="/login" element={<Login />} />
-              <Route path="/list" element={<ListPage />} />
-              <Route path="/hotelsingle" element={<HoleSinglePage />} />
-              <Route path="/justshow" element={<JustShow />} />
-            </Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/list" element={<ListPage />} />
+                <Route path="/hotelsingle" element={<HoleSinglePage />} />
+                <Route path="/justshow" element={<JustShow />} />
+              </Routes>
 
-            <Footer />
-          </AuthContext.Provider>
-        </ButtonContext.Provider>
-      </LoginButtonContext.Provider>
+              <Footer />
+            </AuthContext.Provider>
+          </ButtonContext.Provider>
+        </LoginButtonContext.Provider>
+      </ApiDetails.Provider>
     </>
   )
 }

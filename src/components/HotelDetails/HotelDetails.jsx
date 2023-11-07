@@ -1,13 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import "./HotelDetails.css"
 import axios from 'axios';
-
+import { ApiDetails } from '../App';
 
 
 function HotelDetails() {
 
 
+    const { ApiInfo, setApiInfo } = useContext(ApiDetails)
     const [hotelName, setHotelName] = useState({
         destination: "Bangalore",
         checkIn: 6
@@ -31,9 +32,10 @@ function HotelDetails() {
         if (response.data.results === 0) {
             setFlag(false)
         } else {
+            JSON.stringify(sessionStorage.setItem('proxy', JSON.stringify(response.data.data)))
             navigate("/list")
         }
-        console.log("response", response);
+        console.log("response", response)
 
 
     };
