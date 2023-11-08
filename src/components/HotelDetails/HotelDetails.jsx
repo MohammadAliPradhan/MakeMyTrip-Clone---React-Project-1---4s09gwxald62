@@ -32,7 +32,7 @@ function HotelDetails() {
         if (response.data.results === 0) {
             setFlag(false)
         } else {
-            JSON.stringify(sessionStorage.setItem('proxy', JSON.stringify(response.data.data)))
+            JSON.stringify(sessionStorage.setItem('proxy', JSON.stringify(response.data.data.hotels)))
             navigate("/list")
         }
         console.log("response", response)

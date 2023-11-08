@@ -6,10 +6,13 @@ import 'react-date-range/dist/theme/default.css';
 import SearchItem from '../../SearchItem/SearchItem';
 import ScrollNavBar from '../../ScrollNavBar/ScrollNavBar';
 import { ApiDetails } from '../App';
+import axios from 'axios';
 
 
 function ListPage() {
     const { ApiInfo, setApiInfo } = useContext(ApiDetails)
+    const [searchText, setSearchText] = useState('');
+    const [listSearch, setListSearch] = useState('');
     console.log("im in listPage", ApiInfo);
     console.log(JSON.parse(sessionStorage.getItem("proxy")))
 
@@ -18,7 +21,37 @@ function ListPage() {
         setApiInfo(proxyData);
     }, []);
 
-    console.log("this is api", ApiInfo);
+    function handleSearchOnChange(e) {
+        const { value } = e.target;
+        setSearchText(value)
+    }
+
+    function handleOnChange() {
+        setListSearch(searchText)
+        console.log(searchText);
+    }
+
+    async function getListDetails() {
+        const config = {
+            headers: {
+                projectID: "9sa80czkq1na"
+            }
+        }
+        const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"bangalore"}`, config)
+        console.log("this is response in list:", response);
+    }
+
+    useEffect(() => {
+        getListDetails()
+        console.log("sometihngsdfjsdklfj", listSearch);
+    }, [listSearch])
+
+
+
+
+
+
+
 
     return (
         <div>
@@ -32,8 +65,10 @@ function ListPage() {
                             Search
                         </h1>
                         <div className="lsItem">
-                            <label>Destination</label>
-                            <input type="text" />
+                            <label>Search</label>
+                            <input type="text"
+                                onChange={handleSearchOnChange}
+                            />
                         </div>
 
                         <div className="lsItem">
@@ -87,19 +122,16 @@ function ListPage() {
                             </div>
 
                         </div>
-                        <button>Search</button>
+                        <button onClick={handleOnChange}>Search</button>
 
                     </div>
                     <div className="listResult">
-                        <h1>Flights From Bengaluru to Raipur</h1>
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
+                        <h1>Hotels in {ApiInfo[0]?.location ? ApiInfo[0].location : "Loading"}</h1>
+                        {
+                            ApiInfo.map((apis, index) => (
+                                <SearchItem key={index} data={apis} />
+                            ))
+                        }
                     </div>
                 </div>
             </div>

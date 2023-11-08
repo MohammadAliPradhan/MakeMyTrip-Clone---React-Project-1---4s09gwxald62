@@ -3,19 +3,26 @@ import "./searchItem.css"
 import Travel from '../assets/images/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg'
 
 
-function SearchItem() {
+function SearchItem(props) {
+
+
+    const { data } = props;
+    console.log("these are props", data);
+
+
+
     return (
         <>
             <div className="searchItem">
 
-                <img src={Travel} alt="" className='siImg' />
+                <img src={data.images[0]} alt="" className='siImg' />
                 <div className="siDesc">
-                    <h1 className="siTitle">Tower Of Hanoi</h1>
-                    <span className="siDistance">500 m something</span>
-                    <span className="siTaxiOp">Free airport Taxi</span>
+                    <h1 className="siTitle">{data.name}</h1>
+                    <span className="siDistance">{data.amenities[0]}</span>
+                    <span className="siTaxiOp">Cost Per Night: Rs {data.rooms[0].costPerNight}</span>
                     <span className="siSubtitle">Studio Apartment with Air conditioning</span>
-                    <span className="siFeatures">Entire Studio</span>
-                    <span className="siCancelOp">Free Cancellation</span>
+                    <span className="siFeatures">{data.rooms[0].bedDetail}</span>
+                    <span className="siCancelOp">{data.rooms[0].cancellationPolicy}</span>
                     <span className="siCancelOpSubtitle">You can cancel later</span>
                 </div>
                 <div className="siDetails">
@@ -25,7 +32,7 @@ function SearchItem() {
                     </div>
 
                     <div className="siDetailTexts">
-                        <span className='siPrice'>$123</span>
+                        <span className='siPrice'>rs {data.rooms[0].costDetails.baseCost}</span>
                         <span className='siTaxOp'>Includes taxes and fees</span>
                         <button className='siCheckButton'>See Availability</button>
                     </div>

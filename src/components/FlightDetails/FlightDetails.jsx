@@ -129,7 +129,7 @@ function FlightDetails() {
 
                     <div className='searchParent'>
 
-                        <NavLink to="/list"><div className='searchBtn'>
+                        <NavLink to="/list" className="nav-link"><div className='searchBtn'>
                             SEARCH
                         </div></NavLink>
                     </div>

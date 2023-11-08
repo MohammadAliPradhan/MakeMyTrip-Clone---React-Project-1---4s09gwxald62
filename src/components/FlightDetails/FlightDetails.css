@@ -93,3 +93,7 @@
    width: 1200px;
    height: 552px;
 }
+
+.nav-link {
+   text-decoration: none;
+}
