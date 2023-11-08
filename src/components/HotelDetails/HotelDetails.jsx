@@ -34,6 +34,7 @@ function HotelDetails() {
         } else {
             JSON.stringify(sessionStorage.setItem('proxy', JSON.stringify(response.data.data.hotels)))
             localStorage.setItem("locationApi", response.data.data.hotels[0].location)
+            localStorage.setItem("listItem", response.data.data.hotels[0].location)
             navigate("/list")
         }
         console.log("response", response)

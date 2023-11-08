@@ -10,9 +10,33 @@ import axios from 'axios';
 
 
 function ListPage() {
+
     const { ApiInfo, setApiInfo } = useContext(ApiDetails)
-    const [searchText, setSearchText] = useState('');
+
     const [listSearch, setListSearch] = useState('');
+    const [locationlocal, setLocationLocal] = useState('')
+
+
+    //This is present in listCurrent Api
+    const listItemb = localStorage.getItem("listItem")
+    const listItemc = localStorage.getItem("locationApi")
+
+
+
+
+
+    //Testing 
+    useEffect(() => {
+        if (listItemb !== listItemc) {
+            localStorage.removeItem("listItem")
+            setLocationLocal(listItemb);
+
+        } else {
+            setLocationLocal(listItemc)
+        }
+
+        console.log("locationlocal", locationlocal);
+    }, [])
 
     console.log("im in listPage", ApiInfo);
     console.log(JSON.parse(sessionStorage.getItem("proxy")))
@@ -26,36 +50,33 @@ function ListPage() {
 
     function handleSearchOnChange(e) {
         const { value } = e.target;
-        setSearchText(value)
+        setLocationLocal(value)
     }
+
 
     function handleOnChange() {
 
-        setListSearch(searchText)
-        console.log(searchText);
+        setLocationLocal(locationlocal)
+        console.log("locationlocal", locationlocal);
     }
 
-    async function getListDetails() {
+    async function getListDetails(locationA = "") {
         const config = {
             headers: {
                 projectID: "9sa80czkq1na"
             }
         }
-        const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"bangalore"}`, config)
+        console.log(locationA);
+        const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${locationA}"}`, config)
+        setApiInfo(response.data.data.hotels)
+        localStorage.setItem("listItem", locationA)  //This is present in listCurrent Api
         console.log("this is response in list:", response);
     }
 
     useEffect(() => {
-        getListDetails()
+        getListDetails(locationlocal)
         console.log("sometihngsdfjsdklfj", listSearch);
-    }, [listSearch])
-
-
-
-
-
-
-
+    }, [locationlocal])
 
     return (
         <div>
@@ -72,7 +93,7 @@ function ListPage() {
                             <label>Search</label>
                             <input type="text"
                                 onChange={handleSearchOnChange}
-                                value="none"
+                                value={locationlocal}
                             />
                         </div>
 
