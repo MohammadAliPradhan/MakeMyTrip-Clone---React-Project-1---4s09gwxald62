@@ -13,6 +13,7 @@ function ListPage() {
     const { ApiInfo, setApiInfo } = useContext(ApiDetails)
     const [searchText, setSearchText] = useState('');
     const [listSearch, setListSearch] = useState('');
+
     console.log("im in listPage", ApiInfo);
     console.log(JSON.parse(sessionStorage.getItem("proxy")))
 
@@ -21,12 +22,15 @@ function ListPage() {
         setApiInfo(proxyData);
     }, []);
 
+
+
     function handleSearchOnChange(e) {
         const { value } = e.target;
         setSearchText(value)
     }
 
     function handleOnChange() {
+
         setListSearch(searchText)
         console.log(searchText);
     }
@@ -68,6 +72,7 @@ function ListPage() {
                             <label>Search</label>
                             <input type="text"
                                 onChange={handleSearchOnChange}
+                                value="none"
                             />
                         </div>
 
