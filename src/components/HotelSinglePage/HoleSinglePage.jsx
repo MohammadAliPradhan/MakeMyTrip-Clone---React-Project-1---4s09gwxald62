@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ScrollNavBar from '../../ScrollNavBar/ScrollNavBar'
 import "./HotelSingleNavbar.css"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faCircleArrowLeft, faCircleRight, faCircleXmark, faLocation, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { createPortal } from 'react-dom'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 
 
@@ -17,7 +19,22 @@ function HoleSinglePage() {
         "https://via.placeholder.com/800x400.png/FF5733/FFFFFF",
         "https://via.placeholder.com/800x400.png/33A6FF/FFFFFF",
     ];
+    const { singleId } = useParams()
+    console.log(singleId);
 
+
+    const getSingleDetails = async () => {
+        const config = {
+            headers: {
+                projectID: "9sa80czkq1na"
+            }
+        }
+        const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/hotel/${singleId}`, config)
+        console.log("this is ", response);
+    }
+    useEffect(() => {
+        getSingleDetails()
+    }, [])
     const [slideIndex, setSlideIndex] = useState(0)
     const [openModal, setOpenModal] = useState(false)
 

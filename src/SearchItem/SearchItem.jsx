@@ -1,13 +1,22 @@
 import React from 'react'
 import "./searchItem.css"
 import Travel from '../assets/images/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg'
+import { useNavigate } from 'react-router-dom';
 
 
 function SearchItem(props) {
 
+    const navigate = useNavigate();
+
 
     const { data } = props;
     console.log("these are props", data);
+
+    function handleOnClick() {
+        navigate(`/hotels/${data._id}`)
+    }
+
+    console.log(data._id);
 
 
 
@@ -34,7 +43,7 @@ function SearchItem(props) {
                     <div className="siDetailTexts">
                         <span className='siPrice'>rs {data.rooms[0].costDetails.baseCost}</span>
                         <span className='siTaxOp'>Includes taxes and fees</span>
-                        <button className='siCheckButton'>See Availability</button>
+                        <button className='siCheckButton' onClick={handleOnClick}>See Availability</button>
                     </div>
                 </div>
             </div>

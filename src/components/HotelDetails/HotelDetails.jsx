@@ -3,6 +3,7 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import "./HotelDetails.css"
 import axios from 'axios';
 import { ApiDetails } from '../App';
+import Footer from '../Footer/Footer';
 
 
 function HotelDetails() {
@@ -112,7 +113,10 @@ function HotelDetails() {
                                 </label>
                             </div>
                         </div>
-                        <button type="submit">Submit</button>
+
+                        <div className='searchParent'>
+                            <button className="searchBtn" type="submit">Search</button>
+                        </div>
                     </form>
                     <div className="flight-search">
                         <div className="flight">
@@ -174,12 +178,12 @@ function HotelDetails() {
 
                     </div>
 
-                    <div className='searchParent'>
+                    {/* <div className='searchParent'>
 
                         <div className='searchBtn'>
                             SEARCH
                         </div>
-                    </div>
+                    </div> */}
 
 
 

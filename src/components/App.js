@@ -18,6 +18,7 @@ import HoleSinglePage from "./HotelSinglePage/HoleSinglePage.jsx";
 import Somet from "./somet.jsx";
 import ListPage from "./ListPage/ListPage.jsx";
 import JustShow from "../justShow.jsx";
+import SingleProduct from "./SingleProduct.jsx";
 
 
 
@@ -69,11 +70,12 @@ function App() {
 
                 <Route path="/login" element={<Login />} />
                 <Route path="/list" element={<ListPage />} />
-                <Route path="/hotelsingle" element={<HoleSinglePage />} />
                 <Route path="/justshow" element={<JustShow />} />
+                <Route path="hotels/:singleId" element={<HoleSinglePage />} />
               </Routes>
 
-              <Footer />
+
+
             </AuthContext.Provider>
           </ButtonContext.Provider>
         </LoginButtonContext.Provider>
@@ -83,5 +85,3 @@ function App() {
 }
 
 export default App;
-
-

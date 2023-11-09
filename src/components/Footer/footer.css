@@ -1,5 +1,6 @@
 .footer-wrapper {
-    position: relative;
+    position: sticky;
+    bottom: 0;
     height: 10rem;
     width: 100%;
     background: #000;
