@@ -19,6 +19,7 @@ import Somet from "./somet.jsx";
 import ListPage from "./ListPage/ListPage.jsx";
 import JustShow from "../justShow.jsx";
 import SingleProduct from "./SingleProduct.jsx";
+import CheckoutPage from "../FormData.jsx";
 
 
 
@@ -72,6 +73,7 @@ function App() {
                 <Route path="/list" element={<ListPage />} />
                 <Route path="/justshow" element={<JustShow />} />
                 <Route path="hotels/:singleId" element={<HoleSinglePage />} />
+                <Route path="/formdata" element={<CheckoutPage />} />
               </Routes>
 
 
