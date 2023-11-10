@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ScrollNavBar from '../../ScrollNavBar/ScrollNavBar'
 import "./HotelSingleNavbar.css"
 
@@ -7,12 +7,14 @@ import { faCircle, faCircleArrowLeft, faCircleRight, faCircleXmark, faLocation, 
 import { createPortal } from 'react-dom'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { ButtonContext, LoginButtonContext } from '../App'
 
 
 
 function HoleSinglePage() {
     const [singleData, setSingleData] = useState();
-
+    const { buttonState, setButtonState } = useContext(ButtonContext)
+    const { loginButton, setLoginButton } = useContext(LoginButtonContext)
     const { singleId } = useParams()
     console.log(singleId);
 
@@ -55,6 +57,19 @@ function HoleSinglePage() {
 
     const [randomNumber, setRandomNumber] = useState(Math.floor(Math.random() * 8) + 1)
 
+    const token = sessionStorage.getItem("userToken")
+
+    function handleReservedOrNote() {
+        if (token) {
+            //we will write our logic 
+        } else {
+            console.log(buttonState);
+            if (buttonState === undefined || buttonState === false) {
+                setButtonState(true)
+            }
+        }
+    }
+
     return (
         <div>
             <ScrollNavBar />
@@ -74,7 +89,7 @@ function HoleSinglePage() {
 
 
                 <div className="hotelSingleWrapper">
-                    <button className="bookNow">
+                    <button className="bookNow" onClick={handleReservedOrNote}>
                         Reserve Or Book Now
                     </button>
                     <h1 className="hotelTitle">{singleData?.name}</h1>

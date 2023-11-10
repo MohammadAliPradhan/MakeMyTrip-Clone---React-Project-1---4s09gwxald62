@@ -18,9 +18,7 @@ import HoleSinglePage from "./HotelSinglePage/HoleSinglePage.jsx";
 import Somet from "./somet.jsx";
 import ListPage from "./ListPage/ListPage.jsx";
 import JustShow from "../justShow.jsx";
-import SingleProduct from "./SingleProduct.jsx";
-import CheckoutPage from "../FormData.jsx";
-
+import FormData from "../FormData.jsx";
 
 
 
@@ -29,7 +27,7 @@ export const AuthContext = createContext();
 export const LoginButtonContext = createContext();
 export const ApiDetails = createContext();
 function App() {
-  const [showHome, setShowHome] = useState(false)
+  const [showHome, setShowHome] = useState()
   const [buttonState, setButtonState] = useState();
   const [loginButton, setLoginButton] = useState();
   const [ApiInfo, setApiInfo] = useState([])
@@ -73,7 +71,7 @@ function App() {
                 <Route path="/list" element={<ListPage />} />
                 <Route path="/justshow" element={<JustShow />} />
                 <Route path="hotels/:singleId" element={<HoleSinglePage />} />
-                <Route path="/formdata" element={<CheckoutPage />} />
+                <Route path="/formdata" element={<FormData />} />
               </Routes>
 
 

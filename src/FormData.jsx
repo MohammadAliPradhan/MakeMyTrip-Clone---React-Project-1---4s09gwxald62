@@ -1,57 +1,63 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
-const CheckoutPage = () => {
-    const [userInfo, setUserInfo] = useState({
-        name: 'Mohammad Ali',
-        email: 'mdsali914@gmail.com',
-        contactNumber: '6263370106',
-        country: 'India',
-    });
+const FormData = () => {
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [selectedTime, setSelectedTime] = useState('12:00'); // Set default time
+    const [combinedDateTime, setCombinedDateTime] = useState('');
 
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    };
 
-    const userDetails = {
-        Name: "Mohammad Ali",
-        Email: "mdsali914@gmail.com",
-        ContactNumber: "6263370106",
-        Country: "India",
-        jfskdjf: "skfjksdjf"
-    }
-
-    // Add the appType here
-
-
-
-
-    const handleBooking = async () => {
-        try {
-            console.log();
-            const response = await axios.post(
-                'https://academics.newtonschool.co/api/v1/bookingportals/booking',
-                userDetails,  // Move the payload here
-                {
-                    headers: {
-                        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGQ2Mjc4OGY4MTQ3ZjA3OTY3YTUwYSIsImlhdCI6MTY5OTU3MDU5NywiZXhwIjoxNzMxMTA2NTk3fQ.82Ck338C4dDXlU-Blk-CF0u_NiqJr3aidIgxWCBgX9U`,
-                        projectID: '9sa80czkq1na',
-                    },
-                }
-            );
-
-            console.log('Booking successful:', response.data);
-        } catch (error) {
-            console.error('Booking failed:', error);
+    const handleTimeChange = (event) => {
+        if (event.target.value === NaN || event.target.value === '') {
+            setSelectedTime('12:00')
+        } else {
+            setSelectedTime(event.target.value);
         }
+
     };
 
     useEffect(() => {
-        handleBooking()
-    }, [])
+        // Update the combined date and time whenever either date or time changes
+        const combinedDateTimeValue = new Date(
+            selectedDate.getFullYear(),
+            selectedDate.getMonth(),
+            selectedDate.getDate(),
+            parseInt(selectedTime.split(':')[0], 10),
+            parseInt(selectedTime.split(':')[1], 10)
+        ).toISOString();
+
+        setCombinedDateTime(combinedDateTimeValue);
+    }, [selectedDate, selectedTime]);
+
+    const handleDayClick = (value, event) => {
+        console.log('Clicked day:', value);
+    };
 
     return (
         <div>
-
+            <h2>Interactive DateTime Picker</h2>
+            <div>
+                <label>Date:</label>
+                <Calendar onChange={handleDateChange} onClickDay={handleDayClick} value={selectedDate} />
+            </div>
+            <div>
+                <label>Time:</label>
+                <input type="time" value={selectedTime} onChange={handleTimeChange} />
+                <p>Selected Time: {selectedTime}</p>
+            </div>
+            <div>
+                <label>Combined Date and Time:</label>
+                <p>{combinedDateTime}</p>
+            </div>
         </div>
     );
 };
 
-export default CheckoutPage;
+
+export default FormData;
+
+
