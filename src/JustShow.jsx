@@ -1,8 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom';
 
 
-function justShow() {
+function JustShow() {
 
 
     const [hotels, SetHotels] = useState([]);
@@ -33,11 +34,14 @@ function justShow() {
     useEffect(() => {
         getMusicList(hotelId);
     }, [submitedValue])
+
+    const location = useLocation()
+    console.log(location);
     return (
         <>
-
+            hi
         </>
     );
 }
 
-export default justShow
+export default JustShow

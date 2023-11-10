@@ -5,17 +5,31 @@ import "./HotelSingleNavbar.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faCircleArrowLeft, faCircleRight, faCircleXmark, faLocation, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { createPortal } from 'react-dom'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { ButtonContext, LoginButtonContext } from '../App'
 
 
 
 function HoleSinglePage() {
+    const navigate = useNavigate();
     const [singleData, setSingleData] = useState();
     const { buttonState, setButtonState } = useContext(ButtonContext)
     const { loginButton, setLoginButton } = useContext(LoginButtonContext)
     const { singleId } = useParams()
+    const token = sessionStorage.getItem("userToken")
+
+    // I am sending data to some other place for the purpose of using it in booking page and payment page
+    const [item, setItem] = useState({
+        stateToken: "hello",
+        singleId,
+        token,
+
+
+    })
+    console.log(item.singleId);
+
+
     console.log(singleId);
 
 
@@ -57,10 +71,13 @@ function HoleSinglePage() {
 
     const [randomNumber, setRandomNumber] = useState(Math.floor(Math.random() * 8) + 1)
 
-    const token = sessionStorage.getItem("userToken")
+
+    console.log(token);
+
 
     function handleReservedOrNote() {
         if (token) {
+            navigate("/justshow", { state: { item } })
             //we will write our logic 
         } else {
             console.log(buttonState);

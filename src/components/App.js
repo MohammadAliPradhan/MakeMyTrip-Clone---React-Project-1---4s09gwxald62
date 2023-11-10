@@ -17,7 +17,7 @@ import { createContext, useState } from "react";
 import HoleSinglePage from "./HotelSinglePage/HoleSinglePage.jsx";
 import Somet from "./somet.jsx";
 import ListPage from "./ListPage/ListPage.jsx";
-import JustShow from "../justShow.jsx";
+import JustShow from "../JustShow.jsx";
 import FormData from "../FormData.jsx";
 
 
