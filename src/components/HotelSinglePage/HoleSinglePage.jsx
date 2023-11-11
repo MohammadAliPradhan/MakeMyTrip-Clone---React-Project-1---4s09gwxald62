@@ -12,6 +12,17 @@ import { ButtonContext, LoginButtonContext } from '../App'
 
 
 function HoleSinglePage() {
+    const location = useLocation();
+    console.log("final call", location);
+    // Here I am getting two important dates
+    const checkInDate = location.state.shareData.state.selectedDate;
+    const checkOutDate = location.state.shareData.state.selectedDateCheckOut;
+
+    const checkInClear = new Date(checkInDate).toISOString();
+    const checkOutClear = new Date(checkOutDate).toISOString();
+
+
+
     const navigate = useNavigate();
     const [singleData, setSingleData] = useState();
     const { buttonState, setButtonState } = useContext(ButtonContext)
@@ -21,15 +32,13 @@ function HoleSinglePage() {
 
     // I am sending data to some other place for the purpose of using it in booking page and payment page
     const [item, setItem] = useState({
-        stateToken: "hello",
+        checkInClear,
+        checkOutClear,
         singleId,
-        token,
-
-
+        token
     })
 
-    const location = useLocation();
-    console.log("final call", location);
+
     console.log(item.singleId);
 
 
