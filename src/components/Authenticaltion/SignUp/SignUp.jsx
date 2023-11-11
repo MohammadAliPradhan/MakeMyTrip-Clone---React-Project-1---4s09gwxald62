@@ -31,8 +31,7 @@ function SignUp() {
             const token = res.data.token;
 
             if (token) {
-                sessionStorage.setItem("userToken", token)
-                sessionStorage.setItem("user", JSON.stringify(res.data.data.user))
+
                 setButtonState(false)
 
             }

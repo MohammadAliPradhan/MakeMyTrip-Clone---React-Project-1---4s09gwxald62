@@ -111,7 +111,6 @@ function HoleSinglePage() {
                         <img src={singleData?.images[slideIndex]} alt="" className="sliderImg" />
                     </div>
                     <FontAwesomeIcon icon={faCircleRight} className='arrow' onClick={() => handlleMove("right")} />
-
                 </div>}
 
 
