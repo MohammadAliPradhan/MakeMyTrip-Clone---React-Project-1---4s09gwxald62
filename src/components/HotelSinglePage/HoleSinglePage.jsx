@@ -5,7 +5,7 @@ import "./HotelSingleNavbar.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faCircleArrowLeft, faCircleRight, faCircleXmark, faLocation, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { createPortal } from 'react-dom'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { ButtonContext, LoginButtonContext } from '../App'
 
@@ -27,6 +27,9 @@ function HoleSinglePage() {
 
 
     })
+
+    const location = useLocation();
+    console.log("final call", location);
     console.log(item.singleId);
 
 

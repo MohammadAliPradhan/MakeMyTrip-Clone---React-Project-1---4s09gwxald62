@@ -7,6 +7,8 @@ import SearchItem from '../../SearchItem/SearchItem';
 import ScrollNavBar from '../../ScrollNavBar/ScrollNavBar';
 import { ApiDetails } from '../App';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+
 
 
 function ListPage() {
@@ -21,7 +23,13 @@ function ListPage() {
     const listItemb = localStorage.getItem("listItem")
     const listItemc = localStorage.getItem("locationApi")
 
+    const location = useLocation();
+    console.log("list page", location);
 
+
+    //navigate location
+    const [navigateLocation, setNavigateLocation] = useState(location)
+    console.log(navigateLocation);
 
 
 
@@ -155,7 +163,7 @@ function ListPage() {
                         <h1>Hotels in {ApiInfo[0]?.location ? ApiInfo[0].location : "Loading"}</h1>
                         {
                             ApiInfo.map((apis, index) => (
-                                <SearchItem key={index} data={apis} />
+                                <SearchItem key={index} data={apis} state={navigateLocation} />
                             ))
                         }
                     </div>

@@ -1,4 +1,4 @@
-.Details{
+.Details {
     height: 319px;
     width: 1200px;
     background-color: #fff;
@@ -8,9 +8,8 @@
     border-radius: 8px;
 }
 
-.DetailsParent{
+.DetailsParent {
     display: flex;
     justify-content: center;
     background-color: #071726;
 }
-

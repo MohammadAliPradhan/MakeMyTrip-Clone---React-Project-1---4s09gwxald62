@@ -9,3 +9,31 @@
 .searchBtn {
     cursor: pointer;
 }
+
+.calendarOn {
+    position: absolute;
+}
+
+.calendarCross {
+    position: absolute;
+    top: 424px;
+    left: 710px;
+    padding: 10px;
+    background-color: red;
+    cursor: pointer;
+}
+
+.something {
+    cursor: pointer;
+}
+
+.calendarCrossTwo {
+    position: absolute;
+    top: 424px;
+    right: 140px;
+    background-color: red;
+    padding: 10px;
+    background-color: red;
+    cursor: pointer;
+
+}

@@ -4,6 +4,10 @@ import "./HotelDetails.css"
 import axios from 'axios';
 import { ApiDetails } from '../App';
 import Footer from '../Footer/Footer';
+import Calendar from 'react-calendar';
+import { CropSquareSharp } from '@mui/icons-material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendar, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 function HotelDetails() {
@@ -14,10 +18,39 @@ function HotelDetails() {
         destination: "Bangalore",
         checkIn: 6
     })
+
+    const [calendarState, setCalendarState] = useState({
+        checkInState: false,
+        checkOut: false,
+    })
+    const [selectedDate, setSelectedDate] = useState('12 Nov')
+    const [selectedDateCheckOut, setSelectedDateCheckOut] = useState("13 Nov")
     const navigate = useNavigate()
 
     const [submittedHotelDetails, setSubmittedHotelDetails] = useState("");
     const [flag, setFlag] = useState(false);
+
+    //This one is the first one change of the input
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+        console.log(selectedDate);
+    };
+    const handleDayClick = (value, event) => {
+        console.log('Clicked day:', value);
+    };
+
+    // This is the second second change of value
+
+    const handleDateChangeCheckOut = (date) => {
+        setSelectedDateCheckOut(date)
+        console.log("This is ", selectedDateCheckOut);
+    }
+
+    const handleDayClickCheckOut = (value, eventc) => {
+        console.log(value);
+    }
+
+
 
     async function getHotelDetails(location = "") {
         const config = {
@@ -36,7 +69,9 @@ function HotelDetails() {
             JSON.stringify(sessionStorage.setItem('proxy', JSON.stringify(response.data.data.hotels)))
             localStorage.setItem("locationApi", response.data.data.hotels[0].location)
             localStorage.setItem("listItem", response.data.data.hotels[0].location)
-            navigate("/list")
+            navigate("/list", { state: { selectedDate, selectedDateCheckOut } })
+            // navigate("/justshow", { state: { item } })
+
         }
         console.log("response", response)
 
@@ -61,10 +96,29 @@ function HotelDetails() {
         setSubmittedHotelDetails(hotelName.destination)
     }
 
+    function handleInputClick() {
+        setCalendarState((oldState) => ({
+            ...oldState,
+            checkInState: !oldState.checkInState
+        }));
+    }
+
+    function handleInputClickTwo() {
+        setCalendarState((oldState) => ({
+            ...oldState,
+            checkOut: !oldState.checkOut
+        }));
+    }
+
+
+    console.log(calendarState.checkInState);
+
 
 
     return (
         <>
+
+
             <div className="DetailsParent">
                 <div className='Details'>
                     <form className='ticket-type' onSubmit={handleSubmit}>
@@ -136,30 +190,41 @@ function HotelDetails() {
                             <span>
                                 Check In
                             </span>
-                            <h1><input
-                                type="number"
+
+                            {/* //do the work */}
+                            {calendarState.checkInState ? < div >
+                                <span onClick={() => setCalendarState(!calendarState.checkInState)} className='calendarCross'>Close</span>
+                                <Calendar className="calendarOn" onChange={handleDateChange} onClickDay={handleDayClick} value={selectedDate} />
+                            </div> : <h1><input
+                                type="text"
                                 className='something'
-                                onChange={(e) => handleOnCick(e, 'checkIn')}
-                                value={hotelName.checkIn}
+                                value={selectedDate}
+                                onClick={handleInputClick}
+
+                            /></h1>}
 
 
-
-
-                            /></h1>
-                            <span>DEL, Delhi Airport India</span>
+                            <span onClick={handleInputClick}><FontAwesomeIcon icon={faCalendar} /></span>
                         </div>
 
                         <div className="flight">
                             <span>
                                 Check Out
                             </span>
-                            <h1><input
+
+                            {/* do the work two */}
+                            {calendarState.checkOut ? <div >
+                                <span onClick={() => setCalendarState(!calendarState.checkOut)} className='calendarCrossTwo'>Close</span>
+                                <Calendar className="calendarOn" onChange={handleDateChangeCheckOut} onClickDay={handleDayClickCheckOut} value={selectedDateCheckOut} />
+                            </div> : <h1><input
+
                                 type="text"
                                 className='something'
-                                placeholder='Delhi'
+                                value={selectedDateCheckOut}
+                                onClick={handleInputClickTwo}
 
-                            /></h1>
-                            <span>DEL, Delhi Airport India</span>
+                            /></h1>}
+                            <span><FontAwesomeIcon icon={faCalendar} /></span>
                         </div>
 
                         <div className="flight">
@@ -189,7 +254,7 @@ function HotelDetails() {
 
                 </div>
 
-            </div>
+            </div >
 
             <Outlet />
 

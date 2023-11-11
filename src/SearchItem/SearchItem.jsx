@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./searchItem.css"
 import Travel from '../assets/images/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg'
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 
 function SearchItem(props) {
@@ -10,14 +11,23 @@ function SearchItem(props) {
 
 
     const { data } = props;
+    const [shareData, setShareData] = useState('')
     console.log("these are props", data);
 
-    function handleOnClick() {
-        navigate(`/hotels/${data._id}`)
-    }
+
 
     console.log(data._id);
 
+    const { state } = props;
+
+    useEffect(() => {
+        setShareData(state)
+        console.log("This is loce", shareData)
+    }, [shareData])
+
+    function handleOnClick() {
+        navigate(`/hotels/${data._id}`, { state: { shareData } })
+    }
 
 
     return (
