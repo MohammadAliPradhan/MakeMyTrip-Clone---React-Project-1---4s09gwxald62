@@ -54,8 +54,8 @@ function JustShow() {
     const checkInUI = isoToHumanReadable(checkIn);
     const checkOutUi = isoToHumanReadable(checkout);
 
-    const [entranceInfo, setEntranceInfo] = useState(checkIn)
-    const [endInfo, setEndInfo] = useState(checkout)
+    const [entranceInfo, setEntranceInfo] = useState(checkInUI)
+    const [endInfo, setEndInfo] = useState(checkOutUi)
     const [modalA, SetmodalA] = useState();
 
 
