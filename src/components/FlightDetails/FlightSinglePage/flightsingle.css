@@ -1,0 +1,153 @@
+.flight-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 200px;
+    margin: auto;
+    width: 1024px;
+    border-radius: 8px;
+    background-color: white;
+    z-index: 30;
+
+}
+
+.flight-details {
+    display: flex;
+    align-items: center;
+    flex: 2;
+    height: 200px;
+    border: 1px solid #EAEAEA;
+    border-radius: 8px;
+}
+
+.airways-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.air-logo {
+    font-size: 48px;
+    padding-left: 4px;
+    width: 100px;
+    height: 164px;
+    margin-right: 10px;
+}
+
+.flight-name {
+    font-size: 10px;
+    padding: 4px;
+}
+
+.timings {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.departure {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.departureDate {
+    font-size: 12px;
+}
+
+.time-travel {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.totaltime {
+    font-size: 12px;
+}
+
+.isdirect {
+    font-size: 10px;
+    margin-left: 4px;
+}
+
+.arrival {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.arrival-time {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.arrivalDate {
+    font-size: 12px;
+}
+
+.price-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 200px;
+    border: 1px solid #EAEAEA;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+.luggage-icon {
+    padding: 8px;
+    align-self: self-end
+}
+
+.luggage-detail {
+    align-self: self-end;
+    padding: 4px;
+    font-size: 10px;
+}
+
+.price {
+    align-self: self-end;
+    font-weight: bold;
+}
+
+.price-details {
+    font-weight: lighter;
+    align-self: self-end;
+    font-size: 8px;
+}
+
+.see-flight {
+    border: 1px solid #73AFF0;
+    background-color: #FFFFFF;
+    color: #73AFF0;
+    width: 300px;
+    height: 30px;
+    cursor: pointer;
+    margin-top: 40px;
+
+    &:hover {
+        background-color: #73AFF0;
+        color: #FFFFFF;
+    }
+}
+
+.container-flight-single {
+    background-color: #E5EEF4;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+}
+
+.bluecolorcontainer {
+    background-color: #0B2542;
+    position: absolute;
+    width: 100vw;
+    height: 340px;
+    display: flex;
+    gap: 10px;
+
+}
