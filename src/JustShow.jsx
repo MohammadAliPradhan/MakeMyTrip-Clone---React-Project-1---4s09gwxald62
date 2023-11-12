@@ -1,15 +1,16 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { json, useLocation, useNavigate } from 'react-router-dom';
 import "./JustShow.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import ModalYes from './components/ModalYes';
 import ScrollNavBar from './ScrollNavBar/ScrollNavBar';
+import { ModalForBooking } from './components/App';
+
 
 function JustShow() {
-
-
+    const { modalA, SetmodalA } = useContext(ModalForBooking);
     const [hotels, SetHotels] = useState([]);
     const [inputVal, setInputVal] = useState({
         val: 'proxy',
@@ -56,7 +57,6 @@ function JustShow() {
 
     const [entranceInfo, setEntranceInfo] = useState(checkInUI)
     const [endInfo, setEndInfo] = useState(checkOutUi)
-    const [modalA, SetmodalA] = useState();
 
 
 
@@ -107,11 +107,7 @@ function JustShow() {
         getMusicList(hotelId);
     }, [])
 
-    function handleOverlayClick(event) {
-        if (event.target === event.currentTarget) {
-            SetmodalA(false);
-        }
-    }
+
 
 
     return (
@@ -171,11 +167,7 @@ function JustShow() {
 
                             <button className='hote-book-btn' type="submit">Submit Payment</button>                        </form>
                     </div>
-                    {modalA && (
-                        <div className="modal-overlay" onClick={handleOverlayClick}>
-                            <ModalYes />
-                        </div>
-                    )}
+                    <ModalYes />
 
 
                     {/* payment div ends here */}
