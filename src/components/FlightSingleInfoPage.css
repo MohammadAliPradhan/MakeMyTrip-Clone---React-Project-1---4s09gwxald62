@@ -1,0 +1,62 @@
+.sectionsingle {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sectionsingle .flight-details h3 {
+    color: #3498db;
+}
+
+.flight-details-single {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ecf0f1;
+    padding: 10px 0;
+    margin-bottom: 15px;
+}
+
+.flight-details-single span {
+    color: #7f8c8d;
+}
+
+.amenities h2 {
+    color: #129e12;
+}
+
+.booking-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.booking-info div {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.booking-info div:hover {
+    background-color: #2980b9;
+}
+
+.amenities {
+    margin-top: 20px;
+}
+
+.amenities ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.amenities li {
+    margin-bottom: 10px;
+}

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ScrollNavBar from '../../../ScrollNavBar/ScrollNavBar'
 import axios from 'axios'
 import { getHeaderWithProjectId } from '../../Authenticaltion/utils/service'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -29,9 +30,13 @@ function FLightSinglePage() {
         getFlightDetails()
     }, [])
 
-    console.log(FlightAPiDetails);
+    const navigate = useNavigate();
+
 
     //Api Information ends here 
+    function handleNavigate(infos) {
+        navigate(`${infos}`)
+    }
     return (
         <>
             <ScrollNavBar />
@@ -48,7 +53,7 @@ function FLightSinglePage() {
                                 <span className="flight-name">Ethihad Airways</span>
                             </div>
                             <div className="timings">
-                                <span className="departure">09:10</span>
+                                <span className="departure">{details.departureTime}</span>
                                 <span className="departureDate">{ }-19 Aug</span>
                             </div>
                             <div className="time-travel">
@@ -57,7 +62,7 @@ function FLightSinglePage() {
                                 <span className="isdirect">{details.stops === 0 ? "Direct" : "Connected"}</span>
                             </div>
                             <div className="arrival">
-                                <span className="arrival-time">11:15</span>
+                                <span className="arrival-time">{details.arrivalTime}</span>
                                 <span className="arrivalDate">AUH -19 Aug</span>
                             </div>
                         </div>
@@ -68,7 +73,8 @@ function FLightSinglePage() {
                             <span className="luggage-detail">Included-cabin bag</span>
                             <span className="price">INR {details.ticketPrice}</span>
                             <span className="price-details">Total price for all travellers</span>
-                            <button className="see-flight">See flight</button>
+                            <button onClick={() => handleNavigate(details._id)} className="see-flight">See flight</button>
+
                         </div>
 
                     </div>
