@@ -19,6 +19,8 @@ import Somet from "./somet.jsx";
 import ListPage from "./ListPage/ListPage.jsx";
 import JustShow from "../JustShow.jsx";
 import FormData from "../FormData.jsx";
+import FlightTest from "../FlightTest.jsx";
+import ModalYes from "./ModalYes.jsx";
 
 
 
@@ -72,6 +74,7 @@ function App() {
                 <Route path="/justshow" element={<JustShow />} />
                 <Route path="hotels/:singleId" element={<HoleSinglePage />} />
                 <Route path="/formdata" element={<FormData />} />
+                <Route path="/getflight" element={<FlightTest />} />
               </Routes>
 
 

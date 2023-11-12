@@ -31,18 +31,6 @@ function HoleSinglePage() {
     const token = sessionStorage.getItem("userToken")
 
     // I am sending data to some other place for the purpose of using it in booking page and payment page
-    const [item, setItem] = useState({
-        checkInClear,
-        checkOutClear,
-        singleId,
-        token
-    })
-
-
-    console.log(item.singleId);
-
-
-    console.log(singleId);
 
 
     const getSingleDetails = async () => {
@@ -58,6 +46,24 @@ function HoleSinglePage() {
     useEffect(() => {
         getSingleDetails()
     }, [])
+
+
+
+
+
+
+
+    const [item, setItem] = useState({
+        checkInClear,
+        checkOutClear,
+        singleId,
+    })
+
+
+    console.log(item.singleId);
+
+
+    console.log(singleId);
 
     console.log("this is state", singleData);
     const [slideIndex, setSlideIndex] = useState(0)
@@ -89,15 +95,24 @@ function HoleSinglePage() {
 
     function handleReservedOrNote() {
         if (token) {
-            navigate("/justshow", { state: { item } })
-            //we will write our logic 
+            if (singleData) {
+                // If both token and singleData are present, navigate with the updated state
+                navigate("/justshow", { state: { item: { ...item, singleData } } });
+            } else {
+                // If singleData is not available, you might want to handle this case
+                console.error("Single data is not available");
+            }
         } else {
             console.log(buttonState);
             if (buttonState === undefined || buttonState === false) {
-                setButtonState(true)
+                setButtonState(true);
             }
         }
     }
+
+
+
+
 
     return (
         <div>
