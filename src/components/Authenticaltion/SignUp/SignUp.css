@@ -11,18 +11,27 @@
     z-index: 12;
 }
 
+.authImg {
+    width: 300px;
+    height: 510px;
+}
+
 
 .formContainer {
+
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     z-index: 11;
+    justify-content: space-between;
+    background-color: #fff;
     pointer-events: auto;
-    background-color: rebeccapurple;
     width: 800px;
     height: 510px;
+}
+
+
+.onsubmitBtn {
+    cursor: pointer;
 }
 
 .close-button {
@@ -32,4 +41,35 @@
     cursor: pointer;
     font-size: 20px;
     color: #e60c0c;
+}
+
+.form-container-everythimg {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    position: absolute;
+    right: 100px;
+    top: 90px;
+    align-items: center;
+    font-size: x-large;
+}
+
+#AlreadyaUser {
+    cursor: pointer;
+    border: 3px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+
+    &:hover {
+        background-color: rgb(228, 189, 189);
+    }
+}
+
+.buttonRelatedStuff {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

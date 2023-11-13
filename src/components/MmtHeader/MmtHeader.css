@@ -23,7 +23,7 @@
 
 .componentsStyle {
     display: flex;
-    gap: 25px;
+    gap: 45px;
 
 }
 
@@ -45,4 +45,24 @@
 .single-icon-component {
     display: flex;
     flex-direction: row;
+}
+
+.single-single-component {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+}
+
+.single-single-component li {
+    position: relative;
+    top: 5px;
+
+
+}
+
+.textdecon {
+    text-decoration: none;
 }

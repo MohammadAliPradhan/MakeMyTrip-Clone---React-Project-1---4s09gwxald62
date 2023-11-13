@@ -1,12 +1,13 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
-import { json, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, json, useLocation, useNavigate } from 'react-router-dom';
 import "./JustShow.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import ModalYes from './components/ModalYes';
 import ScrollNavBar from './ScrollNavBar/ScrollNavBar';
 import { ModalForBooking } from './components/App';
+import Footer from './components/Footer/Footer';
 
 
 function JustShow() {
@@ -175,6 +176,9 @@ function JustShow() {
 
 
             </div ></div>
+
+            <div id='footerchange'><Footer /></div>
+
 
         </>
     );

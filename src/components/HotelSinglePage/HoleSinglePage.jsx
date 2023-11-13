@@ -8,6 +8,7 @@ import { createPortal } from 'react-dom'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { ButtonContext, LoginButtonContext } from '../App'
+import Footer from '../Footer/Footer'
 
 
 
@@ -189,7 +190,10 @@ function HoleSinglePage() {
                     </div>
                 </div>
             </div>
+            <Footer />
+
         </div >
+
     )
 }
 

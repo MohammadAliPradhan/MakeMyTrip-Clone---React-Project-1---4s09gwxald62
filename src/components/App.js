@@ -25,6 +25,7 @@ import FLightSinglePage from "./FlightDetails/FlightSinglePage/FLightSinglePage.
 import FlightSingleInfoPage from "./FlightSingleInfoPage.jsx";
 import PaymentAndBookin from "./FlightDetails/PaymentAndBookin.jsx";
 import PaymentConfirmationModal from "./FlightDetails/PaymentConfimation/PaymentConfirmationModal.jsx";
+import ComingSoon from "./ComingSoon/ComingSoon.jsx";
 
 
 
@@ -63,15 +64,17 @@ function App() {
                   <Routes>
                     <Route element={<NavBar />}>
                       <Route element={<MmtHeader />}>
-                        <Route index element={<Home />} />
+                        <Route index element={<Home />} >
+
+                        </Route>
                         <Route path="flight" element={<FlightDetails />}>
                           <Route index element={<FlightOffer />} />
                         </Route>
                         <Route path="hotel" element={<HotelDetails />}>
-                          <Route index element={<HotelOffer />} />
+                          <Route index element={<FlightOffer />} />
                         </Route>
                         <Route path="train" element={<TrainDetails />} >
-                          <Route index element={<TrainOffer />} />
+                          <Route index element={<FlightOffer />} />
                         </Route>
                       </Route>
                     </Route>
@@ -87,7 +90,11 @@ function App() {
                     <Route path="flightSingle/:flightId" element={<FlightSingleInfoPage />} />
                     <Route path="payment" element={<PaymentAndBookin />} />
                     <Route path="paymentconfimation" element={<PaymentConfirmationModal />} />
+                    <Route path="*" element={<ComingSoon />} />
                   </Routes>
+
+
+
 
 
 

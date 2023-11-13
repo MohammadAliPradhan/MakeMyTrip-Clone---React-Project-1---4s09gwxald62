@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet, Link } from 'react-router-dom'
 import "./MmtHeader.css"
-import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons'
+import { faHotel, faPlaneDeparture, faTrain } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
@@ -12,24 +12,51 @@ function MmtHeader() {
                 <div className='MmtParent'>
                     <div className="componentsStyle">
 
-                        <div> <Link to="/flight">
-                            <FontAwesomeIcon icon={faPlaneDeparture} size="2xl" style={{ color: "#4f8bd8", }} />
-                            <li className='icon-no-link'>flights</li></Link>
+                        <div className='single-single-component'> <Link to="/flight" className='textdecon'>
+                            <FontAwesomeIcon icon={faPlaneDeparture} size="2xl" style={{ color: "black  ", }} />
+                            <li className='icon-no-link'>Flights</li></Link>
                         </div>
 
 
-                        <div><Link to="/hotel">
-                            <FontAwesomeIcon icon={faPlaneDeparture} size="2xl" style={{ color: "#4f8bd8", }} />
-                            <li className='icon-no-link'>hotels</li>
+                        <div className='single-single-component'><Link to="/hotel" className='textdecon'>
+                            <FontAwesomeIcon icon={faHotel} size="2xl" style={{ color: "black", }} />
+                            <li className='icon-no-link'>Hotels</li>
                         </Link>
                         </div>
-                        <div className="mobDontShow">homestays</div>
-                        <div className="mobDontShow">holiday</div>
-                        <Link to="/train"><li className='icon-no-link'>trains</li></Link>
-                        <div className="mobDontShow">buses</div>
-                        <div className="mobDontShow">cabs</div>
-                        <div className="mobDontShow">forexcard</div>
-                        <div className="mobDontShow">travelinsurance</div>
+
+
+                        <div className='single-single-component'><Link to="/hotel" className='textdecon'>
+                            <FontAwesomeIcon icon={faHotel} size="2xl" style={{ color: "black", }} />
+                            <li className='icon-no-link'>HomeStays</li>
+                        </Link>
+                        </div>
+
+                        <div className='single-single-component'><Link to="/hotel" className='textdecon'>
+                            <FontAwesomeIcon icon={faHotel} size="2xl" style={{ color: "black", }} />
+                            <li className='icon-no-link'>Holidays</li>
+                        </Link>
+                        </div>
+
+
+                        <div className='single-single-component'><Link to="/train" className='textdecon'>
+                            <FontAwesomeIcon icon={faTrain} size="2xl" style={{ color: "black", }} />
+                            <li className='icon-no-link'>Trains</li></Link>
+                        </div>
+
+                        <div className='single-single-component'><Link to="/hotel" className='textdecon'>
+                            <FontAwesomeIcon icon={faHotel} size="2xl" style={{ color: "black", }} />
+                            <li className='icon-no-link'>Buses</li>
+                        </Link>
+                        </div>
+
+
+                        <div className='single-single-component'><Link to="/hotel" className='textdecon'>
+                            <FontAwesomeIcon icon={faHotel} size="2xl" style={{ color: "black", }} />
+                            <li className='icon-no-link'>Cabs</li>
+                        </Link>
+                        </div>
+
+
 
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 .footer-wrapper {
-    position: sticky;
+    position: relative;
     bottom: 0;
     height: 10rem;
     width: 100%;

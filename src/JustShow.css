@@ -134,3 +134,8 @@
     height: 400px;
     background-color: #15457c;
 }
+
+#footerchange {
+    position: relative;
+    top: 600px;
+}

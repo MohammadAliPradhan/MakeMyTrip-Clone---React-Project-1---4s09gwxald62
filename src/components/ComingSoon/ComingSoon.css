@@ -1,0 +1,39 @@
+/* src/components/ComingSoonPage.css */
+.coming-soon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #666;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Optional: Add some animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.coming-soon-container {
+    animation: fadeIn 1s ease-in-out;
+}

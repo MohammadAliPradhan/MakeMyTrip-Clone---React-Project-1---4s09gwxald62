@@ -76,48 +76,57 @@ function SignUp() {
 
 
             <form action="" className='formContainer' onSubmit={handleSubmit}>
+
                 <div className="close-button" onClick={handleCloseModal}>
                     <span>X</span>
                 </div>
 
-                <div>
-                    <label htmlFor="fullname">Name:</label>
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        ref={nameRef}
-                    />
+                <div ><img src="https://imgak.mmtcdn.com/pwa_v3/pwa_header_assets/loginPersuassionValley.webp" alt="" className='authImg' /></div>
+                <div className='form-container-everythimg'>
+                    <div>
+                        <label htmlFor="fullname">Name:</label>
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            ref={nameRef}
+                        />
 
+
+                    </div>
+
+                    <div>
+                        <label htmlFor="email">Email:</label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            ref={emailRef}
+                        />
+
+                    </div>
+
+                    <div>
+                        <label htmlFor="password">Password:</label>
+                        <input type="password"
+                            name="password"
+                            id="password"
+                            ref={passwordRef}
+                        />
+                    </div>
+
+                    <input type="submit" value="signup" id='AlreadyaUser' />
+
+                    {/* <LoginButton /> */}
+                    <br />
+                    <br />
+                    <div className='buttonRelatedStuff'>
+                        <h6>Already a user</h6>
+                        <button onClick={clickthis} id='AlreadyaUser'><span>Click Here</span> </button>
+                    </div>
 
                 </div>
 
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        ref={emailRef}
-                    />
-
-                </div>
-
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password"
-                        name="password"
-                        id="password"
-                        ref={passwordRef}
-                    />
-                </div>
-
-                <input type="submit" value="signup" />
-
-                {/* <LoginButton /> */}
-                <br />
-                <br />
-                <button onClick={clickthis}>Click this</button>
 
 
 

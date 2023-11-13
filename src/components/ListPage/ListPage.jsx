@@ -8,6 +8,7 @@ import ScrollNavBar from '../../ScrollNavBar/ScrollNavBar';
 import { ApiDetails } from '../App';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 
 
@@ -169,6 +170,7 @@ function ListPage() {
                     </div>
                 </div>
             </div>
+            <Footer />
 
         </div>
     )

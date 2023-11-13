@@ -257,6 +257,8 @@ function HotelDetails() {
             </div >
 
             <Outlet />
+            <Footer />
+
 
         </>
 

@@ -77,38 +77,42 @@ function Login() {
 
         < div className='parentSignup' onClick={handleOverlayClick}>
 
+
             {/* <Outlet /> */}
 
             <form action="" className='formContainer' onSubmit={handleSubmit}>
                 <div className="close-button" onClick={handleCloseModal}>
                     <span>X</span>
                 </div>
+                <div ><img src="https://imgak.mmtcdn.com/pwa_v3/pwa_header_assets/loginPersuassionValley.webp" alt="" className='authImg' /></div>
 
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        ref={emailRef}
-                    />
+                <div className='form-container-everythimg'>
+                    <div >
+                        <label htmlFor="email">Email:</label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            ref={emailRef}
+                        />
+
+                    </div>
+
+                    <div>
+                        <label htmlFor="password">Password:</label>
+                        <input type="password"
+                            name="password"
+                            id="password"
+                            ref={passwordRef}
+                        />
+                    </div>
+
+                    <input type="submit" value="Login" id='AlreadyaUser' />
+
+                    {/* <LoginButton /> */}
 
                 </div>
 
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password"
-                        name="password"
-                        id="password"
-                        ref={passwordRef}
-                    />
-                </div>
-
-                <input type="submit" value="Login" />
-
-                {/* <LoginButton /> */}
-                <br />
-                <br />
 
 
 

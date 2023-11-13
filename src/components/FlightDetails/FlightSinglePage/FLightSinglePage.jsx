@@ -6,6 +6,7 @@ import ScrollNavBar from '../../../ScrollNavBar/ScrollNavBar'
 import axios from 'axios'
 import { getHeaderWithProjectId } from '../../Authenticaltion/utils/service'
 import { useNavigate } from 'react-router-dom'
+import Footer from '../../Footer/Footer'
 
 
 
@@ -82,6 +83,7 @@ function FLightSinglePage() {
 
 
             </div>
+
 
 
 

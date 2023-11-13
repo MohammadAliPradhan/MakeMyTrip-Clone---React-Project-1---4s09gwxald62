@@ -3,6 +3,7 @@ import "../../components/AllDetails.css"
 import { NavLink, Outlet } from 'react-router-dom'
 import "./FlightDetails.css"
 import icon from "../../assets/images/fontAwesom/circle-check-solid.svg"
+import Footer from '../Footer/Footer'
 
 function FlightDetails() {
 
@@ -141,8 +142,10 @@ function FlightDetails() {
                 </div>
 
             </div>
+            <div className='footerfix'><Footer /></div>
 
             <Outlet />
+
         </>
 
 
