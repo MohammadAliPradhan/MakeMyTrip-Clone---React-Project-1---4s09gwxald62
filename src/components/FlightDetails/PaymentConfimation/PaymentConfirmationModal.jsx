@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./PaymentConfirmatin.css"
 import { createPortal } from 'react-dom'
+import { ModalForFlightBooking } from '../../App'
+
 
 function PaymentConfirmationModal() {
-    const [test, setTest] = useState(true)
+    const { test, setTest } = useContext(ModalForFlightBooking)
     function handleOverLayClick(event) {
         if (event.target === event.currentTarget) {
             setTest(false)

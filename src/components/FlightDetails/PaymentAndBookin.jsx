@@ -1,23 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./Payment.css"
 import ScrollNavBar from '../../ScrollNavBar/ScrollNavBar'
 import { useLocation } from 'react-router-dom'
 import PaymentConfirmationModal from './PaymentConfimation/PaymentConfirmationModal';
+import { ModalForFlightBooking } from '../App';
+
 function PaymentAndBookin() {
 
     const location = useLocation();
     console.log();
-
-    function handleSubmit() {
-
+    const { test, setTest } = useContext(ModalForFlightBooking)
+    function handleSubmit(e) {
+        e.preventDefault();
+        setTest(true)
     }
 
     return (
         <>
+
             <ScrollNavBar />
+
             <div className='payment-container'>
                 <div class="payment-method">
-                    <form className='form-parent-just' onClick={handleSubmit}>
+                    <form className='form-parent-just' onSubmit={handleSubmit}>
                         <h2 className='payment-method-h2'>Payment Method</h2>
 
                         <div class="form-group">

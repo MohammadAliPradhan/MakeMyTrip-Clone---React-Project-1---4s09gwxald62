@@ -1,6 +1,10 @@
 .payment-container {
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
+    position: relative;
+    top: 40px;
+    left: 400px;
+    align-items: center;
+    position: relative;
+    bottom: 100px;
 }

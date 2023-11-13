@@ -33,7 +33,9 @@ export const AuthContext = createContext();
 export const LoginButtonContext = createContext();
 export const ApiDetails = createContext();
 export const ModalForBooking = createContext();
+export const ModalForFlightBooking = createContext();;
 function App() {
+  const [test, setTest] = useState(false)
   const [modalA, SetmodalA] = useState();
   const [showHome, setShowHome] = useState()
   const [buttonState, setButtonState] = useState();
@@ -49,51 +51,52 @@ function App() {
   }
   const [isLoggedin, setIsLoggedIn] = useState(isUserLoggedIn)
 
-  console.log(isLoggedin);
 
   return (
     <>
-      <ModalForBooking.Provider value={{ modalA, SetmodalA }}>
-        <ApiDetails.Provider value={{ ApiInfo, setApiInfo }}>
-          <LoginButtonContext.Provider value={{ loginButton, setLoginButton }}>
-            <ButtonContext.Provider value={{ buttonState, setButtonState }}>
-              <AuthContext.Provider value={{ isLoggedin, setIsLoggedIn }} >
-                <Routes>
-                  <Route element={<NavBar />}>
-                    <Route element={<MmtHeader />}>
-                      <Route index element={<Home />} />
-                      <Route path="flight" element={<FlightDetails />}>
-                        <Route index element={<FlightOffer />} />
-                      </Route>
-                      <Route path="hotel" element={<HotelDetails />}>
-                        <Route index element={<HotelOffer />} />
-                      </Route>
-                      <Route path="train" element={<TrainDetails />} >
-                        <Route index element={<TrainOffer />} />
+      <ModalForFlightBooking.Provider value={{ test, setTest }}>
+        <ModalForBooking.Provider value={{ modalA, SetmodalA }}>
+          <ApiDetails.Provider value={{ ApiInfo, setApiInfo }}>
+            <LoginButtonContext.Provider value={{ loginButton, setLoginButton }}>
+              <ButtonContext.Provider value={{ buttonState, setButtonState }}>
+                <AuthContext.Provider value={{ isLoggedin, setIsLoggedIn }} >
+                  <Routes>
+                    <Route element={<NavBar />}>
+                      <Route element={<MmtHeader />}>
+                        <Route index element={<Home />} />
+                        <Route path="flight" element={<FlightDetails />}>
+                          <Route index element={<FlightOffer />} />
+                        </Route>
+                        <Route path="hotel" element={<HotelDetails />}>
+                          <Route index element={<HotelOffer />} />
+                        </Route>
+                        <Route path="train" element={<TrainDetails />} >
+                          <Route index element={<TrainOffer />} />
+                        </Route>
                       </Route>
                     </Route>
-                  </Route>
-                  <Route path="/profile" element={<Profile />} />
+                    <Route path="/profile" element={<Profile />} />
 
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/list" element={<ListPage />} />
-                  <Route path="/justshow" element={<JustShow />} />
-                  <Route path="hotels/:singleId" element={<HoleSinglePage />} />
-                  <Route path="/formdata" element={<FormData />} />
-                  <Route path="/getflight" element={<FlightTest />} />
-                  <Route path="flightsingle" element={<FLightSinglePage />} />
-                  <Route path="flightSingle/:flightId" element={<FlightSingleInfoPage />} />
-                  <Route path="payment" element={<PaymentAndBookin />} />
-                  <Route path="paymentconfimation" element={<PaymentConfirmationModal />} />
-                </Routes>
-
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/list" element={<ListPage />} />
+                    <Route path="/justshow" element={<JustShow />} />
+                    <Route path="hotels/:singleId" element={<HoleSinglePage />} />
+                    <Route path="/formdata" element={<FormData />} />
+                    <Route path="/getflight" element={<FlightTest />} />
+                    <Route path="flightsingle" element={<FLightSinglePage />} />
+                    <Route path="flightSingle/:flightId" element={<FlightSingleInfoPage />} />
+                    <Route path="payment" element={<PaymentAndBookin />} />
+                    <Route path="paymentconfimation" element={<PaymentConfirmationModal />} />
+                  </Routes>
 
 
-              </AuthContext.Provider>
-            </ButtonContext.Provider>
-          </LoginButtonContext.Provider>
-        </ApiDetails.Provider>
-      </ModalForBooking.Provider>
+
+                </AuthContext.Provider>
+              </ButtonContext.Provider>
+            </LoginButtonContext.Provider>
+          </ApiDetails.Provider>
+        </ModalForBooking.Provider>
+      </ModalForFlightBooking.Provider>
     </>
   )
 }
