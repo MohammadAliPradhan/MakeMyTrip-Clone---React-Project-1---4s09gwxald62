@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { getHeaderWithProjectId } from './Authenticaltion/utils/service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowLeft, faCircleRight, faCircleXmark, faLocationDot } from '@fortawesome/free-solid-svg-icons';
@@ -27,6 +27,11 @@ function FlightSingleInfoPage() {
     useEffect(() => {
         getFlightDetailsOfSingle()
     }, [])
+    const navigate = useNavigate();
+
+    function handleonClick() {
+        navigate(`/payment`, { state: { singleInfoPageOfFlight } })
+    }
     return (
         <div>
             <ScrollNavBar />
@@ -76,7 +81,7 @@ function FlightSingleInfoPage() {
                     <p>Enjoy 10% off on your first booking! Use code: FIRSTFLIGHT</p>
                 </div>
 
-                <button onclick="openModal()">Reserve Or Book Now</button>
+                <button onClick={handleonClick}>Reserve Or Book Now</button>
             </section>
         </div>
     )

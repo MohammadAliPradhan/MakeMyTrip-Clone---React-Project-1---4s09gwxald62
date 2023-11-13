@@ -24,6 +24,7 @@ import ModalYes from "./ModalYes.jsx";
 import FLightSinglePage from "./FlightDetails/FlightSinglePage/FLightSinglePage.jsx";
 import FlightSingleInfoPage from "./FlightSingleInfoPage.jsx";
 import PaymentAndBookin from "./FlightDetails/PaymentAndBookin.jsx";
+import PaymentConfirmationModal from "./FlightDetails/PaymentConfimation/PaymentConfirmationModal.jsx";
 
 
 
@@ -83,6 +84,7 @@ function App() {
                   <Route path="flightsingle" element={<FLightSinglePage />} />
                   <Route path="flightSingle/:flightId" element={<FlightSingleInfoPage />} />
                   <Route path="payment" element={<PaymentAndBookin />} />
+                  <Route path="paymentconfimation" element={<PaymentConfirmationModal />} />
                 </Routes>
 
 

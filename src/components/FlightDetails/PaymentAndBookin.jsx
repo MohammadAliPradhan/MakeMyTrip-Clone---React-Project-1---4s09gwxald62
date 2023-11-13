@@ -1,7 +1,12 @@
 import React from 'react'
 import "./Payment.css"
 import ScrollNavBar from '../../ScrollNavBar/ScrollNavBar'
+import { useLocation } from 'react-router-dom'
+import PaymentConfirmationModal from './PaymentConfimation/PaymentConfirmationModal';
 function PaymentAndBookin() {
+
+    const location = useLocation();
+    console.log();
 
     function handleSubmit() {
 
@@ -40,6 +45,7 @@ function PaymentAndBookin() {
                         <button className='hote-book-btn' type="submit">Submit Payment</button>                        </form>
                 </div>
             </div>
+            <PaymentConfirmationModal />
         </>
     )
 }
