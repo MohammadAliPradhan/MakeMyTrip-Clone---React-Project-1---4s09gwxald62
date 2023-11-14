@@ -1,0 +1,11 @@
+.calendarOfTrainTwo {
+    position: absolute;
+}
+
+.calendarCrossOfTwo {
+    position: absolute;
+    padding: 10px;
+    background: rebeccapurple;
+    top: 425px;
+    right: 140px;
+}
