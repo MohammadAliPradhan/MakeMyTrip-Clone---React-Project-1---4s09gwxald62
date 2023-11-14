@@ -12,7 +12,7 @@ function MmtHeader() {
                 <div className='MmtParent'>
                     <div className="componentsStyle">
 
-                        <div className='single-single-component'> <Link to="/flight" className='textdecon'>
+                        <div className='single-single-component'> <Link to="/" className='textdecon'>
                             <FontAwesomeIcon icon={faPlaneDeparture} size="2xl" style={{ color: "black  ", }} />
                             <li className='icon-no-link'>Flights</li></Link>
                         </div>

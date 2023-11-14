@@ -64,10 +64,8 @@ function App() {
                   <Routes>
                     <Route element={<NavBar />}>
                       <Route element={<MmtHeader />}>
-                        <Route index element={<Home />} >
 
-                        </Route>
-                        <Route path="flight" element={<FlightDetails />}>
+                        <Route path="/" element={<FlightDetails />}>
                           <Route index element={<FlightOffer />} />
                         </Route>
                         <Route path="hotel" element={<HotelDetails />}>
