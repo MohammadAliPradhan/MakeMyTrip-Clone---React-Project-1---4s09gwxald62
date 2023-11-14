@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 import Calendar from 'react-calendar'
 import { faCalendar } from '@fortawesome/free-solid-svg-icons'
@@ -45,6 +45,13 @@ function TrainDetails() {
         TrainSection(TrainPlace)
     }, [TrainPlace])
 
+    const navigate = useNavigate();
+
+    function handleOnSubmit(e) {
+        e.preventDefault()
+        navigate("/trainsingle", { state: { TrainPlace } })
+    }
+
 
 
 
@@ -54,7 +61,7 @@ function TrainDetails() {
 
             <div className="DetailsParent">
                 <div className='Details'>
-                    <form className='ticket-type' >
+                    <form className='ticket-type' onSubmit={handleOnSubmit}>
                         <div className="radioFlight">
                             <div className="form-check me-4">
                                 <input
