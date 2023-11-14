@@ -40,7 +40,7 @@ function TrainSinglePage() {
 
 
 
-    function handleNavigate(info) {
+    function handleOnClickId(info) {
         console.log(info);
         navigate(`/traindetail/${info}`)
     }
@@ -54,89 +54,55 @@ function TrainSinglePage() {
                         <div class="single-train-detail single-train-padding">
                             <div class="flex train-info">
                                 <div class="left-info flex flex-column">
-                                    <div class="train-name">Sdah Aii Sf Exp</div>
+                                    <div class="train-name">{details.trainName}</div>
                                     <div class="flex train-depart-number">
                                         <div>#12987</div>
                                         <div style={{ margin: '0px 10px' }}>|</div>
-                                        <div>Departs on : &nbsp;<span class="green"><b>S</b> &nbsp;</span><span
-                                            class="green"><b>M</b>
-                                            &nbsp;</span><span class="green"><b>T</b> &nbsp;</span><span class="green"><b>W</b>
-                                                &nbsp;</span><span class="green"><b>T</b> &nbsp;</span><span class="green"><b>F</b>
-                                                &nbsp;</span><span class="green"><b>S</b> &nbsp;</span></div>
+                                        <div>Departs on : {details.daysOfOperation.map((coach) => (
+                                            <span class="green"><b>{coach}</b> </span>
+                                        ))}</div>
                                     </div>
                                 </div>
                                 <div class="right-info flex flex-column">
                                     <div class="flex">
                                         <div class="flex flex-column">
-                                            <div class="depart-time">10:55 PM, Thu</div>
-                                            <div class="station-name">Kolkata Sealdah Railway Station (SDAH)</div>
+                                            <div class="depart-time">{details.arrivalTime} , Thu</div>
+                                            <div class="station-name">{details.source} (SDAH)</div>
                                         </div>
                                         <div class="flex flex-column">
                                             <div class="jouney-duration flex align-center"><span
-                                                class="jouney-duration-line"></span><span class="duration"><b>15</b> hrs
-                                                    <b>30</b>
-                                                    mins</span><span class="jouney-duration-line"></span></div>
-                                            <div class="view-routes">View route</div>
+                                                class="jouney-duration-line"></span><span class="duration"><b>{details.travelDuration}</b>
+
+                                                </span><span class="jouney-duration-line"></span></div>
                                         </div>
                                         <div class="flex flex-column">
-                                            <div class="arrival-time">2:25 PM, Fri</div>
-                                            <div class="station-name">Kanpur Central Railway Station (CNB)</div>
+                                            <div class="arrival-time">{details.arrivalTime}, Fri</div>
+                                            <div class="station-name">{details.destination}   (CNB)</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            {/* heres the catch 1 */}
+
                             <div class="trainSubsChild">
-                                <div class="flex-column flex m-r-15">
-                                    <div id="train_options_16-11-2023_0" class="card ">
-                                        <div class="flex align-center justify-space-between"
-                                            style={{ marginBottom: '5px', fontWeight: 'bold' }}>
-                                            <div class="flex align-center">
-                                                <div class="rail-class">SL</div>
+                                {details.coaches.map((infos) => (
+                                    <div class="flex-column flex m-r-15" onClick={() => handleOnClickId(infos._id)}>
+                                        <div id="train_options_16-11-2023_0" class="card ">
+                                            <div class="flex align-center justify-space-between"
+                                                style={{ marginBottom: '5px', fontWeight: 'bold' }}>
+                                                <div class="flex align-center">
+                                                    <div class="rail-class">{infos.coachType}</div>
+                                                </div>
+                                                <div class="ticket-price justify-flex-end"><span>₹</span> {details.fare}</div>
                                             </div>
-                                            <div class="ticket-price justify-flex-end"><span>₹</span> 520</div>
-                                        </div>
-                                        <div class="flex align-center justify-space-between" style={{ marginBottom: '15px' }}>
-                                            <div class="availibilty-info" style={{ color: 'rgb(240, 152, 25)' }}>PQWL 144</div>
-                                        </div>
-                                        <div class="railofy-texts-container"><span class="railofy-texts free-cancellation-text">Free
-                                            Cancellation</span></div>
-                                        <div class="update-info">Updated 10 hrs ago</div>
-                                    </div>
-                                </div>
-                                <div class="flex-column flex m-r-15">
-                                    <div id="train_options_16-11-2023_1" class="card ">
-                                        <div class="flex align-center justify-space-between"
-                                            style={{ marginBottom: '5px', fontWeight: 'bold' }}>
-                                            <div class="flex align-center">
-                                                <div class="rail-class">3A</div>
+                                            <div class="flex align-center justify-space-between" style={{ marginBottom: '15px' }}>
+                                                <div class="availibilty-info" style={{ color: 'rgb(240, 152, 25)' }}>SEATS {infos.numberOfSeats}</div>
                                             </div>
-                                            <div class="ticket-price justify-flex-end"><span>₹</span> 1365</div>
+                                            <div class="railofy-texts-container"><span class="railofy-texts free-cancellation-text">{details.trainType}</span></div>
+                                            <div class="update-info">Updated 10 hrs ago</div>
                                         </div>
-                                        <div class="flex align-center justify-space-between" style={{ marginBottom: '15px', fontWeight: 'bold' }}>
-                                            <div class="availibilty-info" style={{ color: 'rgb(240, 152, 25)' }}>PQWL 48</div>
-                                        </div>
-                                        <div class="railofy-texts-container"><span class="railofy-texts free-cancellation-text">Free
-                                            Cancellation</span></div>
-                                        <div class="update-info">Updated 11 hrs ago</div>
                                     </div>
-                                </div>
-                                <div class="flex-column flex m-r-15">
-                                    <div id="train_options_16-11-2023_2" class="card ">
-                                        <div class="flex align-center justify-space-between"
-                                            style={{ marginBottom: '5px', fontWeight: 'bold', color: 'rgb(240, 152, 25)' }}>
-                                            <div class="flex align-center">
-                                                <div class="rail-class">2A</div>
-                                            </div>
-                                            <div class="ticket-price justify-flex-end"><span>₹</span> 1940</div>
-                                        </div>
-                                        <div class="flex align-center justify-space-between" style={{ marginBottom: '15px' }}>
-                                            <div class="availibilty-info" style={{ color: 'rgb(240, 152, 25)' }}>PQWL 19</div>
-                                        </div>
-                                        <div class="railofy-texts-container"><span class="railofy-texts free-cancellation-text">Free
-                                            Cancellation</span></div>
-                                        <div class="update-info">Updated 1 day ago</div>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                             <div class="flex">
                                 <div class="false dropdown-options flex align-center"><span>Nearby dates</span><span
