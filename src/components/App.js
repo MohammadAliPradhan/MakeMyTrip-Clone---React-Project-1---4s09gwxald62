@@ -27,6 +27,7 @@ import PaymentAndBookin from "./FlightDetails/PaymentAndBookin.jsx";
 import PaymentConfirmationModal from "./FlightDetails/PaymentConfimation/PaymentConfirmationModal.jsx";
 import ComingSoon from "./ComingSoon/ComingSoon.jsx";
 import TrainSinglePage from "./TrainDetails/TrainSinglePage/TrainSinglePage.jsx";
+import TrainDetailsSingle from "./TrainDetails/TrainDetailsSingle.jsx";
 
 
 
