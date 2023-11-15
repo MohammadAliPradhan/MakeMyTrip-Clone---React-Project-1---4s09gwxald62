@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import "./TrainFinal.css"
 import { AuthContext } from '../../App'
 
@@ -20,6 +20,11 @@ function TrainDetailsSingle() {
         console.log("areee");
     } else {
         console.log("marere");
+    }
+    const navigate = useNavigate()
+
+    function handleButtonOnClickTrainPayment() {
+        navigate(`../payment`)
     }
 
     return (
@@ -89,7 +94,7 @@ function TrainDetailsSingle() {
                                 </div>
                                 <p class="shiftFiller font12"></p>
                             </div>
-                            <div class="btnTosinglePage">
+                            <div onClick={handleButtonOnClickTrainPayment} class="btnTosinglePage">
                                 <h3>Book Now</h3>
                             </div>
 

@@ -8,7 +8,7 @@ import { ModalForFlightBooking } from '../App';
 function PaymentAndBookin() {
 
     const location = useLocation();
-    console.log();
+    console.log(location);
     const { test, setTest } = useContext(ModalForFlightBooking)
     function handleSubmit(e) {
         e.preventDefault();
@@ -50,7 +50,7 @@ function PaymentAndBookin() {
                         <button className='hote-book-btn' type="submit">Submit Payment</button>                        </form>
                 </div>
             </div>
-            <PaymentConfirmationModal />
+            <PaymentConfirmationModal BookingInfo={location} />
         </>
     )
 }

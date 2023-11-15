@@ -1,15 +1,18 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getHeaderWithProjectId } from './Authenticaltion/utils/service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowLeft, faCircleRight, faCircleXmark, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import "./FlightSingleInfoPage.css"
 import ScrollNavBar from '../ScrollNavBar/ScrollNavBar';
+import { AuthContext, ButtonContext } from './App';
+
 function FlightSingleInfoPage() {
     const [singleInfoPageOfFlight, setSingleInfoPageOfFlight] = useState()
     const { flightId } = useParams();
     const testFlightId = flightId;
+    const { buttonState, setButtonState } = useContext(ButtonContext);
     console.log(testFlightId);
 
     async function getFlightDetailsOfSingle() {
@@ -28,9 +31,14 @@ function FlightSingleInfoPage() {
         getFlightDetailsOfSingle()
     }, [])
     const navigate = useNavigate();
+    const token = sessionStorage.getItem("userToken");
 
     function handleonClick() {
-        navigate(`/payment`, { state: { singleInfoPageOfFlight } })
+        if (token) {
+            navigate(`/payment`, { state: { singleInfoPageOfFlight } })
+        } else {
+            setButtonState(true)
+        }
     }
     return (
         <div>

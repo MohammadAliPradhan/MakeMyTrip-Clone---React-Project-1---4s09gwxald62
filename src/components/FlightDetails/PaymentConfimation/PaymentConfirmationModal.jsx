@@ -4,27 +4,28 @@ import { createPortal } from 'react-dom'
 import { ModalForFlightBooking } from '../../App'
 
 
-function PaymentConfirmationModal() {
+function PaymentConfirmationModal(props) {
     const { test, setTest } = useContext(ModalForFlightBooking)
     function handleOverLayClick(event) {
         if (event.target === event.currentTarget) {
             setTest(false)
         }
     }
+
+    const { BookingInfo } = props;
+    console.log(BookingInfo);
     return createPortal(
         test &&
         <div >
             <div id="myModal" className="modal" onClick={handleOverLayClick}>
                 <div className="modal-content">
                     <h2>Booking Successful!</h2>
-                    <p>Your flight from New York to London has been booked.</p>
-                    <p>Flight Details:</p>
-                    <p>Departure Date: DD/MM/YYYY</p>
-                    <p>Departure Time: HH:mm</p>
-                    <p>Arrival Date: DD/MM/YYYY</p>
-                    <p>Arrival Time: HH:mm</p>
-                    <p>Class: Economy</p>
-                    <p>Price: $500</p>
+                    <p>Your flight from {BookingInfo?.state.singleInfoPageOfFlight.source} to {BookingInfo?.state.singleInfoPageOfFlight.destination} has been booked.</p>
+                    <p>Flight ID Carry It: {BookingInfo?.state.singleInfoPageOfFlight.flightID} </p>
+                    <p>Departure Time: {BookingInfo?.state.singleInfoPageOfFlight.departureTime}</p>
+                    <p>Arrival Time: {BookingInfo?.state.singleInfoPageOfFlight.arrivalTime}</p>
+                    <p>Amenities: {BookingInfo?.state.singleInfoPageOfFlight.amenities.map((details) => details).join(' ')} </p>
+                    <p>Price: INR {BookingInfo?.state.singleInfoPageOfFlight.ticketPrice}</p>
                 </div>
             </div>
 
