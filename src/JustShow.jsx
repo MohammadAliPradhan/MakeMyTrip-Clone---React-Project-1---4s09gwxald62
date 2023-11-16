@@ -18,7 +18,7 @@ function JustShow() {
     });
     const [submitedValue, setSubmitedValue] = useState()
     const location = useLocation()
-
+    console.log("This location", location);
 
 
 

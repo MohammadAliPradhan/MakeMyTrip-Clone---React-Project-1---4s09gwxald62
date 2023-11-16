@@ -8,6 +8,7 @@ import Calendar from 'react-calendar';
 import { CropSquareSharp } from '@mui/icons-material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import FindMembers from '../FindMembers/FindMembers'
 
 
 function HotelDetails() {
@@ -17,6 +18,10 @@ function HotelDetails() {
         destination: "Bangalore",
         checkIn: 6
     })
+    const [findMemberModal, setFindMemberModal] = useState();
+
+    const [MemberValue, setMemberValue] = useState()
+
 
     const [calendarState, setCalendarState] = useState({
         checkInState: false,
@@ -49,6 +54,11 @@ function HotelDetails() {
         console.log(value);
     }
 
+    function handleBookingvalue(findmembers) {
+        setMemberValue(findmembers)
+        console.log("this is state", MemberValue);
+    }
+
 
 
     async function getHotelDetails(location = "") {
@@ -57,10 +67,6 @@ function HotelDetails() {
                 projectID: "9sa80czkq1na"
             }
         }
-
-
-
-
         const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${location === "" ? undefined : location}"}`, config)
         if (response.data.results === 0) {
             setFlag(false)
@@ -68,7 +74,7 @@ function HotelDetails() {
             JSON.stringify(sessionStorage.setItem('proxy', JSON.stringify(response.data.data.hotels)))
             localStorage.setItem("locationApi", response.data.data.hotels[0].location)
             localStorage.setItem("listItem", response.data.data.hotels[0].location)
-            navigate("/list", { state: { selectedDate, selectedDateCheckOut } })
+            navigate("/list", { state: { selectedDate, selectedDateCheckOut, MemberValue } })
             // navigate("/justshow", { state: { item } })
 
         }
@@ -110,6 +116,8 @@ function HotelDetails() {
     }
 
 
+
+
     console.log(calendarState.checkInState);
 
 
@@ -118,7 +126,9 @@ function HotelDetails() {
         <>
 
 
+
             <div className="DetailsParent">
+
                 <div className='Details'>
                     <form className='ticket-type' onSubmit={handleSubmit}>
                         <div className="radioFlight">
@@ -234,7 +244,7 @@ function HotelDetails() {
                                 <h3 className='inputHeremains'>Members: </h3>
                             </div>
 
-                            {/* {findMemberModal && <div className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>} */}
+                            {findMemberModal && <div className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>}
 
 
                             <span>7 Adult,6 Kids (9 Members)</span>

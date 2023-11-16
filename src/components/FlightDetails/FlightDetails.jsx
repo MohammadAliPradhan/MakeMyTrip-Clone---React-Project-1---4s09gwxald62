@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import "../../components/AllDetails.css"
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import "./FlightDetails.css"
 import icon from "../../assets/images/fontAwesom/circle-check-solid.svg"
 import Footer from '../Footer/Footer'
 import Calendar from 'react-calendar'
+import FindMembers from '../FindMembers/FindMembers'
 
 function FlightDetails() {
 
     const [TravelDate, setTravelDate] = useState("12 Nov");
     const [trthly, setTrthly] = useState(true);
+    const [MemberValue, setMemberValue] = useState()
+    const [findMemberModal, setFindMemberModal] = useState();
+
+
 
 
 
@@ -38,13 +43,24 @@ function FlightDetails() {
         console.log('Clicked day:', value);
     };
 
+    function handleBookingvalue(findmembers) {
+        setMemberValue(findmembers)
+        console.log("this is state", MemberValue);
+    }
+
+    const navigate = useNavigate()
+    function handleOnSubmit() {
+        navigate(`/flightsingle`, { state: { flightDetails, TravelDate } })
+    }
+
+
     //let create 
 
     return (
         <>
             <div className="DetailsParent">
                 <div className='Details'>
-                    <form className='ticket-type'>
+                    <form className='ticket-type' onSubmit={handleOnSubmit}>
                         <div className="radioFlight">
                             <div className="form-check me-4">
                                 <input
@@ -90,6 +106,9 @@ function FlightDetails() {
                                 </label>
                             </div>
                         </div>
+                        <div className='searchParent'>
+                            <button className="searchBtn" type="submit">Search</button>
+                        </div>
                     </form>
                     <div className="flight-search">
                         <div className="flight">
@@ -125,7 +144,7 @@ function FlightDetails() {
                             <h1><input
                                 type="text"
                                 className='something'
-                                placeholder='Delhi'
+                                value={TravelDate}
                                 onClick={() => setTrthly(!trthly)}
                             /></h1>
                             <span>DEL, Delhi Airport India</span>
@@ -134,25 +153,24 @@ function FlightDetails() {
                             <Calendar className="calendarOn" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} />
                         </div>}
 
-                        <div className="flight">
-                            <span>
-                                FROM
-                            </span>
-                            <h1><input
-                                type="text"
-                                className='something'
-                                placeholder='Delhi'
+                        <div className="flight" >
+                            <div onClick={() => setFindMemberModal(!findMemberModal)}>
+                                <span>
+                                    Members
+                                </span>
+                                <h3 className='inputHeremains'>Members: </h3>
+                            </div>
 
-                            /></h1>
-                            <span>DEL, Delhi Airport India</span>
+                            {findMemberModal && <div className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>}
+
+
+                            <span>7 Adult,6 Kids (9 Members)</span>
                         </div>
                     </div>
 
                     <div className='searchParent'>
 
-                        <NavLink to="/list" className="nav-link"><div className='searchBtn'>
-                            SEARCH
-                        </div></NavLink>
+
                     </div>
 
 

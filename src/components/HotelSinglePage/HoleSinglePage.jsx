@@ -9,6 +9,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { ButtonContext, LoginButtonContext } from '../App'
 import Footer from '../Footer/Footer'
+import FindMembers from '../FindMembers/FindMembers'
 
 
 
@@ -128,6 +129,7 @@ function HoleSinglePage() {
                     </div>
                     <FontAwesomeIcon icon={faCircleRight} className='arrow' onClick={() => handlleMove("right")} />
                 </div>}
+
 
 
 

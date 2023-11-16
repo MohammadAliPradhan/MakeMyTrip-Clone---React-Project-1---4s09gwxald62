@@ -2,12 +2,13 @@
     display: flex;
     align-items: center;
     position: relative;
-    top: 200px;
+    top: -20px;
     margin: auto;
     width: 1024px;
     border-radius: 8px;
     background-color: white;
     z-index: 30;
+    padding: 20px;
 
 }
 
@@ -18,6 +19,7 @@
     height: 200px;
     border: 1px solid #EAEAEA;
     border-radius: 8px;
+    padding: 20px;
 }
 
 .airways-detail {
@@ -93,6 +95,7 @@
     border: 1px solid #EAEAEA;
     flex-direction: column;
     border-radius: 8px;
+    padding: 20px;
 }
 
 .luggage-icon {
@@ -135,7 +138,7 @@
 .container-flight-single {
     background-color: #E5EEF4;
     width: 100vw;
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -150,4 +153,9 @@
     display: flex;
     gap: 10px;
 
+}
+
+
+.marginTopFlight {
+    margin-top: 200px;
 }
