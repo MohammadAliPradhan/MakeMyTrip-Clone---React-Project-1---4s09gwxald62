@@ -822,3 +822,10 @@ html[dir='rtl'] .ic_circularclose_grey:after {
     width: 1px;
     background-color: #fff;
 }
+
+.NotrainFound {
+    position: absolute;
+    font-size: xx-large;
+    left: 850px;
+    top: 50%;
+}

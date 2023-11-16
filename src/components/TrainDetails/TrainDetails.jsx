@@ -13,10 +13,12 @@ import FindMembers from '../FindMembers/FindMembers'
 function TrainDetails() {
 
     const [TravelDate, setTravelDate] = useState("12 Nov");
+    const [MemberValue, setMemberValue] = useState(9)
     const [trthly, setTrthly] = useState();
     const [TrainPlace, setTrainPlace] = useState({
         from: "Bangalore",
-        to: "Delhi"
+        to: "Delhi",
+
     })
     const [findMemberModal, setFindMemberModal] = useState();
 
@@ -26,11 +28,9 @@ function TrainDetails() {
         setTrainPlace((oldState) => ({
             ...oldState,
             [field]: value
-
         }))
         console.log("Hi This is the chagne", TrainPlace.from);
         TrainSection({ ...TrainPlace, [field]: value });
-
     }
 
     async function TrainSection(updatedState) {
@@ -63,19 +63,24 @@ function TrainDetails() {
     }, [TrainPlace])
 
     const navigate = useNavigate();
+    function handleBookingvalue(findmembers) {
+        setMemberValue(findmembers)
+        console.log("this is state", MemberValue);
+    }
 
     function handleOnSubmit(e) {
         e.preventDefault()
-        navigate("/trainsingle", { state: { TrainPlace } })
-    }
-
-    function handleBookingvalue(findmembers) {
-        console.log("This is Findmembers", findmembers);
+        navigate("/trainsingle", { state: { TrainPlace, TravelDate, MemberValue } })
     }
 
 
 
 
+
+
+
+
+    const totalMembers = parseInt(MemberValue?.kids || 0, 10) + parseInt(MemberValue?.adult || 0, 10);
 
     return (
         <>
@@ -144,7 +149,7 @@ function TrainDetails() {
                                 value={TrainPlace.from}
                                 onChange={(e) => handleTrainChange(e, 'from')}
                             /></h1>
-                            <span>GOA, Delhi Airport India</span>
+                            <span>{TrainPlace.from}, {TrainPlace.from} India</span>
                         </div>
 
                         <div className="flight">
@@ -152,17 +157,13 @@ function TrainDetails() {
                                 To
                             </span>
 
-                            {/* //do the work */}
-                            {false ? < div >
-                                <span onClick={() => setCalendarState(!calendarState.checkInState)} className='calendarCross'>Close</span>
-                                <Calendar className="calendarOfTrain" />
-                            </div> : <h1><input
+                            <h1><input
                                 type="text"
                                 className='something'
                                 value={TrainPlace.to}
                                 onChange={(e) => handleTrainChange(e, 'to')}
-                            /></h1>}
-
+                            /></h1>
+                            <span>{TrainPlace.to}, {TrainPlace.to} India</span>
 
                         </div>
 
@@ -191,13 +192,13 @@ function TrainDetails() {
                                 <span>
                                     Members
                                 </span>
-                                <h3 className='inputHeremains'>Members: 6</h3>
+                                <h3 className='inputHeremains'>Members: {MemberValue === undefined ? "7" : MemberValue?.adult}</h3>
                             </div>
 
                             {findMemberModal && <div className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>}
 
 
-                            <span>1 Adult, 4 Kids (5 Members)</span>
+                            <span>{MemberValue === undefined ? "7" : MemberValue?.adult} Adult, {MemberValue === undefined ? "7" : MemberValue?.kids} Kids ({MemberValue === undefined ? 4 : totalMembers} Members)</span>
                         </div>
 
 

@@ -17,13 +17,21 @@ function TrainSinglePage() {
     console.log("locationStaete", location);
 
 
+    const originalDate = location.state.TravelDate;
+    const dateObject = new Date(originalDate);
+
+    const dayOfWeekOptions = { weekday: 'short' };
+    const dayOfWeek = dateObject.toLocaleDateString(undefined, dayOfWeekOptions);
+
+
+
 
     async function TrainSection() {
         try {
             const from = location.state.TrainPlace.from;
             const to = location.state.TrainPlace.to;
             const config = getHeaderWithProjectId()
-            const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/train?search={"source":"${from}","destination":"${to}"}&day=Fri`, config);
+            const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/train?search={"source":"${from}","destination":"${to}"}&day=${dayOfWeek}`, config);
             setSingleInfoPageOfFlight(response.data.data.trains)
             console.log("this is response", response);
         } catch (error) {
@@ -38,11 +46,16 @@ function TrainSinglePage() {
     }, [])
     const navigate = useNavigate();
 
+    console.log(location.state.MemberValue);
+
+    const [MemberValuee, setMemberValue] = useState(location.state.MemberValue)
+    console.log(MemberValuee);
+
 
 
     function handleOnClickId(info) {
         console.log(info);
-        navigate(`/traindetail/${info}`)
+        navigate(`/traindetail/${info}`, { state: { MemberValuee } })
     }
 
     return (
