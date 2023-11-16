@@ -226,17 +226,18 @@ function HotelDetails() {
                             <span><FontAwesomeIcon icon={faCalendar} /></span>
                         </div>
 
-                        <div className="flight">
-                            <span>
-                                FROM
-                            </span>
-                            <h1><input
-                                type="text"
-                                className='something'
-                                placeholder='Delhi'
+                        <div className="flight" >
+                            <div onClick={() => setFindMemberModal(!findMemberModal)}>
+                                <span>
+                                    Members
+                                </span>
+                                <h3 className='inputHeremains'>Members: </h3>
+                            </div>
 
-                            /></h1>
-                            <span>DEL, Delhi Airport India</span>
+                            {/* {findMemberModal && <div className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>} */}
+
+
+                            <span>7 Adult,6 Kids (9 Members)</span>
                         </div>
 
 
