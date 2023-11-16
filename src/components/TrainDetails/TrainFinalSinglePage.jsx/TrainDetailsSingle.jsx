@@ -24,7 +24,7 @@ function TrainDetailsSingle() {
     const navigate = useNavigate()
 
     function handleButtonOnClickTrainPayment() {
-        navigate(`../payment`)
+        navigate(`../paymenttrain`)
     }
 
     return (

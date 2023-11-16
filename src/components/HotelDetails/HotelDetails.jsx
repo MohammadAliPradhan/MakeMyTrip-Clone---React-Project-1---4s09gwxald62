@@ -12,7 +12,6 @@ import { faCalendar, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 function HotelDetails() {
 
-
     const { ApiInfo, setApiInfo } = useContext(ApiDetails)
     const [hotelName, setHotelName] = useState({
         destination: "Bangalore",

@@ -7,12 +7,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import "./TrainDetails.css"
 import axios from 'axios'
 import { getHeaderWithProjectId } from '../Authenticaltion/utils/service'
+import FindMembers from '../FindMembers/FindMembers'
+
 
 function TrainDetails() {
+
+    const [TravelDate, setTravelDate] = useState("12 Nov");
+    const [trthly, setTrthly] = useState();
     const [TrainPlace, setTrainPlace] = useState({
         from: "Bangalore",
         to: "Delhi"
     })
+    const [findMemberModal, setFindMemberModal] = useState();
 
     function handleTrainChange(e, field) {
         const { value } = e.target;
@@ -39,6 +45,17 @@ function TrainDetails() {
         }
     }
 
+    const handleDateChange = (date) => {
+        setTravelDate(date);
+    };
+    const handleDayClick = (value, event) => {
+        console.log('Clicked day:', value);
+    };
+
+    function handleCalendarOnOf() {
+        setTrthly(true)
+    }
+
 
 
     useEffect(() => {
@@ -50,6 +67,10 @@ function TrainDetails() {
     function handleOnSubmit(e) {
         e.preventDefault()
         navigate("/trainsingle", { state: { TrainPlace } })
+    }
+
+    function handleBookingvalue(findmembers) {
+        console.log("This is Findmembers", findmembers);
     }
 
 
@@ -122,8 +143,6 @@ function TrainDetails() {
                                 className='something'
                                 value={TrainPlace.from}
                                 onChange={(e) => handleTrainChange(e, 'from')}
-
-
                             /></h1>
                             <span>GOA, Delhi Airport India</span>
                         </div>
@@ -149,39 +168,43 @@ function TrainDetails() {
 
                         <div className="flight">
                             <span>
-                                Check Out
+                                Travel Date
                             </span>
 
                             {/* do the work two */}
-                            {true ? <div >
-                                <span onClick={() => setCalendarState(!calendarState.checkOut)} className='calendarCrossOfTwo'>Close</span>
-                                <Calendar className="calendarOfTrainTwo" />
+                            {trthly ? <div >
+                                <span onClick={() => setTrthly(false)} className='calendarCrossOfTwo'>Close</span>
+                                <Calendar className="calendarOn" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} />
                             </div> : <h1><input
 
                                 type="text"
                                 className='something'
-
-
+                                value={TravelDate}
+                                onClick={handleCalendarOnOf}
 
                             /></h1>}
-                            <span><FontAwesomeIcon icon={faCalendar} /></span>
+                            <span onClick={() => setTrthly(true)}><FontAwesomeIcon icon={faCalendar} /></span>
                         </div>
 
-                        <div className="flight">
-                            <span>
-                                FROM
-                            </span>
-                            <h1><input
-                                type="text"
-                                className='something'
-                                placeholder='Delhi'
+                        <div className="flight" >
+                            <div onClick={() => setFindMemberModal(!findMemberModal)}>
+                                <span>
+                                    Members
+                                </span>
+                                <h3 className='inputHeremains'>Members: 6</h3>
+                            </div>
 
-                            /></h1>
-                            <span>DEL, Delhi Airport India</span>
+                            {findMemberModal && <div className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>}
+
+
+                            <span>1 Adult, 4 Kids (5 Members)</span>
                         </div>
 
 
                     </div>
+
+
+
 
                     {/* <div className='searchParent'>
 

@@ -28,6 +28,9 @@ import PaymentConfirmationModal from "./FlightDetails/PaymentConfimation/Payment
 import ComingSoon from "./ComingSoon/ComingSoon.jsx";
 import TrainSinglePage from "./TrainDetails/TrainSinglePage/TrainSinglePage.jsx";
 import TrainDetailsSingle from "./TrainDetails/TrainFinalSinglePage.jsx/TrainDetailsSingle.jsx";
+import PaymentTrain from "./TrainDetails/PaymentTrain/PaymentTrain.jsx";
+import MemberModal from "./TrainDetails/Testingfun/MemberModal.jsx";
+import SecondTesting from "./TrainDetails/Testingfun/SecondTesting.jsx";
 
 
 
@@ -37,8 +40,10 @@ export const AuthContext = createContext();
 export const LoginButtonContext = createContext();
 export const ApiDetails = createContext();
 export const ModalForBooking = createContext();
-export const ModalForFlightBooking = createContext();;
+export const ModalForFlightBooking = createContext();
+export const trainModalTestContext = createContext();
 function App() {
+  const [modalTrain, setModalTrain] = useState()
   const [test, setTest] = useState(false)
   const [modalA, SetmodalA] = useState();
   const [showHome, setShowHome] = useState()
@@ -58,55 +63,61 @@ function App() {
 
   return (
     <>
-      <ModalForFlightBooking.Provider value={{ test, setTest }}>
-        <ModalForBooking.Provider value={{ modalA, SetmodalA }}>
-          <ApiDetails.Provider value={{ ApiInfo, setApiInfo }}>
-            <LoginButtonContext.Provider value={{ loginButton, setLoginButton }}>
-              <ButtonContext.Provider value={{ buttonState, setButtonState }}>
-                <AuthContext.Provider value={{ isLoggedin, setIsLoggedIn }} >
-                  <Routes>
-                    <Route element={<NavBar />}>
-                      <Route element={<MmtHeader />}>
+      <trainModalTestContext.Provider value={{ modalTrain, setModalTrain }}>
+        <ModalForFlightBooking.Provider value={{ test, setTest }}>
+          <ModalForBooking.Provider value={{ modalA, SetmodalA }}>
+            <ApiDetails.Provider value={{ ApiInfo, setApiInfo }}>
+              <LoginButtonContext.Provider value={{ loginButton, setLoginButton }}>
+                <ButtonContext.Provider value={{ buttonState, setButtonState }}>
+                  <AuthContext.Provider value={{ isLoggedin, setIsLoggedIn }} >
+                    <Routes>
+                      <Route element={<NavBar />}>
+                        <Route element={<MmtHeader />}>
 
-                        <Route path="/" element={<FlightDetails />}>
-                          <Route index element={<FlightOffer />} />
-                        </Route>
-                        <Route path="hotel" element={<HotelDetails />}>
-                          <Route index element={<FlightOffer />} />
-                        </Route>
-                        <Route path="train" element={<TrainDetails />} >
-                          <Route index element={<FlightOffer />} />
+                          <Route path="/" element={<FlightDetails />}>
+                            <Route index element={<FlightOffer />} />
+                          </Route>
+                          <Route path="hotel" element={<HotelDetails />}>
+                            <Route index element={<FlightOffer />} />
+                          </Route>
+                          <Route path="train" element={<TrainDetails />} >
+                            <Route index element={<FlightOffer />} />
+                          </Route>
                         </Route>
                       </Route>
-                    </Route>
-                    <Route path="/profile" element={<Profile />} />
+                      <Route path="/profile" element={<Profile />} />
 
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/list" element={<ListPage />} />
-                    <Route path="/justshow" element={<JustShow />} />
-                    <Route path="hotels/:singleId" element={<HoleSinglePage />} />
-                    <Route path="/formdata" element={<FormData />} />
-                    <Route path="/getflight" element={<FlightTest />} />
-                    <Route path="flightsingle" element={<FLightSinglePage />} />
-                    <Route path="flightSingle/:flightId" element={<FlightSingleInfoPage />} />
-                    <Route path="payment" element={<PaymentAndBookin />} />
-                    <Route path="paymentconfimation" element={<PaymentConfirmationModal />} />
-                    <Route path="trainsingle" element={<TrainSinglePage />} />
-                    <Route path="traindetail/:trainId" element={<TrainDetailsSingle />} />
-                    <Route path="*" element={<ComingSoon />} />
-                  </Routes>
-
-
+                      <Route path="/login" element={<Login />} />
+                      <Route path="/list" element={<ListPage />} />
+                      <Route path="/justshow" element={<JustShow />} />
+                      <Route path="hotels/:singleId" element={<HoleSinglePage />} />
+                      <Route path="/formdata" element={<FormData />} />
+                      <Route path="/getflight" element={<FlightTest />} />
+                      <Route path="flightsingle" element={<FLightSinglePage />} />
+                      <Route path="flightSingle/:flightId" element={<FlightSingleInfoPage />} />
+                      <Route path="payment" element={<PaymentAndBookin />} />
+                      <Route path="trainsingle" element={<TrainSinglePage />} />
+                      <Route path="traindetail/:trainId" element={<TrainDetailsSingle />} />
+                      <Route path="paymenttrain" element={<PaymentTrain />} />
+                      <Route path="*" element={<ComingSoon />} />
+                      <Route path="somethingnsdf" element={<MemberModal />} />
+                      <Route path="secondTesting" element={<SecondTesting />} />
 
 
+                    </Routes>
 
 
-                </AuthContext.Provider>
-              </ButtonContext.Provider>
-            </LoginButtonContext.Provider>
-          </ApiDetails.Provider>
-        </ModalForBooking.Provider>
-      </ModalForFlightBooking.Provider>
+
+
+
+
+                  </AuthContext.Provider>
+                </ButtonContext.Provider>
+              </LoginButtonContext.Provider>
+            </ApiDetails.Provider>
+          </ModalForBooking.Provider>
+        </ModalForFlightBooking.Provider>
+      </trainModalTestContext.Provider>
     </>
   )
 }

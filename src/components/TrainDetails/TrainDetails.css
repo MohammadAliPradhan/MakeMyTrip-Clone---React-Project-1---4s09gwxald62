@@ -5,7 +5,21 @@
 .calendarCrossOfTwo {
     position: absolute;
     padding: 10px;
-    background: rebeccapurple;
+    background: red;
     top: 425px;
     right: 140px;
+}
+
+.something {
+    display: flex;
+    align-items: flex-start;
+}
+
+
+.findMemberssomething {
+    position: absolute;
+}
+
+.flight {
+    cursor: pointer;
 }
