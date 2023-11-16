@@ -4,8 +4,15 @@ import { NavLink, Outlet } from 'react-router-dom'
 import "./FlightDetails.css"
 import icon from "../../assets/images/fontAwesom/circle-check-solid.svg"
 import Footer from '../Footer/Footer'
+import Calendar from 'react-calendar'
 
 function FlightDetails() {
+
+    const [TravelDate, setTravelDate] = useState("12 Nov");
+    const [trthly, setTrthly] = useState(true);
+
+
+
 
     const [flightDetails, setFlightDetails] = useState({
         from: "Delhi",
@@ -22,6 +29,14 @@ function FlightDetails() {
         }))
 
     }
+
+
+    const handleDateChange = (date) => {
+        setTravelDate(date);
+    };
+    const handleDayClick = (value, event) => {
+        console.log('Clicked day:', value);
+    };
 
     //let create 
 
@@ -103,7 +118,7 @@ function FlightDetails() {
                             <span>DEL, Delhi Airport India</span>
                         </div>
 
-                        <div className="flight">
+                        {trthly ? <div className="flight">
                             <span>
                                 Departure
                             </span>
@@ -111,10 +126,13 @@ function FlightDetails() {
                                 type="text"
                                 className='something'
                                 placeholder='Delhi'
-
+                                onClick={() => setTrthly(!trthly)}
                             /></h1>
                             <span>DEL, Delhi Airport India</span>
-                        </div>
+                        </div> : <div >
+                            <span onClick={() => setTrthly(!trthly)} className='calendarCrossOfTwo'>Close</span>
+                            <Calendar className="calendarOn" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} />
+                        </div>}
 
                         <div className="flight">
                             <span>
