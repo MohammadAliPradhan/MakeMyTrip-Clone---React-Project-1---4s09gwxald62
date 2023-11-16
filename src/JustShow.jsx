@@ -21,6 +21,11 @@ function JustShow() {
     console.log("This location", location);
 
 
+    useEffect(() => {
+        SetHotels(location)
+    }, [])
+
+
 
     //These all are api related variables
     console.log("finally reached", location);
@@ -29,6 +34,11 @@ function JustShow() {
     const hotelId = location.state.item.singleId;
     const token = JSON.parse(sessionStorage.getItem("userToken"))
     console.log(token);
+
+
+    console.log(hotelId);
+    console.log(checkInDate);
+    console.log(checkOutDate);
 
 
     const proxy = sessionStorage.getItem("proxy")
@@ -168,7 +178,7 @@ function JustShow() {
 
                             <button className='hote-book-btn' type="submit">Submit Payment</button>                        </form>
                     </div>
-                    <ModalYes />
+                    <ModalYes hoteldData={location} />
 
 
                     {/* payment div ends here */}

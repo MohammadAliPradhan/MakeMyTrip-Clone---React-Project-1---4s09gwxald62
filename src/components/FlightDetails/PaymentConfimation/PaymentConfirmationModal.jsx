@@ -13,7 +13,7 @@ function PaymentConfirmationModal(props) {
     }
 
     const { BookingInfo } = props;
-    console.log(BookingInfo);
+    console.log("this is booking", BookingInfo);
     return createPortal(
         test &&
         <div >
