@@ -103,3 +103,19 @@
    position: absolute;
    top: 1000px;
 }
+
+.calendarOnOfFlight {
+   position: absolute;
+   right: 150px;
+}
+
+.calendarCrossOfTwoFlight {
+   position: absolute;
+   background-color: #3F22F7;
+   padding: 10px;
+   top: 444px;
+   right: 150px;
+   cursor: pointer;
+   border: 1px solid black;
+   border-radius: 10px;
+}

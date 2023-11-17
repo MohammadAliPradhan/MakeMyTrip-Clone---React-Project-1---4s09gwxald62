@@ -53,6 +53,9 @@ function FlightDetails() {
         navigate(`/flightsingle`, { state: { flightDetails, TravelDate, MemberValue } })
     }
 
+    const totalMembers = parseInt(MemberValue?.kids || 0, 10) + parseInt(MemberValue?.adult || 0, 10);
+
+
 
     //let create 
 
@@ -119,9 +122,9 @@ function FlightDetails() {
                                 type="text"
                                 className='something'
                                 onChange={(e) => handleOnClick(e, 'from')}
-                                value={flightDetails.from}
+                                value={flightDetails.from.toUpperCase()}
                             /></h1>
-                            <span>DEL, Delhi Airport India</span>
+                            <span>{flightDetails.from}, {flightDetails.from} India</span>
                         </div>
 
                         <div className="flight">
@@ -132,7 +135,7 @@ function FlightDetails() {
                                 type="text"
                                 className='something'
                                 onChange={(e) => handleOnClick(e, 'to')}
-                                value={flightDetails.to}
+                                value={flightDetails.to.toUpperCase()}
                             /></h1>
                             <span>DEL, Delhi Airport India</span>
                         </div>
@@ -149,8 +152,8 @@ function FlightDetails() {
                             /></h1>
                             <span>DEL, Delhi Airport India</span>
                         </div> : <div >
-                            <span onClick={() => setTrthly(!trthly)} className='calendarCrossOfTwo'>Close</span>
-                            <Calendar className="calendarOn" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} />
+                            <span onClick={() => setTrthly(!trthly)} className='calendarCrossOfTwoFlight'>Done</span>
+                            <Calendar className="calendarOnOfFlight" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} />
                         </div>}
 
                         <div className="flight" >
@@ -158,13 +161,13 @@ function FlightDetails() {
                                 <span>
                                     Members
                                 </span>
-                                <h3 className='inputHeremains'>Members: </h3>
+                                <h3 className='inputHeremains'>Members: {totalMembers} </h3>
                             </div>
 
                             {findMemberModal && <div className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>}
 
 
-                            <span>7 Adult,6 Kids (9 Members)</span>
+                            <span>{MemberValue?.adult} Adults, {MemberValue?.kids} Kids ({totalMembers} Members)</span>
                         </div>
                     </div>
 
