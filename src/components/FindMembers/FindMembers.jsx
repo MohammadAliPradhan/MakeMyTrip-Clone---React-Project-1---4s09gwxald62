@@ -47,7 +47,7 @@ export default function FindMembers({ onBookingValue }) {
                         onChange={handleInputChange}
                     />
                 </label>
-                <button onClick={handleBookingvalue}>Book Now</button>
+                <button className="btnFindMembers" onClick={handleBookingvalue}>Book Now</button>
             </form>
         </div>
     );
