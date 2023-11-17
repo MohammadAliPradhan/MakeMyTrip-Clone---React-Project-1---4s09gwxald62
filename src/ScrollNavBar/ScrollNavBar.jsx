@@ -40,7 +40,7 @@ function ScrollNavBar() {
             <nav id='parentContainerNav'>
                 <div className='navpadding'>
                     <div className='logoleft'>
-                        <Link to="/" ><img className="logoleft" src={logo} alt="log" /></Link>
+                        <Link to="/" ><img className="logoleft" src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png" alt="log" /></Link>
                         <img src={discount} alt="discount" />
                     </div>
                     <div className='navmiddle'>

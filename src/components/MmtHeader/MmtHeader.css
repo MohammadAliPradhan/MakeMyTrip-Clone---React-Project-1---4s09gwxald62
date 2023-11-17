@@ -18,7 +18,9 @@
 .MmtParentForMiddle {
     display: flex;
     justify-content: center;
-    background-color: #071726;
+    background: linear-gradient(90deg, rgb(54 51 112) 0%, rgba(6, 20, 36, 1) 35%, rgba(0, 212, 255, 1) 100%);
+
+
 }
 
 .componentsStyle {
