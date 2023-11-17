@@ -62,9 +62,10 @@ function FLightSinglePage() {
     const navigate = useNavigate();
 
 
+
     //Api Information ends here 
     function handleNavigate(infos) {
-        navigate(`${infos}`)
+        navigate(`${infos}`, { state: { location } })
     }
     return (
         <>

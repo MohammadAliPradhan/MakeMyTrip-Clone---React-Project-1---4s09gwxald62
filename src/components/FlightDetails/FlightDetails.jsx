@@ -50,7 +50,7 @@ function FlightDetails() {
 
     const navigate = useNavigate()
     function handleOnSubmit() {
-        navigate(`/flightsingle`, { state: { flightDetails, TravelDate } })
+        navigate(`/flightsingle`, { state: { flightDetails, TravelDate, MemberValue } })
     }
 
 

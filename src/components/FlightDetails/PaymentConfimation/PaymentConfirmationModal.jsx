@@ -12,6 +12,18 @@ function PaymentConfirmationModal(props) {
         }
     }
 
+    const memberValuea = props.BookingInfo.state.location.state.location.state.MemberValue;
+
+
+    console.log("sdfkjdlskfj", memberValuea);
+
+
+
+
+
+
+    console.log(props, "This is some of the oner");
+
     const { BookingInfo } = props;
     console.log("this is booking", BookingInfo);
     return createPortal(
@@ -22,6 +34,7 @@ function PaymentConfirmationModal(props) {
                     <h2>Booking Successful!</h2>
                     <p>Your flight from {BookingInfo?.state.singleInfoPageOfFlight.source} to {BookingInfo?.state.singleInfoPageOfFlight.destination} has been booked.</p>
                     <p>Flight ID Carry It: {BookingInfo?.state.singleInfoPageOfFlight.flightID} </p>
+                    <p>Members Adult: {memberValuea.adult},Kids: {memberValuea.kids}</p>
                     <p>Departure Time: {BookingInfo?.state.singleInfoPageOfFlight.departureTime}</p>
                     <p>Arrival Time: {BookingInfo?.state.singleInfoPageOfFlight.arrivalTime}</p>
                     <p>Amenities: {BookingInfo?.state.singleInfoPageOfFlight.amenities.map((details) => details).join(' ')} </p>
