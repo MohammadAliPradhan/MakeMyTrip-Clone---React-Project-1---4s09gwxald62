@@ -1,6 +1,7 @@
 import React from 'react'
 import "./FlightOffer.css"
 import { useNavigate } from 'react-router-dom'
+import Footer from '../../Footer/Footer'
 
 function FlightOffer() {
 
@@ -16,42 +17,46 @@ function FlightOffer() {
         navigate("justsomething")
     }
     return (
-        <div className='parentUni'>
-            <div className='ComponentUni'>
-                <div className="makeFlex blackText appendBottom20">
-                    <h2>Offers</h2>
+        <>
+            <div className='parentUni'>
+                <div className='ComponentUni'>
+                    <div className="makeFlex blackText appendBottom20">
+                        <h2>Offers</h2>
 
-                    <div className="makeFlex perfectContainer">
-                        <ul className='makeFlex nrlText superOffersTab appendLeft30'>
-                            <li>ALL</li>
-                            <li>FLIGHTS</li>
-                            <li>HOTELS</li>
-                            <li>HOLIDAYS</li>
-                            <li>RAILS</li>
-                            <li>CABS</li>
-                            <li>BANKOFFERS</li>
-                        </ul>
-                    </div>
-                    <div className="pushRight"><span>VIEW ALL</span></div>
-                </div>
-                <div className="superOffers">
-                    {images.map((details) => (
-                        <div className="childSuperOffer">
-                            <img src={details} alt="" />
-                            <div className='insidechildsuperoffer'>
-                                <h2>Book Super Cool Stays</h2>
-                                <span onClick={handleSpanDiv} className='grabOffer'>Grab Offer Now</span>
-                            </div>
+                        <div className="makeFlex perfectContainer">
+                            <ul className='makeFlex nrlText superOffersTab appendLeft30'>
+                                <li>ALL</li>
+                                <li>FLIGHTS</li>
+                                <li>HOTELS</li>
+                                <li>HOLIDAYS</li>
+                                <li>RAILS</li>
+                                <li>CABS</li>
+                                <li>BANKOFFERS</li>
+                            </ul>
                         </div>
-                    ))
-                    }
+                        <div className="pushRight"><span>VIEW ALL</span></div>
+                    </div>
+                    <div className="superOffers">
+                        {images.map((details) => (
+                            <div className="childSuperOffer">
+                                <img src={details} alt="" />
+                                <div className='insidechildsuperoffer'>
+                                    <h2>Book Super Cool Stays</h2>
+                                    <span onClick={handleSpanDiv} className='grabOffer'>Grab Offer Now</span>
+                                </div>
+                            </div>
+                        ))
+                        }
+
+                    </div>
+
+
 
                 </div>
 
+            </div >
+        </>
 
-
-            </div>
-        </div >
     )
 }
 

@@ -43,6 +43,8 @@
    height: 40px;
    border: none;
    font-weight: bold;
+   text-transform: capitalize;
+
 }
 
 .flight h1 {

@@ -15,7 +15,7 @@ function HotelDetails() {
 
     const { ApiInfo, setApiInfo } = useContext(ApiDetails)
     const [hotelName, setHotelName] = useState({
-        destination: "Bangalore",
+        destination: "Delhi",
         checkIn: 6
     })
     const [findMemberModal, setFindMemberModal] = useState();

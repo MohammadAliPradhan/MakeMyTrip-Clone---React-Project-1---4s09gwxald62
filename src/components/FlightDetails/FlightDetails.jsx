@@ -187,6 +187,7 @@ function FlightDetails() {
             <div className='footerfix'><Footer /></div>
 
             <Outlet />
+            <Footer />
 
         </>
 
