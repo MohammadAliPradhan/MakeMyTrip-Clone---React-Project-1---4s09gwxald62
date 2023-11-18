@@ -67,4 +67,9 @@
 
 .textdecon {
     text-decoration: none;
+
+}
+
+.textdecon.active {
+    color: red;
 }

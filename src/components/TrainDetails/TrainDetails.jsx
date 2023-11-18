@@ -16,8 +16,8 @@ function TrainDetails() {
     const [MemberValue, setMemberValue] = useState(9)
     const [trthly, setTrthly] = useState();
     const [TrainPlace, setTrainPlace] = useState({
-        from: "Bangalore",
-        to: "Delhi",
+        from: "BAN",
+        to: "DEL",
 
     })
     const [findMemberModal, setFindMemberModal] = useState();
@@ -146,7 +146,7 @@ function TrainDetails() {
                             <h1><input
                                 type="text"
                                 className='something'
-                                value={TrainPlace.from}
+                                value={TrainPlace.from.toUpperCase()}
                                 onChange={(e) => handleTrainChange(e, 'from')}
                             /></h1>
                             <span>{TrainPlace.from}, {TrainPlace.from} India</span>

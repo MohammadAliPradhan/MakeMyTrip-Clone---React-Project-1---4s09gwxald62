@@ -31,6 +31,7 @@ import TrainDetailsSingle from "./TrainDetails/TrainFinalSinglePage.jsx/TrainDet
 import PaymentTrain from "./TrainDetails/PaymentTrain/PaymentTrain.jsx";
 import MemberModal from "./TrainDetails/Testingfun/MemberModal.jsx";
 import SecondTesting from "./TrainDetails/Testingfun/SecondTesting.jsx";
+import AllOtherRoute from "./AllOtherRoute/AllOtherRoute.jsx";
 
 
 
@@ -81,6 +82,10 @@ function App() {
                             <Route index element={<FlightOffer />} />
                           </Route>
                           <Route path="train" element={<TrainDetails />} >
+                            <Route index element={<FlightOffer />} />
+
+                          </Route>
+                          <Route path="/allotherroute" element={< AllOtherRoute />} >
                             <Route index element={<FlightOffer />} />
                           </Route>
                         </Route>

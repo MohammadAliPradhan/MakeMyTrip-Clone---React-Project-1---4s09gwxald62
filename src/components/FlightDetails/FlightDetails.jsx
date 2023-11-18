@@ -11,7 +11,10 @@ function FlightDetails() {
 
     const [TravelDate, setTravelDate] = useState("12 Nov");
     const [trthly, setTrthly] = useState(true);
-    const [MemberValue, setMemberValue] = useState()
+    const [MemberValue, setMemberValue] = useState({
+        adult: 0,
+        kids: 0
+    })
     const [findMemberModal, setFindMemberModal] = useState();
 
 
@@ -20,8 +23,8 @@ function FlightDetails() {
 
 
     const [flightDetails, setFlightDetails] = useState({
-        from: "Delhi",
-        to: "Bangalore"
+        from: "DEL",
+        to: "BAN"
     })
 
 
