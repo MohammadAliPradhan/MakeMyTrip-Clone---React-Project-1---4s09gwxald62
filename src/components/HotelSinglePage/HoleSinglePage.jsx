@@ -15,6 +15,7 @@ import FindMembers from '../FindMembers/FindMembers'
 
 function HoleSinglePage() {
     const location = useLocation();
+    console.log(location);
     console.log("final call", location);
     // Here I am getting two important dates
     const checkInDate = location.state.shareData.state.selectedDate;
@@ -93,7 +94,6 @@ function HoleSinglePage() {
 
 
     console.log(token);
-
 
     function handleReservedOrNote() {
         if (token) {

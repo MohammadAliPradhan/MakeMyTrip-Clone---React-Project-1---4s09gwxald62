@@ -91,7 +91,7 @@ function FlightSingleInfoPage() {
                     <p>Enjoy 10% off on your first booking! Use code: FIRSTFLIGHT</p>
                 </div>
 
-                <button onClick={handleonClick}>Reserve Or Book Now</button>
+                <button className='res-flight-button-a' onClick={handleonClick}>Reserve Or Book Now </button>
             </section>
         </div>
     )

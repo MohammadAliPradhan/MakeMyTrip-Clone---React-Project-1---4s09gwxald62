@@ -54,3 +54,13 @@
   height: 500px;
   color: white;
 }
+
+.myPortalDiv {
+  position: relative;
+  z-index: 50;
+}
+
+.myPortalDivTwo {
+  position: relative;
+  z-index: 50;
+}

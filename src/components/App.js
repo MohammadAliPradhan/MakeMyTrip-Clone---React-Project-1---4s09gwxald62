@@ -32,6 +32,7 @@ import PaymentTrain from "./TrainDetails/PaymentTrain/PaymentTrain.jsx";
 import MemberModal from "./TrainDetails/Testingfun/MemberModal.jsx";
 import SecondTesting from "./TrainDetails/Testingfun/SecondTesting.jsx";
 import AllOtherRoute from "./AllOtherRoute/AllOtherRoute.jsx";
+import AuthNavigator from "./Navigator/AuthNavigator.jsx";
 
 
 

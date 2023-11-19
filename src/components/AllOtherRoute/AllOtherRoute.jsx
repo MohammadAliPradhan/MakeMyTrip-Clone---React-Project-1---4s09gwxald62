@@ -14,15 +14,10 @@ function AllOtherRoute() {
 
                             <div className="flight-search">
 
-                                <h1>Work In Progress</h1>
+                                <h2>This Feature is not implemented yet</h2>
 
                             </div>
                         </div>
-
-
-
-
-
 
                         {/* <div className='searchParent'>
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import logo from '../assets/images/logo.png'
 import discount from '../assets/images/discount.jpeg'
 import bag from '../assets/images/bag.png'
@@ -6,9 +6,19 @@ import { Link } from 'react-router-dom';
 import SignUp from '../components/Authenticaltion/SignUp/SignUp';
 import Login from '../components/Authenticaltion/Login/Login';
 import "./scrollbar.css"
+import { AuthContext, ButtonContext } from '../components/App';
+
 
 
 function ScrollNavBar() {
+
+    const { isLoggedin, setIsLoggedIn } = useContext(AuthContext)
+    const { setButtonState } = useContext(ButtonContext)
+    console.log(isLoggedin);
+    const userName = JSON.parse(sessionStorage.getItem("userName"))
+
+
+
     const [isScrolling, setIsScrolling] = useState(false);
     const [lastScrollTop, setLastScrollTop] = useState(0);
 
@@ -25,7 +35,6 @@ function ScrollNavBar() {
     const handleScroll = () => {
         const currentScrollTop = window.scrollY;
 
-        // Determine if the user is scrolling down or up
         if (currentScrollTop > lastScrollTop) {
             setIsScrolling(true); // Scrolling down
         } else {
@@ -34,6 +43,19 @@ function ScrollNavBar() {
 
         setLastScrollTop(currentScrollTop);
     };
+
+    function handleToggle() {
+        setButtonState(true)
+
+
+    }
+
+    function handleLogout() {
+        setIsLoggedIn(false)
+    }
+
+
+
 
     return (
         <div className={`navbar ${isScrolling ? 'hidden' : ''}`}>
@@ -46,11 +68,16 @@ function ScrollNavBar() {
                     <div className='navmiddle'>
                         <img src={bag} alt="bag" />
                     </div>
-                    {/* {!isLoggedin && <div id='authenticate-au' onClick={handleOnClick}><p>Signup</p></div>}
-                    {isLoggedin && <div id='authenticate-au'><p onClick={handleLogOut}>Logout</p></div>}
-                    {isLoggedin && <div id="authenticate-auser"><li className='userName-css'>{userName}</li></div>} */}
-                    {/* <div className='navright'>
-                        {/*  */}
+
+                    <div className='auth-scroll-nav'>
+                        {!isLoggedin && < li className='login-scrollnav' onClick={handleToggle}>Login Or SignUp</li>}
+                        {isLoggedin && <li className='login-scrollnav' onClick={handleLogout}>Log Out</li>}
+                        {isLoggedin && <li className='name-scroll-nav'>{userName}</li>}
+                    </div>
+
+
+
+
 
 
 
