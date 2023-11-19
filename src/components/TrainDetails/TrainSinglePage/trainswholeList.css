@@ -686,3 +686,10 @@ hr {
     cursor: not-allowed;
     opacity: 0.5;
 }
+
+.singlepage-footer-train {
+    width: 100vw;
+    position: absolute;
+    bottom: 0px;
+
+}

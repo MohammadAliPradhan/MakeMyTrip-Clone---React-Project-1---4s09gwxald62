@@ -87,7 +87,7 @@ function Login() {
                 <div ><img src="https://imgak.mmtcdn.com/pwa_v3/pwa_header_assets/loginPersuassionValley.webp" alt="" className='authImg' /></div>
 
                 <div className='form-container-everythimg'>
-                    <div >
+                    <div className='input-data-signup'>
                         <label htmlFor="email">Email:</label>
                         <input
                             type="email"
@@ -98,7 +98,7 @@ function Login() {
 
                     </div>
 
-                    <div>
+                    <div className='input-data-signup'>
                         <label htmlFor="password">Password:</label>
                         <input type="password"
                             name="password"

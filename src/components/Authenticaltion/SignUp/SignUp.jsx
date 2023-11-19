@@ -14,6 +14,7 @@ function SignUp() {
     const { buttonState, setButtonState } = useContext(ButtonContext)
     const { loginButton, setLoginButton } = useContext(LoginButtonContext)
     const { isLoggedin, setIsLoggedIn } = useContext(AuthContext)
+    const [message, setMessage] = useState()
 
     //Here we are maintaining refs
     const nameRef = useRef();
@@ -29,15 +30,17 @@ function SignUp() {
                 config)
             console.log("res", res);
             const token = res.data.token;
+            setMessage(res.data.data.status)
 
             if (token) {
-
                 setButtonState(false)
-
+                setLoginButton(true)
             }
 
         } catch (err) {
-            console.log(err);
+            console.log("err", err);
+            setMessage(err.response.data.message)
+
         }
     }
 
@@ -66,6 +69,8 @@ function SignUp() {
         setLoginButton(true)
     }
 
+    console.log("erroro", message);
+
 
     return createPortal(
 
@@ -83,7 +88,7 @@ function SignUp() {
 
                 <div ><img src="https://imgak.mmtcdn.com/pwa_v3/pwa_header_assets/loginPersuassionValley.webp" alt="" className='authImg' /></div>
                 <div className='form-container-everythimg'>
-                    <div>
+                    <div className='input-data-signup'>
                         <label htmlFor="fullname">Name:</label>
                         <input
                             type="text"
@@ -95,7 +100,7 @@ function SignUp() {
 
                     </div>
 
-                    <div>
+                    <div className='input-data-signup'>
                         <label htmlFor="email">Email:</label>
                         <input
                             type="email"
@@ -106,20 +111,23 @@ function SignUp() {
 
                     </div>
 
-                    <div>
+                    <div className='input-data-signup'>
                         <label htmlFor="password">Password:</label>
                         <input type="password"
                             name="password"
                             id="password"
+
                             ref={passwordRef}
                         />
                     </div>
-
                     <input type="submit" value="signup" id='AlreadyaUser' />
+                    {message === "success" ? <span className='user-already-exists'>Hurray Signed In</span> : null}
+                    {message === "User already exists" ? <span className='user-already-exists'>User Already Exist</span> : null}
+                    {message === "Invalid input data. Please provide a valid email" ? <span className='user-already-exists'>Invalid Input Data</span> : null}
 
+                    {message === undefined ? <span className='user-already-exists'>Enter Credentials</span> : null}
                     {/* <LoginButton /> */}
-                    <br />
-                    <br />
+
                     <div className='buttonRelatedStuff'>
                         <h6>Already a user</h6>
                         <button onClick={clickthis} id='AlreadyaUser'><span>Click Here</span> </button>

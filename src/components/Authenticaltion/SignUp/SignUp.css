@@ -73,3 +73,13 @@
     justify-content: center;
     align-items: center;
 }
+
+.user-already-exists {
+    font-size: small;
+    color: red;
+}
+
+.input-data-signup {
+    display: flex;
+    gap: 5px;
+}

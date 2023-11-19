@@ -7,6 +7,7 @@ import "./trainswholeList.css"
 // import { faCircleArrowLeft, faCircleRight, faCircleXmark, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { getHeaderWithProjectId } from '../../Authenticaltion/utils/service';
 import ScrollNavBar from '../../../ScrollNavBar/ScrollNavBar';
+import Footer from '../../Footer/Footer';
 function TrainSinglePage() {
     const [singleInfoPageOfFlight, setSingleInfoPageOfFlight] = useState()
     const { flightId } = useParams();
@@ -60,6 +61,7 @@ function TrainSinglePage() {
 
     return (
         <>
+            <ScrollNavBar />
             <div class="paentpaent">
                 <div class="parentContainer">
 
@@ -128,7 +130,11 @@ function TrainSinglePage() {
                     }
                 </div>
 
+
             </div >
+
+            <div className='singlepage-footer-train'><Footer /></div>
+
         </>
     )
 }

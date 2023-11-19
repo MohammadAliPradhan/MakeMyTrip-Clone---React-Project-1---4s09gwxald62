@@ -27,8 +27,10 @@ function HotelDetails() {
         checkInState: false,
         checkOut: false,
     })
-    const [selectedDate, setSelectedDate] = useState('12 Nov')
-    const [selectedDateCheckOut, setSelectedDateCheckOut] = useState("13 Nov")
+    const initialDate = new Date('Wed Nov 15 2023 00:00:00 GMT+0530');
+
+    const [selectedDate, setSelectedDate] = useState(initialDate)
+    const [selectedDateCheckOut, setSelectedDateCheckOut] = useState(initialDate)
     const navigate = useNavigate()
 
     const [submittedHotelDetails, setSubmittedHotelDetails] = useState("");

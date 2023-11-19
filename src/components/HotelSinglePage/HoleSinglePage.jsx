@@ -7,7 +7,7 @@ import { faCircle, faCircleArrowLeft, faCircleRight, faCircleXmark, faLocation, 
 import { createPortal } from 'react-dom'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-import { ButtonContext, LoginButtonContext } from '../App'
+import { AuthContext, ButtonContext, LoginButtonContext } from '../App'
 import Footer from '../Footer/Footer'
 import FindMembers from '../FindMembers/FindMembers'
 
@@ -15,6 +15,8 @@ import FindMembers from '../FindMembers/FindMembers'
 
 function HoleSinglePage() {
     const location = useLocation();
+    const { isLoggedin, setIsLoggedIn } = useContext(AuthContext)
+
     console.log(location);
     console.log("final call", location);
     // Here I am getting two important dates
@@ -96,7 +98,7 @@ function HoleSinglePage() {
     console.log(token);
 
     function handleReservedOrNote() {
-        if (token) {
+        if (isLoggedin) {
             if (singleData) {
                 // If both token and singleData are present, navigate with the updated state
                 navigate("/justshow", { state: { item: { ...item, singleData } } });
@@ -185,7 +187,7 @@ function HoleSinglePage() {
                             <h2>
                                 <b>₹ {singleData?.rooms[0].costPerNight}</b> (1 Night)
                             </h2>
-                            <button>Reserve or Book Now!</button>
+                            <button onClick={handleReservedOrNote}>Reserve or Book Now!</button>
                         </div>
 
 

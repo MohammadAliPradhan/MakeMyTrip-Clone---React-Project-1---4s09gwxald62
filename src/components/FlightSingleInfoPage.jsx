@@ -9,6 +9,8 @@ import ScrollNavBar from '../ScrollNavBar/ScrollNavBar';
 import { AuthContext, ButtonContext } from './App';
 
 function FlightSingleInfoPage() {
+    const { isLoggedin, setIsLoggedIn } = useContext(AuthContext)
+
     const [singleInfoPageOfFlight, setSingleInfoPageOfFlight] = useState()
     const { flightId } = useParams();
     const testFlightId = flightId;
@@ -36,7 +38,7 @@ function FlightSingleInfoPage() {
     const token = sessionStorage.getItem("userToken");
 
     function handleonClick() {
-        if (token) {
+        if (isLoggedin) {
             navigate(`/payment`, { state: { singleInfoPageOfFlight, location } })
         } else {
             setButtonState(true)

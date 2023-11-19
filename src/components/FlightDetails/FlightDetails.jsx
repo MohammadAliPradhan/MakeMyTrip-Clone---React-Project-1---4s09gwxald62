@@ -8,8 +8,8 @@ import Calendar from 'react-calendar'
 import FindMembers from '../FindMembers/FindMembers'
 
 function FlightDetails() {
-
-    const [TravelDate, setTravelDate] = useState("12 Nov");
+    const initialDate = new Date('Wed Nov 15 2023 00:00:00 GMT+0530');
+    const [TravelDate, setTravelDate] = useState(initialDate);
     const [trthly, setTrthly] = useState(true);
     const [MemberValue, setMemberValue] = useState({
         adult: 0,
