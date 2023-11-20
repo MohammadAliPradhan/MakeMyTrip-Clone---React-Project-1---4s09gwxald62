@@ -130,7 +130,7 @@ function SignUp() {
 
                     <div className='buttonRelatedStuff'>
                         <h6>Already a user</h6>
-                        <button onClick={clickthis} id='AlreadyaUser'><span>Click Here</span> </button>
+                        <button onClick={clickthis} id='AlreadyaUser'><span>Login</span> </button>
                     </div>
 
                 </div>

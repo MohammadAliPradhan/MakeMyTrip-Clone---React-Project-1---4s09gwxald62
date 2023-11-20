@@ -7,3 +7,7 @@
     position: relative;
     bottom: 100px;
 }
+
+.isnotRedPayment {
+    color: red;
+}
