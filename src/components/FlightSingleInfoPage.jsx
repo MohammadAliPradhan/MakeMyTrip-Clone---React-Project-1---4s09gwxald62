@@ -7,6 +7,7 @@ import { faCircleArrowLeft, faCircleRight, faCircleXmark, faLocationDot } from '
 import "./FlightSingleInfoPage.css"
 import ScrollNavBar from '../ScrollNavBar/ScrollNavBar';
 import { AuthContext, ButtonContext } from './App';
+import Footer from './Footer/Footer';
 
 function FlightSingleInfoPage() {
     const { isLoggedin, setIsLoggedIn } = useContext(AuthContext)
@@ -95,6 +96,7 @@ function FlightSingleInfoPage() {
 
                 <button className='res-flight-button-a' onClick={handleonClick}>Reserve Or Book Now </button>
             </section>
+            <div><Footer /></div>
         </div>
     )
 }

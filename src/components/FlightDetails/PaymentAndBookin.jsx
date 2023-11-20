@@ -4,6 +4,7 @@ import ScrollNavBar from '../../ScrollNavBar/ScrollNavBar'
 import { useLocation } from 'react-router-dom'
 import PaymentConfirmationModal from './PaymentConfimation/PaymentConfirmationModal';
 import { AuthContext, ModalForFlightBooking } from '../App';
+import Footer from '../Footer/Footer';
 
 
 function PaymentAndBookin() {
@@ -159,6 +160,7 @@ function PaymentAndBookin() {
                 </div>
             </div>
             <PaymentConfirmationModal BookingInfo={location} />
+            <div><Footer /></div>
         </>
     )
 }
