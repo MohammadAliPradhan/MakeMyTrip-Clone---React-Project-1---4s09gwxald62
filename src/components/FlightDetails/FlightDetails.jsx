@@ -74,43 +74,13 @@ function FlightDetails() {
                                     id="one-way"
                                     value="one-way"
                                     name="trip"
-                                    className="form-check-input"
-                                    defaultChecked
+                                    className='requiredradio' defaultChecked
                                 ></input>
                                 <label className="form-check-label" htmlFor="one-way">
                                     One Way
                                 </label>
                             </div>
-                            <div className="form-check me-4">
-                                <input
-                                    type="radio"
-                                    id="round-trip"
-                                    value="round-trip"
-                                    name="trip"
-                                    className="form-check-input"
-                                ></input>
-                                <label
-                                    className="form-check-label"
-                                    htmlFor="round-trip"
-                                >
-                                    Round Trip
-                                </label>
-                            </div>
-                            <div className="form-check me-4">
-                                <input
-                                    type="radio"
-                                    id="multi-city"
-                                    value="multi-city"
-                                    name="trip"
-                                    className="form-check-input"
-                                ></input>
-                                <label
-                                    className="form-check-label"
-                                    htmlFor="multi-city"
-                                >
-                                    Multi City
-                                </label>
-                            </div>
+
                         </div>
                         <div className='searchParent'>
                             <button className="searchBtn" type="submit">Search</button>

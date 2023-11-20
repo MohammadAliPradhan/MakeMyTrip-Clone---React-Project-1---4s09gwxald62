@@ -90,47 +90,12 @@ function TrainDetails() {
                     <form className='ticket-type' onSubmit={handleOnSubmit}>
                         <div className="radioFlight">
                             <div className="form-check me-4">
-                                <input
-                                    type="radio"
-                                    id="one-way"
-                                    value="one-way"
-                                    name="trip"
-                                    className="form-check-input"
+                                <input type="radio"
+                                    className='requiredradio'
                                     defaultChecked
-                                ></input>
-                                <label className="form-check-label" htmlFor="one-way">
-                                    One Way
-                                </label>
-                            </div>
-                            <div className="form-check me-4">
-                                <input
-                                    type="radio"
-                                    id="round-trip"
-                                    value="round-trip"
-                                    name="trip"
-                                    className="form-check-input"
-                                ></input>
-                                <label
-                                    className="form-check-label"
-                                    htmlFor="round-trip"
-                                >
-                                    Round Trip
-                                </label>
-                            </div>
-                            <div className="form-check me-4">
-                                <input
-                                    type="radio"
-                                    id="multi-city"
-                                    value="multi-city"
-                                    name="trip"
-                                    className="form-check-input"
-                                ></input>
-                                <label
-                                    className="form-check-label"
-                                    htmlFor="multi-city"
-                                >
-                                    Multi City
-                                </label>
+
+                                    required />
+                                <label htmlFor="">OneWay</label>
                             </div>
                         </div>
 
