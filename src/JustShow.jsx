@@ -73,6 +73,7 @@ function JustShow() {
     const [entranceInfo, setEntranceInfo] = useState(checkInUI)
     const [endInfo, setEndInfo] = useState(checkOutUi)
 
+
     //This one is for formatting card details
 
     const formatCreditCardNumber = (input) => {
@@ -243,6 +244,17 @@ function JustShow() {
                                 />
                             </div>
 
+                            <div class="form-group">
+                                <label for="cvv">Phone Number</label>
+                                <input
+                                    className="hotelInput"
+                                    type="text"
+                                    id="phoneNumber"
+                                    placeholder="+91 XXXXX-XXXXX-XXXXX"
+                                    required
+                                />
+                            </div>
+
 
                             <div class="expiry-cvv">
                                 <div class="form-group">
@@ -265,6 +277,8 @@ function JustShow() {
                                         placeholder="CVV"
                                         required />
                                 </div>
+
+
                             </div>
 
 

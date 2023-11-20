@@ -106,6 +106,17 @@ function PaymentAndBookin() {
                         </div>
 
                         <div class="form-group">
+                            <label for="cvv">Phone Number</label>
+                            <input
+                                className="hotelInput"
+                                type="text"
+                                id="phoneNumber"
+                                placeholder="+91 XXXXX-XXXXX"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
                             <label for="cardNumber">Card Number</label>
                             <input
                                 className="hotelInput"

@@ -14,12 +14,13 @@
     position: absolute;
 }
 
-.calendarCross {
+.calendarCross-Hotel {
     position: absolute;
-    top: 424px;
-    left: 710px;
+    top: 440px;
+    left: 730px;
+    border-radius: 3px;
     padding: 10px;
-    background-color: red;
+    background-color: #4B70F7;
     cursor: pointer;
 }
 
@@ -27,13 +28,13 @@
     cursor: pointer;
 }
 
-.calendarCrossTwo {
+.calendarCrossTwo-hotel {
     position: absolute;
-    top: 424px;
-    right: 140px;
-    background-color: red;
+    top: 440px;
+    right: 110px;
+    border-radius: 3px;
     padding: 10px;
-    background-color: red;
+    background-color: #4B70F7;
     cursor: pointer;
 
 }

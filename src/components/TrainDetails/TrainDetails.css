@@ -2,12 +2,13 @@
     position: absolute;
 }
 
-.calendarCrossOfTwo {
+.calendarCrossOfTwo-train {
     position: absolute;
     padding: 10px;
-    background: red;
-    top: 425px;
-    right: 140px;
+    background: #4C70F7;
+    border-radius: 3px;
+    top: 440px;
+    right: 100px;
 }
 
 .something {

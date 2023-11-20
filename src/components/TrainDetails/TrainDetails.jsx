@@ -174,7 +174,7 @@ function TrainDetails() {
 
                             {/* do the work two */}
                             {trthly ? <div >
-                                <span onClick={() => setTrthly(false)} className='calendarCrossOfTwo'>Close</span>
+                                <span onClick={() => setTrthly(false)} className='calendarCrossOfTwo-train'>Done</span>
                                 <Calendar className="calendarOn" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} />
                             </div> : <h1><input
 
