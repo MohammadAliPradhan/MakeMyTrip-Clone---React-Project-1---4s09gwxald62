@@ -23,8 +23,8 @@ function FlightDetails() {
 
 
     const [flightDetails, setFlightDetails] = useState({
-        from: "DEL",
-        to: "BAN"
+        from: "HYD",
+        to: "DEL"
     })
 
 

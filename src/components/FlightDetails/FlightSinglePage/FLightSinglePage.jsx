@@ -15,6 +15,9 @@ function FLightSinglePage() {
     //Api Information Starts here 
     const [FlightAPiDetails, setFlightApiDetails] = useState();
     const location = useLocation()
+    console.log("sdjfskdfjskdlfjsd", location);
+
+
 
 
 
