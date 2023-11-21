@@ -2,6 +2,8 @@ import React from 'react'
 import "./footer.css"
 import { Link } from 'react-router-dom'
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 function Footer() {
     return (
@@ -11,12 +13,12 @@ function Footer() {
                     <div className="socials">
                         <Link to={"https://github.com/MohammadAliPradhan"}
                             target={'_blank'}>
+                            <FontAwesomeIcon icon={faGithub} />
 
-                            <FaTwitter />
                         </Link>
                         <Link to={"https://www.linkedin.com/in/mohammad-ali-a07957178/"}
                             target={'_blank'}>
-                            <FaLinkedin />
+                            <FontAwesomeIcon icon={faLinkedin} />
                         </Link>
                     </div>
                 </div>
