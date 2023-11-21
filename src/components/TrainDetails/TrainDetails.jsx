@@ -13,7 +13,10 @@ import FindMembers from '../FindMembers/FindMembers'
 function TrainDetails() {
     const initialDate = new Date('Wed Nov 15 2023 00:00:00 GMT+0530');
     const [TravelDate, setTravelDate] = useState(initialDate);
-    const [MemberValue, setMemberValue] = useState(9)
+    const [MemberValue, setMemberValue] = useState({
+        adult: 0,
+        kids: 0
+    })
     const [trthly, setTrthly] = useState();
     const [TrainPlace, setTrainPlace] = useState({
         from: "BAN",
@@ -157,13 +160,13 @@ function TrainDetails() {
                                 <span>
                                     Members
                                 </span>
-                                <h3 className='inputHeremains'>Members: {MemberValue === undefined ? "7" : MemberValue?.adult}</h3>
+                                <h3 className='inputHeremains'>Members: {totalMembers}</h3>
                             </div>
 
                             {findMemberModal && <div className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>}
 
 
-                            <span>{MemberValue === undefined ? "7" : MemberValue?.adult} Adult, {MemberValue === undefined ? "7" : MemberValue?.kids} Kids ({MemberValue === undefined ? 4 : totalMembers} Members)</span>
+                            <span>{MemberValue === undefined ? "1" : MemberValue?.adult} Adult, {MemberValue === undefined ? "7" : MemberValue?.kids} Kids ({MemberValue === undefined ? 4 : totalMembers} Members)</span>
                         </div>
 
 

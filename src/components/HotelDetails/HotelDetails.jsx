@@ -122,6 +122,7 @@ function HotelDetails() {
 
     console.log(calendarState.checkInState);
 
+    const totalMembers = parseInt(MemberValue?.kids || 0, 10) + parseInt(MemberValue?.adult || 0, 10);
 
 
     return (
@@ -214,13 +215,13 @@ function HotelDetails() {
                                 <span>
                                     Members
                                 </span>
-                                <h3 className='inputHeremains'>Members: </h3>
+                                <h3 className='inputHeremains'>Members:{totalMembers} </h3>
                             </div>
 
                             {findMemberModal && <div className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>}
 
 
-                            <span>7 Adult,6 Kids (9 Members)</span>
+                            <span>{MemberValue === undefined ? "7" : MemberValue?.adult} Adult, {MemberValue === undefined ? "7" : MemberValue?.kids} Kids ({MemberValue === undefined ? 6 : totalMembers} Members)</span>
                         </div>
 
 
