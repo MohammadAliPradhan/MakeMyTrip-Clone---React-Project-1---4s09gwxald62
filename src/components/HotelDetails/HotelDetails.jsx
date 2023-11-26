@@ -232,7 +232,7 @@ function HotelDetails() {
                         <div className='searchBtn'>
                             SEARCH
                         </div>
-                    </div> */}
+                    </div> */}``
 
 
 

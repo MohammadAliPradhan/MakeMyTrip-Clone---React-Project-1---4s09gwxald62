@@ -12,30 +12,30 @@ function MmtHeader() {
                 <div className='MmtParent'>
                     <div className="componentsStyle">
 
-                        <div className='single-single-component'> <NavLink to="/" className='textdecon'>
+                        <div className='single-single-component '> <NavLink to="/" className='textdecon'>
                             <FontAwesomeIcon icon={faPlaneDeparture} size="2xl" style={{ color: "black  ", }} />
                             <li className='icon-no-link'>Flights</li></NavLink>
                         </div>
 
 
-                        <div className='single-single-component'><NavLink to="/hotel" className='textdecon'>
+                        <div className='single-single-component '><NavLink to="/hotel" className='textdecon'>
                             <FontAwesomeIcon icon={faHotel} size="2xl" style={{ color: "black", }} />
                             <li className='icon-no-link'>Hotels</li>
                         </NavLink>
                         </div>
 
-                        <div className='single-single-component'><NavLink to="/train" className='textdecon'>
+                        <div className='single-single-component '><NavLink to="/train" className='textdecon'>
                             <FontAwesomeIcon icon={faTrain} size="2xl" style={{ color: "black", }} />
                             <li className='icon-no-link'>Trains</li></NavLink>
                         </div>
 
-                        <div className='single-single-component'><NavLink to="/allotherroute" className='textdecon'>
+                        <div className='single-single-component NoShow'><NavLink to="/allotherroute" className='textdecon'>
                             <FontAwesomeIcon icon={faHouse} size="2xl" style={{ color: "black", }} />
                             <li className='icon-no-link'>HomeStays</li>
                         </NavLink>
                         </div>
 
-                        <div className='single-single-component'><NavLink to="/allotherroute" className='textdecon'>
+                        <div className='single-single-component NoShow'><NavLink to="/allotherroute" className='textdecon'>
                             <FontAwesomeIcon icon={faSuitcaseRolling} size="2xl" style={{ color: "black", }} />
                             <li className='icon-no-link'>Holidays</li>
                         </NavLink>
@@ -43,14 +43,14 @@ function MmtHeader() {
 
 
 
-                        <div className='single-single-component'><NavLink to="/allotherroute" className='textdecon'>
+                        <div className='single-single-component NoShow'><NavLink to="/allotherroute" className='textdecon'>
                             <FontAwesomeIcon icon={faBus} size="2xl" style={{ color: "black", }} />
                             <li className='icon-no-link'>Buses</li>
                         </NavLink>
                         </div>
 
 
-                        <div className='single-single-component'><NavLink to="/allotherroute" className='textdecon'>
+                        <div className='single-single-component NoShow'><NavLink to="/allotherroute" className='textdecon'>
                             <FontAwesomeIcon icon={faTaxi} size="2xl" style={{ color: "black", }} />
                             <li className='icon-no-link'>Cabs</li>
                         </NavLink>

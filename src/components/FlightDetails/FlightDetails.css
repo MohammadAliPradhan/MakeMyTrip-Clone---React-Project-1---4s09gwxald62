@@ -121,3 +121,28 @@
    border: 1px solid black;
    border-radius: 10px;
 }
+
+@media only screen and (max-width: 600px) {
+   .flight-search {
+      display: flex;
+      flex-direction: row;
+      height: auto;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 0px;
+      border: 1px solid rgb(202, 202, 202);
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 10px;
+   }
+
+   .ComponentUni {
+      background-color: #FFFFFF;
+      width: 100%;
+      height: auto;
+      padding: 25px 40px 40px;
+      margin-top: 25px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+   }
+}

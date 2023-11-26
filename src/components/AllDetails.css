@@ -13,3 +13,21 @@
     justify-content: center;
     background: linear-gradient(90deg, rgb(52 50 98) 0%, rgba(6, 20, 36, 1) 35%, rgba(0, 212, 255, 1) 100%);
 }
+
+@media only screen and (max-width: 600px) {
+    .Details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        height: auto;
+        width: 1200px;
+        background-color: #fff;
+        color: black;
+        position: relative;
+        bottom: 60px;
+        border-radius: 8px;
+    }
+
+
+}

@@ -24,7 +24,7 @@ function FlightOffer() {
                         <h2>Offers</h2>
 
                         <div className="makeFlex perfectContainer">
-                            <ul className='makeFlex nrlText superOffersTab appendLeft30'>
+                            <ul id='YesNoShow' className='makeFlex nrlText superOffersTab appendLeft30'>
                                 <li>ALL</li>
                                 <li>FLIGHTS</li>
                                 <li>HOTELS</li>

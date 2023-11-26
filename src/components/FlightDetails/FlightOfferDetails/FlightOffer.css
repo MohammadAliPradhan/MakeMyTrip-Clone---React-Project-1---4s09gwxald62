@@ -96,3 +96,32 @@
     border: 1px solid rgb(130, 117, 117);
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+
+    .superOffers {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .makeFlex {
+        display: flex;
+        width: 95%;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .pushRight {
+        display: none;
+    }
+
+    #YesNoShow {
+        display: none;
+    }
+
+
+}
