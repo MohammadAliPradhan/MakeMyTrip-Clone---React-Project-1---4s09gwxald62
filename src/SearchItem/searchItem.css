@@ -108,3 +108,18 @@
     border: none;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    .searchItem {
+        border: 1px solid lightgray;
+        padding: 10px;
+        border-radius: 5px;
+        display: flex;
+        width: 90%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 20px;
+        background: white;
+    }
+}

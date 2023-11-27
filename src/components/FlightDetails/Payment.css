@@ -11,3 +11,17 @@
 .isnotRedPayment {
     color: red;
 }
+
+@media only screen and (max-width: 600px) {
+    .payment-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        top: 0px;
+        left: 0px;
+        align-items: center;
+        position: relative;
+        bottom: 100px;
+    }
+}

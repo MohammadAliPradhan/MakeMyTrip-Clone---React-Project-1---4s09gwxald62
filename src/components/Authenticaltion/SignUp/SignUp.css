@@ -83,3 +83,35 @@
     display: flex;
     gap: 5px;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .form-container-everythimg {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+        position: absolute;
+        right: 17px;
+        top: 90px;
+        align-items: center;
+        font-size: x-large;
+    }
+
+    .image-surface-none {
+        display: none;
+    }
+
+    .formContainer {
+        display: flex;
+        position: fixed;
+        z-index: 11;
+        justify-content: space-between;
+        background-color: #fff;
+        pointer-events: auto;
+        width: 90%;
+        height: 510px;
+    }
+
+
+}

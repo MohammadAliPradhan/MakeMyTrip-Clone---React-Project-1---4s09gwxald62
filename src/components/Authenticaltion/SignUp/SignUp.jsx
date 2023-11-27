@@ -86,7 +86,7 @@ function SignUp() {
                     <span>X</span>
                 </div>
 
-                <div ><img src="https://imgak.mmtcdn.com/pwa_v3/pwa_header_assets/loginPersuassionValley.webp" alt="" className='authImg' /></div>
+                <div className='image-surface-none'><img src="https://imgak.mmtcdn.com/pwa_v3/pwa_header_assets/loginPersuassionValley.webp" alt="" className='authImg' /></div>
                 <div className='form-container-everythimg'>
                     <div className='input-data-signup'>
                         <label htmlFor="fullname">Name:</label>

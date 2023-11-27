@@ -102,3 +102,25 @@
 .listResult>h1 {
     color: White;
 }
+
+@media only screen and (max-width: 600px) {
+    .listWrapper {
+        width: 100%;
+        max-width: 1024px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .listSearch {
+        flex: 1 1;
+        background-color: lightblue;
+        padding: 10px;
+        border-radius: 10px;
+        position: relative;
+        top: 10px;
+        height: -webkit-max-content;
+        height: max-content;
+    }
+}
