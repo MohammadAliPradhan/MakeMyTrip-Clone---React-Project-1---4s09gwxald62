@@ -39,7 +39,7 @@ function NavBar() {
                 <div className='navpadding'>
                     <div className='logoleft'>
                         <Link to="/" ><img className="logoleft" src={logo} alt="log" /></Link>
-                        <img src={discount} alt="discount" />
+                        <img className='discount-bag-a' src={discount} alt="discount" />
                     </div>
                     <div className='navmiddle'>
                         <img src={bag} alt="bag" />

@@ -139,7 +139,7 @@
 
    .ComponentUni {
       background-color: #FFFFFF;
-      width: 100%;
+      width: 1200px;
       height: auto;
       padding: 25px 40px 40px;
       margin-top: 25px;
@@ -150,7 +150,7 @@
    .searchBtn {
       display: flex;
       width: 216px;
-      height: 69px;
+      height: 46px;
       background: linear-gradient(to right, #3fa2ff, #3f00f6);
       color: #fff;
       font-size: 28px;
@@ -159,7 +159,7 @@
       justify-content: center;
       align-items: center;
       position: absolute;
-      top: 728px;
+      top: 735px;
       left: 95px;
    }
 
