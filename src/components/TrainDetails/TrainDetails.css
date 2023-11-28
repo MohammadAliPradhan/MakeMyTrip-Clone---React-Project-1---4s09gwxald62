@@ -28,3 +28,11 @@
 .requiredradio {
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    .flight {
+        border: 1px solid #d6bfbf;
+        border-radius: 10px;
+        padding: 10px;
+    }
+}

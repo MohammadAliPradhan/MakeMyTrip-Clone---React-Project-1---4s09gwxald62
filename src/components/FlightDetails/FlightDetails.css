@@ -130,7 +130,7 @@
       height: auto;
       flex-wrap: wrap;
       justify-content: space-around;
-      gap: 0px;
+      gap: 22px;
       border: 1px solid rgb(202, 202, 202);
       margin-top: 20px;
       padding: 10px;
@@ -159,8 +159,8 @@
       justify-content: center;
       align-items: center;
       position: absolute;
-      top: 628px;
-      left: 104px;
+      top: 728px;
+      left: 95px;
    }
 
 
