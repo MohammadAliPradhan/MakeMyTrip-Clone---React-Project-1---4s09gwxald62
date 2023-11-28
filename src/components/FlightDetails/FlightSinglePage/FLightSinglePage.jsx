@@ -83,7 +83,6 @@ function FLightSinglePage() {
                             <div className="flight-details">
                                 <div className="airways-detail">
                                     <img className="air-logo" src="https://plus.unsplash.com/premium_photo-1679830513990-82a4280f41b4?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-                                    <span className="flight-name">Ethihad Airways</span>
                                 </div>
                                 <div className="timings">
                                     <span className="departure">{details.departureTime}</span>

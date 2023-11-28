@@ -2,7 +2,7 @@
     <div className="flight-details">
         <div className="airways-detail">
             <SiEtihadairways className="air-logo" />
-            <span className="flight-name">Ethihad Airways</span>
+            <span className="flight-name">sdfsdf</span>
         </div>
         <div className="timings">
             <span className="departure">09:10</span>

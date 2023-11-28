@@ -1,11 +1,3 @@
-.searchParent {
-    position: absolute;
-    top: 254px;
-    left: 470px;
-    cursor: pointer;
-
-}
-
 .searchBtn {
     cursor: pointer;
 }

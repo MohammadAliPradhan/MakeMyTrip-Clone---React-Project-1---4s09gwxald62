@@ -150,3 +150,13 @@
     color: lightgray;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    .hotelDetails {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 20px;
+    }
+}

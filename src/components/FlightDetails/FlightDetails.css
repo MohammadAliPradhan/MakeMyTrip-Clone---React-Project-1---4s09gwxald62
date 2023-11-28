@@ -77,7 +77,8 @@
    justify-content: center;
    align-items: center;
    position: relative;
-   top: 80px;
+   top: 314px;
+   left: 376px;
 }
 
 .searchParent {
@@ -145,4 +146,22 @@
       border-radius: 10px;
       margin-bottom: 20px;
    }
+
+   .searchBtn {
+      display: flex;
+      width: 216px;
+      height: 69px;
+      background: linear-gradient(to right, #3fa2ff, #3f00f6);
+      color: #fff;
+      font-size: 28px;
+      text-align: center;
+      border-radius: 35px;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 628px;
+      left: 104px;
+   }
+
+
 }

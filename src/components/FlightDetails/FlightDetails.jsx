@@ -82,9 +82,7 @@ function FlightDetails() {
                             </div>
 
                         </div>
-                        <div className='searchParent'>
-                            <button className="searchBtn" type="submit">Search</button>
-                        </div>
+                        <button className="searchBtn" type="submit">Search</button>
                     </form>
                     <div className="flight-search">
                         <div className="flight">
