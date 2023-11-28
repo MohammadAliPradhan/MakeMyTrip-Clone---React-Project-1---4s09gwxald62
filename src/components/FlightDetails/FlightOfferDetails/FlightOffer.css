@@ -123,5 +123,18 @@
         display: none;
     }
 
+    .childSuperOffer {
+        flex: 1 1;
+        display: flex;
+        gap: 30px;
+        background-color: #FFFFFF;
+        min-width: calc(33.33% - 10px);
+        color: black;
+        border: 1px solid rgb(138, 133, 133);
+        height: 200px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
 
 }
