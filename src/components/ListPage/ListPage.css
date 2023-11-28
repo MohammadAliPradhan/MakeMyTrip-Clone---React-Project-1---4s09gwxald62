@@ -119,8 +119,12 @@
         padding: 10px;
         border-radius: 10px;
         position: relative;
-        top: 10px;
+        top: -25px;
         height: -webkit-max-content;
         height: max-content;
+    }
+
+    #color-change-black {
+        color: black;
     }
 }

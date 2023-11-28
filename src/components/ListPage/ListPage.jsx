@@ -161,7 +161,7 @@ function ListPage() {
 
                     </div>
                     <div className="listResult">
-                        <h1>Hotels in {ApiInfo[0]?.location ? ApiInfo[0].location : "Loading"}</h1>
+                        <h1 id='color-change-black'>Hotels in {ApiInfo[0]?.location ? ApiInfo[0].location : "Loading"}</h1>
                         {
                             ApiInfo.map((apis, index) => (
                                 <SearchItem key={index} data={apis} state={navigateLocation} />
