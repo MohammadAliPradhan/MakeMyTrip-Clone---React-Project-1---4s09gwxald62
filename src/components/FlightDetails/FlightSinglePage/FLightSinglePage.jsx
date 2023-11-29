@@ -126,7 +126,7 @@ function FLightSinglePage() {
                                 <FontAwesomeIcon icon={faCartFlatbedSuitcase} className="luggage-icon" />
 
                                 <span className="luggage-detail">Included-cabin bag</span>
-                                <span className="price">INR {details.ticketPrice}</span>
+                                <span className="price">INR {details.ticketPrice === ListPriceofhighest[0] ? "aloo" : details.ticketPrice}</span>
                                 <span className="price-details">Total price for all travellers</span>
                                 <button onClick={() => handleNavigate(details._id)} className="see-flight">See flight</button>
 

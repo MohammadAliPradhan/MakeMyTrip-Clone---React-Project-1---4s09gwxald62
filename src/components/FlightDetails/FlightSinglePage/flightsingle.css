@@ -95,14 +95,14 @@
 }
 
 .price-section {
-    flex: 1;
+    flex: 1 1;
     display: flex;
     align-items: center;
     height: 200px;
     border: 1px solid #EAEAEA;
     flex-direction: column;
     border-radius: 8px;
-    padding: 20px;
+    padding: 0px;
 }
 
 .luggage-icon {
