@@ -18,6 +18,7 @@ function FLightSinglePage() {
     console.log("sdjfskdfjskdlfjsd", location);
 
 
+
     const [sbycheap, setSbyCheap] = useState();
     const [sbyhighest, setSbyHighest] = useState();
 
@@ -104,6 +105,8 @@ function FLightSinglePage() {
 
                         <div className="flight-container">
                             <div className="flight-details">
+
+
                                 <div className="airways-detail">
                                     <img className="air-logo" src="https://plus.unsplash.com/premium_photo-1679830513990-82a4280f41b4?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                                 </div>
@@ -111,6 +114,10 @@ function FLightSinglePage() {
                                     <span className="departure">{details.departureTime}</span>
                                     <span className="departureDate">{dayOfWeek}-{dayOfMonth} </span>
                                 </div>
+
+
+
+
                                 <div className="time-travel">
                                     <span className="totaltime">{details.duration} hours</span>
                                     {/* <hr/> */}
@@ -123,11 +130,16 @@ function FLightSinglePage() {
                             </div>
 
                             <div className="price-section">
+                                <div className='locationNamePrice'>
+                                    <span className="cityName1">{details.source}</span>
+                                    <span className="cityName2">{details.destination}</span>
+                                </div>
                                 <FontAwesomeIcon icon={faCartFlatbedSuitcase} className="luggage-icon" />
 
                                 <span className="luggage-detail">Included-cabin bag</span>
                                 <span className="price">INR {details.ticketPrice === ListPriceofhighest[0] ? "aloo" : details.ticketPrice}</span>
                                 <span className="price-details">Total price for all travellers</span>
+
                                 <button onClick={() => handleNavigate(details._id)} className="see-flight">See flight</button>
 
                             </div>

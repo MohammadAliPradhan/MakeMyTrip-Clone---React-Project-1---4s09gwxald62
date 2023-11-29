@@ -12,6 +12,16 @@
 
 }
 
+.locationNamePrice {
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+    position: relative;
+    top: 70px;
+    margin-left: -245px;
+
+}
+
 .bluecolorcontainerChild {
     display: flex;
     align-items: center;
@@ -101,7 +111,7 @@
     flex: 1 1;
     display: flex;
     align-items: center;
-    height: 200px;
+    height: 243px;
     border: 1px solid #EAEAEA;
     flex-direction: column;
     border-radius: 8px;
