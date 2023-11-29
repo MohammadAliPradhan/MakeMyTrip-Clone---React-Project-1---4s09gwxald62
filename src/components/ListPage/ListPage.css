@@ -126,5 +126,15 @@
 
     #color-change-black {
         color: black;
+        text-align: center;
+    }
+
+    .listResult {
+        display: flex;
+        flex-direction: column;
+        flex: 3 1;
+        position: relative;
+        bottom: 39px;
+        align-items: center;
     }
 }
