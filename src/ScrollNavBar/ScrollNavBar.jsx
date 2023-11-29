@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import logo from '../assets/images/logo.png'
 import discount from '../assets/images/discount.jpeg'
 import bag from '../assets/images/bag.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SignUp from '../components/Authenticaltion/SignUp/SignUp';
 import Login from '../components/Authenticaltion/Login/Login';
 import "./scrollbar.css"
@@ -16,6 +16,8 @@ function ScrollNavBar() {
     const { setButtonState } = useContext(ButtonContext)
     console.log(isLoggedin);
     const userName = JSON.parse(sessionStorage.getItem("userName"))
+    const navigate = useNavigate();
+    console.log(navigate);
 
 
 
@@ -72,7 +74,7 @@ function ScrollNavBar() {
                     <div className='auth-scroll-nav'>
                         {!isLoggedin && < li className='login-scrollnav' onClick={handleToggle}>Login Or SignUp</li>}
                         {isLoggedin && <li className='login-scrollnav' onClick={handleLogout}>Log Out</li>}
-                        {isLoggedin && <li className='name-scroll-nav'>{userName}</li>}
+                        {isLoggedin && <li className='name-scroll-nav' onClick={() => navigate("../profilePageA")}>{userName}</li>}
                     </div>
 
 

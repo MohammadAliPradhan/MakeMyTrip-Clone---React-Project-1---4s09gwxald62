@@ -49,7 +49,7 @@ function NavBar() {
                         {!isLoggedin && <div id='authenticate-au' onClick={handleOnClick}><span>Login/ </span>
                             <span> SignUp</span></div>}
                         {isLoggedin && <div id='authenticate-au' data-bs-toggle="modal" data-bs-target="#loginModal2"><p onClick={handleLogOut}>Logout</p></div>}
-                        {isLoggedin && <div id="authenticate-auser"><li className='userName-css'>{userName}</li></div>}
+                        {isLoggedin && <div onClick={() => navigate("./profilePageA")} id="authenticate-auser"><li className='userName-css'>{userName}</li></div>}
                     </div>
 
 
