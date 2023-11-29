@@ -18,7 +18,8 @@ function FLightSinglePage() {
     console.log("sdjfskdfjskdlfjsd", location);
 
 
-
+    const [sbycheap, setSbyCheap] = useState();
+    const [sbyhighest, setSbyHighest] = useState();
 
 
     //extracting day
@@ -38,7 +39,7 @@ function FLightSinglePage() {
 
     //end
 
-    console.log(location);
+    console.log("specificllocation", FlightAPiDetails);
 
 
 
@@ -57,8 +58,12 @@ function FLightSinglePage() {
         }
     }
     useEffect(() => {
-        getFlightDetails()
-    }, [])
+        getFlightDetails(sbycheap);
+    }, [sbycheap])
+
+    useEffect(() => {
+        getFlightDetails(sbyhighest);
+    }, [sbyhighest])
 
 
 
@@ -70,14 +75,29 @@ function FLightSinglePage() {
     function handleNavigate(infos) {
         navigate(`${infos}`, { state: { location } })
     }
+    const ListPriceofhighest = [];
+
+    function HandleSortByHighest() {
+
+        FlightAPiDetails.map((details) => {
+            ListPriceofhighest.push(details.ticketPrice);
+            console.log("gonethedayes", ListPriceofhighest);
+        });
+    }
+    function HandleSortByCheapest() {
+
+    }
+
     return (
         <>
             <ScrollNavBar />
 
             <div className='container-flight-single'>
                 <div className="bluecolorcontainer">
-                    <p className='highestSort'>Sort By Highest</p>
-                    <p className='lowestSort'>Sort By Cheapest</p>
+                    <div className='bluecolorcontainerChild'>
+                        <p onClick={HandleSortByHighest} className='highestSort'>Sort By Highest</p>
+                        <p onClick={HandleSortByCheapest} className='highestSort'>Sort By Cheapest</p>
+                    </div>
                 </div>
                 <div className="marginTopFlight">
                     {FlightAPiDetails?.map((details) => (
