@@ -137,6 +137,19 @@
       border-radius: 10px;
    }
 
+   .calendarCrossOfTwoFlight {
+      position: absolute;
+      background-color: #3F22F7;
+      padding: 10px;
+      top: 609px;
+      right: 19px;
+      cursor: pointer;
+      border: 1px solid black;
+      border-radius: 10px;
+   }
+
+
+
    .ComponentUni {
       background-color: #FFFFFF;
       width: 1200px;
@@ -162,6 +175,16 @@
       top: 735px;
       left: 95px;
    }
+
+   .calendarOnOfFlight {
+      position: absolute;
+      right: 22px;
+   }
+
+
+
+
+
 
 
 }

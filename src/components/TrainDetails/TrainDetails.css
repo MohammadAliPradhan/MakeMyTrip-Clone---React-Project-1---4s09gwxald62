@@ -35,4 +35,13 @@
         border-radius: 10px;
         padding: 10px;
     }
+
+    .calendarCrossOfTwo-train {
+        position: absolute;
+        padding: 10px;
+        background: #4C70F7;
+        border-radius: 3px;
+        top: 605px;
+        right: 18px;
+    }
 }

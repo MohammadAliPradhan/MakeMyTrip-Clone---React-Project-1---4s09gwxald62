@@ -30,3 +30,31 @@
     cursor: pointer;
 
 }
+
+@media only screen and (max-width: 600px) {
+    .calendarCross-Hotel {
+        position: absolute;
+        top: 608px;
+        left: 313px;
+        border-radius: 3px;
+        padding: 10px;
+        background-color: #4B70F7;
+        cursor: pointer;
+    }
+
+    .calendarOn {
+        position: absolute;
+        top: 283px;
+        right: 20px;
+    }
+
+    .calendarCrossTwo-hotel {
+        position: absolute;
+        top: 609px;
+        right: 24px;
+        border-radius: 3px;
+        padding: 10px;
+        background-color: #4B70F7;
+        cursor: pointer;
+    }
+}

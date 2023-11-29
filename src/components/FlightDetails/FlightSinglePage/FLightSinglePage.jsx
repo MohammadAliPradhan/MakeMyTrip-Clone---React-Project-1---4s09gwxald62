@@ -75,7 +75,10 @@ function FLightSinglePage() {
             <ScrollNavBar />
 
             <div className='container-flight-single'>
-                <div className="bluecolorcontainer"></div>
+                <div className="bluecolorcontainer">
+                    <p className='highestSort'>Sort By Highest</p>
+                    <p className='lowestSort'>Sort By Cheapest</p>
+                </div>
                 <div className="marginTopFlight">
                     {FlightAPiDetails?.map((details) => (
 

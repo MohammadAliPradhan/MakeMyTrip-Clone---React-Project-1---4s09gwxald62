@@ -12,6 +12,11 @@
 
 }
 
+.bluecolorcontainer {
+    display: flex;
+    justify-content: center;
+}
+
 .flight-details {
     display: flex;
     align-items: center;
@@ -151,7 +156,7 @@
     width: 100vw;
     height: 340px;
     display: flex;
-    gap: 10px;
+    gap: 50px;
 
 }
 
