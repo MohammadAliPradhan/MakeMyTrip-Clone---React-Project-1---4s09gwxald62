@@ -37,10 +37,16 @@
 .close-button {
     position: absolute;
     top: 0%;
-    left: 100%;
+    left: 101%;
     cursor: pointer;
     font-size: 20px;
-    color: #e60c0c;
+    color: black;
+    border: 0 solid black;
+    border-radius: 100%;
+    background-color: #fff;
+    padding: 2px;
+    width: 20px;
+    text-align: center;
 }
 
 .form-container-everythimg {
@@ -111,6 +117,21 @@
         pointer-events: auto;
         width: 90%;
         height: 510px;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 2%;
+        left: 90%;
+        cursor: pointer;
+        font-size: 20px;
+        color: black;
+        border: 0 solid black;
+        border-radius: 100%;
+        background-color: #ffa8a8;
+        padding: 2px;
+        width: 20px;
+        text-align: center;
     }
 
 

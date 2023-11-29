@@ -106,7 +106,7 @@ function ListPage() {
                             />
                         </div>
 
-                        <div className="lsItem">
+                        {/* <div className="lsItem">
                             <label>Check-in-Date</label>
                             <span></span>
                             {false && <DateRange
@@ -115,8 +115,8 @@ function ListPage() {
                                 moveRangeOnFirstSelection={false}
                                 ranges={state}
                             />}
-                        </div>
-                        <div className="lsItem">
+                        </div> */}
+                        {/* <div className="lsItem">
                             <label>Options</label>
                             <div className="lsOptions">
                                 <div className="lsOptionItem">
@@ -156,7 +156,7 @@ function ListPage() {
                                 </div>
                             </div>
 
-                        </div>
+                        </div> */}
                         <button onClick={handleOnChange}>Search</button>
 
                     </div>
