@@ -127,17 +127,20 @@
     align-self: self-end;
     padding: 4px;
     font-size: 10px;
+    margin-right: 2px;
 }
 
 .price {
     align-self: self-end;
     font-weight: bold;
+    margin-right: 8px;
 }
 
 .price-details {
     font-weight: lighter;
     align-self: self-end;
     font-size: 8px;
+    margin-right: 5px;
 }
 
 .see-flight {
