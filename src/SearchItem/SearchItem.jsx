@@ -51,7 +51,7 @@ function SearchItem(props) {
                     </div>
 
                     <div className="siDetailTexts">
-                        <span className='siPrice'>rs {data.rooms[0].costDetails.baseCost}</span>
+                        <span className='siPrice'>₹ {data.rooms[0].costDetails.baseCost}</span>
                         <span className='siTaxOp'>Includes taxes and fees</span>
                         <button className='siCheckButton' onClick={handleOnClick}>See Availability</button>
                     </div>
