@@ -19,8 +19,6 @@ function FLightSinglePage() {
 
 
 
-    const [sbycheap, setSbyCheap] = useState();
-    const [sbyhighest, setSbyHighest] = useState();
 
 
     //extracting day
@@ -59,12 +57,9 @@ function FLightSinglePage() {
         }
     }
     useEffect(() => {
-        getFlightDetails(sbycheap);
-    }, [sbycheap])
+        getFlightDetails();
+    }, [])
 
-    useEffect(() => {
-        getFlightDetails(sbyhighest);
-    }, [sbyhighest])
 
 
 
@@ -79,14 +74,19 @@ function FLightSinglePage() {
     const ListPriceofhighest = [];
 
     function HandleSortByHighest() {
-
-        FlightAPiDetails.map((details) => {
-            ListPriceofhighest.push(details.ticketPrice);
-            console.log("gonethedayes", ListPriceofhighest);
-        });
+        const sortedFlights = [...FlightAPiDetails];
+        sortedFlights.sort((a, b) => {
+            return b.ticketPrice - a.ticketPrice;
+        })
+        setFlightApiDetails(sortedFlights)
     }
-    function HandleSortByCheapest() {
 
+    function HandleSortByCheapest() {
+        const sortedFlights = [...FlightAPiDetails];
+        sortedFlights.sort((a, b) => {
+            return a.ticketPrice - b.ticketPrice;
+        })
+        setFlightApiDetails(sortedFlights)
     }
 
     return (
