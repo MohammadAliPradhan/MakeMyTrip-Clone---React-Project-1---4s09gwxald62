@@ -54,6 +54,32 @@
     cursor: pointer;
 }
 
+.profileMytrips {
+    position: absolute;
+    right: 67px;
+    top: 60px;
+    border: 1px solid black;
+    width: 83px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid; */
+    background-color: #8d68bb;
+    border-radius: 10px;
+    z-index: 12;
+}
+
+.profilepageAA {
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: rgb(177 82 82);
+    padding: 5px;
+}
+
+
+
+
 @media screen and (max-width: 768px) {
 
     .discount-bag-a {
@@ -100,10 +126,23 @@
     .navright {
         display: flex;
         height: 40px;
-
-
     }
 
+    .profileMytrips {
+        position: absolute;
+        right: 47px;
+        top: 69px;
+        border: 1px solid black;
+        width: 83px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px solid; */
+        background-color: #8d68bb;
+        border-radius: 10px;
+        z-index: 12;
+    }
 
 
 }

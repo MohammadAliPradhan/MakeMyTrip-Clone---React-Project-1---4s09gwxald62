@@ -42,3 +42,36 @@
     border: none;
     border-radius: 4px;
 }
+
+.profileMytripsB {
+    position: absolute;
+    right: 55px;
+    top: 65px;
+    border: 1px solid black;
+    width: 83px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #8d68bb;
+    border-radius: 10px;
+    z-index: 12;
+}
+
+
+@media screen and (max-width: 768px) {
+    .profileMytripsB {
+        position: absolute;
+        right: 40px;
+        top: 69px;
+        border: 1px solid black;
+        width: 83px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #8d68bb;
+        border-radius: 10px;
+        z-index: 12;
+    }
+}

@@ -1,0 +1,48 @@
+.mytirpsParentcontainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    /* justify-content: center; */
+    margin-top: 10px;
+    background-color: rgb(212, 206, 206);
+}
+
+.mytripsfirstChild {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    max-height: 120px;
+    padding: 34px;
+    width: 349px;
+    height: 290px;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+    top: 31px;
+}
+
+.status-c {
+    color: rgb(25, 191, 25);
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .mytripsfirstChild {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        max-height: 120px;
+        padding: 34px;
+        width: 302px;
+        height: 290px;
+        border-radius: 10px;
+        background-color: white;
+        position: relative;
+        top: 31px;
+    }
+}

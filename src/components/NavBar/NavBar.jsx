@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import "./NavBar.css"
 import { Outlet, useNavigate } from 'react-router-dom'
 import logo from "../../assets/images/logo.png"
@@ -8,10 +8,12 @@ import { Link } from 'react-router-dom'
 import { AuthContext, LoginButtonContext, ButtonContext } from '../App'
 import Login from '../Authenticaltion/Login/Login'
 import SignUp from '../Authenticaltion/SignUp/SignUp'
+import { useScrollTrigger } from '@mui/material'
 
 
 function NavBar() {
     const { setIsLoggedIn, isLoggedin } = useContext(AuthContext)
+    const [modalProfile, setmodalProfile] = useState(false);
     const navigate = useNavigate();
     console.log(isLoggedin);
 
@@ -28,10 +30,17 @@ function NavBar() {
         sessionStorage.removeItem("userToken")
         sessionStorage.removeItem("user")
         setIsLoggedIn(false)
+        setmodalProfile(false);
     }
 
     function handleOnClick() {
         setButtonState(!buttonState)
+    }
+
+
+    function handleNavigateProfile() {
+        // navigate("./profilePageA")
+        setmodalProfile(!modalProfile);
     }
     return (
         <>
@@ -49,8 +58,13 @@ function NavBar() {
                         {!isLoggedin && <div id='authenticate-au' onClick={handleOnClick}><span>Login/ </span>
                             <span> SignUp</span></div>}
                         {isLoggedin && <div id='authenticate-au' data-bs-toggle="modal" data-bs-target="#loginModal2"><p onClick={handleLogOut}>Logout</p></div>}
-                        {isLoggedin && <div onClick={() => navigate("./profilePageA")} id="authenticate-auser"><li className='userName-css'>{userName}</li></div>}
+                        {isLoggedin && <div onClick={handleNavigateProfile} id="authenticate-auser"><li className='userName-css'>{userName}</li></div>}
                     </div>
+
+                    {modalProfile && <div className='profileMytrips'>
+                        <p className='profilepageAA' onClick={() => navigate("./profilePageA")}>Profile</p>
+                        <p className='profilepageAA ' onClick={() => navigate("./mytrips")}>My Trips</p>
+                    </div>}
 
 
                     <SignUp />

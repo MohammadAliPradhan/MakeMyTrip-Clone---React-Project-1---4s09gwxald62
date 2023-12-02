@@ -14,6 +14,8 @@ function ScrollNavBar() {
 
     const { isLoggedin, setIsLoggedIn } = useContext(AuthContext)
     const { setButtonState } = useContext(ButtonContext)
+    const [modalProfile, setmodalProfile] = useState(false);
+
     console.log(isLoggedin);
     const userName = JSON.parse(sessionStorage.getItem("userName"))
     const navigate = useNavigate();
@@ -54,6 +56,12 @@ function ScrollNavBar() {
 
     function handleLogout() {
         setIsLoggedIn(false)
+        setmodalProfile(false);
+    }
+
+    function handleNavigateProfile() {
+        // navigate("./profilePageA")
+        setmodalProfile(!modalProfile);
     }
 
 
@@ -74,8 +82,13 @@ function ScrollNavBar() {
                     <div className='auth-scroll-nav'>
                         {!isLoggedin && < li className='login-scrollnav' onClick={handleToggle}>Login Or SignUp</li>}
                         {isLoggedin && <li className='login-scrollnav' onClick={handleLogout}>Log Out</li>}
-                        {isLoggedin && <li className='name-scroll-nav' onClick={() => navigate("../profilePageA")}>{userName}</li>}
+                        {isLoggedin && <li className='name-scroll-nav' onClick={handleNavigateProfile}>{userName}</li>}
                     </div>
+
+                    {modalProfile && <div className='profileMytripsB'>
+                        <p className='profilepageAA' onClick={() => navigate("../profilePageA")}>Profile</p>
+                        <p className='profilepageAA' onClick={() => navigate("../mytrips")}>My Trips</p>
+                    </div>}
 
 
 

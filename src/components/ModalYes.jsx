@@ -5,7 +5,8 @@ import { ModalForBooking } from './App';
 
 function ModalYes(props) {
     const { modalA, SetmodalA } = useContext(ModalForBooking);
-
+    console.log("These are Props", props);
+    console.log(props.hoteldData);
 
     function convertDate(info) {
         const isoDate = info;
@@ -15,10 +16,10 @@ function ModalYes(props) {
         return formattedDate;
     }
 
-    const checkdata = convertDate(props.hoteldData.state.item.checkInClear)
+    const checkdata = convertDate(props.hoteldData.state.location.state.item.checkInClear)
     console.log(checkdata);
-    const checkodata = convertDate(props.hoteldData.state.item.checkOutClear)
-    console.log(props.hoteldData.state.item.checkOutClear);
+    const checkodata = convertDate(props.hoteldData.state.location.state.item.checkOutClear)
+    console.log(props.hoteldData.state.location.state.item.checkOutClear);
 
 
 
@@ -28,7 +29,6 @@ function ModalYes(props) {
         }
     }
 
-    console.log(props);
 
 
 
@@ -40,13 +40,13 @@ function ModalYes(props) {
         <div id="myModal" className="modal" onClick={handleOverlayClick}>
             <div className="modal-content">
                 <h2>Booking Successful!</h2>
-                <p>Your hotel reservation at {props.hoteldData.state.item.singleData.name} has been confirmed.</p>
-                <p>Reservation ID Carry This: {props.hoteldData.state.item.singleData._id}</p>
+                <p>Your hotel reservation at {props.hoteldData.state.location.state.item.singleData.name} has been confirmed.</p>
+                <p>Reservation ID Carry This: {props.hoteldData.state.location.state.item.singleData._id}</p>
                 <p>Check-in Date: {checkdata}</p>
                 <p>Check-out Date: {checkodata}</p>
-                <p>Room Type: {props.hoteldData.state.item.singleData.rooms[0].roomType}</p>
-                <p>Number of Guests: </p>
-                <p>Price: {props.hoteldData.state.item.singleData.rooms[0].costPerNight} INR</p>
+                <p>Room Type: {props.hoteldData.state.showThis.roomType}</p>
+                <p>Room Number: {props.hoteldData.state.showThis.roomNumber}</p>
+                <p>Price: {props.hoteldData.state.showThis.price} INR</p>
             </div>
         </div>
         ,

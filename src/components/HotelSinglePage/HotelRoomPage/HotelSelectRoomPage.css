@@ -1,0 +1,149 @@
+.room-page-parent-container {
+    display: grid;
+    grid-template-columns: 30% 50%;
+    /* background-color: red; */
+    height: 100vh;
+    grid-gap: 20px;
+    gap: 20px;
+}
+
+.room-page-parent-container>div {
+    padding: 40px;
+}
+
+.ReserveNow {
+    cursor: pointer;
+}
+
+
+
+.room-child-container1 {
+    width: auto;
+    height: auto;
+    grid-row: 1/4;
+    display: grid;
+    justify-content: center;
+}
+
+.checkRoomNumber {
+    display: flex;
+    height: 100px;
+    width: 130px;
+    padding: 0px;
+    background-color: #0071c2;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.checkRoomNumber2 {
+    display: flex;
+    height: 203px;
+    width: 254px;
+    padding: 0px;
+    justify-content: center;
+    background-color: #909c90;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.room-child-container2 {
+    grid-row: 1/4;
+    grid-column: 2/6;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}
+
+.inputofRoomNumber {
+    width: 90%;
+}
+
+.parentFormofRoom {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 30%;
+    align-items: center;
+}
+
+.checkRoomNumberB {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 59px;
+    padding: 4px;
+    background-color: #f08888;
+    height: 200px;
+    margin: -65px;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.buttonSubmit {
+    cursor: pointer;
+}
+
+.aldetailsroom {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footerHotelSelectroom {
+    position: absolute;
+    width: 100%;
+    top: 800px;
+}
+
+@media only screen and (max-width: 600px) {
+    .room-page-parent-container {
+        display: flex;
+        /* grid-template-columns: 30% 50%; */
+        /* background-color: red; */
+        /* height: 100vh; */
+        /* gap: 20px; */
+        flex-direction: column;
+        align-items: center;
+        margin-top: 7px;
+    }
+
+    .room-child-container1 {
+        width: 276px;
+        height: 65vh;
+        grid-row: 1/4;
+        display: grid;
+        justify-content: center;
+        margin-bottom: -157px;
+    }
+
+
+    .room-child-container2 {
+        /* grid-row: 1/4; */
+        /* grid-column: 2/6; */
+        display: flex;
+        gap: 7px;
+        justify-content: center;
+        height: 280px;
+        width: 276px;
+        flex-wrap: wrap;
+    }
+
+    .checkRoomNumber2 {
+        display: flex;
+        height: 184px;
+        width: 268px;
+        padding: 0px;
+        background-color: #909c90;
+    }
+
+    .footerHotelSelectroom {
+        position: absolute;
+        width: 100%;
+        top: 2372px;
+    }
+
+
+
+}

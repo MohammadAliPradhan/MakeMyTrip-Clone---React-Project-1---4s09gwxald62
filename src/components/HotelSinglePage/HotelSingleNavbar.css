@@ -15,6 +15,7 @@
 
 .hoteImgWrapper {
     width: 33%;
+    cursor: pointer;
 }
 
 .hoteImg {

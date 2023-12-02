@@ -34,6 +34,8 @@ import SecondTesting from "./TrainDetails/Testingfun/SecondTesting.jsx";
 import AllOtherRoute from "./AllOtherRoute/AllOtherRoute.jsx";
 import AuthNavigator from "./Navigator/AuthNavigator.jsx";
 import ProfilePage from "../Profile/ProfilePage.jsx";
+import HotelSelectRoomPage from "./HotelSinglePage/HotelRoomPage/HotelSelectRoomPage.jsx";
+import MyTrips from "./MyTrips/MyTrips.jsx";
 
 
 
@@ -110,6 +112,8 @@ function App() {
                       <Route path="somethingnsdf" element={<MemberModal />} />
                       <Route path="secondTesting" element={<SecondTesting />} />
                       <Route path="profilePageA" element={<ProfilePage />} />
+                      <Route path="hotelroomselect" element={<HotelSelectRoomPage />} />
+                      <Route path="mytrips" element={<MyTrips />} />
 
 
                     </Routes>

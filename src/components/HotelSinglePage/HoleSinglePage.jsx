@@ -101,7 +101,7 @@ function HoleSinglePage() {
         if (isLoggedin) {
             if (singleData) {
                 // If both token and singleData are present, navigate with the updated state
-                navigate("/justshow", { state: { item: { ...item, singleData } } });
+                navigate("../hotelroomselect", { state: { item: { ...item, singleData } } });
             } else {
                 // If singleData is not available, you might want to handle this case
                 console.error("Single data is not available");

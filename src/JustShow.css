@@ -68,6 +68,10 @@
     color: rgb(21, 24, 24);
 }
 
+.room-numbers {
+    display: flex;
+}
+
 
 
 
@@ -162,4 +166,20 @@
         border-radius: 5px;
         background-color: #ebf3ff;
     }
+}
+
+.roomul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+
+}
+
+.roomli {
+
+    padding: 10px;
+    background-color: red;
+    border-radius: 5px;
+    cursor: pointer;
+
 }

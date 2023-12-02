@@ -7,6 +7,12 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.seatNumbersA {
+    position: absolute;
+    top: 453px;
+    right: 556px;
+}
+
 .sectionsingle .flight-details h3 {
     color: #3498db;
 }

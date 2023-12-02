@@ -31,11 +31,12 @@ function JustShow() {
 
 
 
+    console.log("Yes this is ", location.state.showThis);
     //These all are api related variables
     console.log("finally reached", location);
-    const checkInDate = location.state.item.checkInClear;
-    const checkOutDate = location.state.item.checkOutClear;
-    const hotelId = location.state.item.singleId;
+    const checkInDate = location.state.location.state.item.checkInClear;
+    const checkOutDate = location.state.location.state.item.checkOutClear;
+    const hotelId = location.state.location.state.item.singleId;
     const token = JSON.parse(sessionStorage.getItem("userToken"))
     console.log(token);
 
@@ -162,7 +163,7 @@ function JustShow() {
         )
 
         // setShow(response.data)
-        console.log(response);
+        console.log("lelores", response);
     };
     const navigate = useNavigate();
 
@@ -171,6 +172,7 @@ function JustShow() {
         if (isLoggedin) {
             SetmodalA(true);
         }
+        getMusicList(hotelId);
         console.log("hello this is ali form ");
     }
 
@@ -181,9 +183,9 @@ function JustShow() {
         setSubmitedValue(inputVal.val)
     }
 
-    useEffect(() => {
-        getMusicList(hotelId);
-    }, [])
+    // useEffect(() => {
+    //     getMusicList(hotelId);
+    // }, [])
 
 
 
@@ -195,8 +197,8 @@ function JustShow() {
                 <div className='child-justShow'>
 
                     <div className="marginPurpose">
-                        <h1 className='name-heading'>{location.state.item.singleData?.name}</h1>
-                        <span className='rating-stars'>Rating: {location.state.item.singleData?.rating}<FontAwesomeIcon icon={faStar} style={{ color: "#6c9b35", }} /></span>
+                        <h1 className='name-heading'>{location.state.location.state.item.singleData?.name}</h1>
+                        <span className='rating-stars'>Rating: {location.state.location.state.item.singleData?.rating}<FontAwesomeIcon icon={faStar} style={{ color: "#6c9b35", }} /></span>
 
                         <div className='checkIn-checkOut'>
                             <div className='checkin'>Check In: {entranceInfo}</div>
@@ -205,10 +207,10 @@ function JustShow() {
 
                         </div>
                         <div className='feature-with-heading'>
-                            <h4 className='name-heading-two'>{location.state.item.singleData?.rooms[0].cancellationPolicy}</h4>
+                            <h4 className='name-heading-two'>{location.state.location.state.item.singleData?.rooms[0].cancellationPolicy}</h4>
                             <span className='rating-two'>Some of the Amenities</span>
                             <ul>
-                                {location.state.item.singleData?.amenities.map((ima) => {
+                                {location.state.location.state.item.singleData?.amenities.map((ima) => {
                                     return <li>{ima}</li>
                                 })}
                             </ul>
