@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom'
 import PaymentConfirmationModal from './PaymentConfimation/PaymentConfirmationModal';
 import { AuthContext, ModalForFlightBooking } from '../App';
 import Footer from '../Footer/Footer';
+import axios from 'axios';
 
 
 function PaymentAndBookin() {
@@ -17,13 +18,57 @@ function PaymentAndBookin() {
     const location = useLocation();
     console.log(location);
     const { test, setTest } = useContext(ModalForFlightBooking)
+
+
+    //Very Carefull This is the my trip recording databases here I am doing the api work for posting it in the db and the getting the result afterwords
+    const flightID = location.state.singleInfoPageOfFlight._id;
+    const token = JSON.parse(sessionStorage.getItem("userToken"))
+
+    console.log(flightID);
+    async function getFlightList(flightID) {
+
+        try {
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    projectID: "9sa80czkq1na",
+
+                }
+            }
+
+            const response = await axios.post(`https://academics.newtonschool.co/api/v1/bookingportals/booking`,
+                {
+                    bookingType: "flight",
+                    "bookingDetails": {
+                        "flightId": "651d4fef8c0d859355224891",
+                        "startDate": "2023-12-07T07:15:00.000Z",
+                        "endDate": "2023-11-07T07:15:00.000Z"
+                    }
+                },
+                config,
+
+            )
+
+            // setShow(response.data)
+            console.log("lelores", response);
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    };
+
     function handleSubmit(e) {
         e.preventDefault();
         if (isValid && isLoggedin) {
             setTest(true)
+            getFlightList(flightID)
         }
     }
 
+
+
+    //End of the api _________
 
     //This one is for formatting card details
 
