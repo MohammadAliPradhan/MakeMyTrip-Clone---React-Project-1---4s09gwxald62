@@ -138,7 +138,7 @@ function HoleSinglePage() {
 
                 <div className="hotelSingleWrapper">
                     <button className="bookNow" onClick={handleReservedOrNote}>
-                        Reserve Or Book Now
+                        Book Now
                     </button>
                     <h1 className="hotelTitle">{singleData?.name}</h1>
                     <div className="hotelSingleAddress">

@@ -67,8 +67,7 @@ function HotelSelectRoomPage() {
                     <div className='checkRoomNumber'>
                         <form action="" className='parentFormofRoom' onSubmit={handleSubmit}>
                             <label htmlFor="">Select Room</label>
-                            <input className='inputofRoomNumber' type="number" value={sroomNumber} onChange={handleOnChangeA} min={1}
-                                max={9} />
+                            <input className='inputofRoomNumber' type="number" value={sroomNumber} onChange={handleOnChangeA} />
                             <button className='buttonSubmit' type='submit'> Get This Room</button >
                         </form>
                     </div>
@@ -84,6 +83,8 @@ function HotelSelectRoomPage() {
 
 
                 </div>
+
+                <p className='ReferRoom '>Refer Room From Below</p>
 
 
                 <div className='room-child-container2'>

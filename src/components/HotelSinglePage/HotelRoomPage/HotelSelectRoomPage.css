@@ -94,7 +94,7 @@
 .footerHotelSelectroom {
     position: absolute;
     width: 100%;
-    top: 800px;
+    top: 982px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -141,7 +141,14 @@
     .footerHotelSelectroom {
         position: absolute;
         width: 100%;
-        top: 2372px;
+        top: 2670px;
+    }
+
+    .ReferRoom {
+        padding: 8px;
+        background-color: rgb(139, 181, 218);
+        border: 1px solid blue;
+        border-radius: 5px;
     }
 
 
