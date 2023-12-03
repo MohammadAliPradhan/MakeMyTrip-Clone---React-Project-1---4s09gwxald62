@@ -6,7 +6,7 @@ import Footer from '../../Footer/Footer';
 
 
 function HotelSelectRoomPage() {
-    const [sroomNumber, setSRoomNumber] = useState(5);
+    const [sroomNumber, setSRoomNumber] = useState(1);
     const [apiDetails, SetapiDetails] = useState();
     const [showThis, setShowThis] = useState();
 
