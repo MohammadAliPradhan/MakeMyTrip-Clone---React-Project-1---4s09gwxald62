@@ -109,6 +109,11 @@
         margin-top: 7px;
     }
 
+    .ReserveNow {
+        cursor: pointer;
+        z-index: 10;
+    }
+
     .room-child-container1 {
         width: 276px;
         height: 65vh;
@@ -136,6 +141,9 @@
         width: 268px;
         padding: 0px;
         background-color: #909c90;
+        /* margin-top: 99px; */
+        position: relative;
+        top: 99px;
     }
 
     .footerHotelSelectroom {

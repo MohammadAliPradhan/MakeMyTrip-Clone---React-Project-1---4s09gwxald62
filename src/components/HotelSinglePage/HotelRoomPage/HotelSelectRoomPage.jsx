@@ -84,7 +84,6 @@ function HotelSelectRoomPage() {
 
                 </div>
 
-                <p className='ReferRoom '>Refer Room From Below</p>
 
 
                 <div className='room-child-container2'>

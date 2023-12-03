@@ -24,16 +24,15 @@
     color: black;
     position: absolute;
     top: 65px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #ebf3ff;
-
-
-
+    /* border: 1px solid #ccc; */
+    /* border-radius: 5px; */
+    /* background-color: #ebf3ff; */
 }
 
 .marginPurpose {
     border-radius: 5px;
+    background-color: #ebf3ff;
+    padding: 10px;
 }
 
 .checkIn-checkOut {
@@ -141,7 +140,7 @@
 
 #footerchange {
     position: relative;
-    top: 756px;
+    top: 865px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -162,9 +161,9 @@
         color: black;
         position: absolute;
         top: 65px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #ebf3ff;
+        /* border: 1px solid #ccc; */
+        /* border-radius: 5px; */
+        /* background-color: #ebf3ff; */
     }
 }
 
