@@ -45,6 +45,8 @@ function HotelDetails() {
         console.log('Clicked day:', value);
     };
 
+    console.log(hotelName.destination);
+
     // This is the second second change of value
 
     const handleDateChangeCheckOut = (date) => {
@@ -166,7 +168,7 @@ function HotelDetails() {
                                 onChange={(e) => handleOnCick(e, 'destination')}
                                 value={hotelName.destination}
                             /></h1>
-                            <span>GOA, Delhi Airport India</span>
+                            <span>{hotelName.destination}, {hotelName.destination} Airport India</span>
                         </div>
 
                         <div className="flight">
@@ -232,7 +234,7 @@ function HotelDetails() {
                         <div className='searchBtn'>
                             SEARCH
                         </div>
-                    </div> */}``
+                    </div> */}
 
 
 

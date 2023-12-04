@@ -16,6 +16,8 @@ function Login() {
 
     const { loginButton, setLoginButton } = useContext(LoginButtonContext)
     const { isLoggedin, setIsLoggedIn } = useContext(AuthContext)
+    const [message, setMessage] = useState(false);
+
 
 
     //Here we are maintaining refs
@@ -43,6 +45,7 @@ function Login() {
 
         } catch (err) {
             console.log(err);
+            err.response.data.message === "Incorrect EmailId or Password" ? setMessage(true) : setMessage(false);
         }
     }
 
@@ -108,6 +111,12 @@ function Login() {
                     </div>
 
                     <input type="submit" value="Login" id='AlreadyaUser' />
+
+                    {message && <div className='incorrectUserName' >
+                        <span className='incorrect-userName-sp'>Incorrect UserName or Password</span>
+                    </div>}
+
+
 
                     {/* <LoginButton /> */}
 

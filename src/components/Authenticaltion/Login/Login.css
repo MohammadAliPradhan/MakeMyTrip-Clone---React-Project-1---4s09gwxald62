@@ -25,3 +25,8 @@
     align-items: center;
     z-index: 12;
 }
+
+.incorrect-userName-sp {
+    color: red;
+    font-size: 15px;
+}

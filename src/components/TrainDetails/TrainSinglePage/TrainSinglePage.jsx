@@ -32,7 +32,7 @@ function TrainSinglePage() {
             const from = location.state.TrainPlace.from;
             const to = location.state.TrainPlace.to;
             const config = getHeaderWithProjectId()
-            const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/train?search={"source":"${from}","destination":"${to}"}&day=${dayOfWeek}`, config);
+            const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/train?search={"source":"${from}","destination":"${to}"}&day="${dayOfWeek}"`, config);
             setSingleInfoPageOfFlight(response.data.data.trains)
             console.log("this is response", response);
         } catch (error) {

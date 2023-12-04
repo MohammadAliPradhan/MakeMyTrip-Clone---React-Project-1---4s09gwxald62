@@ -14,12 +14,13 @@
 }
 
 .hoteImgWrapper {
-    width: 33%;
+    width: 50%;
     cursor: pointer;
 }
 
 .hoteImg {
-    width: 100%;
+    width: 508px;
+    height: 270px;
     object-fit: cover;
 }
 
