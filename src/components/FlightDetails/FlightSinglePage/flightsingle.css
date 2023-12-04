@@ -32,11 +32,12 @@
 .flight-details {
     display: flex;
     align-items: center;
-    flex: 2;
+    flex: 2 1;
     height: 200px;
     border: 1px solid #EAEAEA;
     border-radius: 8px;
     padding: 20px;
+    background-color: orange;
 }
 
 .airways-detail {
@@ -116,6 +117,7 @@
     flex-direction: column;
     border-radius: 8px;
     padding: 0px;
+    background-color: wheat;
 }
 
 .luggage-icon {
@@ -154,7 +156,8 @@
 
     &:hover {
         background-color: #73AFF0;
-        color: #FFFFFF;
+        color: #1b0303;
+        font-weight: bolder;
     }
 }
 
