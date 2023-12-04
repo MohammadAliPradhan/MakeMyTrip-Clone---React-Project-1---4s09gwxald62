@@ -165,4 +165,9 @@
         width: 100%;
         height: 334px;
     }
+
+    .hoteImgWrapper {
+        cursor: pointer;
+        width: 100%;
+    }
 }

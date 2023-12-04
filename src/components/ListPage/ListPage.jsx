@@ -68,6 +68,23 @@ function ListPage() {
         setLocationLocal(locationlocal)
         console.log("locationlocal", locationlocal);
     }
+    console.log(ApiInfo);
+
+    function sortCheapA() {
+        const apiregulatechange = [...ApiInfo];
+        apiregulatechange.sort((a, b) => {
+            return [a.rooms[0].costDetails.baseCost - b.rooms[0].costDetails.baseCost]
+        })
+        setApiInfo(apiregulatechange)
+    }
+
+    function sortHighestA() {
+        const apiregulatechange = [...ApiInfo];
+        apiregulatechange.sort((a, b) => {
+            return [b.rooms[0].costDetails.baseCost - a.rooms[0].costDetails.baseCost]
+        })
+        setApiInfo(apiregulatechange)
+    }
 
     async function getListDetails(locationA = "") {
         const config = {
@@ -87,10 +104,18 @@ function ListPage() {
         console.log("sometihngsdfjsdklfj", listSearch);
     }, [locationlocal])
 
+
     return (
         <div>
             <ScrollNavBar />
             <div className="bluish"></div>
+
+            {/* two buttons */}
+            <div className='btnsortab'>
+                <button onClick={sortCheapA} className='firstab'>Sort By Cheapest
+                </button>
+                <button onClick={sortHighestA} className='secondab'>Sort By Highest</button>
+            </div>
 
             <div className="listContainer">
                 <div className="listWrapper">
