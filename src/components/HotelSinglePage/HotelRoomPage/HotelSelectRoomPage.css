@@ -5,10 +5,12 @@
     height: 100vh;
     grid-gap: 20px;
     gap: 20px;
+    position: absolute;
+    top: 184px;
 }
 
 .room-page-parent-container>div {
-    padding: 40px;
+    padding: 0px;
 }
 
 .ReserveNow {
@@ -94,7 +96,11 @@
 .footerHotelSelectroom {
     position: absolute;
     width: 100%;
-    top: 982px;
+    top: 1200px;
+}
+
+.checkRoomNumber2 {
+    padding: 2px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -107,6 +113,8 @@
         flex-direction: column;
         align-items: center;
         margin-top: 7px;
+        position: relative;
+        top: 75px;
     }
 
     .ReserveNow {
@@ -149,7 +157,7 @@
     .footerHotelSelectroom {
         position: absolute;
         width: 100%;
-        top: 2670px;
+        top: 3400px;
     }
 
     .ReferRoom {

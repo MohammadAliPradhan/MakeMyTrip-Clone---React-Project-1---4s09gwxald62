@@ -93,7 +93,7 @@ function MyTrips() {
                                     <span>Name: NA </span>
                                     <span>Location: NA</span>
                                     <span>Cancellation: Sorry No Cancellation Available</span>
-                                    <span>Booking Timing: {new Date(details?.user.createdAt).toLocaleString('en-US', { timeZone: 'Asia/Kolkata', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} IST</span>
+                                    <span>Booking Timing: {new Date(details?.user.createdAt).toLocaleString('en-US', { timeZone: 'Asia/Kolkata', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', hour12: true })} </span>
 
                                     <h4 className='status-c'>Status: {details.status === "confirmed" ? "Confirmed" : null}  </h4>
                                 </div>

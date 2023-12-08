@@ -114,7 +114,7 @@ function TrainDetails() {
                             <h1><input
                                 type="text"
                                 className='something'
-                                value={TrainPlace.from.toUpperCase()}
+                                value={TrainPlace.from}
                                 onChange={(e) => handleTrainChange(e, 'from')}
                             /></h1>
                             <span>{TrainPlace.from}, {TrainPlace.from} India</span>

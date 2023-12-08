@@ -61,11 +61,14 @@ function Login() {
     function handleOverlayClick(event) {
         if (event.target === event.currentTarget) {
             setLoginButton(false);
+            setMessage(false);
+
         }
     }
 
     function handleCloseModal() {
         setLoginButton(false);
+        setMessage(false)
     }
 
     function clickthis() {

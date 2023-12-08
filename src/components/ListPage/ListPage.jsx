@@ -23,6 +23,12 @@ function ListPage() {
     //This is present in listCurrent Api
     const listItemb = localStorage.getItem("listItem")
     const listItemc = localStorage.getItem("locationApi")
+    console.log(listItemc);
+
+
+    const [newvalue, setNewValue] = useState('');
+
+
 
     const location = useLocation();
     console.log("list page", location);
@@ -59,13 +65,13 @@ function ListPage() {
 
     function handleSearchOnChange(e) {
         const { value } = e.target;
-        setLocationLocal(value)
+        setNewValue(value);
     }
 
 
     function handleOnChange() {
 
-        setLocationLocal(locationlocal)
+        setLocationLocal(newvalue)
         console.log("locationlocal", locationlocal);
     }
     console.log(ApiInfo);
@@ -127,7 +133,8 @@ function ListPage() {
                             <label>Search</label>
                             <input type="text"
                                 onChange={handleSearchOnChange}
-                                value={locationlocal}
+                                value={newvalue}
+                                placeholder='City/State'
                             />
                         </div>
 

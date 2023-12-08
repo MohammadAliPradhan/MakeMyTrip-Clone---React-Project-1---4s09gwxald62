@@ -27,6 +27,7 @@ function ModalYes(props) {
         if (event.target === event.currentTarget) {
             SetmodalA(false);
         }
+        console.log(event.currentTarget);
     }
 
 
@@ -38,7 +39,11 @@ function ModalYes(props) {
 
         modalA &&
         <div id="myModal" className="modal" onClick={handleOverlayClick}>
+
             <div className="modal-content">
+                <div>
+                    <span>X</span>
+                </div>
                 <h2>Booking Successful!</h2>
                 <p>Your hotel reservation at {props.hoteldData.state.location.state.item.singleData.name} has been confirmed.</p>
                 <p>Reservation ID Carry This: {props.hoteldData.state.location.state.item.singleData._id}</p>
@@ -48,6 +53,7 @@ function ModalYes(props) {
                 <p>Room Number: {props.hoteldData.state.showThis.roomNumber}</p>
                 <p>Price: {props.hoteldData.state.showThis.price} INR</p>
             </div>
+
         </div>
         ,
         document.querySelector(".myThirdDiv")

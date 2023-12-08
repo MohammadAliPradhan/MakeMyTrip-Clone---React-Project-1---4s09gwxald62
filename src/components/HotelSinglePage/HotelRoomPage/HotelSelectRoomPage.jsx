@@ -63,6 +63,7 @@ function HotelSelectRoomPage() {
         <>
             <ScrollNavBar />
             <div className='room-page-parent-container'>
+
                 <div className='room-child-container1'>
                     <div className='checkRoomNumber'>
                         <form action="" className='parentFormofRoom' onSubmit={handleSubmit}>
@@ -101,10 +102,13 @@ function HotelSelectRoomPage() {
                         ))
                     }
                 </div>
+
+
+
+
             </div>
             <div className='footerHotelSelectroom'>
                 <Footer />
-
             </div>
         </>
     )
