@@ -11,6 +11,10 @@ function PaymentConfirmationModal(props) {
             setTest(false)
         }
     }
+    console.log(props);
+
+    console.log(props.BookingInfo.state.n);
+    const n = props.BookingInfo.state.n;
 
     const memberValuea = props.BookingInfo.state.location.state.location.state.MemberValue;
 
@@ -38,7 +42,7 @@ function PaymentConfirmationModal(props) {
                     <p>Departure Time: {BookingInfo?.state.singleInfoPageOfFlight.departureTime}</p>
                     <p>Arrival Time: {BookingInfo?.state.singleInfoPageOfFlight.arrivalTime}</p>
                     <p>Amenities: {BookingInfo?.state.singleInfoPageOfFlight.amenities.map((details) => details).join(' ')} </p>
-                    <p>Price: INR {BookingInfo?.state.singleInfoPageOfFlight.ticketPrice}</p>
+                    <p>Price: INR {BookingInfo?.state.singleInfoPageOfFlight.ticketPrice * n}</p>
                 </div>
             </div>
 

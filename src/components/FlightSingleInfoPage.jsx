@@ -15,10 +15,14 @@ function FlightSingleInfoPage() {
     const [singleInfoPageOfFlight, setSingleInfoPageOfFlight] = useState()
     const { flightId } = useParams();
     const testFlightId = flightId;
+    const [seeTickets, setSeeTickets] = useState(false);
     const { buttonState, setButtonState } = useContext(ButtonContext);
     console.log(testFlightId);
     const location = useLocation()
     console.log(location);
+
+    console.log(location.state.location.state.MemberValue);
+
 
     async function getFlightDetailsOfSingle() {
         try {
@@ -35,6 +39,9 @@ function FlightSingleInfoPage() {
         }
     }
 
+    const n = parseInt(location.state.location.state.MemberValue.adult, 10) +
+        parseInt(location.state.location.state.MemberValue.kids, 10); console.log(n);
+
     useEffect(() => {
         getFlightDetailsOfSingle()
     }, [])
@@ -43,11 +50,36 @@ function FlightSingleInfoPage() {
 
     function handleonClick() {
         if (isLoggedin) {
-            navigate(`/payment`, { state: { singleInfoPageOfFlight, location } })
+            navigate(`/payment`, { state: { singleInfoPageOfFlight, location, n } })
         } else {
             setButtonState(true)
         }
     }
+
+    //Function to get the ticked details 
+
+    const [memberPeople, setMemberPeople] = useState([]);
+
+    const randomNumbers = [];
+
+    useEffect(() => {
+        for (let i = 0; i < n; i++) {
+            const randomNumber = Math.floor(Math.random() * 70) + 1;
+            randomNumbers.push(randomNumber);
+        }
+        setMemberPeople(randomNumbers);
+    }, [])
+
+
+    function handleSeeTickets() {
+        setSeeTickets(!seeTickets);
+    }
+
+    console.log(memberPeople);
+
+
+
+
 
     return (
         <div>
@@ -73,13 +105,25 @@ function FlightSingleInfoPage() {
                         <div className="booking-info">
                             <div>
                                 <h3>Economy Class</h3>
-                                <p>INR {singleInfoPageOfFlight?.ticketPrice}</p>
+                                <p>INR {singleInfoPageOfFlight?.ticketPrice * n}</p>
                             </div>
                             <div >
                                 <h3>Seat Number</h3>
-                                <p>{singleInfoPageOfFlight?.availableSeats}</p>
+                                <button className='handlesee' onClick={handleSeeTickets}>See Tickets</button>
+
                             </div>
                         </div>
+
+
+                        {seeTickets && <div className='ticketMemberhow'>
+                            {memberPeople.map((details) => (
+                                <li className='listNoneinTicket'>{details}</li>
+                            ))}
+                        </div>}
+
+
+
+
 
 
 

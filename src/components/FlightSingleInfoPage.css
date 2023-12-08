@@ -7,6 +7,41 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.ticketMemberhow {
+    display: flex;
+    position: absolute;
+    padding: 3px;
+    border-radius: 5px;
+    right: 682px;
+    background-color: #d89696;
+    width: 133px;
+    top: 446px;
+    height: auto;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+
+.listNoneinTicket {
+    list-style: none;
+
+
+    background-color: green;
+    padding: 3px;
+    border-radius: 5px;
+
+}
+
+.handlesee {
+    padding: 4px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .seatNumbersA {
     position: absolute;
     top: 453px;
@@ -76,5 +111,28 @@
 
     &:hover {
         background-color: #57a2d4;
+    }
+
+
+    .ticketMemberhow {
+        display: flex;
+        position: absolute;
+        padding: 3px;
+        border-radius: 5px;
+        right: 25px;
+        background-color: #d89696;
+        width: 172px;
+        top: 447px;
+        height: auto;
+        gap: 5px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .listNoneinTicket {
+        list-style: none;
+        background-color: green;
+        padding: 8px;
+        border-radius: 5px;
     }
 }

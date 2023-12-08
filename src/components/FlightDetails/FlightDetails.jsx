@@ -12,7 +12,7 @@ function FlightDetails() {
     const [TravelDate, setTravelDate] = useState(initialDate);
     const [trthly, setTrthly] = useState(true);
     const [MemberValue, setMemberValue] = useState({
-        adult: 0,
+        adult: 1,
         kids: 0
     })
     const [findMemberModal, setFindMemberModal] = useState();
@@ -95,7 +95,8 @@ function FlightDetails() {
                                 onChange={(e) => handleOnClick(e, 'from')}
                                 value={flightDetails.from.toUpperCase()}
                             /></h1>
-                            <span>{flightDetails.from}, {flightDetails.from} India</span>
+                            <span>{flightDetails.from.toUpperCase()}, {flightDetails.from.toUpperCase
+                                ()} India</span>
                         </div>
 
                         <div className="flight">
@@ -108,7 +109,8 @@ function FlightDetails() {
                                 onChange={(e) => handleOnClick(e, 'to')}
                                 value={flightDetails.to.toUpperCase()}
                             /></h1>
-                            <span>DEL, Delhi Airport India</span>
+                            <span>{flightDetails.to.toUpperCase
+                                ()}, {flightDetails.to.toUpperCase()} Airport India</span>
                         </div>
 
                         {trthly ? <div className="flight">
