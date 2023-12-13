@@ -47,6 +47,7 @@ export const ApiDetails = createContext();
 export const ModalForBooking = createContext();
 export const ModalForFlightBooking = createContext();
 export const trainModalTestContext = createContext();
+export const TraceHistory = createContext();
 function App() {
   const [modalTrain, setModalTrain] = useState()
   const [test, setTest] = useState(false)
@@ -55,6 +56,7 @@ function App() {
   const [buttonState, setButtonState] = useState();
   const [loginButton, setLoginButton] = useState();
   const [ApiInfo, setApiInfo] = useState([])
+  const [historyy, setHistoryy] = useState();
 
   let isUserLoggedIn;
   const token = sessionStorage.getItem("userToken");
@@ -68,68 +70,70 @@ function App() {
 
   return (
     <>
-      <trainModalTestContext.Provider value={{ modalTrain, setModalTrain }}>
-        <ModalForFlightBooking.Provider value={{ test, setTest }}>
-          <ModalForBooking.Provider value={{ modalA, SetmodalA }}>
-            <ApiDetails.Provider value={{ ApiInfo, setApiInfo }}>
-              <LoginButtonContext.Provider value={{ loginButton, setLoginButton }}>
-                <ButtonContext.Provider value={{ buttonState, setButtonState }}>
-                  <AuthContext.Provider value={{ isLoggedin, setIsLoggedIn }} >
-                    <Routes>
-                      <Route element={<NavBar />}>
-                        <Route element={<MmtHeader />}>
+      <TraceHistory.Provider value={{ historyy, setHistoryy }}>
+        <trainModalTestContext.Provider value={{ modalTrain, setModalTrain }}>
+          <ModalForFlightBooking.Provider value={{ test, setTest }}>
+            <ModalForBooking.Provider value={{ modalA, SetmodalA }}>
+              <ApiDetails.Provider value={{ ApiInfo, setApiInfo }}>
+                <LoginButtonContext.Provider value={{ loginButton, setLoginButton }}>
+                  <ButtonContext.Provider value={{ buttonState, setButtonState }}>
+                    <AuthContext.Provider value={{ isLoggedin, setIsLoggedIn }} >
+                      <Routes>
+                        <Route element={<NavBar />}>
+                          <Route element={<MmtHeader />}>
 
-                          <Route path="/" element={<FlightDetails />}>
-                            <Route index element={<FlightOffer />} />
-                          </Route>
-                          <Route path="hotel" element={<HotelDetails />}>
-                            <Route index element={<FlightOffer />} />
-                          </Route>
-                          <Route path="train" element={<TrainDetails />} >
-                            <Route index element={<FlightOffer />} />
+                            <Route path="/" element={<FlightDetails />}>
+                              <Route index element={<FlightOffer />} />
+                            </Route>
+                            <Route path="hotel" element={<HotelDetails />}>
+                              <Route index element={<FlightOffer />} />
+                            </Route>
+                            <Route path="train" element={<TrainDetails />} >
+                              <Route index element={<FlightOffer />} />
 
-                          </Route>
-                          <Route path="/allotherroute" element={< AllOtherRoute />} >
-                            <Route index element={<FlightOffer />} />
+                            </Route>
+                            <Route path="/allotherroute" element={< AllOtherRoute />} >
+                              <Route index element={<FlightOffer />} />
+                            </Route>
                           </Route>
                         </Route>
-                      </Route>
-                      <Route path="/profile" element={<Profile />} />
+                        <Route path="/profile" element={<Profile />} />
 
-                      <Route path="/login" element={<Login />} />
-                      <Route path="/list" element={<ListPage />} />
-                      <Route path="/justshow" element={<JustShow />} />
-                      <Route path="hotels/:singleId" element={<HoleSinglePage />} />
-                      <Route path="/formdata" element={<FormData />} />
-                      <Route path="/getflight" element={<FlightTest />} />
-                      <Route path="flightsingle" element={<FLightSinglePage />} />
-                      <Route path="flightSingle/:flightId" element={<FlightSingleInfoPage />} />
-                      <Route path="payment" element={<PaymentAndBookin />} />
-                      <Route path="trainsingle" element={<TrainSinglePage />} />
-                      <Route path="traindetail/:trainId" element={<TrainDetailsSingle />} />
-                      <Route path="paymenttrain" element={<PaymentTrain />} />
-                      <Route path="*" element={<ComingSoon />} />
-                      <Route path="somethingnsdf" element={<MemberModal />} />
-                      <Route path="secondTesting" element={<SecondTesting />} />
-                      <Route path="profilePageA" element={<ProfilePage />} />
-                      <Route path="hotelroomselect" element={<HotelSelectRoomPage />} />
-                      <Route path="mytrips" element={<MyTrips />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/list" element={<ListPage />} />
+                        <Route path="/justshow" element={<JustShow />} />
+                        <Route path="hotels/:singleId" element={<HoleSinglePage />} />
+                        <Route path="/formdata" element={<FormData />} />
+                        <Route path="/getflight" element={<FlightTest />} />
+                        <Route path="flightsingle" element={<FLightSinglePage />} />
+                        <Route path="flightSingle/:flightId" element={<FlightSingleInfoPage />} />
+                        <Route path="payment" element={<PaymentAndBookin />} />
+                        <Route path="trainsingle" element={<TrainSinglePage />} />
+                        <Route path="traindetail/:trainId" element={<TrainDetailsSingle />} />
+                        <Route path="paymenttrain" element={<PaymentTrain />} />
+                        <Route path="*" element={<ComingSoon />} />
+                        <Route path="somethingnsdf" element={<MemberModal />} />
+                        <Route path="secondTesting" element={<SecondTesting />} />
+                        <Route path="profilePageA" element={<ProfilePage />} />
+                        <Route path="hotelroomselect" element={<AuthNavigator><HotelSelectRoomPage /></AuthNavigator>} />
+                        <Route path="mytrips" element={<MyTrips />} />
 
 
-                    </Routes>
-
+                      </Routes>
 
 
 
 
 
-                  </AuthContext.Provider>
-                </ButtonContext.Provider>
-              </LoginButtonContext.Provider>
-            </ApiDetails.Provider>
-          </ModalForBooking.Provider>
-        </ModalForFlightBooking.Provider>
-      </trainModalTestContext.Provider>
+
+                    </AuthContext.Provider>
+                  </ButtonContext.Provider>
+                </LoginButtonContext.Provider>
+              </ApiDetails.Provider>
+            </ModalForBooking.Provider>
+          </ModalForFlightBooking.Provider>
+        </trainModalTestContext.Provider>
+      </TraceHistory.Provider>
     </>
   )
 }

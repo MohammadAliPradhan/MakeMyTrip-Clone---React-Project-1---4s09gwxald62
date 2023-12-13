@@ -5,9 +5,10 @@ import { Navigate, Route, Routes, json, useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import { NavLink } from 'react-router-dom';
-import { AuthContext, LoginButtonContext } from '../../App';
+import { AuthContext, LoginButtonContext, TraceHistory } from '../../App';
 import axios from 'axios';
 import { getHeaderWithProjectId } from '../utils/service';
+
 
 
 
@@ -17,6 +18,8 @@ function Login() {
     const { loginButton, setLoginButton } = useContext(LoginButtonContext)
     const { isLoggedin, setIsLoggedIn } = useContext(AuthContext)
     const [message, setMessage] = useState(false);
+    const { historyy, setHistoryy } = useContext(TraceHistory);
+
 
 
 
@@ -24,6 +27,7 @@ function Login() {
     const nameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
+    console.log(historyy);
 
     //creation of an api
     async function LoginUser(user) {
@@ -48,6 +52,12 @@ function Login() {
             err.response.data.message === "Incorrect EmailId or Password" ? setMessage(true) : setMessage(false);
         }
     }
+    console.log(historyy)
+
+
+
+
+
 
     // This part we are getting it from the user through form
     function handleSubmit(e) {

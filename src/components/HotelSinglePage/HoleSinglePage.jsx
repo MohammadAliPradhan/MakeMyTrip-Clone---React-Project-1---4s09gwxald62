@@ -7,7 +7,7 @@ import { faCircle, faCircleArrowLeft, faCircleRight, faCircleXmark, faLocation, 
 import { createPortal } from 'react-dom'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-import { AuthContext, ButtonContext, LoginButtonContext } from '../App'
+import { AuthContext, ButtonContext, LoginButtonContext, TraceHistory } from '../App'
 import Footer from '../Footer/Footer'
 import FindMembers from '../FindMembers/FindMembers'
 
@@ -16,6 +16,8 @@ import FindMembers from '../FindMembers/FindMembers'
 function HoleSinglePage() {
     const location = useLocation();
     const { isLoggedin, setIsLoggedIn } = useContext(AuthContext)
+    const { historyy, setHistoryy } = useContext(TraceHistory);
+
 
     console.log(location);
     console.log("final call", location);
@@ -102,6 +104,7 @@ function HoleSinglePage() {
             if (singleData) {
                 // If both token and singleData are present, navigate with the updated state
                 navigate("../hotelroomselect", { state: { item: { ...item, singleData } } });
+
             } else {
                 // If singleData is not available, you might want to handle this case
                 console.error("Single data is not available");

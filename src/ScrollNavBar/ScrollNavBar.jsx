@@ -55,6 +55,8 @@ function ScrollNavBar() {
     }
 
     function handleLogout() {
+        sessionStorage.removeItem("userToken")
+        sessionStorage.removeItem("user")
         setIsLoggedIn(false)
         setmodalProfile(false);
     }
