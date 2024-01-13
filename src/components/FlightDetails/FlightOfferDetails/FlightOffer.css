@@ -33,6 +33,7 @@
 }
 
 .superOffersTab {
+    cursor: not-allowed;
     display: flex;
     gap: 12px;
     list-style: none;

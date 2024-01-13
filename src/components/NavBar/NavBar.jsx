@@ -100,8 +100,8 @@ function NavBar() {
 
                                             {modalProfile &&
                                                 <div className='open-modal-a'>
-                                                    <p onClick={() => { navigate(`./profilePageA`) }}>Profile</p>
-                                                    <p onClick={handleLogOut}>Log Out</p>
+                                                    <div onClick={() => { navigate(`./profilePageA`) }} className='faker-a'><p >Profile</p></div>
+                                                    <div onClick={handleLogOut} className='faker-b'><p >Log Out</p></div>
                                                 </div>}
                                         </div>
                                 }
@@ -120,7 +120,10 @@ function NavBar() {
                                 </div>
                                 :
                                 <>
-                                    <span onClick={() => setmodalProfile(!modalProfile)}>{userName}</span>
+                                    <span onClick={(e) => {
+                                        setmodalProfile(!modalProfile);
+                                        e.stopPropagation();
+                                    }}>{userName}</span>
                                     {modalProfile &&
                                         <div className='open-modal-a'>
                                             <p onClick={() => { navigate(`./profilePageA`) }}>Profile</p>

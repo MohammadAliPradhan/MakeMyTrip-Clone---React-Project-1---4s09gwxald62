@@ -173,6 +173,20 @@
     z-index: 12;
 }
 
+.faker-a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 172px;
+}
+
+
+.faker-b {
+    width: 172px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 .chImage {

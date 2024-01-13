@@ -88,7 +88,8 @@ function ScrollNavBar() {
                     </div>
 
                     {modalProfile && <div className='profileMytripsB'>
-                        <p className='profilepageAA' onClick={() => navigate("../profilePageA")}>Profile</p>
+                        <p className='profilepageAA' onClick={(e) =>
+                            navigate("../profilePageA")}>Profile</p>
                         <p className='profilepageAA' onClick={() => navigate("../mytrips")}>My Trips</p>
                     </div>}
                     <SignUp />
