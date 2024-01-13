@@ -9,10 +9,13 @@ import { AuthContext, LoginButtonContext, ButtonContext } from '../App'
 import Login from '../Authenticaltion/Login/Login'
 import SignUp from '../Authenticaltion/SignUp/SignUp'
 import { useScrollTrigger } from '@mui/material'
+import mmtnavbar from "../../assets/images/mmtnavbar.png"
+
+
 
 
 function NavBar() {
-    const { setIsLoggedIn, isLoggedin } = useContext(AuthContext)
+    const { setIsLoggedIn, isLoggedin } = useContext(AuthContext);
     const [modalProfile, setmodalProfile] = useState(false);
     const navigate = useNavigate();
     console.log(isLoggedin);
@@ -20,6 +23,9 @@ function NavBar() {
     const { loginButton, setLoginButton } = useContext(LoginButtonContext)
     const { buttonState, setButtonState } = useContext(ButtonContext)
     const userName = JSON.parse(sessionStorage.getItem("userName"))
+
+
+
 
     console.log(loginButton, "this is");
     function handleLoginButton() {
@@ -44,35 +50,96 @@ function NavBar() {
     }
     return (
         <>
-            <nav className='navParent'>
-                <div className='navpadding'>
-                    <div className='logoleft'>
-                        <Link to="/" ><img className="logoleft" src={logo} alt="log" /></Link>
-                        <img className='discount-bag-a' src={discount} alt="discount" />
-                    </div>
-                    <div className='navmiddle'>
-                        <img src={bag} alt="bag" />
-                    </div>
+            <div className='parent-div'>
 
-                    <div className='navright'>
-                        {!isLoggedin && <div id='authenticate-au' onClick={handleOnClick}><span>Login/ </span>
-                            <span> SignUp</span></div>}
-                        {isLoggedin && <div id='authenticate-au' data-bs-toggle="modal" data-bs-target="#loginModal2"><p onClick={handleLogOut}>Logout</p></div>}
-                        {isLoggedin && <div onClick={handleNavigateProfile} id="authenticate-auser"><li className='userName-css'>{userName}</li></div>}
+
+                <div className='child-1'>
+
+                    {/* child nested 1 */}
+                    <div className='for-logo' onClick={() => navigate('/')}>
+                        <img className='mmt-logo' src={mmtnavbar} alt="" />
+                        {/* <p>Image will be here</p> */}
                     </div>
 
-                    {modalProfile && <div className='profileMytrips'>
-                        <p className='profilepageAA' onClick={() => navigate("./profilePageA")}>Profile</p>
-                        <p className='profilepageAA ' onClick={() => navigate("./mytrips")}>My Trips</p>
-                    </div>}
+                    {/* child nested 2 */}
+                    <div className='for-other-remainining-items'>
+                        <ul className='navbar-ul-lists'>
+                            <li className='super-offers-div'>
+                                <span className='navbar-span-parent'>
+                                    <span className='navbar-span-child1'>%</span>
+                                    <span className='navbar-span-child2 chImage'></span>
+                                </span>
+                                <div>
+                                    <p className='super-offer-p'>Super Offer</p>
+                                    <p className='great-deals-p'>Explore great deals & offers </p>
+                                </div>
+                            </li>
+                            <li className='introducing-mybiz'>
+                                <span className='myBizIcon landingSprite'></span>
+                                <div className='intro-mybiz-childone'>
+                                    <p className='intro-mybiz-text'>Introducing myBiz</p>
+                                    <p className='intro-mybiz-texttwo'>Business Travel Solution</p>
+                                </div>
+                            </li>
+                            <li className='mytrips-parent' onClick={() => { }}>
+                                <span className='my-trip-icon'></span>
+                                <div onClick={() => { navigate(`./mytrips`) }} className="intro-mytrip-childone">
+                                    <p className='my-trips-child1'>My Trips</p>
+                                    <p className='my-trips-child2'>Manage your bookings</p>
+                                </div>
+                            </li>
+                            <li className='button-container-parent'>
+
+                                {
+                                    isLoggedin === false ?
+                                        <div onClick={handleOnClick} className='button-parent'>
+                                            <span>Login or Create Account</span>
+                                        </div> :
+                                        <div onClick={() => setmodalProfile(!modalProfile)} className='button-parent'>
+                                            <span>{userName}</span>
+
+                                            {modalProfile &&
+                                                <div className='open-modal-a'>
+                                                    <p onClick={() => { navigate(`./profilePageA`) }}>Profile</p>
+                                                    <p onClick={handleLogOut}>Log Out</p>
+                                                </div>}
+                                        </div>
+                                }
 
 
-                    <SignUp />
-                    <Login />
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className='authNavBar'>
+                        {
+                            isLoggedin === false ?
+                                <div onClick={handleOnClick}>
+                                    <span >Login/Signup</span>
+                                </div>
+                                :
+                                <>
+                                    <span onClick={() => setmodalProfile(!modalProfile)}>{userName}</span>
+                                    {modalProfile &&
+                                        <div className='open-modal-a'>
+                                            <p onClick={() => { navigate(`./profilePageA`) }}>Profile</p>
+                                            <p onClick={() => { navigate(`./mytrips`) }}>My Trips</p>
+                                            <p onClick={handleLogOut}>Log Out</p>
+
+                                        </div>
+                                    }
+                                </>
+                        }
+                    </div>
+
                 </div>
+            </div>
+            <Login />
+            <SignUp />
 
-            </nav>
             <Outlet />
+
         </>
 
     )

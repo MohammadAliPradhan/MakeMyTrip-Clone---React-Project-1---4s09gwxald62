@@ -77,7 +77,7 @@ function ScrollNavBar() {
                         <Link to="/" ><img className="logoleft" src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png" alt="log" /></Link>
                         <img className='discount-bag-a' src={discount} alt="discount" />
                     </div>
-                    <div className='navmiddle'>
+                    <div onClick={() => navigate("../mytrips")} className='navmiddle'>
                         <img src={bag} alt="bag" />
                     </div>
 
@@ -91,13 +91,6 @@ function ScrollNavBar() {
                         <p className='profilepageAA' onClick={() => navigate("../profilePageA")}>Profile</p>
                         <p className='profilepageAA' onClick={() => navigate("../mytrips")}>My Trips</p>
                     </div>}
-
-
-
-
-
-
-
                     <SignUp />
                     <Login />
                 </div>

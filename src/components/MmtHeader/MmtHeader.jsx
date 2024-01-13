@@ -3,6 +3,7 @@ import { Outlet, NavLink } from 'react-router-dom'
 import "./MmtHeader.css"
 import { faBus, faHotel, faHouse, faPlaneDeparture, faSuitcaseRolling, faTaxi, faTrain } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import NavBar from '../NavBar/NavBar'
 
 
 function MmtHeader() {
