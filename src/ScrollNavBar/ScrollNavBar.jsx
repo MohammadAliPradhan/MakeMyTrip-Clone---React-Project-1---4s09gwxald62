@@ -83,7 +83,7 @@ function ScrollNavBar() {
 
                     <div className='auth-scroll-nav'>
                         {!isLoggedin && < li className='login-scrollnav' onClick={handleToggle}>Login Or SignUp</li>}
-                        {isLoggedin && <li className='login-scrollnav' onClick={handleLogout}>Log Out</li>}
+                        {isLoggedin && <li className='logoutScrollNav-scrollnav' onClick={handleLogout}>Log Out</li>}
                         {isLoggedin && <li className='name-scroll-nav' onClick={handleNavigateProfile}>{userName}</li>}
                     </div>
 
