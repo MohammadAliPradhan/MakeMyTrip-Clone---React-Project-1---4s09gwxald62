@@ -65,8 +65,12 @@ function App() {
   } else {
     isUserLoggedIn = false;
   }
+
+  //When ever there is refresh so it would persist between state and check whether it is logged in or logged out.
+
   const [isLoggedin, setIsLoggedIn] = useState(isUserLoggedIn)
 
+  //Creating context and then sending it to the components
 
   return (
     <>
@@ -85,16 +89,19 @@ function App() {
                             <Route path="/" element={<FlightDetails />}>
                               <Route index element={<FlightOffer />} />
                             </Route>
+
                             <Route path="hotel" element={<HotelDetails />}>
                               <Route index element={<FlightOffer />} />
                             </Route>
+
                             <Route path="train" element={<TrainDetails />} >
                               <Route index element={<FlightOffer />} />
-
                             </Route>
+
                             <Route path="/allotherroute" element={< AllOtherRoute />} >
                               <Route index element={<FlightOffer />} />
                             </Route>
+
                           </Route>
                         </Route>
                         <Route path="/profile" element={<Profile />} />

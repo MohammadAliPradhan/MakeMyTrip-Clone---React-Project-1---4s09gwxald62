@@ -80,7 +80,6 @@ function HotelDetails() {
             localStorage.setItem("listItem", response.data.data.hotels[0].location)
             navigate("/list", { state: { selectedDate, selectedDateCheckOut, MemberValue } })
             // navigate("/justshow", { state: { item } })
-
         }
         console.log("response", response)
 

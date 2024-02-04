@@ -298,4 +298,11 @@
         display: flex;
         justify-content: space-around;
     }
+
+    .logo-navlink {
+        display: inline-block;
+        height: 36px;
+        width: 113px;
+        margin-top: 20px;
+    }
 }

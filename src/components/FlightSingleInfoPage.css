@@ -1,5 +1,6 @@
 .sectionsingle {
     max-width: 800px;
+    position: relative;
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
@@ -12,10 +13,10 @@
     position: absolute;
     padding: 3px;
     border-radius: 5px;
-    right: 682px;
+    right: 151px;
     background-color: #d89696;
     width: 133px;
-    top: 446px;
+    top: 363px;
     height: auto;
     flex-direction: row;
     gap: 5px;
@@ -114,6 +115,13 @@
     }
 }
 
+
+.see-tickets-info {
+    position: relative;
+}
+
+
+
 @media only screen and (max-width: 600px) {
     .ticketMemberhow {
         display: flex;
@@ -123,7 +131,7 @@
         right: 13px;
         background-color: #d89696;
         width: 172px;
-        top: 472px;
+        top: 365px;
         height: auto;
         gap: 5px;
         justify-content: center;

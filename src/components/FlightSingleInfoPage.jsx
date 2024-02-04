@@ -107,7 +107,7 @@ function FlightSingleInfoPage() {
                                 <h3>Economy Class</h3>
                                 <p>INR {singleInfoPageOfFlight?.ticketPrice * n}</p>
                             </div>
-                            <div >
+                            <div className='see-tickets-info'>
                                 <h3>Seat Number</h3>
                                 <button className='handlesee' onClick={handleSeeTickets}>See Tickets</button>
 
