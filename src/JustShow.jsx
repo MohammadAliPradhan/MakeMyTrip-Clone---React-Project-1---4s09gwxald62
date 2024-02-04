@@ -250,7 +250,7 @@ function JustShow() {
                                 <label for="cvv">Phone Number</label>
                                 <input
                                     className="hotelInput"
-                                    type="text"
+                                    type="number"
                                     id="phoneNumber"
                                     placeholder="+91 XXXXX-XXXXX-XXXXX"
                                     required
