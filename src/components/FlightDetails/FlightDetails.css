@@ -62,7 +62,10 @@
 }
 
 .flight {
-   border-right: 1px solid black;
+   display: flex;
+   border-left: 1px solid black;
+   flex-direction: column;
+   padding-left: 10px;
 }
 
 .searchBtn {

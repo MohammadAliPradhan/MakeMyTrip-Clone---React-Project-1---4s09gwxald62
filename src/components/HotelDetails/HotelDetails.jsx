@@ -189,7 +189,7 @@ function HotelDetails() {
                             </div> : <h1><input
                                 type="text"
                                 className='something'
-                                value={selectedDate}
+                                value={selectedDate.toDateString()}
                                 onClick={handleInputClick}
 
                             /></h1>}
@@ -211,7 +211,7 @@ function HotelDetails() {
 
                                 type="text"
                                 className='something'
-                                value={selectedDateCheckOut}
+                                value={selectedDateCheckOut.toDateString()}
                                 onClick={handleInputClickTwo}
 
                             /></h1>}

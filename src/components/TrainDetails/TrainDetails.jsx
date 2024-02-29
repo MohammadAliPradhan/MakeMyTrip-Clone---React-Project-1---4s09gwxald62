@@ -148,7 +148,7 @@ function TrainDetails() {
 
                                 type="text"
                                 className='something'
-                                value={TravelDate}
+                                value={TravelDate.toDateString()}
                                 onClick={handleCalendarOnOf}
 
                             /></h1>}

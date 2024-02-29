@@ -121,7 +121,7 @@ function FlightDetails() {
                             <h1><input
                                 type="text"
                                 className='something'
-                                value={TravelDate}
+                                value={TravelDate.toDateString()}
                                 onClick={() => setTrthly(!trthly)}
                             /></h1>
                             <span>DEL, Delhi Airport India</span>
