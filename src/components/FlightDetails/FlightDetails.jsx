@@ -126,7 +126,7 @@ function FlightDetails() {
                             <span>DEL, Delhi Airport India</span>
                         </div> : <div >
                             <span onClick={() => setTrthly(!trthly)} className='calendarCrossOfTwoFlight'>Done</span>
-                            <Calendar className="calendarOnOfFlight" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} />
+                            <Calendar className="calendarOnOfFlight" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} minDate={new Date()} />
                         </div>}
 
                         <div className="flight" >

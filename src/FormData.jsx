@@ -42,7 +42,7 @@ const FormData = () => {
             <h2>Interactive DateTime Picker</h2>
             <div>
                 <label>Date:</label>
-                <Calendar onChange={handleDateChange} onClickDay={handleDayClick} value={selectedDate} />
+                <Calendar onChange={handleDateChange} onClickDay={handleDayClick} value={selectedDate} minDate={new Date()} />
             </div>
             <div>
                 <label>Time:</label>

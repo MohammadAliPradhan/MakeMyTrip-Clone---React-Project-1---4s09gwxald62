@@ -50,6 +50,7 @@ function TrainDetails() {
 
     const handleDateChange = (date) => {
         setTravelDate(date);
+        setTrthly(false);
     };
     const handleDayClick = (value, event) => {
         console.log('Clicked day:', value);
@@ -142,8 +143,7 @@ function TrainDetails() {
 
                             {/* do the work two */}
                             {trthly ? <div >
-                                <span onClick={() => setTrthly(false)} className='calendarCrossOfTwo-train'>Done</span>
-                                <Calendar className="calendarOn" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} />
+                                <Calendar className="calendarOn" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} minDate={new Date()} />
                             </div> : <h1><input
 
                                 type="text"

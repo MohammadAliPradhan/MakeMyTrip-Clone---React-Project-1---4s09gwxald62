@@ -178,7 +178,7 @@ function HotelDetails() {
                             {/* //do the work */}
                             {calendarState.checkInState ? < div >
                                 <span onClick={() => setCalendarState(!calendarState.checkInState)} className='calendarCross-Hotel'>Done</span>
-                                <Calendar className="calendarOn" onChange={handleDateChange} onClickDay={handleDayClick} value={selectedDate} />
+                                <Calendar className="calendarOn" onChange={handleDateChange} onClickDay={handleDayClick} value={selectedDate} minDate={new Date()} />
                             </div> : <h1><input
                                 type="text"
                                 className='something'
@@ -199,7 +199,7 @@ function HotelDetails() {
                             {/* do the work two */}
                             {calendarState.checkOut ? <div >
                                 <span onClick={() => setCalendarState(!calendarState.checkOut)} className='calendarCrossTwo-hotel'>Done</span>
-                                <Calendar className="calendarOn" onChange={handleDateChangeCheckOut} onClickDay={handleDayClickCheckOut} value={selectedDateCheckOut} />
+                                <Calendar className="calendarOn" onChange={handleDateChangeCheckOut} onClickDay={handleDayClickCheckOut} value={selectedDateCheckOut} minDate={new Date(selectedDate)} />
                             </div> : <h1><input
 
                                 type="text"
