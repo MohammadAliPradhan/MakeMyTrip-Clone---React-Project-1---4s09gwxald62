@@ -41,6 +41,7 @@ function FlightDetails() {
 
     const handleDateChange = (date) => {
         setTravelDate(date);
+        setTrthly(true);
     };
     const handleDayClick = (value, event) => {
         console.log('Clicked day:', value);
@@ -125,7 +126,7 @@ function FlightDetails() {
                             /></h1>
                             <span>DEL, Delhi Airport India</span>
                         </div> : <div >
-                            <span onClick={() => setTrthly(!trthly)} className='calendarCrossOfTwoFlight'>Done</span>
+                            {/* <span onClick={() => setTrthly(!trthly)} className='calendarCrossOfTwoFlight'>Done</span> */}
                             <Calendar className="calendarOnOfFlight" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} minDate={new Date()} />
                         </div>}
 

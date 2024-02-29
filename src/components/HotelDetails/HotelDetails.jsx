@@ -39,7 +39,7 @@ function HotelDetails() {
     //This one is the first one change of the input
     const handleDateChange = (date) => {
         setSelectedDate(date);
-        console.log(selectedDate);
+
     };
     const handleDayClick = (value, event) => {
         console.log('Clicked day:', value);
