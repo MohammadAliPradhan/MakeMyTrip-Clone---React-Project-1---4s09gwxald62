@@ -23,8 +23,8 @@ function FlightDetails() {
 
 
     const [flightDetails, setFlightDetails] = useState({
-        from: "HYD",
-        to: "DEL"
+        from: "Del",
+        to: "Hyd"
     })
 
 
@@ -137,23 +137,13 @@ function FlightDetails() {
                                 </span>
                                 <h3 className='inputHeremains'>Members: {totalMembers} </h3>
                             </div>
-
                             {findMemberModal && <div className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>}
-
-
                             <span>{MemberValue?.adult} Adults, {MemberValue?.kids} Kids ({totalMembers} Members)</span>
                         </div>
                     </div>
-
                     <div className='searchParent'>
-
-
                     </div>
-
-
-
                 </div>
-
             </div>
             <div className='footerfix'><Footer /></div>
 

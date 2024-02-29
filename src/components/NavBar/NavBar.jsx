@@ -93,7 +93,8 @@ function NavBar() {
                                 {
                                     isLoggedin === false ?
                                         <div onClick={handleOnClick} className='button-parent'>
-                                            <span>Login or Create Account</span>
+                                            <span className='myIconLogin'></span>
+                                            <span style={{ fontSize: "10px", fontWeight: "600" }}>Login or Create Account</span>
                                         </div> :
                                         <div onClick={() => setmodalProfile(!modalProfile)} className='button-parent'>
                                             <span>{userName}</span>
