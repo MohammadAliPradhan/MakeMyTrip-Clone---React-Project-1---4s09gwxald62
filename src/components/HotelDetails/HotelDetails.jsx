@@ -39,8 +39,12 @@ function HotelDetails() {
     //This one is the first one change of the input
     const handleDateChange = (date) => {
         setSelectedDate(date);
-
+        setCalendarState((prevState) => ({
+            ...prevState,
+            checkInState: false
+        }));
     };
+
     const handleDayClick = (value, event) => {
         console.log('Clicked day:', value);
     };
@@ -50,9 +54,12 @@ function HotelDetails() {
     // This is the second second change of value
 
     const handleDateChangeCheckOut = (date) => {
-        setSelectedDateCheckOut(date)
-        console.log("This is ", selectedDateCheckOut);
-    }
+        setSelectedDateCheckOut(date);
+        setCalendarState((prevState) => ({
+            ...prevState,
+            checkOut: false
+        }));
+    };
 
     const handleDayClickCheckOut = (value, eventc) => {
         console.log(value);
@@ -177,7 +184,7 @@ function HotelDetails() {
 
                             {/* //do the work */}
                             {calendarState.checkInState ? < div >
-                                <span onClick={() => setCalendarState(!calendarState.checkInState)} className='calendarCross-Hotel'>Done</span>
+                                {/* <span onClick={() => setCalendarState(!calendarState.checkInState)} className='calendarCross-Hotel'>Done</span> */}
                                 <Calendar className="calendarOn" onChange={handleDateChange} onClickDay={handleDayClick} value={selectedDate} minDate={new Date()} />
                             </div> : <h1><input
                                 type="text"
@@ -198,7 +205,7 @@ function HotelDetails() {
 
                             {/* do the work two */}
                             {calendarState.checkOut ? <div >
-                                <span onClick={() => setCalendarState(!calendarState.checkOut)} className='calendarCrossTwo-hotel'>Done</span>
+                                {/* <span onClick={() => setCalendarState(!calendarState.checkOut)} className='calendarCrossTwo-hotel'>Done</span> */}
                                 <Calendar className="calendarOn" onChange={handleDateChangeCheckOut} onClickDay={handleDayClickCheckOut} value={selectedDateCheckOut} minDate={new Date(selectedDate)} />
                             </div> : <h1><input
 
