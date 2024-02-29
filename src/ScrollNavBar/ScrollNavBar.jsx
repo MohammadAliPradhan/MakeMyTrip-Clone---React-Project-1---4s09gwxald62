@@ -161,7 +161,7 @@ function ScrollNavBar() {
                                 </div>
 
                                 {modalProfile && <div className='modalRightSide-menu'>
-                                    <p className='paragraph-css-menu'>you are viewing your personal profile {isLoggedin ? userName.toLowerCase() : null}</p>
+                                    <p className='paragraph-css-menu-home'>you are viewing your personal profile {isLoggedin ? userName.toLowerCase() : null}</p>
                                     <NavLink to='.././profilePageA' className='menu-child--scroll-1'>
                                         <span className='icon-menu-a userItemMyProfile'>
                                         </span>

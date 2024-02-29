@@ -10,6 +10,8 @@ import Login from '../Authenticaltion/Login/Login'
 import SignUp from '../Authenticaltion/SignUp/SignUp'
 import { useScrollTrigger } from '@mui/material'
 import mmtnavbar from "../../assets/images/mmtnavbar.png"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretDown, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -95,20 +97,41 @@ function NavBar() {
                                         <div onClick={handleOnClick} className='button-parent'>
                                             <span className='myIconLogin'></span>
                                             <span style={{ fontSize: "10px", fontWeight: "600" }}>Login or Create Account</span>
+                                            <span style={{ marginLeft: "41px" }}><FontAwesomeIcon icon={faCaretDown} size="sm" style={{ color: "#63E6BE", }} />
+                                            </span>
                                         </div> :
-                                        <div onClick={() => setmodalProfile(!modalProfile)} className='button-parent'>
-                                            <span>{userName}</span>
+                                        <div onClick={() => setmodalProfile(!modalProfile)} className='button-parent-loggedin'>
+                                            <span className='right-side-span-home'>
+                                                <span>{userName.trim().slice(0, 1)}</span>
+                                            </span>
+                                            <span style={{ fontSize: "10px", fontWeight: "600" }}>Hi  {userName}</span>
+                                            <span><FontAwesomeIcon icon={faCaretDown} size="sm" style={{ color: "#63E6BE", }} />
+                                            </span>
 
                                             {modalProfile &&
                                                 <div className='open-modal-a'>
-                                                    <div onClick={() => { navigate(`./profilePageA`) }} className='faker-a'><p >Profile</p></div>
-                                                    <div onClick={handleLogOut} className='faker-b'><p >Log Out</p></div>
-                                                </div>}
+
+                                                    <p className='paragraph-css-menu-home'>you are viewing your personal profile {isLoggedin ? userName.toLowerCase() : null}</p>
+                                                    <div className='child-class-basket'>
+                                                        <div onClick={() => { navigate(`./profilePageA`) }} className='faker-a'>
+                                                            <span className='icon-menu-a userItemMyProfile'>
+                                                            </span>
+                                                            <p >Profile</p>
+                                                        </div>
+
+
+                                                        <div onClick={handleLogOut} className='faker-b'>
+                                                            <span style={{ color: "red" }}><FontAwesomeIcon icon={faRightFromBracket} /></span>
+
+                                                            <p >Log Out</p>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            }
                                         </div>
                                 }
-
-
-
                             </li>
                         </ul>
                     </div>
