@@ -47,8 +47,23 @@
 
 }
 
+.modal-flight-for {
+   background-color: #fff;
+   border-radius: .3rem;
+   box-shadow: 0 0 10px 2px #0003;
+   height: 200px;
+   max-width: 300px;
+   overflow-y: scroll;
+   position: absolute;
+   top: 2.4rem;
+   width: 100%;
+   z-index: 4;
+
+}
+
 .flight h1 {
    margin-top: 14px;
+
 }
 
 .flight h1 ::placeholder {
@@ -62,6 +77,33 @@
 }
 
 .flight {
+   display: flex;
+   border-left: 1px solid black;
+   flex-direction: column;
+   padding-left: 10px;
+}
+
+.flight-for {
+   position: relative;
+   bottom: 3px;
+   display: flex;
+   border-left: 1px solid black;
+   flex-direction: column;
+   padding-left: 10px;
+}
+
+.flight-to {
+   position: relative;
+   bottom: 3px;
+   display: flex;
+   border-left: 1px solid black;
+   flex-direction: column;
+   padding-left: 10px;
+}
+
+.modal-flight-for-two {
+   position: relative;
+   bottom: 3px;
    display: flex;
    border-left: 1px solid black;
    flex-direction: column;
@@ -124,6 +166,65 @@
    cursor: pointer;
    border: 1px solid black;
    border-radius: 10px;
+}
+
+.modal-flight-for-input {
+   align-items: center;
+   background-color: #fff;
+   border-bottom: 1px solid #dedddd;
+   display: flex;
+   padding: 0.4rem 0.4rem 0.4rem 1rem;
+   position: -webkit-sticky;
+   position: sticky;
+   gap: 5px;
+   top: 0;
+}
+
+.modal-flight-for-inputTwo {}
+
+.search-icon-img {
+   height: 20px;
+   scale: 2;
+   width: 20px;
+
+}
+
+.modal-flight-for-ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+
+}
+
+.modal-flight-for-li {
+   padding: .4rem 0 .4rem 1rem;
+   display: flex;
+   gap: 4px;
+
+   &:hover {
+      background-color: #f5f5f5;
+      cursor: pointer;
+   }
+}
+
+.modal-flight-for-div {
+   float: left;
+   width: 18%;
+}
+
+.modal-flight-for-span-two {
+   text-transform: capitalize;
+}
+
+.modal-flight-for-span {
+   background-color: #034a85;
+   border-radius: .3rem;
+   color: #fff;
+   font-size: 14px;
+   margin-right: 1rem;
+   padding: 0 .3rem;
+   text-align: center;
+
 }
 
 @media only screen and (max-width: 600px) {
