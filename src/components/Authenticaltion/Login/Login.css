@@ -12,6 +12,10 @@
     justify-content: center;
 }
 
+.login-modal {
+    display: flex;
+}
+
 
 .parentLogin {
     position: fixed;
@@ -29,4 +33,103 @@
 .incorrect-userName-sp {
     color: red;
     font-size: 15px;
+}
+
+.carousel-image-container {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    display: flex;
+    margin: 10px 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: relative;
+    scroll-snap-type: x mandatory;
+    width: 370px;
+}
+
+.carouser-picture {
+    position: relative;
+    scroll-snap-align: start;
+}
+
+.carouser-text {
+    background-color: initial;
+    border: 1px solid #fff;
+    color: #fff;
+    left: 50%;
+    padding: 1rem .8rem;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+
+}
+
+
+.login-form-container {
+    background-color: #fff;
+    border-radius: 10px;
+    width: 500px;
+}
+
+.login-account-type {
+
+    border-radius: 2rem;
+    box-shadow: 0 0 3px 2px #b9b6b699;
+    display: flex;
+    font-weight: 700;
+    justify-content: space-between;
+    margin-left: 50%;
+    margin-top: 40px;
+    padding: 10px;
+    transform: translate(-50%);
+    width: 86%;
+}
+
+.span-text-personal {
+    background-color: #1065f5;
+    border-radius: 2rem;
+    color: #fff;
+    cursor: pointer;
+    padding: 7px;
+}
+
+.span-text-business {
+    border-radius: 2rem;
+    color: #3f3f3f;
+    cursor: not-allowed;
+    padding: 5px 20px;
+    padding: 7px;
+}
+
+.login-account-form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+    margin-top: 20px;
+    transform: translate(-50%);
+    width: 86%;
+}
+
+.user-details-login {
+    border: 1px solid gray;
+    border-radius: 4px !important;
+    margin-bottom: .4rem;
+    margin-top: .25rem;
+    outline: none;
+    padding: 10px;
+}
+
+.loginBtn {
+    background-color: #1065f5;
+    border: none;
+    border-radius: 2rem;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 1rem;
+    padding: 10px;
+
 }

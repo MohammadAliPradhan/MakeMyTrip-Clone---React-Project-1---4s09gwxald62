@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import "./SignUp.css"
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
@@ -69,6 +69,15 @@ function SignUp() {
         setLoginButton(true)
     }
 
+    useEffect(() => {
+        if (message) {
+            setTimeout(() => {
+                setMessage(false)
+            }, 5000)
+        }
+        return () => clearTimeout(message);   // This is a cleanup function 
+    }, [message])
+
     console.log("erroro", message);
 
 
@@ -80,65 +89,60 @@ function SignUp() {
         < div className='parentSignup' onClick={handleOverlayClick}>
 
 
-            <form action="" className='formContainer' onSubmit={handleSubmit}>
-
-                <div className="close-button" onClick={handleCloseModal}>
-                    <span>X</span>
+            <div className='login-modal'>
+                <div className="carousel-image-container">
+                    <picture className='carouser-picture'>
+                        <img src="https://imgak.mmtcdn.com/pwa_v3/pwa_header_assets/loginPersuassionRoad.webp" alt="" className='carouser-image' />
+                        <div className='carouser-text'>Made By Mohammad Ali</div>
+                    </picture>
                 </div>
+                <div className="login-form-container">
+                    <div className="login-account-type">
+                        <span className='span-text-personal'>PERSONAL ACCOUNT</span>
+                        <span className='span-text-business' title='currently disabled'>
+                            MYBIZ ACCOUNT
+                        </span>
+                    </div>
+                    <form className='login-account-form' action="">
 
-                <div className='image-surface-none'><img src="https://imgak.mmtcdn.com/pwa_v3/pwa_header_assets/loginPersuassionValley.webp" alt="" className='authImg' /></div>
-                <div className='form-container-everythimg'>
-                    <div className='input-data-signup'>
-                        <label htmlFor="fullname">Name:</label>
+                        <label style={{ color: "#676565", fontWeight: "500" }} htmlFor="">Email</label>
                         <input
-                            type="text"
-                            name="name"
-                            id="name"
+                            className='user-details-login'
                             ref={nameRef}
-                        />
+                            type="text"
+                            name='fullName'
+                            id='fullName'
+                            placeholder='Enter Name' />
 
-
-                    </div>
-
-                    <div className='input-data-signup'>
-                        <label htmlFor="email">Email:</label>
+                        <label style={{ color: "#676565", fontWeight: "500" }} htmlFor="">Email</label>
                         <input
-                            type="email"
-                            name="email"
-                            id="email"
+                            className='user-details-login'
                             ref={emailRef}
-                        />
+                            type="email"
+                            name='email'
+                            id='email'
+                            placeholder='Enter email' />
 
-                    </div>
-
-                    <div className='input-data-signup'>
-                        <label htmlFor="password">Password:</label>
-                        <input type="password"
-                            name="password"
-                            id="password"
-
+                        <label style={{ color: "#676565", fontWeight: "500" }} htmlFor="">Password</label>
+                        <input
+                            className='user-details-login'
                             ref={passwordRef}
-                        />
-                    </div>
-                    <input type="submit" value="signup" id='AlreadyaUser' />
-                    {message === "success" ? <span className='user-already-exists'>Hurray Signed In</span> : null}
-                    {message === "User already exists" ? <span className='user-already-exists'>User Already Exist</span> : null}
-                    {message === "Invalid input data. Please provide a valid email" ? <span className='user-already-exists'>Invalid Input Data</span> : null}
+                            type="password"
+                            name='password'
+                            id='password'
+                            placeholder='Password' />
 
-                    {message === undefined ? <span className='user-already-exists'>Enter Credentials</span> : null}
-                    {/* <LoginButton /> */}
+                        {message && <span style={{ color: "red", fontSize: "10px", fontWeight: "500" }}>{message}</span>}
 
-                    <div className='buttonRelatedStuff'>
-                        <h6>Already a user</h6>
-                        <button onClick={clickthis} id='AlreadyaUser'><span>Login</span> </button>
-                    </div>
+                        <input onClick={handleSubmit} className='loginBtn' type="submit" value='Continue' />
 
+                        <p>
+                            Already a user?
+                            <span style={{ color: "#3c3cf6", cursor: "pointer" }} onClick={clickthis}> Click here to log in</span>
+                        </p>
+                    </form>
                 </div>
-
-
-
-
-            </form>
+            </div>
 
         </div >,
 

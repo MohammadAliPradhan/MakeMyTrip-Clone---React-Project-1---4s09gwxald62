@@ -1,11 +1,11 @@
 
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import "./Login.css"
 import { Navigate, Route, Routes, json, useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import { NavLink } from 'react-router-dom';
-import { AuthContext, LoginButtonContext, TraceHistory } from '../../App';
+import { AuthContext, ButtonContext, LoginButtonContext, TraceHistory } from '../../App';
 import axios from 'axios';
 import { getHeaderWithProjectId } from '../utils/service';
 
@@ -15,11 +15,13 @@ import { getHeaderWithProjectId } from '../utils/service';
 function Login() {
     const navigate = useNavigate();
 
-    const { loginButton, setLoginButton } = useContext(LoginButtonContext)
-    const { isLoggedin, setIsLoggedIn } = useContext(AuthContext)
+
+
+    const { loginButton, setLoginButton } = useContext(LoginButtonContext);
+    const { isLoggedin, setIsLoggedIn } = useContext(AuthContext);
     const [message, setMessage] = useState(false);
     const { historyy, setHistoryy } = useContext(TraceHistory);
-
+    const { buttonState, setButtonState } = useContext(ButtonContext);
 
 
 
@@ -55,6 +57,17 @@ function Login() {
     console.log(historyy)
 
 
+    useEffect(() => {
+        if (message) {
+            const timer = setTimeout(() => {
+                setMessage(false);
+            }, 5000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [message]);
+
+
 
 
 
@@ -82,8 +95,8 @@ function Login() {
     }
 
     function clickthis() {
-        setLoginButton(!loginButton)
-        setLoginButton(true)
+        setLoginButton(false)
+        setButtonState(true)
     }
 
 
@@ -91,55 +104,51 @@ function Login() {
 
         loginButton &&
 
-        < div className='parentSignup' onClick={handleOverlayClick}>
-
-
-            {/* <Outlet /> */}
-
-            <form action="" className='formContainer' onSubmit={handleSubmit}>
-                <div className="close-button" onClick={handleCloseModal}>
-                    <span>X</span>
+        <div className='parentSignup' onClick={handleOverlayClick}>
+            <div className='login-modal'>
+                <div className="carousel-image-container">
+                    <picture className='carouser-picture'>
+                        <img src="https://imgak.mmtcdn.com/pwa_v3/pwa_header_assets/loginPersuassionRoad.webp" alt="" className='carouser-image' />
+                        <div className='carouser-text'>Made By Mohammad Ali</div>
+                    </picture>
                 </div>
-                <div className="image-surface-none"><img src="https://imgak.mmtcdn.com/pwa_v3/pwa_header_assets/loginPersuassionValley.webp" alt="" className='authImg' /></div>
-
-                <div className='form-container-everythimg'>
-                    <div className='input-data-signup'>
-                        <label htmlFor="email">Email:</label>
+                <div className="login-form-container">
+                    <div className="login-account-type">
+                        <span className='span-text-personal'>PERSONAL ACCOUNT</span>
+                        <span className='span-text-business' title='currently disabled'>
+                            MYBIZ ACCOUNT
+                        </span>
+                    </div>
+                    <form className='login-account-form' action="">
+                        <label style={{ color: "#676565", fontWeight: "500" }} htmlFor="">Email</label>
                         <input
-                            type="email"
-                            name="email"
-                            id="email"
+                            className='user-details-login'
                             ref={emailRef}
-                        />
+                            type="email"
+                            name='email'
+                            id='email'
+                            placeholder='Enter email' />
 
-                    </div>
-
-                    <div className='input-data-signup'>
-                        <label htmlFor="password">Password:</label>
-                        <input type="password"
-                            name="password"
-                            id="password"
+                        <label style={{ color: "#676565", fontWeight: "500" }} htmlFor="">Password</label>
+                        <input
+                            className='user-details-login'
                             ref={passwordRef}
-                        />
-                    </div>
+                            type="password"
+                            name='password'
+                            id='password'
+                            placeholder='Password' />
 
-                    <input type="submit" value="Login" id='AlreadyaUser' />
+                        {message && <span style={{ color: "red", fontSize: "10px", fontWeight: "500" }}>Incorrect Email Or Password</span>}
 
-                    {message && <div className='incorrectUserName' >
-                        <span className='incorrect-userName-sp'>Incorrect UserName or Password</span>
-                    </div>}
+                        <input onClick={handleSubmit} className='loginBtn' type="submit" value='Continue' />
 
-
-
-                    {/* <LoginButton /> */}
-
+                        <p>
+                            Not a user?
+                            <span style={{ color: "#3c3cf6", cursor: "pointer" }} onClick={clickthis}> Click here to sign up</span>
+                        </p>
+                    </form>
                 </div>
-
-
-
-
-            </form>
-
+            </div>
         </div >,
 
         document.querySelector(".myPortalDivTwo")
