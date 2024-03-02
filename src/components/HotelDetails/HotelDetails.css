@@ -1,3 +1,45 @@
+.hotel-booking-details-container {
+    display: grid;
+    grid-template-columns: 12fr 6fr 6fr 8fr 6fr;
+}
+
+.span-priceHotel{
+        white-space: normal;
+        color: gray;
+        font-weight: 700;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .searchBtn {
     cursor: pointer;
 }
