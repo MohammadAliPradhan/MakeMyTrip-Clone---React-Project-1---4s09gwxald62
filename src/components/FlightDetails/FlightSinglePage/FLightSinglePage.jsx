@@ -8,6 +8,9 @@ import { getHeaderWithProjectId } from '../../Authenticaltion/utils/service'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Footer from '../../Footer/Footer'
 import NavBar from '../../NavBar/NavBar'
+import Airports from '../../Modals/Airports'
+
+
 
 
 
@@ -39,18 +42,31 @@ function FLightSinglePage() {
 
     //end
 
+    let fromValue;
+    let toValue;
+
+    function convertToCityShortcuts() {
+        let fromValue = Airports.find(item => location.state.flightDetails.from === item.city_name)?.IATA_code;
+        let toValue = Airports.find(item => location.state.flightDetails.to === item.city_name)?.IATA_code;
+    
+        getFlightDetails(fromValue, toValue);
+
+    }
+
+
+
     console.log("specificllocation", FlightAPiDetails);
 
 
 
 
 
-    async function getFlightDetails() {
+    async function getFlightDetails(a, b) {
 
         try {
             console.log(location.state.flightDetails.from);
             const config = getHeaderWithProjectId();
-            const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/flight?day=${dayOfWeek}&search={"source":"${location.state.flightDetails.from}","destination":"${location.state.flightDetails.to}"}`, config)
+            const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/flight?day=${dayOfWeek}&search={"source":"${a}","destination":"${b}"}`, config)
             console.log(response, "see this");
             setFlightApiDetails(response.data.data.flights)
             setLoading(true);
@@ -60,7 +76,7 @@ function FLightSinglePage() {
         }
     }
     useEffect(() => {
-        getFlightDetails();
+        convertToCityShortcuts();
     }, [])
 
 

@@ -1,3 +1,205 @@
+.flight-booking-details-container{
+      display: grid;
+      grid-template-columns: 2fr 2fr 1fr 1fr;
+  
+}
+
+.booking-details-container{
+      border: 1px solid #e7e7e7;
+      border-radius: 10px;
+      margin: 1rem 0;
+      width: 100%;
+      z-index: 5!important;
+  
+}
+
+.from-div-input{
+      background: none;
+      border: none;
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 30px;
+      outline: none;
+      text-transform: capitalize;
+      width: 100%;
+  
+}
+
+.from-span{
+      max-width: 300px;
+      overflow: hidden;
+      padding-bottom: 8px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+  
+}
+
+
+.booking-inputBox{
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 10px 16px;
+  
+}
+
+.span-city-name{
+      max-width: 300px;
+      overflow: hidden;
+      padding-bottom: 8px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+  
+}
+
+.dropdown{
+   max-width: 300px;
+      overflow: hidden;
+      padding-bottom: 8px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+}
+
+
+.dropdown:after {
+   border: solid #008cff;
+   border-width: 0 2px 2px 0;
+   content: "";
+   display: inline-block;
+   margin: 3px 0 0 8px;
+   padding: 3px;
+   transform: rotate(45deg);
+   -webkit-transform: rotate(45deg);
+   transition: all .3s ease-in-out;
+   vertical-align: top;
+}
+
+.calendarOnOfFlight {
+   width: 300px !important;
+   max-width: none  !important;
+   position: absolute;
+   left: 0px;
+   top: 40px;
+   border: 1px solid gray;
+   border-radius: 5px;
+   z-index: 60;
+}
+
+
+.booking-inputBox-last{
+   cursor: pointer;
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   padding: 10px 16px;
+   position: relative;
+
+}
+
+.booking-inputBox:hover {
+   background: #eaf5ff;
+   height: 110px;
+}
+
+.booking-inputBox-last:hover {
+   background: #eaf5ff;
+   height: 110px;
+}
+
+.flightadult{
+   position: absolute;
+   bottom: 78px;
+}
+
+.shortYear{
+   font-size: 20px;
+}
+
+.shortYear:before{
+   content: "'";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* I will see to this later */
 .ticket-type {
    display: flex;
    gap: 25px;
@@ -81,6 +283,8 @@
    border-left: 1px solid black;
    flex-direction: column;
    padding-left: 10px;
+   border: 1px solid #898686;
+   border-radius: 8px;
 }
 
 .flight-for {
@@ -90,6 +294,8 @@
    border-left: 1px solid black;
    flex-direction: column;
    padding-left: 10px;
+   border: 1px solid #898686;
+   border-radius: 8px;
 }
 
 .flight-to {
@@ -99,6 +305,8 @@
    border-left: 1px solid black;
    flex-direction: column;
    padding-left: 10px;
+   border: 1px solid #898686;
+   border-radius: 8px;
 }
 
 .modal-flight-for-two {
@@ -136,6 +344,9 @@
    margin-top: 54px;
 }
 
+
+
+
 .ComponentUni {
    background-color: #fff;
    width: 1200px;
@@ -152,10 +363,7 @@
    top: 1000px;
 }
 
-.calendarOnOfFlight {
-   position: absolute;
-   right: 150px;
-}
+
 
 .calendarCrossOfTwoFlight {
    position: absolute;
@@ -241,6 +449,12 @@
       border-radius: 10px;
    }
 
+   .flight-booking-details-container {
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: 2fr 2fr 1fr 1fr;
+  }
+
    .calendarCrossOfTwoFlight {
       position: absolute;
       background-color: #3F22F7;
@@ -276,9 +490,9 @@
       justify-content: center;
       align-items: center;
       position: absolute;
-      top: 735px;
+      top: 610px;
       left: 95px;
-   }
+  }
 
    .calendarOnOfFlight {
       position: absolute;
@@ -291,4 +505,15 @@
 
 
 
+}
+
+
+
+
+.radio-class-abc{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+  
 }

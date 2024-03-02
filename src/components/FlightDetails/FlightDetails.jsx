@@ -34,8 +34,8 @@ function FlightDetails() {
 
 
     const [flightDetails, setFlightDetails] = useState({
-        from: "Del",
-        to: "Hyd"
+        from: "Mumbai",
+        to: "Kolkata"
     })
 
 
@@ -96,7 +96,7 @@ function FlightDetails() {
         } else {
             setFlightDetails((oldState) => ({
                 ...oldState,
-                from: AirportData[0].IATA_code,
+                from: AirportData[0].city_name,
             }))
         }
         setModalInput(false);
@@ -137,6 +137,21 @@ function FlightDetails() {
 
     //let create 
 
+    //creating date
+    
+    const alldate = TravelDate.toISOString();
+
+    const year = alldate.substring(2, 4);
+    const month = alldate.substring(5, 7);
+    const day = alldate.substring(8, 10);
+
+    const dayWeek = TravelDate.toDateString().substring(0,4);
+    const monthWord = TravelDate.toDateString().substring(4,7);
+
+    console.log(year, month, day, dayWeek, monthWord);
+
+
+
     return (
         <>
             <div className="DetailsParent">
@@ -159,21 +174,17 @@ function FlightDetails() {
                         </div>
                         <button className="searchBtn" type="submit">Search</button>
                     </form>
-                    <div className="flight-search">
-                        <div className="flight-for">
-                            <span>
-                                FROM
-                            </span>
-                            <h1><input
-                                type="text"
-                                className='something'
-                                onChange={(e) => handleOnClick(e, 'from')}
-                                onClick={() => setModalInput(true)}
-                                value={flightDetails.from.toUpperCase()}
-                            /></h1>
-                            <span>{flightDetails.from.toUpperCase()}, {flightDetails.from.toUpperCase
-                                ()} India</span>
 
+
+
+                    <section className="flight-booking-details-container booking-details-container">
+                       
+                        <div style={{position: "relative"}}>
+                            <label htmlFor="fromCity" className='booking-inputBox'>
+                                <span className='from-span'>From</span>
+                                <input onClick={() => setModalInput(!modalInput)}  className='from-div-input' type="text" readOnly id='fromCity' value={flightDetails.from} style={{caretColor: "transparent"}}/>
+                                <span className='from-span'>India</span>
+                            </label>
                             {modalInput && <modal className="modal-flight-for">
                                 <div className="modal-flight-for-input">
                                     <img className="search-icon-img" src="	https://upload.wikimedia.org/wikipedia/commons/c/ca/VisualEditor_-_Icon_-_Search.svg" alt="" />
@@ -182,7 +193,7 @@ function FlightDetails() {
 
                                 <ul className="modal-flight-for-ul">
                                     {AirportData && AirportData.map((details) => (
-                                        <li onClick={() => valuesetter(details.IATA_code)} className="modal-flight-for-li">
+                                        <li onClick={() => valuesetter(details.city_name)} className="modal-flight-for-li">
                                             <div className="modal-flight-for-div">
                                                 <span className="modal-flight-for-span">{details.IATA_code}</span>
                                             </div>
@@ -196,20 +207,12 @@ function FlightDetails() {
                             </modal>}
                         </div>
 
-                        <div className="flight-to">
-                            <span>
-                                To
-                            </span>
-                            <h1><input
-                                type="text"
-                                className='something'
-                                onChange={(e) => handleOnClick(e, 'to')}
-                                value={flightDetails.to.toUpperCase()}
-                                onClick={() => setModalInputTO(true)}
-                            /></h1>
-
-                            <span>{flightDetails.to.toUpperCase
-                                ()}, {flightDetails.to.toUpperCase()} Airport India</span>
+                        <div style={{position: "relative" , borderLeft: "1px solid #e7e7e7"}}>
+                            <label htmlFor="toCity" className='booking-inputBox'>
+                                <span className='from-span'>To</span>
+                                <input onClick={()=> setModalInputTO(!modalInputTO)} className='from-div-input' type="text" readOnly id='toCity' value={flightDetails.to} style={{caretColor: "transparent"}}/> 
+                                <span className='from-span'>India</span>
+                            </label>
 
                             {modalInputTO && <modal className="modal-flight-for">
                                 <div className="modal-flight-for-input">
@@ -219,7 +222,7 @@ function FlightDetails() {
 
                                 <ul className="modal-flight-for-ul">
                                     {AirportData && AirportData.map((details) => (
-                                        <li onClick={() => valuesetterTwo(details.IATA_code)} className="modal-flight-for-li">
+                                        <li onClick={() => valuesetterTwo(details.city_name)} className="modal-flight-for-li">
                                             <div className="modal-flight-for-div">
                                                 <span className="modal-flight-for-span">{details.IATA_code}</span>
                                             </div>
@@ -233,33 +236,53 @@ function FlightDetails() {
                             </modal>}
                         </div>
 
-                        {trthly ? <div className="flight">
-                            <span>
-                                Departure
-                            </span>
-                            <h1><input
-                                type="text"
-                                className='something'
-                                value={TravelDate.toDateString()}
-                                onClick={() => setTrthly(!trthly)}
-                            /></h1>
-                            <span>DEL, Delhi Airport India</span>
-                        </div> : <div >
-                            {/* <span onClick={() => setTrthly(!trthly)} className='calendarCrossOfTwoFlight'>Done</span> */}
-                            <Calendar className="calendarOnOfFlight" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} minDate={new Date()} />
-                        </div>}
 
-                        <div className="flight" >
-                            <div onClick={() => setFindMemberModal(!findMemberModal)}>
-                                <span>
-                                    Members
+                        <div onClick={()=>setTrthly(!trthly)} style={{position: "relative" , borderLeft: "1px solid #e7e7e7"}}>
+                            <label htmlFor="travelDate" className='booking-inputBox'>
+                               
+                                
+                                <span className='dropdown'>
+                                    Departure
                                 </span>
-                                <h3 className='inputHeremains'>Members: {totalMembers} </h3>
-                            </div>
-                            {findMemberModal && <div className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>}
-                            <span>{MemberValue?.adult} Adults, {MemberValue?.kids} Kids ({totalMembers} Members)</span>
+
+                                {trthly ?<> <div style={{fontSize: "30px", lineHeight: "36px"}}>
+                                       <span style={{fontWeight: "900", paddingRight:"6px"}}>{day}</span> 
+                                       <span style={{fontSize: "20px"}}>{monthWord}</span>
+                                       <span  className='shortYear'>{year}</span>
+                               </div>
+
+                                <span>
+                                    {dayWeek}
+                                </span>
+
+                                </>
+                                
+                                : <div onClick={(e)=>e.stopPropagation()}><Calendar className="calendarOnOfFlight" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} minDate={new Date()} /></div>}
+                            </label>
                         </div>
-                    </div>
+
+                        <div onClick={()=>setFindMemberModal(!findMemberModal)} style={{position: "relative" , borderLeft:  "1px solid #e7e7e7"}}>
+                            <label htmlFor="class" className='booking-inputBox-last'>
+                                <span className='dropdown'>
+                                    Travellers & Class
+                                </span>
+
+                                <div style={{ fontSize: "30px", lineHeight: "36px"}}>
+                                    <span style={{fontWeight: 900}}>{totalMembers}</span>
+                                </div>
+
+                                <span className='from-span'>People</span>
+                            </label>
+                                {findMemberModal && <div className='flightadult'>
+                                    <div onClick={(e)=> e.stopPropagation()} className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>
+                                    </div>}
+
+                        </div>
+
+                    </section>
+
+
+
                     <div className='searchParent'>
                     </div>
                 </div>

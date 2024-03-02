@@ -40,7 +40,6 @@
     border-top-left-radius: 10px;
     display: flex;
     margin: 10px 0;
-    overflow-x: scroll;
     overflow-y: hidden;
     position: relative;
     scroll-snap-type: x mandatory;
