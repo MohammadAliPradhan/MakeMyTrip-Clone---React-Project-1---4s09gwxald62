@@ -7,10 +7,141 @@
     align-items: center;
 }
 
+
+.searchPage-header-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 10px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    transition: all .3s linear!important;
+    z-index: 4!important;
+    background-image: url(https://rithikesh-make-my-trip-react-clone.vercel.app/static/media/gradient-bg.c37271bb2066931c5424.webp);
+    
+}
+
+.searchPage-booking-details-container {
+    align-items: center;
+    display: flex;
+    gap: .4rem;
+    margin-left: 1.6rem;
+}
+
+.searchPage-booking-input {
+    background: #ffffff1a;
+    border-radius: 4px;
+    padding: 4px 8px;
+    position: relative;
+}
+.searchPage-booking-inputBox {
+    color: #0084ff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    position: relative;
+}
+
+#railway-input{
+        background-color: inherit;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 16px;
+        outline: none;
+        text-transform: capitalize;
+    
+}
+
+.railway-search{
+        background-image: linear-gradient(93deg,#53b2fe,#065af3);
+        background-image: var(--color-btn-primary-bg,linear-gradient(93deg,#53b2fe,#065af3));
+        border: 0;
+        border-radius: 34px;
+        box-shadow: 0 1px 7px 0 #0003;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        flex-shrink: 0;
+        outline: 0;
+        text-align: center;
+        text-transform: uppercase;
+        opacity: 1;
+        padding: 10px;
+        width: 216px;
+        font-weight: 700;
+        
+    }
+
+    .railfilters {
+        background-color: #fff;
+        border-radius: .15rem;
+        padding: 1.2rem;
+        position: -webkit-sticky;
+        position: sticky;
+        top: -50%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .paentpaent {
 
     display: flex;
     justify-content: center;
+    gap: 100px;
 }
 
 .flex {

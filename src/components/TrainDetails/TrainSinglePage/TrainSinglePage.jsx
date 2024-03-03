@@ -77,8 +77,48 @@ function TrainSinglePage() {
     return (
         <>
             <ScrollNavBar />
-            <div class="paentpaent">
-                <div class="parentContainer">
+            <div>
+                <div className='searchPage-header-container'>
+                    <div style={{display: "flex", gap: "30px"}}>
+                        <section className='searchPage-booking-details-container'>
+                            <div className='searchPage-booking-input'>
+                                <label htmlFor="fromcity" className='searchPage-booking-inputBox'>
+                                    <span style={{textTransform: "uppercase"}}>From</span>
+                                    <input type="text" id='railway-input' />
+                                </label>
+                            </div>
+
+
+                            <div className='searchPage-booking-input'>
+                                <label htmlFor="toCity" className='searchPage-booking-inputBox'>
+                                    <span style={{textTransform: "uppercase"}}>To</span>
+                                    <input type="text" id="railway-input" />
+                                </label>
+                            </div>
+                        </section>
+                        <section>
+                            <p style={{display: "flex", justifyContent: "center"}}>
+                                <button className='railway-search'>SEARCH</button>
+                            </p>
+                        </section>
+                    </div>
+                </div>
+                <div className="paentpaent">
+                    <div style={{position:"relative", top: "100px"}} className='quick-filters'>
+                        <div style={{display:"flex", flexDirection:"column", gap:"0.8rem" , textAlign:"left"}} className='railfilters'>
+                            <h4>Quick Filters</h4>
+                            <label style={{textAlign: "center"}} htmlFor="ac">
+                                <input type="checkbox" id="sortfilter" name='Highest'/>
+                                Sort By Highest
+                            </label>
+
+                            <label htmlFor="ac">
+                                <input type="checkbox" id="sortfilter" name='lowest'/>
+                                Sort By Lowest
+                            </label>
+                        </div>
+                    </div>
+                 <div class="parentContainer">
 
                     {singleInfoPageOfFlight?.map((details) => (
                         <div class="single-train-detail single-train-padding">
@@ -146,7 +186,10 @@ function TrainSinglePage() {
                 </div>
 
 
-            </div >
+                </div >
+
+            </div>
+            
 
 
         </>
