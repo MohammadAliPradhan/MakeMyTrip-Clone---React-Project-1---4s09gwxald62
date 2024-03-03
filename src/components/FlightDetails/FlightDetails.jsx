@@ -155,7 +155,7 @@ function FlightDetails() {
     return (
         <>
             <div className="DetailsParent">
-                <div className='Details'>
+                <div className='Details' style={{ position: "relative" }}>
                     <form className='ticket-type' onSubmit={handleOnSubmit}>
                         <div className="radioFlight">
                             <div className="form-check me-4">
@@ -172,7 +172,7 @@ function FlightDetails() {
                             </div>
 
                         </div>
-                        <button className="searchBtn" type="submit">Search</button>
+                        
                     </form>
 
 
@@ -281,10 +281,12 @@ function FlightDetails() {
 
                     </section>
 
+                
+                <div className="searchBtnforhotel" >
+                    <button onClick={handleOnSubmit}  className='searchHotelBtnA' style={{position: "absolute", bottom: "-18px"}}>SEARCH</button>
+                </div>
 
-
-                    <div className='searchParent'>
-                    </div>
+                    
                 </div>
             </div >
             <div className='footerfix'><Footer /></div>

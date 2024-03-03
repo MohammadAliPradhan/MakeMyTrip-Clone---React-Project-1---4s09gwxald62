@@ -10,6 +10,15 @@
 
 }
 
+
+#sortByCheapest[type='checkbox'] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+  
+
+
 .listWrapper {
     width: 100%;
     max-width: 1024px;

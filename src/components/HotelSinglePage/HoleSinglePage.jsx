@@ -15,6 +15,7 @@ import FindMembers from '../FindMembers/FindMembers'
 
 function HoleSinglePage() {
     const location = useLocation();
+    console.log("this is locatoin", location);
     const { isLoggedin, setIsLoggedIn } = useContext(AuthContext)
     const { historyy, setHistoryy } = useContext(TraceHistory);
 
@@ -22,8 +23,8 @@ function HoleSinglePage() {
     console.log(location);
     console.log("final call", location);
     // Here I am getting two important dates
-    const checkInDate = location.state.shareData.state.selectedDate;
-    const checkOutDate = location.state.shareData.state.selectedDateCheckOut;
+    const checkInDate = location.state.shareData.state.checkInDate;
+    const checkOutDate = location.state.shareData.state.checkOutDate;
 
     const checkInClear = new Date(checkInDate).toISOString();
     const checkOutClear = new Date(checkOutDate).toISOString();

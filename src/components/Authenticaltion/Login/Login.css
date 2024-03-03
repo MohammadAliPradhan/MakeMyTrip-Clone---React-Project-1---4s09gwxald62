@@ -44,6 +44,7 @@
     position: relative;
     scroll-snap-type: x mandatory;
     width: 370px;
+
 }
 
 .carouser-picture {
@@ -92,6 +93,7 @@
     color: #fff;
     cursor: pointer;
     padding: 7px;
+    text-align: center;
 }
 
 .span-text-business {
@@ -100,6 +102,7 @@
     cursor: not-allowed;
     padding: 5px 20px;
     padding: 7px;
+    text-align: center;
 }
 
 .login-account-form {
@@ -131,4 +134,16 @@
     margin-top: 1rem;
     padding: 10px;
 
+}
+
+@media only screen and (max-width: 550px){
+    .carousel-image-container {
+        display: none;
+    }
+
+    .login-form-container {
+        background-color: #fff;
+        border-radius: 10px;
+        width: fit-content;
+    }
 }

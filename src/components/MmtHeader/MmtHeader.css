@@ -4,7 +4,7 @@
     display: flex;
     background-color: #fff;
     width: 960.7px;
-    height: 100px;
+    height: 66px;
     padding: 8px 30px;
     border-radius: 8px;
     background-color: #fff;
@@ -19,14 +19,27 @@
     display: flex;
     justify-content: center;
     background: linear-gradient(90deg, rgb(54 51 112) 0%, rgba(6, 20, 36, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
 
 
+.upcomingPos {
+    background: linear-gradient(45deg,#ec2127,#e37622);
+    border-radius: 10px;
+    color: #fff;
+    display: block;
+    font-size: 8px!important;
+    font-weight: 500;
+    left: 50%;
+    padding: 3px 6px;
+    position: absolute;
+    top: -14px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
 }
 
 .componentsStyle {
     display: flex;
-    gap: 45px;
-
+    gap: 75px;
 }
 
 .flightShow {
@@ -36,6 +49,11 @@
 @media screen and (max-width: 768px) {
     .mobDontShow {
         display: none;
+    }
+
+    .componentsStyle {
+        display: flex;
+        gap: 42px;
     }
 
 }
@@ -73,6 +91,27 @@
 .textdecon.active {
     color: red;
 }
+
+.chTravelInsurance {
+    background-position: -221px -86px;
+    height: 29px;
+    width: 25px;
+    background-size: 260px 400px;
+
+}
+
+
+
+.chSpritea {
+    background-image: url(//imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/B2CHeaderSprite.png)!important;
+    background-repeat: no-repeat;
+    background-size: 156px 240px;
+    background-size: 260px 400px;
+
+}
+
+
+
 
 
 @media only screen and (max-width: 600px) {

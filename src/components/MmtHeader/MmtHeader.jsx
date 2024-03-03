@@ -30,31 +30,41 @@ function MmtHeader() {
                             <li className='icon-no-link'>Trains</li></NavLink>
                         </div>
 
-                        <div className='single-single-component NoShow'><NavLink to="/allotherroute" className='textdecon'>
+                        <div style={{position: "relative", cursor: "not-allowed"}} className='single-single-component NoShow'><div to="/allotherroute" className='textdecon'>
                             <FontAwesomeIcon icon={faHouse} size="2xl" style={{ color: "black", }} />
                             <li className='icon-no-link'>HomeStays</li>
-                        </NavLink>
                         </div>
 
-                        <div className='single-single-component NoShow'><NavLink to="/allotherroute" className='textdecon'>
+                        <span className='upcomingPos'>UPCOMING</span>
+                        </div>
+
+                        <div style={{position: "relative", cursor: "not-allowed"}}  className='single-single-component NoShow'><div to="/allotherroute" className='textdecon'>
                             <FontAwesomeIcon icon={faSuitcaseRolling} size="2xl" style={{ color: "black", }} />
                             <li className='icon-no-link'>Holidays</li>
-                        </NavLink>
+                        </div>
+                        <span className='upcomingPos'>UPCOMING</span>
+
                         </div>
 
 
 
-                        <div className='single-single-component NoShow'><NavLink to="/allotherroute" className='textdecon'>
+                        <div style={{position: "relative", cursor: "not-allowed"}} className='single-single-component NoShow'><div to="/allotherroute" className='textdecon'>
                             <FontAwesomeIcon icon={faBus} size="2xl" style={{ color: "black", }} />
                             <li className='icon-no-link'>Buses</li>
-                        </NavLink>
+                        </div>
+                        <span className='upcomingPos'>UPCOMING</span>
+
                         </div>
 
 
-                        <div className='single-single-component NoShow'><NavLink to="/allotherroute" className='textdecon'>
+                        <div style={{position: "relative", cursor: "not-allowed"}} className='single-single-component NoShow'><div to="/allotherroute" className='textdecon'>
+
+
                             <FontAwesomeIcon icon={faTaxi} size="2xl" style={{ color: "black", }} />
+
                             <li className='icon-no-link'>Cabs</li>
-                        </NavLink>
+                        </div>
+                        <span className='upcomingPos'>UPCOMING</span>
                         </div>
 
 

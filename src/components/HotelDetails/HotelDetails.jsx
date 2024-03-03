@@ -18,7 +18,6 @@ function HotelDetails() {
 
     const [hotelName, setHotelName] = useState({
         destination: "Delhi",
-        checkIn: 6
     })
 
 
@@ -70,38 +69,45 @@ function HotelDetails() {
     };
 
   
-
+    // This is setting member value . Adults and Kids one
     function handleBookingvalue(findmembers) {
         setMemberValue(findmembers)
         console.log("this is state", MemberValue);
     }
 
 
-
-    async function getHotelDetails(location = "") {
-        const config = {
-            headers: {
-                projectID: "9sa80czkq1na"
-            }
-        }
-        const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${location === "" ? undefined : location}"}`, config)
-        if (response.data.results === 0) {
-            setFlag(false)
-        } else {
-            JSON.stringify(sessionStorage.setItem('proxy', JSON.stringify(response.data.data.hotels)))
-            localStorage.setItem("locationApi", response.data.data.hotels[0].location)
-            localStorage.setItem("listItem", response.data.data.hotels[0].location)
-            navigate("/list", { state: { selectedDate, selectedDateCheckOut, MemberValue } })
-            // navigate("/justshow", { state: { item } })
-        }
-        console.log("response", response)
-
-
-    };
+    // I have to shift this part 
+    // async function getHotelDetails(location = "") {
+    //     const config = {
+    //         headers: {
+    //             projectID: "9sa80czkq1na"
+    //         }
+    //     }
+    //     const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${location === "" ? undefined : location}"}`, config)
+    //     if (response.data.results === 0) {
+    //         setFlag(false)
+    //     } else {
+    //         JSON.stringify(sessionStorage.setItem('proxy', JSON.stringify(response.data.data.hotels)))
+    //         localStorage.setItem("locationApi", response.data.data.hotels[0].location)
+    //         localStorage.setItem("listItem", response.data.data.hotels[0].location)
+    //         navigate("/list", { state: { checkInDate, checkOutDate, MemberValue,hotelName } })
+    //         // navigate("/justshow", { state: { item } })
+    //     }
+    //     console.log("response", response)
+    // };
     
-    useEffect(() => {
-        getHotelDetails(submittedHotelDetails)
-    }, [submittedHotelDetails]);
+    // useEffect(() => {
+    //     getHotelDetails(submittedHotelDetails)
+    // }, [submittedHotelDetails]);
+
+
+    const handleNavigate = ()=>{
+        navigate("/list", { state: { checkInDate, checkOutDate, MemberValue, hotelName } })
+
+    }
+
+
+
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -173,19 +179,14 @@ function HotelDetails() {
 
 
 
-
-    const totalMembers = parseInt(MemberValue?.kids || 0, 10) + parseInt(MemberValue?.adult || 0, 10);
-
-
     return (
         <>
 
 
 
             <div className="DetailsParent">
-
-                <div className='Details'>
-                    <form className='ticket-type' onSubmit={handleSubmit}>
+                <div className='Details' style={{position: "relative"}}>
+                    <form className='ticket-type'>
                         <div className="radioFlight">
                             <div className="form-check me-4">
                                 <input
@@ -203,9 +204,7 @@ function HotelDetails() {
 
                         </div>
 
-                        <div className='searchParent'>
-                            <button className="searchBtn" type="submit">Search</button>
-                        </div>
+                        
                     </form>
 
                     <section className="hotel-booking-details-container booking-details-container">
@@ -322,7 +321,9 @@ function HotelDetails() {
                   
 
 
-
+                    <div className="searchBtnforhotel">
+                        <button className='searchHotelBtnA' onClick={handleNavigate} style={{position: "absolute", bottom: "-18px"}}>SEARCH</button>
+                    </div>
                 </div>
 
             </div >

@@ -10,6 +10,26 @@
     
 }
 
+.searchBtnforhotel {
+    /* position: absolute; */
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    /* margin-top: 86px; */
+}
+
+.searchHotelBtnA{
+        cursor: pointer;
+        width: 216px;
+        height: 46px;
+        border: none;
+        background: linear-gradient(to right, #3fa2ff, #1e1240);
+        color: #fff;
+        font-size: 28px;
+        text-align: center;
+        border-radius: 24px;
+}
+
 
 
 
@@ -84,6 +104,13 @@
         cursor: pointer;
     }
 
+
+    .hotel-booking-details-container {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: 12fr 6fr 6fr 8fr 6fr;
+    }
+    
     .calendarOn {
         position: absolute;
         top: 283px;
