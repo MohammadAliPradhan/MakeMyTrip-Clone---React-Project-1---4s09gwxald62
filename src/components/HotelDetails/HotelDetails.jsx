@@ -118,9 +118,9 @@ function HotelDetails() {
 
        //creating date variable for checkIn
     
-       const alldatecheckIn = checkInDate.toISOString();
+       const alldatecheckIn = checkInDate.toDateString();
 
-       const yearcheckin = alldatecheckIn.substring(2, 4);
+       const yearcheckin = alldatecheckIn.substring(13, 15);
        const daycheckin = alldatecheckIn.substring(8, 10);
    
        const dayWeekcheckin = checkInDate.toDateString().substring(0,4);
@@ -132,9 +132,9 @@ function HotelDetails() {
 
         //creating date variable for checkOut
     
-        const alldatecheckOut = checkOutDate.toISOString();
+        const alldatecheckOut = checkOutDate.toDateString();
        
-        const yearcheckout = alldatecheckOut.substring(2, 4);
+        const yearcheckout = alldatecheckOut.substring(13, 15);
         const daycheckout = alldatecheckOut.substring(8, 10);
           
         const dayWeekcheckout = checkOutDate.toDateString().substring(0,4);

@@ -139,9 +139,9 @@ function FlightDetails() {
 
     //creating date
     
-    const alldate = TravelDate.toISOString();
+    const alldate = TravelDate.toDateString();
 
-    const year = alldate.substring(2, 4);
+    const year = alldate.substring (13,15);
     const month = alldate.substring(5, 7);
     const day = alldate.substring(8, 10);
 

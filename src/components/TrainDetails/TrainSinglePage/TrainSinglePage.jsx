@@ -24,26 +24,41 @@ function TrainSinglePage() {
     const dayOfWeekOptions = { weekday: 'short' };
     const dayOfWeek = dateObject.toLocaleDateString(undefined, dayOfWeekOptions);
 
+  
 
 
+    async function getTrainList(){
 
-    async function TrainSection() {
-        try {
-            const from = location.state.TrainPlace.from;
-            const to = location.state.TrainPlace.to;
-            const config = getHeaderWithProjectId()
-            const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/train?search={"source":"${from}","destination":"${to}"}&day="${dayOfWeek}"`, config);
-            setSingleInfoPageOfFlight(response.data.data.trains)
-            console.log("this is response", response);
-        } catch (error) {
-            console.log(error);
+        const config = {
+            headers : {
+                "Content-Type": "application/json",
+                projectID: "f104bi07c490"
+            }
         }
+        
+        try{
+            const resultForSuggestion = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/train?search={"source":"${""}","destination":"${""}"}&day=${"Mon"}`,
+                config
+            )
+            const result = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/train?search={"source":"${"Howrah Junction"}","destination":"${"Chandigarh"}"}&day=${"Mon"}`,
+                config
+            )
+            setSingleInfoPageOfFlight(result.data.data.trains)
+            console.log("this is result", result);
+            console.log(resultForSuggestion);
+        } catch(e){
+            console.log(e);
+        }
+       
     }
 
 
+    //Howrah Junction
+    //Chandigarh
+
 
     useEffect(() => {
-        TrainSection()
+        getTrainList()
     }, [])
     const navigate = useNavigate();
 
@@ -133,7 +148,6 @@ function TrainSinglePage() {
 
             </div >
 
-            <div className='singlepage-footer-train'><Footer /></div>
 
         </>
     )
