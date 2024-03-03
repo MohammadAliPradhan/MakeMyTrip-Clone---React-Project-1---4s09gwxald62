@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import "./TrainFinal.css"
 import { AuthContext } from '../../App'
 import axios from 'axios'
 import { getHeaderWithProjectId } from '../../Authenticaltion/utils/service'
-
+import "./railwaypage.css"
 
 function TrainDetailsSingle() {
 
@@ -40,31 +39,17 @@ function TrainDetailsSingle() {
     console.log("This is the param", singleIdDone);
 
     //Api call
-    async function TrainSinglePage() {
-        try {
 
-            const config = getHeaderWithProjectId()
-            const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/train/${singleIdDone}`, config)
-
-            console.log(response);
-
-
-        } catch (error) {
-            console.log(error);
-            setTrainSingle(error.name)
-            console.log(trainsingle);
-        }
-    }
-
-    useEffect(() => {
-        TrainSinglePage()
-    }, [])
+    
 
     return (
 
         <>
-            {trainsingle === "AxiosError" ? <div className='NotrainFound'>Sorry Not Available</div> :
-                <div class="parent-train-single-page">
+            <div className='searchPage-hader-container'>
+                <h2 className='' style={{color: "rgb(255, 255, 255)",marginLeft: "10%", paddingBottom: "1rem"}}>Select Travellers</h2>
+            </div>
+
+            <div class="parent-train-single-page">
                     <div class="trdInfo">
                         <div class="trdDetails makeFlex column">
                             <div class="appendBottom30">
@@ -136,7 +121,8 @@ function TrainDetailsSingle() {
                             </div>
                         </div>
                     </div>
-                </div>}
+                
+            </div>
         </>
     )
 }

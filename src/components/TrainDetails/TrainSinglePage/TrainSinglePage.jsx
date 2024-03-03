@@ -79,7 +79,7 @@ function TrainSinglePage() {
             <ScrollNavBar />
             <div>
                 <div className='searchPage-header-container'>
-                    <div style={{display: "flex", gap: "30px"}}>
+                    <div className='searchMobileRes' style={{display: "flex", gap: "30px"}}>
                         <section className='searchPage-booking-details-container'>
                             <div className='searchPage-booking-input'>
                                 <label htmlFor="fromcity" className='searchPage-booking-inputBox'>
@@ -103,8 +103,8 @@ function TrainSinglePage() {
                         </section>
                     </div>
                 </div>
-                <div className="paentpaent">
-                    <div style={{position:"relative", top: "100px"}} className='quick-filters'>
+                <div id='paentpaent' className="paentpaent">
+                    <div style={{position:"relative", top: "100px", display: "flex"}} className='quick-filters'>
                         <div style={{display:"flex", flexDirection:"column", gap:"0.8rem" , textAlign:"left"}} className='railfilters'>
                             <h4>Quick Filters</h4>
                             <label style={{textAlign: "center"}} htmlFor="ac">
@@ -121,11 +121,11 @@ function TrainSinglePage() {
                  <div class="parentContainer">
 
                     {singleInfoPageOfFlight?.map((details) => (
-                        <div class="single-train-detail single-train-padding">
-                            <div class="flex train-info">
-                                <div class="left-info flex flex-column">
+                        <div id='singlepaddingtrain' class="single-train-detail single-train-padding">
+                            <div class="flex train-info" id='flex'>
+                                <div id='special' class="left-info flex flex-column "  >
                                     <div class="train-name">{details.trainName}</div>
-                                    <div class="flex train-depart-number">
+                                    <div id='flex'  class="flex train-depart-number">
                                         <div>#12987</div>
                                         <div style={{ margin: '0px 10px' }}>|</div>
                                         <div>Departs on : {details.daysOfOperation.map((coach) => (
@@ -133,19 +133,19 @@ function TrainSinglePage() {
                                         ))}</div>
                                     </div>
                                 </div>
-                                <div class="right-info flex flex-column">
-                                    <div class="flex">
-                                        <div class="flex flex-column">
+                                <div id='flex' class="right-info flex flex-column">
+                                    <div id='flex' class="flex">
+                                        <div id='flex'     class="flex flex-column">
                                             <div class="depart-time">{details.arrivalTime} , Thu</div>
                                             <div class="station-name">{details.source} (SDAH)</div>
                                         </div>
-                                        <div class="flex flex-column">
-                                            <div class="jouney-duration flex align-center"><span
+                                        <div  id='flex' class="flex flex-column">
+                                            <div id='flex' class="jouney-duration flex align-center"><span
                                                 class="jouney-duration-line"></span><span class="duration"><b>{details.travelDuration}</b>
 
                                                 </span><span class="jouney-duration-line"></span></div>
                                         </div>
-                                        <div class="flex flex-column">
+                                        <div id='flex' class="flex flex-column">
                                             <div class="arrival-time">{details.arrivalTime}, Fri</div>
                                             <div class="station-name">{details.destination}   (CNB)</div>
                                         </div>
@@ -156,16 +156,16 @@ function TrainSinglePage() {
 
                             <div class="trainSubsChild">
                                 {details.coaches.map((infos) => (
-                                    <div class="flex-column flex m-r-15" onClick={() => handleOnClickId(infos._id)}>
+                                    <div id='flex' class="flex-column flex m-r-15" onClick={() => handleOnClickId(infos._id)}>
                                         <div id="train_options_16-11-2023_0" class="card ">
-                                            <div class="flex align-center justify-space-between"
+                                            <div id='flex' class="flex align-center justify-space-between"
                                                 style={{ marginBottom: '5px', fontWeight: 'bold' }}>
-                                                <div class="flex align-center">
+                                                <div id='flex' class="flex align-center">
                                                     <div class="rail-class">{infos.coachType}</div>
                                                 </div>
                                                 <div class="ticket-price justify-flex-end"><span>₹</span> {details.fare}</div>
                                             </div>
-                                            <div class="flex align-center justify-space-between" style={{ marginBottom: '15px' }}>
+                                            <div id='flex' class="flex align-center justify-space-between" style={{ marginBottom: '15px' }}>
                                                 <div class="availibilty-info" style={{ color: 'rgb(240, 152, 25)' }}>SEATS {infos.numberOfSeats}</div>
                                             </div>
                                             <div class="railofy-texts-container"><span class="railofy-texts free-cancellation-text">{details.trainType}</span></div>
@@ -174,8 +174,8 @@ function TrainSinglePage() {
                                     </div>
                                 ))}
                             </div>
-                            <div class="flex">
-                                <div class="false dropdown-options flex align-center"><span>Nearby dates</span><span
+                            <div id='flex' class="flex">
+                                <div id='flex'  class="false dropdown-options flex align-center"><span>Nearby dates</span><span
                                     class="appendLeft10 arrowTab downArrowTab"></span></div>
                             </div>
                         </div>

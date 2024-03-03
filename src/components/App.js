@@ -36,6 +36,7 @@ import AuthNavigator from "./Navigator/AuthNavigator.jsx";
 import ProfilePage from "../Profile/ProfilePage.jsx";
 import HotelSelectRoomPage from "./HotelSinglePage/HotelRoomPage/HotelSelectRoomPage.jsx";
 import MyTrips from "./MyTrips/MyTrips.jsx";
+import RailwayBookingPage from "./Pages/RailwayBookingPage.jsx";
 
 
 
@@ -124,7 +125,7 @@ function App() {
                         <Route path="profilePageA" element={<ProfilePage />} />
                         <Route path="hotelroomselect" element={<AuthNavigator><HotelSelectRoomPage /></AuthNavigator>} />
                         <Route path="mytrips" element={<MyTrips />} />
-
+                        <Route path="railwaybooking" element={<RailwayBookingPage />} />
 
                       </Routes>
 

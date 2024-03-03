@@ -1,0 +1,882 @@
+.searchPage-hader-container{
+        background-image: url(https://rithikesh-make-my-trip-react-clone.vercel.app/static/media/gradient-bg.c37271bb2066931c5424.webp);
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                padding-top: 10px;
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                transition: all .3s linear!important;
+                z-index: 4!important;
+            
+}
+
+.trainDetails-first-child-nested-1{
+                display: flex;
+                flex-direction: column;
+                gap: .4rem;
+            }
+
+.trainDetails-first{
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+            
+}
+
+.trainBookingPage-bookingDetails-container{
+                background-color: #fff;
+                display: flex;
+                gap: 3rem;
+                padding: 3rem 10%;
+                position: relative;
+                width: 100%;
+            
+}
+
+
+.train-depart-days {
+        color: gray;
+        font-size: 12px;
+    }
+
+
+
+
+
+
+
+
+
+    .parent-train-single-page {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    
+    .btnTosinglePage {
+        padding: 2px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        background-color: #84BAFF;
+        border: 1px solid black;
+        border-radius: 2px;
+        font-size: 10px;
+        position: absolute;
+        top: 30px;
+        right: 100px;
+    
+        &:hover {
+            background-color: #689fe7;
+        }
+    }
+    
+    .trdInfo {
+        position: relative;
+        border: 1px solid red;
+        width: 1200px;
+        padding: 22px;
+        bottom: 11px;
+    }
+    
+    .trdInfo .trdDetails .trdRailNameNo .trdRailName {
+        /*max-width: 350px;*/
+    }
+    
+    .trdInfo .selectedQuotaContainer {
+        margin-left: 0;
+    }
+    
+    .trdInfo .trdDetails .selectedQuotaContainer:nth-child(2) .labelName {
+        text-align: right;
+    }
+    
+    .trdInfo .selectedQuotaContainer .selectedQuota {
+        width: 520px;
+    }
+    
+    .trdInfo .trSelectFeild {
+        position: absolute;
+        right: 0;
+    }
+    
+    .trdInfo .selectedQuotaContainer .selectedQuota span:nth-child(2) {
+        padding-right: 25px;
+    }
+    
+    .trdInfo .selectedQuotaContainer {
+        width: 520px;
+    }
+    
+    .trdInfo .selectedQuotaContainer .quotaBox {
+        width: 520px;
+        left: auto;
+    }
+    
+    .trdInfo .trdDetails .railInfo.railDuration p:not(.dottedLine) {
+        width: auto;
+    }
+    
+    .shiftFiller {
+        margin-top: 15px;
+        height: 44px;
+    }
+    
+    
+    
+    
+    
+    
+    /*-------
+    // general
+    //-----*/
+    
+    
+    /*-------
+    // Globals
+    //-----*/
+    
+    
+    
+    
+    
+    
+    .makeRelative {
+        position: relative;
+    }
+    
+    .makeAbsolute {
+        position: absolute;
+    }
+    
+    .clearFix:after {
+        content: '.';
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+    
+    .truncate {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .lineThrough {
+        text-decoration: line-through;
+    }
+    
+    .capText {
+        text-transform: uppercase;
+    }
+    
+    .primaryText {
+        color: #008cff;
+    }
+    
+    ._MyBiz .primaryText,
+    .modalLogin.myBiz .primaryText {
+        color: #f17531;
+    }
+    
+    /*loader changes*/
+    .btnLoader {
+        display: inline-block;
+        height: 22px;
+        width: 22px;
+        animation: rotate 0.8s infinite linear;
+        border: 2px solid #fff;
+        border-right-color: transparent;
+        border-radius: 50%;
+        margin: -2px auto;
+        animation-name: spin;
+        animation-duration: 1000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+    
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+    /* -- In case you need to add a gutter above/below an element -- */
+    .appendBottom2 {
+        margin-bottom: 2px;
+    }
+    
+    .appendBottom5 {
+        margin-bottom: 5px;
+    }
+    
+    .appendBottom6 {
+        margin-bottom: 6px;
+    }
+    
+    .appendBottom10 {
+        margin-bottom: 10px;
+    }
+    
+    .appendBottom12 {
+        margin-bottom: 12px;
+    }
+    
+    .appendBottom15 {
+        margin-bottom: 15px;
+    }
+    
+    .appendBottom20 {
+        margin-bottom: 20px;
+    }
+    
+    .appendBottom25 {
+        margin-bottom: 25px;
+    }
+    
+    .appendBottom30 {
+        margin-bottom: 30px;
+    }
+    
+    .appendBottom40 {
+        margin-bottom: 40px;
+    }
+    
+    .appendBottom50 {
+        margin-bottom: 50px;
+    }
+    
+    .appendTop3 {
+        margin-top: 3px;
+    }
+    
+    .appendTop5 {
+        margin-top: 5px;
+    }
+    
+    .appendTop10 {
+        margin-top: 10px !important;
+    }
+    
+    .appendTop15 {
+        margin-top: 15px;
+    }
+    
+    .appendTop20 {
+        margin-top: 20px;
+    }
+    
+    .appendTop25 {
+        margin-top: 25px;
+    }
+    
+    .appendTop30 {
+        margin-top: 30px;
+    }
+    
+    .appendTop60 {
+        margin-top: 60px;
+    }
+    
+    .appendTop250 {
+        margin-top: 250px;
+    }
+    
+    .padding1 {
+        padding: 1px;
+    }
+    
+    .padding20 {
+        padding: 20px;
+    }
+    
+    .paddingB10 {
+        padding-bottom: 10px;
+    }
+    
+    /* -- In case you need to add a gutter Left - Right the element -- */
+    html[dir='ltr'] .paddingL10 {
+        padding-left: 10px;
+    }
+    
+    html[dir='ltr'] .paddingL20 {
+        padding-left: 20px;
+    }
+    
+    html[dir='ltr'] .paddingR10 {
+        padding-right: 10px;
+    }
+    
+    .paddingLR20 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    /* Icon via css */
+    i::before,
+    i::after {
+        content: '';
+        box-sizing: border-box;
+    }
+    
+    /* -- In case you need to add a size -- */
+    .font8 {
+        font-size: 8px;
+        line-height: 8px;
+    }
+    
+    .font9 {
+        font-size: 9px;
+        line-height: 9px;
+    }
+    
+    .font10 {
+        font-size: 10px;
+        line-height: 10px;
+    }
+    
+    .font11 {
+        font-size: calc(var(--font-scale, 1) * 11px);
+        line-height: 11px;
+    }
+    
+    .font12 {
+        font-size: calc(var(--font-scale, 1) * 12px);
+        line-height: 12px;
+    }
+    
+    .font14 {
+        font-size: calc(var(--font-scale, 1) * 14px);
+        line-height: 14px;
+    }
+    
+    .font16 {
+        font-size: calc(var(--font-scale, 1) * 16px);
+        line-height: 16px;
+    }
+    
+    .font18 {
+        font-size: calc(var(--font-scale, 1) * 18px);
+        line-height: 18px;
+    }
+    
+    .font20 {
+        font-size: calc(var(--font-scale, 1) * 20px);
+        line-height: 20px;
+    }
+    
+    .font22 {
+        font-size: calc(var(--font-scale, 1) * 22px);
+        line-height: 22px;
+    }
+    
+    .font23 {
+        font-size: calc(var(--font-scale, 1) * 23px);
+        line-height: 23px;
+    }
+    
+    .font24 {
+        font-size: calc(var(--font-scale, 1) * 24px);
+        line-height: 24px;
+    }
+    
+    .font26 {
+        font-size: calc(var(--font-scale, 1) * 26px);
+        line-height: 26px;
+    }
+    
+    .font28 {
+        font-size: calc(var(--font-scale, 1) * 28px);
+        line-height: 28px;
+    }
+    
+    .font30 {
+        font-size: calc(var(--font-scale, 1) * 30px);
+        line-height: 30px;
+    }
+    
+    .lineHeight14 {
+        line-height: 14px;
+    }
+    
+    .lineHeight16 {
+        line-height: 16px;
+    }
+    
+    .lineHeight26 {
+        line-height: 26px !important;
+    }
+    
+    /* -- In case you need to add a Font Family -- */
+    .latoLight {
+        font-weight: 300;
+    }
+    
+    .latoRegular {
+        font-weight: 400;
+    }
+    
+    .latoBlack {
+        font-weight: 900;
+    }
+    
+    .latoBold {
+        font-weight: 700;
+    }
+    
+    .latoIlalic {
+        font-style: italic;
+    }
+    
+    /* -- Calc Width -- */
+    .calc60 {
+        width: -webkit-calc(100% - 60px);
+        width: expression(100% - 60px);
+        width: -moz-calc(100% - 60px);
+        width: -o-calc(100% - 60px);
+        width: calc(100% - 60px);
+    }
+    
+    .calc80 {
+        width: -webkit-calc(100% - 80px);
+        width: expression(100% - 80px);
+        width: -moz-calc(100% - 80px);
+        width: -o-calc(100% - 80px);
+        width: calc(100% - 80px);
+    }
+    
+    /*-- Text Colors --*/
+    .whiteText {
+        color: #ffffff;
+    }
+    
+    .blackText {
+        color: #000000;
+    }
+    
+    .darkGreyText {
+        color: #4a4a4a;
+    }
+    
+    .lightGreyText {
+        color: #9b9b9b;
+    }
+    
+    .deepskyBlueText {
+        color: var(--color-primary, #008cff);
+    }
+    
+    .greenText {
+        color: #00a19c;
+    }
+    
+    .redText {
+        color: #eb2026;
+    }
+    
+    .yellowText {
+        color: #f09819;
+    }
+    
+    .orangeText {
+        color: #ff664b;
+    }
+    
+    .blueText {
+        color: var(--color-primary, #008cff);
+    }
+    
+    .myBizText {
+        color: #ff5a5a;
+    }
+    
+    /* -- In case you need to add an alignment -- */
+    html[dir='ltr'] .textLeft {
+        text-align: left;
+    }
+    
+    html[dir='ltr'] .textRight {
+        text-align: right;
+    }
+    
+    .textCenter {
+        text-align: center;
+    }
+    
+    .pushBottom {
+        margin-top: auto;
+    }
+    
+    /* -- In case you need to add a Flex -- */
+    .makeFlex {
+        display: flex;
+    }
+    
+    .flexOne {
+        flex: 1;
+    }
+    
+    .flexTwo {
+        flex: 2;
+    }
+    
+    .makeFlex.column {
+        flex-direction: column;
+    }
+    
+    .makeFlex.row {
+        flex-direction: row;
+    }
+    
+    .makeFlex.perfectCenter {
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .makeFlex.hrtlCenter {
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .makeFlex.vrtlCenter {
+        justify-content: center;
+    }
+    
+    .makeFlex.spaceBetween {
+        justify-content: space-between;
+    }
+    
+    .makeFlex.spaceAround {
+        justify-content: space-around;
+    }
+    
+    .makeFlex.end {
+        align-items: flex-end;
+    }
+    
+    .makeFlex.top {
+        align-items: flex-start;
+    }
+    
+    .makeFlex.bottom {
+        align-items: flex-end;
+    }
+    
+    .makeFlex.wrap {
+        flex-wrap: wrap;
+    }
+    
+    /* -- In case you need to change cursor type -- */
+    .cursorPointer {
+        cursor: pointer;
+    }
+    
+    /* -- In case you need to hide element -- */
+    .hide {
+        display: none;
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    /*--- Buttons --*/
+    .primaryBtn {
+        border-radius: 34px;
+        background-image: var(--color-btn-primary-bg, linear-gradient(93deg, #53b2fe, #065af3));
+        box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.2);
+        display: inline-block;
+        flex-shrink: 0;
+        color: #fff;
+        text-transform: uppercase;
+        cursor: pointer;
+        outline: 0;
+        border: 0;
+        text-align: center;
+    }
+    
+    a.primaryBtn {
+        color: #fff;
+    }
+    
+    .primaryBtn.btnSmall {
+        font-size: 10px;
+        padding: 7px 15px;
+    }
+    
+    /*-- Radio Box --*/
+    .radioOuter {
+        display: inline-flex;
+        position: relative;
+    }
+    
+    
+    
+    .radioOuter [type='radio']:not(:checked)+label {
+        position: relative;
+        padding-left: 28px;
+        cursor: pointer;
+        line-height: 20px;
+        display: inline-flex;
+    }
+    
+    
+    
+    .radioOuter [type='radio']:checked+label:before {
+        border: 1px solid var(--color-primary, #008cff);
+    }
+    
+    
+    
+    .radioOuter [type='radio']:not(:checked)+label:after {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    
+    .radioOuter [type='radio']:checked+label:after {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    
+    /*-- Radio Box Checkbox Style --*/
+    .chkBox {
+        width: 18px;
+        height: 18px;
+        border: 1px solid #9b9b9b;
+        border-radius: 2px;
+        background: #fff;
+        position: relative;
+    }
+    
+    
+    
+    
+    
+    /*-- icons --*/
+    html[dir='ltr'] .ic_circularclose_grey:before,
+    html[dir='ltr'] .ic_circularclose_grey:after {
+        position: absolute;
+        left: 9px;
+        top: 4px;
+        content: ' ';
+        height: 10px;
+        width: 1px;
+        background-color: #fff;
+    }
+    
+    .ic_circularclose_grey:before {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    
+    .ic_circularclose_grey:after {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    
+    /*-- Right to Left --*/
+    html[dir='rtl'] .textLeft {
+        text-align: right;
+    }
+    
+    html[dir='rtl'] .textRight {
+        text-align: left;
+    }
+    
+    .textCenter {
+        text-align: center;
+    }
+    
+    html[dir='rtl'] .pushRight {
+        margin-right: auto;
+    }
+    
+    html[dir='rtl'] .appendLeft2 {
+        margin-right: 2px;
+    }
+    
+    html[dir='rtl'] .appendLeft5 {
+        margin-right: 5px;
+    }
+    
+    html[dir='rtl'] .appendLeft8 {
+        margin-right: 8px;
+    }
+    
+    html[dir='rtl'] .appendLeft10 {
+        margin-right: 10px;
+    }
+    
+    html[dir='rtl'] .appendLeft20 {
+        margin-right: 20px;
+    }
+    
+    html[dir='rtl'] .appendRight5 {
+        margin-left: 5px;
+    }
+    
+    html[dir='rtl'] .appendRight8 {
+        margin-left: 8px;
+    }
+    
+    html[dir='rtl'] .appendRight10 {
+        margin-left: 10px;
+    }
+    
+    html[dir='rtl'] .appendRight15 {
+        margin-left: 15px;
+    }
+    
+    html[dir='rtl'] .appendRight20 {
+        margin-left: 20px;
+    }
+    
+    html[dir='rtl'] .appendRight25 {
+        margin-left: 25px;
+    }
+    
+    html[dir='rtl'] .appendRight30 {
+        margin-left: 30px;
+    }
+    
+    html[dir='rtl'] .paddingL10 {
+        padding-right: 10px;
+    }
+    
+    html[dir='rtl'] .paddingL20 {
+        padding-right: 20px;
+    }
+    
+    html[dir='rtl'] .paddingR10 {
+        padding-left: 10px;
+    }
+    
+    .password-autocomplete-disabler {
+        position: absolute !important;
+        left: -10000px !important;
+        top: -10000px !important;
+    }
+    
+    html[dir='rtl'] input[type='text'] {
+        direction: ltr;
+        text-align: right;
+    }
+    
+    /* Right to Left Radio Box */
+    
+    html[dir='rtl'] .radioOuter [type='radio']:checked,
+    html[dir='rtl'] .radioOuter [type='radio']:not(:checked) {
+        position: absolute;
+        right: -9999px;
+        left: unset;
+    }
+    
+    html[dir='rtl'] .radioOuter [type='radio']:checked+label,
+    html[dir='rtl'] .radioOuter [type='radio']:not(:checked)+label {
+        position: relative;
+        padding-right: 28px;
+        cursor: pointer;
+        line-height: 20px;
+        display: inline-flex;
+    }
+    
+    html[dir='rtl'] .radioOuter [type='radio']:checked+label:before,
+    html[dir='rtl'] .radioOuter [type='radio']:not(:checked)+label:before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #9b9b9b;
+        border-radius: 100%;
+        background: #fff;
+    }
+    
+    html[dir='rtl'] .radioOuter [type='radio']:checked+label:after,
+    html[dir='rtl'] .radioOuter [type='radio']:not(:checked)+label:after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background: var(--color-primary, #008cff);
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        border-radius: 100%;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+    
+    html[dir='rtl'] .selected .chkBox:before {
+        border: 1px solid var(--color-primary, #008cff);
+        content: '';
+        width: 18px;
+        height: 18px;
+        background: var(--color-primary, #008cff);
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        border-radius: 2px;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+    
+    html[dir='rtl'] .selected .chkBox:after {
+        position: absolute;
+        right: 5px;
+        top: 2px;
+        content: '';
+        display: block;
+        width: 6px;
+        height: 10px;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+    
+    /*-- icons right to left --*/
+    html[dir='rtl'] .ic_circularclose_grey {
+        width: 18px;
+        height: 18px;
+        display: inline-block;
+        background-color: #9b9b9b;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    
+    html[dir='rtl'] .ic_circularclose_grey:before,
+    html[dir='rtl'] .ic_circularclose_grey:after {
+        position: absolute;
+        right: 9px;
+        top: 4px;
+        content: ' ';
+        height: 10px;
+        width: 1px;
+        background-color: #fff;
+    }
+    
+    .NotrainFound {
+        position: absolute;
+        font-size: xx-large;
+        left: 850px;
+        top: 50%;
+    }

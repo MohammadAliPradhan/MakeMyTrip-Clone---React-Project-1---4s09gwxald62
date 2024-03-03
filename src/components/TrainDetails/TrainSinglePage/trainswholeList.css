@@ -88,6 +88,68 @@
 
 
 
+    @media only screen and (max-width: 600px) {
+        .searchPage-booking-details-container {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+            margin-left: 0%;
+        }
+
+        .searchMobileRes{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            
+        }
+        #paentpaent {
+            display: block;
+        }
+
+        .parentContainer {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .single-train-padding {
+            padding: 0%;
+        }
+
+
+        .train-info {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .left-info {
+            margin: 0%;
+        }
+
+
+        #flex {
+            display: block;
+        }
+
+        #special{
+            margin: 0px;
+        }
+
+
+
+        #singlepaddingtrain{
+            padding: 0%;
+        }
+      }
+
+
+
+
 
 
 

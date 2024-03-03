@@ -8,19 +8,39 @@ import "./TrainDetails.css"
 import axios from 'axios'
 import { getHeaderWithProjectId } from '../Authenticaltion/utils/service'
 import FindMembers from '../FindMembers/FindMembers'
+import { fromStations, toStations } from '../Modals/TrainsNames'
+
+
+
+
 
 
 function TrainDetails() {
+
+
+    const [modalInput, setModalInput] = useState(false);
+
+
+    const [modalInputTO, setModalInputTO] = useState(false);
+
+
+    const [TrainFromData, SetTrainFromData] = useState(fromStations);
+    const [trainto, setTrainto] = useState(toStations); 
+
+
+
+
+
     const initialDate = new Date('Wed Nov 15 2023 00:00:00 GMT+0530');
     const [TravelDate, setTravelDate] = useState(initialDate);
     const [MemberValue, setMemberValue] = useState({
         adult: 0,
         kids: 0
     })
-    const [trthly, setTrthly] = useState();
+    const [trthly, setTrthly] = useState(true);
     const [TrainPlace, setTrainPlace] = useState({
-        from: "BAN",
-        to: "DEL",
+        from: "Secunderabad",
+        to: "Varanasi",
 
     })
     const [findMemberModal, setFindMemberModal] = useState();
@@ -50,7 +70,7 @@ function TrainDetails() {
 
     const handleDateChange = (date) => {
         setTravelDate(date);
-        setTrthly(false);
+        setTrthly(true);
     };
     const handleDayClick = (value, event) => {
         console.log('Clicked day:', value);
@@ -79,6 +99,94 @@ function TrainDetails() {
 
 
 
+    //getCityName
+
+    function handleGetCityName(event) {
+        const { value } = event.target;
+        let filteredSearch = fromStations.filter((data) => {
+            let cityName =data.toLowerCase();
+            console.log(cityName);
+            let result = value.toLowerCase();
+            console.log(result);
+            if (cityName.includes(result)) {
+                console.log(true);
+                return data
+            }
+        })        
+        SetTrainFromData(filteredSearch);
+    }
+
+
+    //VelueSetter
+    function valuesetter(val) {
+        console.log(val);
+        if (val) {
+            setTrainPlace((oldState) => ({
+                ...oldState,
+                from: val,
+            }))
+        } else {
+            setTrainPlace((oldState) => ({
+                ...oldState,
+                from: val,
+            }))
+        }
+        setModalInput(false);
+    }
+
+    //getCityEndHere
+
+    function valuesetterTwo(val) {
+        console.log(val);
+        if (val) {
+            setTrainPlace((oldState) => ({
+                ...oldState,
+                to: val,
+            }))
+        } 
+        else {
+            setTrainPlace((oldState) => ({
+                ...oldState,
+                to: val,
+            }))
+        }
+        setModalInputTO(false);
+    }
+
+
+    function handleGetCityName(event) {
+        const { value } = event.target;
+        let filteredSearch = toStations.filter((data) => {
+            let cityName =data.toLowerCase();
+            let result = value.toLowerCase();
+            if (cityName.includes(result)) {
+                console.log(true);
+                return data
+            }
+        })
+        setTrainto(filteredSearch);
+    }
+
+    //getCitytoends here these are dropdown inputs
+
+
+    //dates and times 
+
+
+    const alldate = TravelDate.toDateString();
+
+    const year = alldate.substring (13,15);
+    const month = alldate.substring(5, 7);
+    const day = alldate.substring(8, 10);
+
+    const dayWeek = TravelDate.toDateString().substring(0,4);
+    const monthWord = TravelDate.toDateString().substring(4,7);
+
+    console.log(year, month, day, dayWeek, monthWord);
+
+
+
+
 
 
 
@@ -90,7 +198,7 @@ function TrainDetails() {
         <>
 
             <div className="DetailsParent">
-                <div className='Details'>
+                <div style={{ position: "relative" }} className='Details'>
                     <form className='ticket-type' onSubmit={handleOnSubmit}>
                         <div className="radioFlight">
                             <div className="form-check me-4">
@@ -103,75 +211,105 @@ function TrainDetails() {
                             </div>
                         </div>
 
-                        <div className='searchParent'>
-                            <button className="searchBtn" type="submit">Search</button>
-                        </div>
+                        
                     </form>
-                    <div className="flight-search">
-                        <div className="flight">
-                            <span>
-                                From
-                            </span>
-                            <h1><input
-                                type="text"
-                                className='something'
-                                value={TrainPlace.from}
-                                onChange={(e) => handleTrainChange(e, 'from')}
-                            /></h1>
-                            <span>{TrainPlace.from}, {TrainPlace.from} India</span>
+                    
+                    
+                    <section className="flight-booking-details-container booking-details-container">
+                       
+                        <div style={{position: "relative"}}>
+                            <label htmlFor="fromCity" className='booking-inputBox'>
+                                <span className='from-span'>From</span>
+                                <input onClick={() => setModalInput(!modalInput)}  className='from-div-input' type="text" readOnly id='fromCity' value={TrainPlace.from} style={{caretColor: "transparent"}}/>
+                                <span className='from-span'>India</span>
+                            </label>
+                            {modalInput && <modal className="modal-flight-for">
+                                <div className="modal-flight-for-input">
+                                    <img className="search-icon-img" src="	https://upload.wikimedia.org/wikipedia/commons/c/ca/VisualEditor_-_Icon_-_Search.svg" alt="" />
+                                    <input onChange={handleGetCityName} type="text" placeholder="From" />
+                                </div>
+
+                                <ul className="modal-flight-for-ul">
+                                    {TrainFromData && TrainFromData.map((details) => (
+                                        <li onClick={() => valuesetter(details)} className="modal-flight-for-li">  
+                                            <div>
+                                                <span className="modal-flight-for-span-two" >{details}</span>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </modal>}
                         </div>
 
-                        <div className="flight">
-                            <span>
-                                To
-                            </span>
+                        <div style={{position: "relative" , borderLeft: "1px solid #e7e7e7"}}>
+                            <label htmlFor="toCity" className='booking-inputBox'>
+                                <span className='from-span'>To</span>
+                                <input onClick={()=> setModalInputTO(!modalInputTO)} className='from-div-input' type="text" readOnly id='toCity' value={TrainPlace.to} style={{caretColor: "transparent"}}/> 
+                                <span className='from-span'>India</span>
+                            </label>
 
-                            <h1><input
-                                type="text"
-                                className='something'
-                                value={TrainPlace.to}
-                                onChange={(e) => handleTrainChange(e, 'to')}
-                            /></h1>
-                            <span>{TrainPlace.to}, {TrainPlace.to} India</span>
+                            {modalInputTO && <modal className="modal-flight-for">
+                                <div className="modal-flight-for-input">
+                                    <img className="search-icon-img" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/VisualEditor_-_Icon_-_Search.svg" alt="" />
+                                    <input onChange={handleGetCityName} type="text" placeholder="From" />
+                                </div>
 
+                                <ul className="modal-flight-for-ul">
+                                    {trainto && trainto.map((details) => (
+                                        <li onClick={() => valuesetterTwo(details)} className="modal-flight-for-li">
+                                            <div>
+                                                <span className="modal-flight-for-span-two" >{details}</span>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </modal>}
                         </div>
 
-                        <div className="flight">
-                            <span>
-                                Travel Date
-                            </span>
 
-                            {/* do the work two */}
-                            {trthly ? <div >
-                                <Calendar className="calendarOn" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} minDate={new Date()} />
-                            </div> : <h1><input
-
-                                type="text"
-                                className='something'
-                                value={TravelDate.toDateString()}
-                                onClick={handleCalendarOnOf}
-
-                            /></h1>}
-                            <span onClick={() => setTrthly(true)}><FontAwesomeIcon icon={faCalendar} /></span>
-                        </div>
-
-                        <div className="flight" >
-                            <div onClick={() => setFindMemberModal(!findMemberModal)}>
-                                <span>
-                                    Members
+                        <div onClick={()=>setTrthly(!trthly)} style={{position: "relative" , borderLeft: "1px solid #e7e7e7"}}>
+                            <label htmlFor="travelDate" className='booking-inputBox'>
+                               
+                                
+                                <span className='dropdown'>
+                                    Departure
                                 </span>
-                                <h3 className='inputHeremains'>Members: {totalMembers}</h3>
-                            </div>
 
-                            {findMemberModal && <div className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>}
+                                {trthly ?<> <div style={{fontSize: "30px", lineHeight: "36px"}}>
+                                       <span style={{fontWeight: "900", paddingRight:"6px"}}>{day}</span> 
+                                       <span style={{fontSize: "20px"}}>{monthWord}</span>
+                                       <span  className='shortYear'>{year}</span>
+                               </div>
 
+                                <span>
+                                    {dayWeek}
+                                </span>
 
-                            <span>{MemberValue === undefined ? "1" : MemberValue?.adult} Adult, {MemberValue === undefined ? "7" : MemberValue?.kids} Kids ({MemberValue === undefined ? 4 : totalMembers} Members)</span>
+                                </>
+                                
+                                : <div onClick={(e)=>e.stopPropagation()}><Calendar className="calendarOnOfFlight" onChange={handleDateChange} onClickDay={handleDayClick} value={TravelDate} minDate={new Date()} /></div>}
+                            </label>
                         </div>
 
+                        <div onClick={()=>setFindMemberModal(!findMemberModal)} style={{position: "relative" , borderLeft:  "1px solid #e7e7e7"}}>
+                            <label htmlFor="class" className='booking-inputBox-last'>
+                                <span className='dropdown'>
+                                    Travellers & Class
+                                </span>
 
-                    </div>
+                                <div style={{ fontSize: "30px", lineHeight: "36px"}}>
+                                    <span style={{fontWeight: 900}}>{totalMembers}</span>
+                                </div>
 
+                                <span className='from-span'>People</span>
+                            </label>
+                                {findMemberModal && <div className='flightadult'>
+                                    <div onClick={(e)=> e.stopPropagation()} className='findMemberssomething'><FindMembers onBookingValue={handleBookingvalue} /></div>
+                                    </div>}
+
+                        </div>
+
+                    </section>
 
 
 
@@ -183,7 +321,9 @@ function TrainDetails() {
                     </div> */}
 
 
-
+                <div className="searchBtnforhotel" >
+                    <button onClick={handleOnSubmit}  className='searchHotelBtnA' style={{position: "absolute", bottom: "-18px"}}>SEARCH</button>
+                </div>
                 </div>
 
             </div >

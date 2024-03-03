@@ -111,7 +111,8 @@ function FlightDetails() {
                 ...oldState,
                 to: val,
             }))
-        } else {
+        } 
+        else {
             setFlightDetails((oldState) => ({
                 ...oldState,
                 to: AirportData[0].IATA_code,
