@@ -7,7 +7,7 @@ import "./railwaypage.css"
 
 function TrainDetailsSingle() {
 
-    const [trainsingle, setTrainSingle] = useState();
+    const [trainsingle, setTrainSingle] = useState(null);
 
     const { isLoggedin } = useContext(AuthContext)
     console.log("majurna", isLoggedin);
@@ -15,11 +15,11 @@ function TrainDetailsSingle() {
 
 
     const [checkAuthState, setCheckAuthState] = useState(sessionStorage.getItem("userToken"))
-
+    const [coachStateType, setCoachStateType] = useState();
 
     const location = useLocation()
 
-    console.log(location);
+    console.log("this is location", location);
 
 
     if (checkAuthState) {
@@ -39,6 +39,20 @@ function TrainDetailsSingle() {
     console.log("This is the param", singleIdDone);
 
     //Api call
+    let coachTypeb = "NA"
+
+
+    useEffect(()=>{
+        const trainDetails = location.state.coaches || [];
+        setTrainSingle(trainDetails[0]);
+        coachTypeb = trainDetails[0].coaches.filter((details)=>{
+            return details._id === singleIdDone;
+        })
+        coachTypeb = coachTypeb[0].coachType;
+        console.log(coachTypeb);
+        setCoachStateType(coachTypeb)
+        console.log(trainDetails, "this is train details");
+    }, []);
 
     
 
@@ -55,17 +69,17 @@ function TrainDetailsSingle() {
                             <div class="appendBottom30">
                                 <div class="makeFlex end appendBottom5 spaceBetween">
                                     <div class=" column appendRight50">
-                                        <h3 class="font22 latoBlack appendBottom5">Bkn Duronto Exp</h3>
+                                        <h3 class="font22 latoBlack appendBottom5">{trainsingle && trainsingle.trainType}</h3>
                                         <p><span class="font12 lightGreyText">#12259<span class="appendLeft10">|</span></span><span
-                                            class="font12 appendLeft10"><span class="lightGreyText">Departs on:</span><span
-                                                class="lightGreenText"> S</span><span class="lightGreenText"> M</span><span
-                                                    class="lightGreyText"> T</span><span class="lightGreenText"> W</span><span
-                                                        class="lightGreenText"> T</span><span class="lightGreyText"> F</span><span
-                                                            class="lightGreyText"> S</span></span></p>
+                                        class="font12 appendLeft10"><span class="lightGreyText">Departs on:</span>
+                                        <span class="lightGreenText"> S</span><span class="lightGreenText"> M</span>
+                                        <span class="lightGreyText"> T</span><span class="lightGreenText"> W</span>
+                                        <span class="lightGreenText"> T</span><span class="lightGreyText"> F</span>
+                                        <span class="lightGreyText"> S</span></span></p>
                                     </div>
                                     <div class="makeFlex hrtlCenter" style={{ marginBottom: '-10px' }}>
                                         <div class="makeFlex column appendRight20" style={{ marginLeft: '5px' }}>
-                                            <p class="appendBottom10"><span class="latoBlack">5:00 PM</span><span
+                                            <p class="appendBottom10"><span class="latoBlack">{trainsingle?.departureTime}</span><span
                                                 class="latoBlack">,
                                             </span><span class="lightGreyText">16 Nov</span></p>
                                             <p class="font12 darkGreyText">Kolkata Sealdah Railway Station (SDAH)</p>
@@ -75,7 +89,7 @@ function TrainDetailsSingle() {
                                             </span>30<span class="lightGreyText"> mins</span></p>
                                         </div><span class="bdrTop"></span>
                                         <div class="makeFlex column appendBottom10 appendTop15">
-                                            <p class="appendBottom10"><span class="latoBlack">5:30 AM</span><span
+                                            <p class="appendBottom10"><span class="latoBlack">{trainsingle?.arrivalTime}</span><span
                                                 class="latoBlack">,
                                             </span><span class="lightGreyText">17 Nov</span></p>
                                             <p class="font12 darkGreyText appendBottom10">Kanpur Central Railway Station (CNB)</p>
@@ -90,8 +104,8 @@ function TrainDetailsSingle() {
                                         <h3 class="latoBold font14 darkGreyText appendBottom10">Availability Status</h3>
                                         <div class="trStatusBlock">
                                             <p class="makeFlex appendBottom5 hrtlCenter"><span
-                                                class="latoBlack font16 appendRight20">3A</span><span
-                                                    class="latoBold font16"><span class="orangeText">GNWL172/WL18</span></span></p>
+                                                class="latoBlack font16 appendRight20">{coachStateType && coachStateType}</span><span
+                                                    class="latoBold font16"><span class="orangeText">{trainsingle?.availableSeats}</span></span></p>
                                             <p class="font12 lightGreyText appendTop10">moments ago</p>
                                         </div>
                                     </div>
@@ -102,7 +116,7 @@ function TrainDetailsSingle() {
                                             Station
                                         </p>
                                         <p class="selectedQuota cursorPointer latoBold font12 makeFlex"><span> </span><span
-                                            class="latoRegular font14 darkGreyText"> SEALDAH (SDAH) - 5:00 PM (16 Nov)
+                                            class="latoRegular font14 darkGreyText"> {trainsingle?.source} (SDAH) - {trainsingle?.departureTime} (16 Nov)
                                         </span><span class="font12 latoRegular appendLeft130 deepskyBlueText">Change</span><span
                                             class="arrow arrow-down-wide"></span></p>
                                         <ul class="quotaBox  makeAbsolute textLeft font14 darkGreyText">

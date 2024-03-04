@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import "./trainswholeList.css"
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,20 +14,50 @@ function TrainSinglePage() {
     const testFlightId = flightId;
     console.log(testFlightId);
 
+
+
+
+    const fromSearch = useRef();
+    const toSearch = useRef();
+
+
+
+    //maintaining counter to have check
+    const [checkSortByHighest, setCheckSortByHighest] = useState(false);
+    const [checkSortByCheapest, setCheckSortByCheapest] = useState(false);
+
     const location = useLocation();
     console.log("locationStaete", location);
 
-
-    const originalDate = location.state.TravelDate;
-    const dateObject = new Date(originalDate);
-
-    const dayOfWeekOptions = { weekday: 'short' };
-    const dayOfWeek = dateObject.toLocaleDateString(undefined, dayOfWeekOptions);
-
-  
+    const from = location.state.TrainPlace.from;
+    const to = location.state.TrainPlace.to;
+    const dayWeek = location.state.dayWeek;
 
 
-    async function getTrainList(){
+
+    const sortByCheapest = () => {
+        const sortedFlights = [...singleInfoPageOfFlight];
+        sortedFlights.sort((a, b) => {
+            return a.fare - b.fare;
+        });
+        setSingleInfoPageOfFlight(sortedFlights);
+        setCheckSortByCheapest(!checkSortByCheapest);
+    };
+
+    const sortByHighest = () => {
+        const sortedFlights = [...singleInfoPageOfFlight];
+        sortedFlights.sort((a, b) => {
+            return b.fare - a.fare;
+        });
+        setSingleInfoPageOfFlight(sortedFlights);
+        setCheckSortByHighest(!checkSortByHighest);
+        
+    };
+
+    
+    async function getTrainList(value1, value2){
+
+        console.log(value1, value2);
 
         const config = {
             headers : {
@@ -40,7 +70,7 @@ function TrainSinglePage() {
             const resultForSuggestion = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/train?search={"source":"${""}","destination":"${""}"}&day=${"Mon"}`,
                 config
             )
-            const result = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/train?search={"source":"${"Howrah Junction"}","destination":"${"Chandigarh"}"}&day=${"Mon"}`,
+            const result = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/train?search={"source":"${value1 ? value1 : from}","destination":"${value2 ? value2 : to}"}&day=${dayWeek}`,
                 config
             )
             setSingleInfoPageOfFlight(result.data.data.trains)
@@ -51,6 +81,21 @@ function TrainSinglePage() {
         }
        
     }
+
+
+
+    useEffect(()=>{
+        if(checkSortByCheapest === false){
+            getTrainList()
+        }
+    }, [checkSortByCheapest])
+
+
+    useEffect(()=>{
+        if(checkSortByHighest === false){
+            getTrainList()
+        }
+    }, [checkSortByHighest])
 
 
     //Howrah Junction
@@ -71,7 +116,27 @@ function TrainSinglePage() {
 
     function handleOnClickId(info) {
         console.log(info);
-        navigate(`/traindetail/${info}`, { state: { MemberValuee } })
+        const source = fromSearch.current.value ? fromSearch.current.value : from;
+        const destination = toSearch.current.value ? toSearch.current.value : to;
+        
+        let coaches = singleInfoPageOfFlight.filter((details) => {
+            return details._id === info || details.coaches.some(coach => coach._id === info);
+        });
+    
+        coaches = coaches.length > 0 ? coaches : singleInfoPageOfFlight[0];
+        
+        console.log(singleInfoPageOfFlight[0]);
+        console.log(coaches);
+        
+        navigate(`/traindetail/${info}`, { state: { MemberValuee, source, destination, coaches } });
+    }
+
+
+    const searchAgain = () => {
+        let from = fromSearch.current.value;
+        let to = toSearch.current.value;
+    
+        getTrainList(from, to)
     }
 
     return (
@@ -84,7 +149,7 @@ function TrainSinglePage() {
                             <div className='searchPage-booking-input'>
                                 <label htmlFor="fromcity" className='searchPage-booking-inputBox'>
                                     <span style={{textTransform: "uppercase"}}>From</span>
-                                    <input type="text" id='railway-input' />
+                                    <input ref={fromSearch} placeholder="Enter City" type="text" id='railway-input' />
                                 </label>
                             </div>
 
@@ -92,13 +157,13 @@ function TrainSinglePage() {
                             <div className='searchPage-booking-input'>
                                 <label htmlFor="toCity" className='searchPage-booking-inputBox'>
                                     <span style={{textTransform: "uppercase"}}>To</span>
-                                    <input type="text" id="railway-input" />
+                                    <input ref={toSearch} placeholder="Enter City" type="text" id="railway-input" />
                                 </label>
                             </div>
                         </section>
                         <section>
                             <p style={{display: "flex", justifyContent: "center"}}>
-                                <button className='railway-search'>SEARCH</button>
+                                <button onClick={searchAgain} className='railway-search'>SEARCH</button>
                             </p>
                         </section>
                     </div>
@@ -108,12 +173,12 @@ function TrainSinglePage() {
                         <div style={{display:"flex", flexDirection:"column", gap:"0.8rem" , textAlign:"left"}} className='railfilters'>
                             <h4>Quick Filters</h4>
                             <label style={{textAlign: "center"}} htmlFor="ac">
-                                <input type="checkbox" id="sortfilter" name='Highest'/>
+                                <input checked={checkSortByHighest}    onClick={sortByHighest}  type="checkbox" id="sortfilter" name='Highest'/>
                                 Sort By Highest
                             </label>
 
                             <label htmlFor="ac">
-                                <input type="checkbox" id="sortfilter" name='lowest'/>
+                                <input checked={checkSortByCheapest} onClick={sortByCheapest} type="checkbox" id="sortfilter" name='lowest'/>
                                 Sort By Lowest
                             </label>
                         </div>

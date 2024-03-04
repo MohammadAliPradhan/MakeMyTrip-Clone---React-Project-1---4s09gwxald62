@@ -34,7 +34,7 @@ function TrainDetails() {
     const initialDate = new Date('Wed Nov 15 2023 00:00:00 GMT+0530');
     const [TravelDate, setTravelDate] = useState(initialDate);
     const [MemberValue, setMemberValue] = useState({
-        adult: 0,
+        adult: 1,
         kids: 0
     })
     const [trthly, setTrthly] = useState(true);
@@ -92,11 +92,7 @@ function TrainDetails() {
         console.log("this is state", MemberValue);
     }
 
-    function handleOnSubmit(e) {
-        e.preventDefault()
-        navigate("/trainsingle", { state: { TrainPlace, TravelDate, MemberValue } })
-    }
-
+  
 
 
     //getCityName
@@ -185,6 +181,10 @@ function TrainDetails() {
     console.log(year, month, day, dayWeek, monthWord);
 
 
+    function handleOnSubmit(e) {
+        e.preventDefault()
+        navigate("/trainsingle", { state: { TrainPlace, MemberValue, dayWeek  } })
+    }
 
 
 
@@ -192,7 +192,7 @@ function TrainDetails() {
 
 
 
-    const totalMembers = parseInt(MemberValue?.kids || 0, 10) + parseInt(MemberValue?.adult || 0, 10);
+    const totalMembers = parseInt(MemberValue?.kids || 0, 10) + parseInt(MemberValue?.adult || 1, 10);
 
     return (
         <>
